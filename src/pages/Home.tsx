@@ -8,8 +8,8 @@ import { blogPosts } from '../data/blogs';
 
 const BackgroundDecoration = () => (
   <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
-    <div className="absolute top-[10%] left-[5%] w-[400px] h-[400px] bg-blue-400/5 rounded-full blur-[100px] animate-pulse" />
-    <div className="absolute bottom-[20%] right-[10%] w-[500px] h-[500px] bg-indigo-400/5 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '2s' }} />
+    <div className="absolute top-[10%] left-[5%] w-[400px] h-[400px] bg-blue-400/5 rounded-full blur-[100px] animate-pulse hidden md:block" />
+    <div className="absolute bottom-[20%] right-[10%] w-[500px] h-[500px] bg-indigo-400/5 rounded-full blur-[120px] animate-pulse hidden md:block" style={{ animationDelay: '2s' }} />
     <svg className="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <pattern id="dotGrid" width="40" height="40" patternUnits="userSpaceOnUse">
@@ -54,7 +54,7 @@ export default function Home() {
         <motion.div 
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="w-full lg:w-[60%] space-y-10 relative z-10 lg:pr-8"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm border border-blue-100 rounded-full shadow-sm">
@@ -97,9 +97,9 @@ export default function Home() {
         </motion.div>
         
         <motion.div 
-          initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="w-full lg:w-[40%] relative z-10"
         >
           {/* Main Image Container with offset layout */}
@@ -110,6 +110,8 @@ export default function Home() {
                 src="https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?auto=format&fit=crop&q=80&w=800" 
                 alt="Expert phone repair" 
                 className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000"
+                fetchPriority="high"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
             </div>
@@ -345,7 +347,13 @@ export default function Home() {
                 className="group flex flex-col h-full bg-slate-50 rounded-[2.5rem] overflow-hidden border border-slate-100 hover:border-blue-200 transition-all"
               >
                 <div className="aspect-[16/10] overflow-hidden">
-                  <img src={post.imageUrl} alt={post.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <img 
+                    src={post.imageUrl} 
+                    alt={post.title} 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
                 <div className="p-8 space-y-4 flex-1 flex flex-col">
                   <div className="flex items-center gap-4 text-[10px] font-black uppercase tracking-widest text-slate-400">

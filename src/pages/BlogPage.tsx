@@ -29,7 +29,7 @@ export default function BlogPage() {
         </header>
 
         <div className="grid gap-20 lg:grid-cols-2">
-          {blogPosts.map((post) => (
+          {blogPosts.map((post, idx) => (
             <article key={post.id} className="relative flex flex-col items-start bg-transparent group">
               <Link to={`/blog/${post.slug}`} className="block w-full relative h-[300px] sm:h-[450px] rounded-[3.5rem] overflow-hidden mb-10 shadow-2xl transition-transform duration-500 group-hover:-translate-y-2">
                 <div className="absolute inset-0 bg-slate-900/40 group-hover:bg-slate-900/20 transition-colors z-10 flex items-end p-10">
@@ -41,6 +41,9 @@ export default function BlogPage() {
                   src={post.imageUrl}
                   alt={post.title}
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading={idx === 0 ? "eager" : "lazy"}
+                  fetchPriority={idx === 0 ? "high" : "auto"}
+                  decoding="async"
                 />
               </Link>
               

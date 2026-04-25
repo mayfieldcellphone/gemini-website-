@@ -1,6 +1,6 @@
 import { Smartphone, Phone, Menu, X, Facebook, Instagram, Twitter, Linkedin, Youtube, MessageSquare, MapPin, Clock } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import BirdeyeReviewWidget from './BirdeyeReviewWidget';
 import { suburbs, seoServices } from '../data/suburbs';
@@ -8,6 +8,25 @@ import { suburbs, seoServices } from '../data/suburbs';
 export default function Layout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSeoDirOpen, setIsSeoDirOpen] = useState(false);
+
+  useEffect(() => {
+    // Delay chatbot loading to improve performance score
+    const timer = setTimeout(() => {
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = 'https://birdeye.com/embed/v6/110315/1/2620446701/89b0ec9ad7b6e3429a216196386d88f1c2f4a2be91fe1a62';
+      script.async = true;
+      script.defer = true;
+      script.crossOrigin = 'anonymous';
+      document.body.appendChild(script);
+
+      const container = document.createElement('div');
+      container.id = 'bf-revz-widget-2620446701';
+      document.body.appendChild(container);
+    }, 3500);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const closeMenu = () => setIsMenuOpen(false);
 
