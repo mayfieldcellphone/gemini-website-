@@ -36,7 +36,7 @@ export default function BlogPostPage() {
   return (
     <div className="flex-1 bg-white">
       <Helmet>
-        <title>{post.title} | Technical Intelligence | Mayfield Phone Repair</title>
+        <title>{post.title} | Repair Advice | Mayfield Phone Repair</title>
         <meta name="description" content={post.excerpt} />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
@@ -167,7 +167,7 @@ export default function BlogPostPage() {
               ))}
             </div>
             <button className="flex items-center gap-3 text-xs font-black uppercase tracking-[0.2em] text-blue-600 hover:text-blue-700 transition h-fit font-display">
-              <Share2 className="w-4 h-4" /> Share Protocol
+              <Share2 className="w-4 h-4" /> Share Article
             </button>
           </div>
         </article>
@@ -218,7 +218,7 @@ export default function BlogPostPage() {
                </div>
             </div>
 
-            {/* Lab Location */}
+            {/* Shop Location */}
             <div className="p-10 bg-slate-50 rounded-[3rem] border border-slate-100 space-y-6 group hover:border-blue-200 transition-colors">
               <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-lg group-hover:bg-blue-600 group-hover:text-white transition-all">
                 <MapPin className="w-6 h-6 text-slate-400 group-hover:text-white" />
@@ -238,8 +238,8 @@ export default function BlogPostPage() {
         <div className="max-w-7xl mx-auto space-y-16">
           <div className="flex items-end justify-between gap-8">
             <div className="space-y-4">
-              <h2 className="text-4xl md:text-6xl font-bold tracking-tighter font-display leading-tight">Extended Intelligence</h2>
-              <p className="text-xl text-slate-500 font-medium italic">Discover advanced restoration methodologies across other protocols.</p>
+              <h2 className="text-4xl md:text-6xl font-bold tracking-tighter font-display leading-tight">More Repair Tips</h2>
+              <p className="text-xl text-slate-500 font-medium italic">Discover more helpful advice for your mobile devices.</p>
             </div>
             <Link to="/blog" className="hidden sm:flex items-center gap-3 text-xs font-black uppercase tracking-[0.2em] text-blue-600 hover:text-blue-700 transition font-display">
               Full Archive <ArrowRight className="w-4 h-4" />
