@@ -423,86 +423,96 @@ export default function Home() {
 
       {/* Contact Section */}
       <section id="contact" className="relative px-6 md:px-12 py-32 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-32 items-start relative z-10">
-          <div className="space-y-20">
-            <div className="space-y-8">
-              <h2 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.5em] font-display">Visit Our Shop</h2>
-              <h3 className="text-5xl md:text-8xl font-bold text-slate-900 font-display leading-[0.85] text-balance">
-                Mayfield <br/> <span className="text-blue-600 font-light italic">Phone Repair.</span>
-              </h3>
-              <p className="text-slate-500 text-xl leading-relaxed font-medium">
-                Expert repairs you can trust. No appointment needed—just walk in during our opening hours for a fast diagnostic.
-              </p>
-            </div>
-            
-            <div className="grid gap-8">
-               <div className="flex gap-8 group">
-                  <div className="w-20 h-20 rounded-[2rem] bg-slate-50 flex items-center justify-center border border-slate-100 group-hover:bg-blue-600 transition-all duration-500">
-                    <MapPin className="w-10 h-10 text-slate-900 group-hover:text-white transition-colors" />
-                  </div>
-                  <div>
-                    <h4 className="text-2xl font-bold font-display mb-2 text-slate-900">Location</h4>
-                    <p className="text-slate-500 text-lg font-medium leading-relaxed">276 Maitland Rd, <br/> Mayfield, NSW 2304</p>
-                  </div>
-               </div>
-               <div className="flex gap-8 group">
-                  <div className="w-20 h-20 rounded-[2rem] bg-slate-50 flex items-center justify-center border border-slate-100 group-hover:bg-blue-600 transition-all duration-500">
-                    <Clock className="w-10 h-10 text-slate-900 group-hover:text-white transition-colors" />
-                  </div>
-                  <div>
-                    <h4 className="text-2xl font-bold font-display mb-2 text-slate-900">Opening Hours</h4>
-                    <p className="text-slate-500 text-lg font-medium leading-relaxed">Mon - Fri: 09:00 — 17:00 <br/> Sat: 10:00 — 16:00 <br/> Sun: 10:00 — 14:00</p>
-                  </div>
-               </div>
-            </div>
-
-            <div className="flex flex-col gap-6">
-              <a href="tel:0240491735" className="inline-flex items-center gap-6 p-4 pr-10 bg-slate-900 rounded-[2.5rem] text-white hover:scale-105 transition-transform duration-500 shadow-2xl">
-                <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center shadow-lg">
-                  <Phone className="w-8 h-8" />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-400">Direct Call</span>
-                  <span className="text-2xl font-bold font-display">02 4049 1735</span>
-                </div>
-              </a>
-
-              <Link to="/after-hours" className="inline-flex items-center gap-6 p-4 pr-10 bg-white border-2 border-emerald-500 rounded-[2.5rem] text-slate-900 hover:scale-105 transition-transform duration-500 shadow-xl group">
-                <div className="w-16 h-16 bg-emerald-500 rounded-full flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform">
-                  <Clock className="w-8 h-8 text-white" />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-600">After Hours Service</span>
-                  <span className="text-xl font-bold font-display">SMS 0436 118 100</span>
-                </div>
-              </Link>
-            </div>
+        <div className="max-w-7xl mx-auto space-y-24 relative z-10">
+          <div className="max-w-3xl space-y-8">
+            <h2 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.5em] font-display">Visit Our Shop</h2>
+            <h3 className="text-5xl md:text-8xl font-bold text-slate-900 font-display leading-[0.85] text-balance">
+              Mayfield <br/> <span className="text-blue-600 font-light italic">Phone Repair.</span>
+            </h3>
+            <p className="text-slate-500 text-xl leading-relaxed font-medium">
+              Expert repairs you can trust. No appointment needed—just walk in during our opening hours for a fast diagnostic.
+            </p>
           </div>
-          
-          <div className="relative">
-             <div className="absolute -inset-10 bg-slate-100 rounded-[4rem] -z-10 rotate-3"></div>
-             <div className="bg-white p-12 md:p-16 rounded-[4rem] border border-slate-200 shadow-[0_60px_100px_-20px_rgba(0,0,0,0.1)]">
-                <h3 className="text-4xl font-bold font-display mb-12 text-slate-900">Get a Quote</h3>
-                <form className="space-y-8">
-                  <div className="grid gap-8">
-                    <div className="space-y-3">
-                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-4">Your Name</label>
-                      <input type="text" className="w-full px-8 py-6 bg-slate-50 rounded-3xl border border-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-lg font-medium" placeholder="Ex: John Doe" />
-                    </div>
-                    <div className="space-y-3">
-                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-4">Phone Number</label>
-                      <input type="tel" className="w-full px-8 py-6 bg-slate-50 rounded-3xl border border-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-lg font-medium" placeholder="Ex: 0400 000 000" />
-                    </div>
-                    <div className="space-y-3">
-                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-4">Repair Details</label>
-                      <textarea rows={4} className="w-full px-8 py-6 bg-slate-50 rounded-3xl border border-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-lg font-medium resize-none" placeholder="Describe your issue..."></textarea>
-                    </div>
+
+          <div className="grid lg:grid-cols-3 gap-12 items-start">
+            {/* Column 1: Location & Call */}
+            <div className="space-y-10">
+              <div className="flex gap-8 group">
+                <div className="w-16 h-16 shrink-0 rounded-2xl bg-slate-50 flex items-center justify-center border border-slate-100 group-hover:bg-blue-600 transition-all duration-500">
+                  <MapPin className="w-8 h-8 text-slate-900 group-hover:text-white transition-colors" />
+                </div>
+                <div>
+                  <h4 className="text-xl font-bold font-display mb-2 text-slate-900 uppercase tracking-widest text-xs">Location</h4>
+                  <p className="text-slate-500 text-lg font-medium leading-relaxed font-display">276 Maitland Rd, <br/> Mayfield, NSW 2304</p>
+                </div>
+              </div>
+              
+              <div className="pt-6 border-t border-slate-100">
+                <a href="tel:0240491735" className="flex items-center gap-6 p-4 bg-slate-900 rounded-[2rem] text-white hover:scale-105 transition-transform duration-500 shadow-xl">
+                  <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center shadow-lg">
+                    <Phone className="w-6 h-6" />
                   </div>
-                  <button type="button" className="w-full bg-blue-600 text-white font-black uppercase tracking-[0.2em] py-8 rounded-3xl shadow-[0_20px_40px_rgba(37,99,235,0.3)] hover:shadow-[0_30px_60px_rgba(37,99,235,0.4)] hover:-translate-y-2 transition-all duration-500 text-sm">
-                    Send Message
-                  </button>
-                </form>
-             </div>
+                  <div className="flex flex-col">
+                    <span className="text-[8px] font-black uppercase tracking-widest text-blue-400">Direct Call</span>
+                    <span className="text-lg font-bold font-display">02 4049 1735</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            {/* Column 2: Hours & SMS */}
+            <div className="space-y-10">
+              <div className="flex gap-8 group">
+                <div className="w-16 h-16 shrink-0 rounded-2xl bg-slate-50 flex items-center justify-center border border-slate-100 group-hover:bg-blue-600 transition-all duration-500">
+                  <Clock className="w-8 h-8 text-slate-900 group-hover:text-white transition-colors" />
+                </div>
+                <div>
+                  <h4 className="text-xl font-bold font-display mb-2 text-slate-900 uppercase tracking-widest text-xs">Opening Hours</h4>
+                  <div className="text-slate-500 text-base font-medium space-y-1 font-display">
+                    <p className="flex justify-between gap-4"><span>Mon - Fri:</span> <span>09:00 — 17:00</span></p>
+                    <p className="flex justify-between gap-4"><span>Sat:</span> <span>10:00 — 16:00</span></p>
+                    <p className="flex justify-between gap-4"><span>Sun:</span> <span>10:00 — 14:00</span></p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-6 border-t border-slate-100">
+                <Link to="/after-hours" className="flex items-center gap-6 p-4 bg-white border-2 border-emerald-500 rounded-[2rem] text-slate-900 hover:scale-105 transition-transform duration-500 shadow-lg group">
+                  <div className="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform">
+                    <Clock className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-[8px] font-black uppercase tracking-widest text-emerald-600">After Hours Service</span>
+                    <span className="text-lg font-bold font-display">SMS 0436 118 100</span>
+                  </div>
+                </Link>
+              </div>
+            </div>
+
+            {/* Column 3: Quote Form */}
+            <div className="relative">
+               <div className="absolute -inset-6 bg-slate-50 rounded-[3rem] -z-10 rotate-2"></div>
+               <div className="bg-white p-10 rounded-[3rem] border border-slate-200 shadow-[0_40px_80px_-15px_rgba(0,0,0,0.08)]">
+                  <h3 className="text-2xl font-bold font-display mb-8 text-slate-900">Get a Free Quote</h3>
+                  <form className="space-y-6">
+                    <div className="space-y-2">
+                      <label className="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-2">Name</label>
+                      <input type="text" className="w-full px-6 py-4 bg-slate-50 rounded-2xl border border-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-sm font-medium" placeholder="Ex: John Doe" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-2">Phone</label>
+                      <input type="tel" className="w-full px-6 py-4 bg-slate-50 rounded-2xl border border-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-sm font-medium" placeholder="Ex: 0400 000 000" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-2">How can we help?</label>
+                      <textarea rows={3} className="w-full px-6 py-4 bg-slate-50 rounded-2xl border border-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-sm font-medium resize-none" placeholder="Describe the issue..."></textarea>
+                    </div>
+                    <button type="button" className="w-full bg-blue-600 text-white font-black uppercase tracking-widest py-5 rounded-2xl shadow-[0_15px_30px_rgba(37,99,235,0.2)] hover:shadow-[0_20px_40px_rgba(37,99,235,0.3)] hover:-translate-y-1 transition-all duration-500 text-xs">
+                      Send Request
+                    </button>
+                  </form>
+               </div>
+            </div>
           </div>
         </div>
       </section>
