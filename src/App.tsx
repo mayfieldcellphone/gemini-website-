@@ -8,6 +8,7 @@ import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
+import AfterHoursPage from './pages/AfterHoursPage';
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="blog/:slug" element={<BlogPostPage />} />
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
           <Route path="terms-of-service" element={<TermsOfService />} />
+          <Route path="after-hours" element={<AfterHoursPage />} />
           <Route path=":serviceKeyword/:suburbId" element={<SuburbPage />} />
         </Route>
       </Routes>

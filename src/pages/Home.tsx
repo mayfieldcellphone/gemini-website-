@@ -397,20 +397,32 @@ export default function Home() {
                   </div>
                   <div>
                     <h4 className="text-2xl font-bold font-display mb-2 text-slate-900">Opening Hours</h4>
-                    <p className="text-slate-500 text-lg font-medium leading-relaxed">Mon - Fri: 09:00 — 17:00 <br/> Sat: 10:00 — 16:00</p>
+                    <p className="text-slate-500 text-lg font-medium leading-relaxed">Mon - Fri: 09:00 — 17:00 <br/> Sat: 10:00 — 16:00 <br/> Sun: 10:00 — 14:00</p>
                   </div>
                </div>
             </div>
 
-            <a href="tel:0240491735" className="inline-flex items-center gap-6 p-4 pr-10 bg-slate-900 rounded-[2.5rem] text-white hover:scale-105 transition-transform duration-500 shadow-2xl">
-              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center shadow-lg">
-                <Phone className="w-8 h-8" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-400">Direct Call</span>
-                <span className="text-2xl font-bold font-display">02 4049 1735</span>
-              </div>
-            </a>
+            <div className="flex flex-col gap-6">
+              <a href="tel:0240491735" className="inline-flex items-center gap-6 p-4 pr-10 bg-slate-900 rounded-[2.5rem] text-white hover:scale-105 transition-transform duration-500 shadow-2xl">
+                <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center shadow-lg">
+                  <Phone className="w-8 h-8" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-400">Direct Call</span>
+                  <span className="text-2xl font-bold font-display">02 4049 1735</span>
+                </div>
+              </a>
+
+              <Link to="/after-hours" className="inline-flex items-center gap-6 p-4 pr-10 bg-white border-2 border-emerald-500 rounded-[2.5rem] text-slate-900 hover:scale-105 transition-transform duration-500 shadow-xl group">
+                <div className="w-16 h-16 bg-emerald-500 rounded-full flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform">
+                  <Clock className="w-8 h-8 text-white" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-600">After Hours Service</span>
+                  <span className="text-xl font-bold font-display">SMS 0436 118 100</span>
+                </div>
+              </Link>
+            </div>
           </div>
           
           <div className="relative">

@@ -41,7 +41,7 @@ export default function Layout() {
           <div className="hidden sm:block w-px h-4 bg-slate-700"></div>
           <div className="flex items-center gap-2">
             <Clock className="w-4 h-4 text-blue-400 shrink-0" />
-            <span>Mon-Fri: 9am-5pm | Sat: 10am-4pm</span>
+            <span>Mon-Fri: 9am-5pm | Sat-Sun: 10am-4pm</span>
           </div>
         </div>
         
@@ -51,9 +51,9 @@ export default function Layout() {
             <span>02 4049 1735</span>
           </a>
           <div className="w-px h-4 bg-slate-700"></div>
-          <a href="sms:0485864772" className="flex items-center gap-1.5 hover:text-white transition">
-            <MessageSquare className="w-4 h-4 text-blue-400" />
-            <span>SMS: 0485 864 772</span>
+          <a href="sms:0436118100" className="flex items-center gap-1.5 hover:text-white transition group">
+            <MessageSquare className="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" />
+            <span className="text-emerald-400">Emergency SMS: 0436 118 100</span>
           </a>
           <div className="hidden xl:flex items-center gap-3 border-l border-slate-700 pl-6 ml-2">
             {socialLinks.slice(0, 4).map((link, idx) => {
@@ -182,6 +182,7 @@ export default function Layout() {
                  <li><Link to="/#services" className="hover:text-blue-400 transition-colors">Our Services</Link></li>
                  <li><Link to="/#brands" className="hover:text-blue-400 transition-colors">Top Brands</Link></li>
                  <li><Link to="/blog" className="hover:text-blue-400 transition-colors">Repair Blog</Link></li>
+                 <li><Link to="/after-hours" className="hover:text-emerald-400 transition-colors font-bold">After Hours Service</Link></li>
                  <li><Link to="/#contact" className="hover:text-blue-400 transition-colors">Our Location</Link></li>
                </ul>
              </div>
