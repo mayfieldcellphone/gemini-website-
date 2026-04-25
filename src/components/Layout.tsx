@@ -82,19 +82,19 @@ export default function Layout() {
         </Link>
         
         {/* Desktop Nav Tabs */}
-        <div className="hidden lg:flex items-center gap-8 text-sm font-bold text-slate-600 flex-1 justify-center ml-8">
+        <div className="hidden lg:flex items-center gap-10 text-xs font-black uppercase tracking-[0.2em] text-slate-500 flex-1 justify-center ml-8 font-display">
           <Link to="/" className="hover:text-blue-600 transition-colors">Home</Link>
           <Link to="/#brands" className="hover:text-blue-600 transition-colors">Brands</Link>
           <Link to="/#services" className="hover:text-blue-600 transition-colors">Services</Link>
           <Link to="/blog" className="hover:text-blue-600 transition-colors">Blog</Link>
           <Link to="/#why-us" className="hover:text-blue-600 transition-colors">Why Choose Us</Link>
-          <Link to="/#contact" className="hover:text-blue-600 transition-colors">Location & Contact</Link>
+          <Link to="/#contact" className="hover:text-blue-600 transition-colors">Location</Link>
         </div>
 
         {/* Desktop CTA */}
         <div className="hidden lg:flex items-center shrink-0">
-          <Link to="/#contact" className="bg-blue-600 text-white px-6 py-2.5 rounded-full hover:bg-blue-700 transition shadow-lg shadow-blue-200 font-bold">
-            Get a Quote
+          <Link to="/#contact" className="bg-slate-900 text-white px-8 py-3 rounded-xl hover:bg-blue-600 transition shadow-xl shadow-slate-200 font-black uppercase tracking-widest text-[10px] font-display">
+            Start Repair
           </Link>
         </div>
 
@@ -141,27 +141,31 @@ export default function Layout() {
       <BirdeyeReviewWidget />
 
       {/* Modern Footer */}
-      <footer className="bg-slate-950 pt-16 pb-8 px-6 md:px-12 text-slate-400">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12 mb-12 border-b border-slate-800 pb-12">
-          <div className="max-w-sm">
-            <div className="flex items-center mb-4">
-              <span className="text-xl md:text-2xl font-extrabold tracking-tight text-blue-500 flex items-center">
+      <footer className="bg-slate-950 pt-32 pb-12 px-6 md:px-12 text-slate-500 overflow-hidden relative">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[300px] bg-blue-600/5 blur-[120px] rounded-full"></div>
+        
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 mb-24 relative z-10">
+          <div className="lg:col-span-5 space-y-10">
+            <Link to="/" className="inline-flex items-center group">
+              <span className="text-2xl font-black tracking-tight text-white flex items-center font-display">
                 Mayfield
-                <div className="flex items-center justify-center mx-1.5 sm:mx-2 w-7 h-7 sm:w-8 sm:h-8 bg-white text-slate-900 rounded-[0.45rem] shadow-md">
-                  <Smartphone className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={2.5} />
+                <div className="flex items-center justify-center mx-3 w-9 h-9 bg-blue-600 text-white rounded-2xl shadow-xl shadow-blue-600/20 group-hover:-rotate-6 transition-transform">
+                  <Smartphone className="w-5 h-5" strokeWidth={3} />
                 </div>
                 Repair
               </span>
-            </div>
-            <p className="text-sm leading-relaxed mb-6">Expert phone, tablet, and computer repair services. We pride ourselves on quick turnarounds and high-quality parts.</p>
-            <div className="flex flex-wrap gap-4 mt-6">
+            </Link>
+            <p className="text-lg leading-relaxed text-slate-400 font-medium max-w-sm">
+              The premier destination for certified mobile diagnostics and precision hardware restoration in Mayfield.
+            </p>
+            <div className="flex flex-wrap gap-4">
               {socialLinks.map(link => (
                 <a 
                   key={link.name} 
                   href={link.url} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition shadow-sm hover:shadow-lg hover:-translate-y-1"
+                  className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all shadow-sm hover:shadow-blue-600/20 hover:-translate-y-1"
                   aria-label={link.name}
                 >
                   {link.icon}
@@ -170,41 +174,48 @@ export default function Layout() {
             </div>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-2 gap-12 w-full lg:w-1/3">
-             <div>
-               <h4 className="text-white font-bold mb-4">Company</h4>
-               <ul className="space-y-2 text-sm">
-                 <li><Link to="/" className="hover:text-blue-400 transition">About Us</Link></li>
-                 <li><Link to="/#services" className="hover:text-blue-400 transition">Services</Link></li>
-                 <li><Link to="/#brands" className="hover:text-blue-400 transition">Brands</Link></li>
-                 <li><Link to="/blog" className="hover:text-blue-400 transition">Blog</Link></li>
-                 <li><Link to="/#contact" className="hover:text-blue-400 transition">Contact</Link></li>
+          <div className="lg:col-span-7 grid sm:grid-cols-3 gap-12">
+             <div className="space-y-8">
+               <h4 className="text-white text-xs font-black uppercase tracking-[0.3em] font-display">Navigation</h4>
+               <ul className="space-y-4 text-sm font-medium">
+                 <li><Link to="/" className="hover:text-blue-400 transition-colors">Lab Home</Link></li>
+                 <li><Link to="/#services" className="hover:text-blue-400 transition-colors">Technical Services</Link></li>
+                 <li><Link to="/#brands" className="hover:text-blue-400 transition-colors">Verified Brands</Link></li>
+                 <li><Link to="/blog" className="hover:text-blue-400 transition-colors">Service Blog</Link></li>
+                 <li><Link to="/#contact" className="hover:text-blue-400 transition-colors">Locate Lab</Link></li>
                </ul>
              </div>
-             <div>
-               <h4 className="text-white font-bold mb-4">Legal</h4>
-               <ul className="space-y-2 text-sm">
-                 <li><Link to="/privacy-policy" className="hover:text-blue-400 transition">Privacy Policy</Link></li>
-                 <li><Link to="/terms-of-service" className="hover:text-blue-400 transition">Terms of Service</Link></li>
-                 <li><Link to="/terms-of-service" className="hover:text-blue-400 transition">Warranty Info</Link></li>
+             <div className="space-y-8">
+               <h4 className="text-white text-xs font-black uppercase tracking-[0.3em] font-display">Legal Lab</h4>
+               <ul className="space-y-4 text-sm font-medium">
+                 <li><Link to="/privacy-policy" className="hover:text-blue-400 transition-colors">Privacy Protocol</Link></li>
+                 <li><Link to="/terms-of-service" className="hover:text-blue-400 transition-colors">Terms of Service</Link></li>
+                 <li><Link to="/terms-of-service" className="hover:text-blue-400 transition-colors">Warranty Standards</Link></li>
                </ul>
+             </div>
+             <div className="space-y-8">
+               <h4 className="text-white text-xs font-black uppercase tracking-[0.3em] font-display">Direct Command</h4>
+               <div className="space-y-4">
+                 <a href="tel:0240491735" className="block text-xl font-bold text-white hover:text-blue-400 transition-colors font-display">02 4049 1735</a>
+                 <p className="text-xs text-slate-500 leading-relaxed font-medium">Available during standard business cycles. After-hours via appointment only.</p>
+               </div>
              </div>
           </div>
         </div>
 
         {/* SEO Local Suburbs Mega Footer (Expandable) */}
-        <div className="max-w-7xl mx-auto border-t border-slate-800 pt-8 mb-8 hidden md:block">
+        <div className="max-w-7xl mx-auto border-t border-white/5 pt-12 mb-12 hidden md:block relative z-10">
            <button 
              onClick={() => setIsSeoDirOpen(!isSeoDirOpen)}
-             className="flex items-center text-xs text-slate-500 uppercase tracking-widest font-bold hover:text-slate-300 transition-colors w-full text-left focus:outline-none"
+             className="flex items-center text-[10px] text-slate-600 uppercase tracking-[0.5em] font-black hover:text-blue-400 transition-colors w-full text-left focus:outline-none"
              aria-expanded={isSeoDirOpen}
            >
-             Local Service Directory
+             Regional Network Directory
              <svg 
-               className={`w-4 h-4 ml-2 transform transition-transform duration-300 ${isSeoDirOpen ? 'rotate-180' : ''}`} 
+               className={`w-4 h-4 ml-3 transform transition-transform duration-500 ${isSeoDirOpen ? 'rotate-180 text-blue-500' : ''}`} 
                fill="none" viewBox="0 0 24 24" stroke="currentColor"
              >
-               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
              </svg>
            </button>
            
@@ -214,19 +225,19 @@ export default function Layout() {
                  initial={{ height: 0, opacity: 0 }}
                  animate={{ height: 'auto', opacity: 1 }}
                  exit={{ height: 0, opacity: 0 }}
-                 transition={{ duration: 0.3 }}
+                 transition={{ duration: 0.5, ease: "circOut" }}
                  className="overflow-hidden"
                >
-                 <div className="text-[10px] text-slate-600 leading-relaxed text-justify opacity-60 hover:opacity-100 transition-opacity duration-300 pt-4">
+                 <div className="text-[10px] text-slate-600 leading-[2] text-justify opacity-40 hover:opacity-100 transition-all duration-500 pt-8 font-medium">
                    {suburbs.map((suburb, i) => (
-                      <span key={suburb.id}>
+                      <span key={suburb.id} className="inline-block">
                         {seoServices.map((service, j) => (
                           <span key={`${suburb.id}-${service.id}`}>
-                            <Link to={`/${service.id}/${suburb.id}`} className="hover:text-blue-400 focus:text-blue-400">
+                            <Link to={`/${service.id}/${suburb.id}`} className="hover:text-blue-400 transition-colors">
                               {service.name} {suburb.name}
                             </Link>
                             {/* Add comma unless it's the very last item in both arrays */}
-                            {!(i === suburbs.length - 1 && j === seoServices.length - 1) && <span className="mx-1.5">&bull;</span>}
+                            {!(i === suburbs.length - 1 && j === seoServices.length - 1) && <span className="mx-2 text-slate-800">/</span>}
                           </span>
                         ))}
                       </span>
@@ -237,9 +248,12 @@ export default function Layout() {
            </AnimatePresence>
         </div>
         
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-xs uppercase tracking-widest gap-4 border-t border-slate-800 pt-8">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-[10px] font-black uppercase tracking-[0.4em] gap-8 border-t border-white/5 pt-12 opacity-30">
           <div>&copy; {new Date().getFullYear()} MAYFIELD PHONE REPAIR.</div>
-          <div>All Rights Reserved.</div>
+          <div className="flex gap-8">
+            <Link to="/privacy-policy" className="hover:text-blue-400 transition-colors">Privacy</Link>
+            <Link to="/terms-of-service" className="hover:text-blue-400 transition-colors">Terms</Link>
+          </div>
         </div>
       </footer>
     </div>

@@ -4,56 +4,58 @@ import { ArrowLeft } from 'lucide-react';
 
 export default function TermsOfService() {
   return (
-    <div className="bg-slate-50 min-h-screen py-16 sm:py-24">
+    <div className="bg-slate-50 min-h-screen py-24 sm:py-32 overflow-hidden relative">
+      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-blue-600/5 blur-[120px] rounded-full pointer-events-none"></div>
+      
       <Helmet>
         <title>Terms & Conditions | Mayfield Phone Repair</title>
         <meta name="description" content="Review the Terms and Conditions of service for Mayfield Phone Repair. Covering device repairs, warranties, liabilities, and policies." />
       </Helmet>
       
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-8">
-          <Link to="/" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors">
-            <ArrowLeft className="w-4 h-4" /> Back to Home
+      <div className="max-w-4xl mx-auto px-6 md:px-12 relative z-10">
+        <div className="mb-16">
+          <Link to="/" className="inline-flex items-center gap-3 text-slate-400 hover:text-blue-600 font-black uppercase tracking-[0.2em] text-[10px] transition-all bg-white border border-slate-200 px-6 py-3 rounded-2xl shadow-sm group font-display">
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back to Terminal
           </Link>
         </div>
         
-        <div className="bg-white p-8 sm:p-12 rounded-2xl shadow-sm border border-slate-200">
-          <h1 className="text-4xl font-extrabold text-slate-900 tracking-tight mb-8">Terms and Conditions</h1>
+        <div className="bg-white/80 backdrop-blur-xl p-10 sm:p-20 rounded-[3.5rem] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.05)] border border-white">
+          <h1 className="text-4xl md:text-7xl font-bold text-slate-900 tracking-tighter mb-12 font-display">Terms of Service</h1>
           
-          <div className="prose prose-slate prose-blue max-w-none prose-headings:text-slate-900 prose-p:text-slate-600 prose-li:text-slate-600">
-            <p className="text-sm font-medium text-slate-500 mb-8 border-b border-slate-100 pb-4">Last Updated: April 2026</p>
+          <div className="prose prose-slate prose-blue max-w-none prose-headings:font-display prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-slate-900 prose-p:text-slate-600 prose-p:font-medium prose-p:leading-relaxed prose-li:font-medium prose-li:text-slate-600">
+            <p className="text-xs font-black text-slate-400 uppercase tracking-[0.3em] font-display mb-12 border-b border-slate-100 pb-6">Last Revised: April 2026 // SERVICE PROTOCOL 1.0.4</p>
 
-            <h2>1. Agreement to Terms</h2>
-            <p>By requesting service from Mayfield Phone Repair, you agree to these terms and conditions. Please read them carefully before submitting your device for repair.</p>
+            <h2 className="text-3xl">1. Agreement to Service Protocol</h2>
+            <p>By initiating a restoration request at the Mayfield Lab, you acknowledge and agree to these terms and conditions. Please review these protocols thoroughly before hardware submission.</p>
 
-            <h2>2. Service Authorization</h2>
-            <p>You authorize Mayfield Phone Repair, its employees, and agents to perform repair work on your device. You understand that Mayfield Phone Repair is an independent service provider and is not an Authorized Service Provider for Apple, Samsung, Google, or any other manufacturer unless explicitly stated. Repairing your device may void any remaining manufacturer warranty.</p>
+            <h2 className="text-3xl">2. Technical Authorization</h2>
+            <p>You authorize Mayfield Lab technicians to perform diagnostic and restoration procedures on your hardware. We operate as an independent technical node and are not an "Authorized Service Provider" for Apple, Samsung, or Google unless explicitly stated. Hardware intervention may negate original manufacturer warrants.</p>
 
-            <h2>3. Data Loss and Backup</h2>
-            <p><strong>You are solely responsible for backing up your data before submitting your device for repair.</strong> While we take every precaution to protect your data during hardware repairs, Mayfield Phone Repair assumes no liability for loss, alteration, or corruption of data, software, or files during the repair process.</p>
+            <h2 className="text-3xl">3. Data Integrity & Redundancy</h2>
+            <p><strong>The client is solely responsible for full data redundancy (backups) prior to lab submission.</strong> While we employ strict safety protocols, Mayfield Phone Repair assumes no liability for the corruption, deletion, or loss of digital artifacts, software modules, or personal files during the hardware restoration cycle.</p>
 
-            <h2>4. Passcodes and Testing</h2>
-            <p>We require the passcode of your device to perform comprehensive pre- and post-repair testing (such as checking microphone, speakers, cameras, and connectivity). If you refuse to provide the passcode, we cannot guarantee the full functionality of the device upon return, and our warranty will be strictly limited to the physical part replaced.</p>
+            <h2 className="text-3xl">4. Diagnostic Access</h2>
+            <p>Verification of internal systems requires temporary device access (passcodes) to test optical sensors, audio arrays, and connectivity nodes. Refusal of access restricts our ability to certify full system integrity post-operation, and our warrant will be limited strictly to the physical component swapped.</p>
 
-            <h2>5. Warranty Policy</h2>
+            <h2 className="text-3xl">5. Warranty Protocol</h2>
             <ul>
-              <li>We offer a limited warranty on all parts and labor for standard repairs (e.g., screen replacements, battery replacements) for a period of up to 6 months.</li>
-              <li>This warranty covers manufacturer defects in the replacement parts we install and the workmanship of our installation.</li>
-              <li><strong>EXCLUSIONS:</strong> This warranty does NOT cover subsequent physical damage (e.g., dropped devices resulting in cracked screens), liquid damage, software issues, or damage caused by unauthorized third-party modifications after our repair.</li>
-              <li><strong>Liquid Damaged Devices:</strong> Devices undergoing liquid damage repair or logic board repair for liquid-induced shorts carry NO WARRANTY due to the unpredictable and progressive nature of internal corrosion.</li>
+              <li>We provide a limited warrant period of up to 6 months on laboratory labor and premium hardware components.</li>
+              <li>Coverage extends strictly to manufacturing variances in our replacement units and the precision of our installation methodology.</li>
+              <li><strong>EXCLUSIONS:</strong> Under no circumstances does the warrant cover subsequent kinetic impact damage, liquid ingress, software corruption, or unauthorized third-party board modifications.</li>
+              <li><strong>Special Case: Liquid Damage.</strong> Devices undergoing restoration for liquid ingress or logic-board electrolytic bridge removal carry ZERO warrant due to the progressive nature of internal oxidation.</li>
             </ul>
 
-            <h2>6. Abandoned Devices</h2>
-            <p>If you fail to pick up your device or pay the remaining balance within sixty (60) days of being notified that the repair is complete (or that it is unrepairable), your device will be considered abandoned. Mayfield Phone Repair reserves the right to sell, recycle, or otherwise dispose of abandoned devices to recover the cost of parts and labor.</p>
+            <h2 className="text-3xl">6. Abandoned Hardware</h2>
+            <p>Hardware left unclaimed for sixty (60) days post-notification of restoration completion (or failure) will be classified as "Abandoned." The Mayfield Lab reserves the right to recycle or liquidate abandoned units to offset laboratory and component costs.</p>
 
-            <h2>7. Unrepairable Devices & Bench Fees</h2>
-            <p>If a device is deemed unrepairable after extensive diagnostic work, or if you choose not to proceed with a repair after a quote is provided, a standard diagnostic or bench fee may apply to cover the specialized labor and time involved in disassembly, testing, and reassembly.</p>
+            <h2 className="text-3xl">7. Bench Intelligence Fees</h2>
+            <p>In scenarios where hardware is deemed "Beyond Economical Recovery" or the client rejects the restoration quote, a standard diagnostic "Bench Fee" may be applied to cover laboratory resources and technical time involved in disassembly and testing.</p>
 
-            <h2>8. Limitation of Liability</h2>
-            <p>To the maximum extent permitted by Australian Consumer Law, Mayfield Phone Repair's total liability for any damage to your device is limited to the cost of the repair service provided, or the replacement cost of the device in its exact pre-repair condition (accounting for depreciation and pre-existing faults).</p>
+            <h2 className="text-3xl">8. Liability Constraints</h2>
+            <p>To the maximum extent permitted under Australian Consumer Law, Mayfield Lab liability is capped at the cost of the services rendered or the fair market value of the hardware in its immediate pre-repair state.</p>
 
-            <h2>9. Payment Terms</h2>
-            <p>Full payment is due upon the completion of the repair and prior to the release of the device back to the owner. We accept cash, credit/debit cards, and other approved electronic payments.</p>
+            <h2 className="text-3xl">9. Transaction Completion</h2>
+            <p>Full financial settlement is required upon hardware release. We accept digital credit nodes, mobile payments, and standard cash currency.</p>
           </div>
         </div>
       </div>

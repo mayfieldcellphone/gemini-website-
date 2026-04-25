@@ -4,66 +4,69 @@ import { ArrowLeft } from 'lucide-react';
 
 export default function PrivacyPolicy() {
   return (
-    <div className="bg-slate-50 min-h-screen py-16 sm:py-24">
+    <div className="bg-slate-50 min-h-screen py-24 sm:py-32 overflow-hidden relative">
+      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-blue-600/5 blur-[120px] rounded-full pointer-events-none"></div>
+      
       <Helmet>
-        <title>Privacy Policy | Mayfield Phone Repair</title>
+        <title>Privacy Protocol | Mayfield Phone Repair</title>
         <meta name="description" content="Read the privacy policy for Mayfield Phone Repair to understand how we collect, use, and protect your personal information." />
       </Helmet>
       
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-8">
-          <Link to="/" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors">
-            <ArrowLeft className="w-4 h-4" /> Back to Home
+      <div className="max-w-4xl mx-auto px-6 md:px-12 relative z-10">
+        <div className="mb-16">
+          <Link to="/" className="inline-flex items-center gap-3 text-slate-400 hover:text-blue-600 font-black uppercase tracking-[0.2em] text-[10px] transition-all bg-white border border-slate-200 px-6 py-3 rounded-2xl shadow-sm group font-display">
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back to Terminal
           </Link>
         </div>
         
-        <div className="bg-white p-8 sm:p-12 rounded-2xl shadow-sm border border-slate-200">
-          <h1 className="text-4xl font-extrabold text-slate-900 tracking-tight mb-8">Privacy Policy</h1>
+        <div className="bg-white/80 backdrop-blur-xl p-10 sm:p-20 rounded-[3.5rem] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.05)] border border-white">
+          <h1 className="text-4xl md:text-7xl font-bold text-slate-900 tracking-tighter mb-12 font-display">Privacy Protocol</h1>
           
-          <div className="prose prose-slate prose-blue max-w-none prose-headings:text-slate-900 prose-p:text-slate-600 prose-li:text-slate-600">
-            <p className="text-sm font-medium text-slate-500 mb-8 border-b border-slate-100 pb-4">Last Updated: April 2026</p>
+          <div className="prose prose-slate prose-blue max-w-none prose-headings:font-display prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-slate-900 prose-p:text-slate-600 prose-p:font-medium prose-p:leading-relaxed prose-li:font-medium prose-li:text-slate-600">
+            <p className="text-xs font-black text-slate-400 uppercase tracking-[0.3em] font-display mb-12 border-b border-slate-100 pb-6">Last Revised: April 2026 // VERSION 2.4.0</p>
             
-            <h2>1. Introduction</h2>
-            <p>Welcome to Mayfield Phone Repair ("we", "our", or "us"). We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website, use our services, or visit our store, and tell you about your privacy rights and how the law protects you.</p>
+            <h2 className="text-3xl">1. Initial Protocol</h2>
+            <p>Welcome to the Mayfield Lab (Mayfield Phone Repair). We maintain strict operational security regarding your personal data. This privacy policy informs you of our data handling methodology and your legal protections during device restoration cycles.</p>
 
-            <h2>2. The Data We Collect</h2>
-            <p>We may collect, use, store and transfer different kinds of personal data about you which we have grouped together as follows:</p>
+            <h2 className="text-3xl">2. Technical Data Capture</h2>
+            <p>We captivate specific data classes strictly required for hardware diagnostics and relational mapping:</p>
             <ul>
-              <li><strong>Identity Data:</strong> includes first name, last name, username or similar identifier.</li>
-              <li><strong>Contact Data:</strong> includes billing address, delivery address, email address and telephone numbers.</li>
-              <li><strong>Device Data:</strong> includes device Make, Model, IMEI/Serial Number, passcodes (temporarily required for repair testing), and physical/diagnostic condition.</li>
-              <li><strong>Transaction Data:</strong> includes details about payments to and from you and other details of products and services you have purchased from us.</li>
+              <li><strong>Identity Vectors:</strong> Legal names and digital identifiers.</li>
+              <li><strong>Connectivity Data:</strong> Verification nodes including telephone and email addresses.</li>
+              <li><strong>Hardware Metadata:</strong> Device architecture, IMEI/Serial markers, and temporary diagnostic passcodes.</li>
+              <li><strong>Ledger Data:</strong> Historical transaction and service logs.</li>
             </ul>
             
-            <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-6 rounded-r-lg">
-              <p className="m-0 text-sm font-medium text-slate-800">
-                <strong>Note on Passcodes and Personal Data:</strong> In order to fully test your device before and after a repair, we may request your device passcode. Our technicians do not access, view, or copy your personal files, photos, or messages unless explicitly required to perform a requested service (e.g., data recovery or transfer) with your knowledge. We respect your privacy completely.
+            <div className="bg-slate-900 text-white p-10 my-12 rounded-[2.5rem] relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/20 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
+              <p className="m-0 text-lg font-medium leading-relaxed italic text-slate-300">
+                <strong className="text-white block not-italic font-black uppercase tracking-[0.2em] text-xs mb-4">Security Notice: Passcode Integrity</strong>
+                Diagnostic passcodes are held temporarily for functional verification. Our technicians are strictly prohibited from accessing private file structures, optical caches, or encrypted messages outside of explicit data recovery protocols.
               </p>
             </div>
 
-            <h2>3. How We Use Your Data</h2>
-            <p>We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:</p>
+            <h2 className="text-3xl">3. Operational Utility</h2>
+            <p>Data usage is restricted to the following legal frameworks:</p>
             <ul>
-              <li>Where we need to perform the contract we are about to enter into or have entered into with you (e.g., repairing your device).</li>
-              <li>To manage our relationship with you, including notifying you about changes to our terms or privacy policy, or keeping you updated on your repair status.</li>
-              <li>Where it is necessary for our legitimate interests (or those of a third party) and your interests and fundamental rights do not override those interests.</li>
-              <li>Where we need to comply with a legal or regulatory obligation.</li>
+              <li>Execution of hardware restoration contracts.</li>
+              <li>Relational management and status notifications.</li>
+              <li>Compliance with legislative regulatory obligations.</li>
             </ul>
 
-            <h2>4. Data Security</h2>
-            <p>We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorised way, altered or disclosed. In addition, we limit access to your personal data to those employees, agents, contractors and other third parties who have a business need to know. They will only process your personal data on our instructions and they are subject to a strict duty of confidentiality.</p>
+            <h2 className="text-3xl">4. Hardware Security</h2>
+            <p>We implement multi-layered security protocols to prevent unauthorized data exfiltration. Access is strictly limited to active technicians with a certified "Need to Know" clearance during active repair cycles.</p>
 
-            <h2>5. Data Retention</h2>
-            <p>We will only retain your personal data for as long as necessary to fulfil the purposes we collected it for, including for the purposes of satisfying any legal, accounting, or reporting requirements. By law we have to keep basic information about our customers (including Contact, Identity, Financial and Transaction Data) for tax and warranty purposes.</p>
+            <h2 className="text-3xl">5. Data Lifecycle</h2>
+            <p>Personal data is retained only for duration of the restoration cycle and subsequent warranty tracking periods as required by Australian tax and consumer law.</p>
 
-            <h2>6. Your Legal Rights</h2>
-            <p>Under certain circumstances, you have rights under data protection laws in relation to your personal data, including the right to request access, correction, erasure, restriction, transfer, to object to processing, to portability of data and (where the lawful ground of processing is consent) to withdraw consent.</p>
+            <h2 className="text-3xl">6. Client Rights</h2>
+            <p>You retain full agency over your data, including rights to access, correction, and erasure within the bounds of legal service requirements.</p>
 
-            <h2>7. Third-Party Links</h2>
-            <p>This website may include links to third-party websites, plug-ins and applications. Clicking on those links or enabling those connections may allow third parties to collect or share data about you. We do not control these third-party websites and are not responsible for their privacy statements. When you leave our website, we encourage you to read the privacy notice of every website you visit.</p>
+            <h2 className="text-3xl">7. External Nodes</h2>
+            <p>Our digital interface may link to external modules. We do not control these third-party security environments and advise review of their specific protocols.</p>
 
-            <h2>8. Contact Us</h2>
-            <p>If you have any questions about this privacy policy or our privacy practices, please contact us at our Mayfield store or via our published phone numbers and email address.</p>
+            <h2 className="text-3xl">8. Support Channel</h2>
+            <p>Direct inquiries regarding technical privacy can be routed through our Mayfield Lab command center during standard operational hours.</p>
           </div>
         </div>
       </div>

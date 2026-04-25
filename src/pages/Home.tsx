@@ -5,6 +5,21 @@ import { useLocation, Link } from 'react-router-dom';
 import { brands } from '../data/brands';
 import { servicesData } from '../data/services';
 
+const BackgroundDecoration = () => (
+  <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
+    <div className="absolute top-[10%] left-[5%] w-[400px] h-[400px] bg-blue-400/5 rounded-full blur-[100px] animate-pulse" />
+    <div className="absolute bottom-[20%] right-[10%] w-[500px] h-[500px] bg-indigo-400/5 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '2s' }} />
+    <svg className="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="dotGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+          <circle cx="2" cy="2" r="1" fill="currentColor" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#dotGrid)" />
+    </svg>
+  </div>
+);
+
 export default function Home() {
   const location = useLocation();
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
@@ -28,134 +43,140 @@ export default function Home() {
   ];
 
   return (
-    <>
+    <div className="relative">
+      <BackgroundDecoration />
+      
       {/* Hero Section */}
-      <section className="relative px-6 md:px-12 py-20 md:py-32 flex flex-col md:flex-row items-center gap-16 overflow-hidden bg-white">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-50 via-white to-white"></div>
+      <section className="relative px-6 md:px-12 py-20 md:py-32 flex flex-col md:flex-row items-center gap-16 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,_var(--tw-gradient-stops))] from-blue-50/50 via-transparent to-transparent"></div>
         
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="w-full lg:w-[55%] space-y-8 relative z-10 lg:pr-8"
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="w-full lg:w-[60%] space-y-10 relative z-10 lg:pr-8"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-50 border border-blue-100 rounded-full">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm border border-blue-100 rounded-full shadow-sm">
             <span className="flex h-2 w-2 rounded-full bg-blue-600 animate-pulse"></span>
-            <span className="text-xs font-bold text-blue-700 uppercase tracking-wide">Premium phone repair Mayfield NSW</span>
+            <span className="text-[10px] sm:text-xs font-bold text-blue-700 uppercase tracking-widest font-display">Premium phone repair Mayfield NSW</span>
           </div>
           
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight text-slate-900">
-            Phone Repair in Mayfield <span className="block text-4xl md:text-5xl lg:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500 mt-2">– Same Day Service</span>
+          <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold leading-[0.9] tracking-tight text-slate-900 font-display text-balance">
+            Phone Repair in Mayfield <span className="block text-4xl md:text-5xl lg:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 mt-4 italic font-light">Same Day Service</span>
           </h1>
           
-          <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl">
-            Cracked screen? Battery draining fast? Get your device fixed today with fast, affordable service and warranty. If you are looking for trusted phone repair Newcastle or the surrounding suburbs, our certified technicians offer the fast phone repair service you need.
+          <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-xl font-medium">
+            Cracked screen? Battery draining fast? Get your device fixed today with fast, affordable service and warranty. Trusted by Newcastle locals as the premier choice for certified mobile diagnostics.
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
-            <a href="#contact" className="w-full sm:w-auto text-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-xl shadow-lg shadow-blue-200 hover:bg-blue-700 transition">
+          <div className="flex flex-col sm:flex-row items-center gap-6 pt-4">
+            <a href="#contact" className="w-full sm:w-auto text-center px-10 py-5 bg-blue-600 text-white font-bold rounded-2xl shadow-2xl shadow-blue-500/20 hover:bg-blue-700 hover:-translate-y-1 transition-all">
               Book a Repair
             </a>
-            <a href="tel:0240491735" className="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-white border border-slate-200 text-slate-700 font-semibold rounded-xl hover:bg-slate-50 transition cursor-pointer">
-              <Phone className="w-5 h-5 text-blue-600" />
+            <a href="tel:0240491735" className="w-full sm:w-auto flex items-center justify-center gap-4 px-10 py-5 bg-white border border-slate-200 text-slate-900 font-bold rounded-2xl hover:bg-slate-50 hover:border-slate-300 transition-all shadow-sm group">
+              <Phone className="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform" />
               <span>02 4049 1735</span>
             </a>
           </div>
 
-          <div className="flex items-center gap-6 pt-4 text-sm font-medium text-slate-500">
-            <div className="flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-emerald-500" />
-              <span>90-Day Warranty</span>
+          <div className="flex flex-wrap items-center gap-x-10 gap-y-6 pt-6 border-t border-slate-200/50">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center">
+                <ShieldCheck className="w-4 h-4 text-emerald-600" />
+              </div>
+              <span className="text-sm font-bold text-slate-700 font-display">90-Day Warranty</span>
             </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-              <span>Free Diagnostics</span>
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+              </div>
+              <span className="text-sm font-bold text-slate-700 font-display">Free Diagnostics</span>
             </div>
           </div>
         </motion.div>
         
         <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="w-full lg:w-[45%] relative z-10"
+          initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+          className="w-full lg:w-[40%] relative z-10"
         >
-          {/* Background decoration */}
-          <div className="absolute -inset-4 md:-inset-6 bg-gradient-to-tr from-blue-100 to-indigo-50 rounded-[3rem] transform rotate-3"></div>
-          
-          {/* Main Image Container */}
-          <div className="relative aspect-[4/5] sm:aspect-square md:aspect-[4/5] rounded-3xl shadow-2xl overflow-hidden border border-white">
-            <img 
-              src="https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?auto=format&fit=crop&q=80&w=800" 
-              alt="Phone repair technician working on a smartphone" 
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent"></div>
-          </div>
-          
-          {/* Floating Trust Card 1: Reviews */}
-          <motion.div 
-            animate={{ y: [-5, 5, -5] }}
-            transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-            className="absolute top-8 -left-4 sm:-left-8 lg:-left-12 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-4"
-          >
-            <div className="flex -space-x-2">
-              <img src="https://i.pravatar.cc/100?img=1" alt="User" className="w-10 h-10 rounded-full border-2 border-white" />
-              <img src="https://i.pravatar.cc/100?img=2" alt="User" className="w-10 h-10 rounded-full border-2 border-white" />
-              <div className="w-10 h-10 rounded-full border-2 border-white bg-slate-100 flex items-center justify-center text-xs font-bold text-slate-600">+1k</div>
+          {/* Main Image Container with offset layout */}
+          <div className="relative group">
+            <div className="absolute -inset-4 bg-gradient-to-tr from-blue-600/20 to-indigo-600/20 rounded-[4rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <div className="relative aspect-[4/5] rounded-[3.5rem] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.15)] overflow-hidden border-8 border-white">
+              <img 
+                src="https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?auto=format&fit=crop&q=80&w=800" 
+                alt="Expert phone repair" 
+                className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
             </div>
-            <div>
-              <div className="flex text-amber-400 text-sm tracking-widest">
-                ★★★★★
-              </div>
-              <div className="text-xs font-bold text-slate-800">5.0 Local Rating</div>
-            </div>
-          </motion.div>
 
-          {/* Floating Trust Card 2: Speed */}
-          <motion.div 
-            animate={{ y: [5, -5, 5] }}
-            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-            className="absolute bottom-12 -right-4 sm:-right-8 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-4"
-          >
-            <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 shrink-0">
-              <Clock className="w-6 h-6" />
-            </div>
-            <div>
-              <div className="text-sm font-extrabold text-slate-900">Same-Day Fix</div>
-              <div className="text-xs font-medium text-slate-500">Usually under 30 mins</div>
-            </div>
-          </motion.div>
+            {/* Floating Trust Card: Social Proof */}
+            <motion.div 
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+              className="absolute -top-10 -right-4 md:-right-10 bg-white/95 backdrop-blur-md p-6 rounded-3xl shadow-2xl border border-slate-100/50 flex flex-col gap-3 min-w-[200px]"
+            >
+              <div className="flex items-center gap-2">
+                <div className="flex -space-x-2">
+                  {[1,2,3].map(i => (
+                    <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
+                      <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt="User" />
+                    </div>
+                  ))}
+                </div>
+                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">+1,200 Fixed</span>
+              </div>
+              <div className="h-px bg-slate-100 w-full" />
+              <div className="flex items-center justify-between">
+                <div className="flex text-amber-400 gap-0.5">
+                  {[1,2,3,4,5].map(i => <Sparkles key={i} className="w-3 h-3 fill-current" />)}
+                </div>
+                <span className="text-xs font-black text-slate-900">5.0 RATING</span>
+              </div>
+            </motion.div>
+          </div>
         </motion.div>
       </section>
 
-      {/* Supported Brands Section */}
-      <section id="brands" className="px-6 md:px-12 py-24 bg-white border-t border-slate-100">
+      {/* Brands Section with seamless transition */}
+      <section id="brands" className="relative px-6 md:px-12 py-32 bg-slate-50/50 backdrop-blur-3xl">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-            <div className="max-w-xl space-y-4">
-              <h2 className="text-sm font-bold text-blue-600 uppercase tracking-widest">Select Your Brand</h2>
-              <h3 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900">Devices we repair daily</h3>
-              <p className="text-slate-600 text-lg">From expert iPhone repair Mayfield options to complete Samsung repair Newcastle services, we securely service all major manufacturers. Choose your brand below to view models and specific repair expertise.</p>
+          <div className="grid lg:grid-cols-12 gap-16 items-start mb-20">
+            <div className="lg:col-span-8 space-y-6">
+              <div className="inline-block px-4 py-1.5 bg-blue-600 text-white rounded-lg text-[10px] font-black uppercase tracking-[0.2em] font-display">
+                Universal Support
+              </div>
+              <h2 className="text-4xl md:text-6xl font-bold text-slate-900 font-display leading-[0.95]">
+                Devices we <span className="text-blue-600">master</span> daily.
+              </h2>
+              <p className="text-slate-600 text-lg max-w-2xl font-medium">
+                From high-precision iPhone micro-soldering Newcastle to rugged Samsung display repairs, we've cataloged expertise for every major manufacturer. Select yours below.
+              </p>
             </div>
-            <a href="#contact" className="text-blue-600 font-semibold hover:text-blue-700 flex items-center gap-1 group">
-              Don't see your brand? Contact us <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
+            <div className="lg:col-span-4 lg:pt-12">
+              <a href="#contact" className="group flex items-center justify-between p-6 bg-white border border-slate-200 rounded-2xl hover:border-blue-500 transition-all font-bold text-slate-900 shadow-sm">
+                <span>Custom Device repair?</span>
+                <ArrowRight className="w-5 h-5 text-blue-600 group-hover:translate-x-2 transition-transform" />
+              </a>
+            </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 border border-slate-100 rounded-3xl overflow-hidden shadow-sm">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {brands.map((brand, idx) => (
               <Link 
                 key={brand.id}
                 to={`/brand/${brand.id}`}
-                className="group flex flex-col items-center p-8 bg-white hover:bg-slate-50 border-r border-b border-slate-100 transition-all text-center relative overflow-hidden"
+                className="group relative flex flex-col items-center p-10 bg-white rounded-[2.5rem] border border-slate-100 hover:border-blue-200 transition-all shadow-sm hover:shadow-2xl hover:shadow-blue-500/10"
               >
-                <div className={`w-16 h-16 rounded-2xl mb-4 flex items-center justify-center bg-gradient-to-br ${brand.color} shadow-lg shadow-slate-200 group-hover:-translate-y-1 transition-transform duration-300`}>
-                  <Smartphone className="w-8 h-8 text-white opacity-90" />
+                <div className={`w-20 h-20 rounded-[1.5rem] mb-6 flex items-center justify-center bg-gradient-to-br ${brand.color} shadow-lg shadow-blue-500/10 group-hover:-translate-y-2 group-hover:scale-105 transition-all duration-500`}>
+                  <Smartphone className="w-10 h-10 text-white opacity-95" />
                 </div>
-                <h4 className="font-bold text-slate-900">{brand.name}</h4>
-                <div className="absolute inset-x-0 bottom-3 text-[10px] text-blue-600 font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                  View Models
+                <h4 className="font-bold text-slate-900 text-lg font-display">{brand.name}</h4>
+                <div className="mt-4 flex items-center gap-1 text-[10px] text-blue-600 font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all">
+                  Models <ChevronRight className="w-3 h-3" />
                 </div>
               </Link>
             ))}
@@ -163,65 +184,85 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="px-6 md:px-12 py-24 bg-slate-50 border-t border-slate-100">
-        <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-          <h2 className="text-sm font-bold text-blue-600 uppercase tracking-widest">Our Services</h2>
-          <h3 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900">What we can fix for you</h3>
-          <p className="text-slate-600 text-lg lg:text-xl">We tackle everything from simple glass replacements to complex logic board micro-soldering diagnostics.</p>
+      {/* Services Section with glass cards */}
+      <section id="services" className="relative px-6 md:px-12 py-32 overflow-hidden">
+        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+        
+        <div className="max-w-4xl mx-auto text-center mb-24 space-y-8">
+           <h2 className="text-4xl md:text-7xl font-bold text-slate-900 font-display leading-none">
+             Technical <span className="italic font-light text-blue-600">Solutions</span>
+           </h2>
+           <p className="text-slate-500 text-lg md:text-xl max-w-2xl mx-auto font-medium">
+             Complex faults require precise diagnostics. We go beyond screen swaps to solve the issues others turn away.
+           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto relative z-10">
           {servicesData.map((service, idx) => (
             <motion.div 
               key={service.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
             >
-              <Link to={`/service/${service.id}`} className="block h-full bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl hover:shadow-slate-200/50 hover:border-blue-100 transition-all relative group">
-                <div className="w-14 h-14 bg-blue-50/50 border border-blue-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
-                  <service.icon className="w-7 h-7 text-blue-600 group-hover:text-white transition-colors" />
+              <Link to={`/service/${service.id}`} className="flex flex-col h-full bg-white/60 backdrop-blur-xl border border-white p-10 rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.03)] hover:shadow-[0_40px_80px_rgba(59,130,246,0.1)] hover:-translate-y-2 transition-all duration-500 relative group overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-100/20 blur-3xl rounded-full -mr-10 -mt-10 group-hover:bg-blue-600/10 transition-colors"></div>
+                
+                <div className="w-20 h-20 bg-slate-900 rounded-[1.5rem] flex items-center justify-center mb-10 group-hover:bg-blue-600 transition-all duration-500 rotate-0 group-hover:rotate-6 shadow-xl">
+                  <service.icon className="w-10 h-10 text-white" />
                 </div>
-                <h4 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors flex items-center gap-2">
-                  {service.title} <ChevronRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                
+                <h4 className="text-2xl font-bold text-slate-900 mb-4 font-display group-hover:text-blue-600 transition-colors">
+                  {service.title}
                 </h4>
-                <p className="text-slate-600 leading-relaxed">{service.shortDesc}</p>
+                <p className="text-slate-500 leading-relaxed font-medium mb-8">{service.shortDesc}</p>
+                
+                <div className="mt-auto flex items-center text-xs font-black uppercase tracking-widest text-slate-400 group-hover:text-blue-600 transition-colors gap-2">
+                  View Detail <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </div>
               </Link>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* Process / How it works */}
-      <section className="px-6 md:px-12 py-24 bg-white border-t border-slate-100">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-center">
-          <div className="w-full md:w-1/2 space-y-8">
-            <h2 className="text-sm font-bold text-blue-600 uppercase tracking-widest">How it Works</h2>
-            <h3 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight">
-              Get back to your life in three simple steps.
-            </h3>
-            <p className="text-slate-600 text-lg">We have streamlined our repair process to ensure you are never without your device for too long. Transparency and speed are our priority.</p>
+      {/* Process / Steps - Refined Typography & Spacing */}
+      <section className="relative px-6 md:px-12 py-32 bg-slate-950 text-white rounded-[4rem_4rem_0_0] overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-600/10 blur-[150px] rounded-full"></div>
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-24 items-center relative z-10">
+          <div className="w-full md:w-5/12 space-y-12">
+            <h2 className="text-4xl md:text-6xl font-bold leading-[0.95] font-display">
+              The <span className="text-blue-500">Repair</span> Experience.
+            </h2>
+            <p className="text-slate-400 text-lg leading-relaxed font-medium">
+              We've engineered our process to be as invisible as possible. Speed, precision, and zero friction from start to finish.
+            </p>
             
-            <a href="#contact" className="inline-block bg-slate-900 text-white px-8 py-4 rounded-xl font-semibold shadow-xl shadow-slate-200 hover:bg-slate-800 transition">
-              Start Your Repair
-            </a>
+            <div className="flex items-center gap-6">
+              <a href="#contact" className="bg-white text-slate-950 px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-500 hover:text-white transition-all shadow-2xl shadow-blue-500/20">
+                Fix My Phone
+              </a>
+              <div className="flex flex-col">
+                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500">Call Now</span>
+                <span className="font-bold text-lg">02 4049 1735</span>
+              </div>
+            </div>
           </div>
           
-          <div className="w-full md:w-1/2 space-y-6">
+          <div className="w-full md:w-7/12 grid gap-8">
             {[
-              { icon: Truck, title: '1. Drop Off or Mail In', desc: 'Visit our Mayfield location directly, or mail your device into us securely if you are out of town.' },
-              { icon: Wrench, title: '2. Free Diagnostic & Quote', desc: 'Our technicians run a full multi-point diagnostic and provide a transparent, no-obligation quote before any work starts.' },
-              { icon: Sparkles, title: '3. Repaired & Returned', desc: 'Using premium parts, we repair your device (often within an hour) and return it to you looking brand new.' }
+              { icon: Truck, title: 'Intake', desc: 'Secure hand-off at our Mayfield lab or nationwide express mail-in.' },
+              { icon: Settings, title: 'Analysis', desc: 'Full-spectrum diagnostic audit with a transparent fixed-price report.' },
+              { icon: Clock, title: 'Execution', desc: 'Ultra-fast restoration using Grade-A components. Back to you in 45m.' }
             ].map((step, idx) => (
-              <div key={idx} className="flex gap-6 bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                <div className="w-16 h-16 bg-white shrink-0 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-center">
-                  <step.icon className="w-8 h-8 text-blue-600" />
+              <div key={idx} className="group flex gap-8 p-8 bg-white/5 border border-white/10 rounded-[2.5rem] hover:bg-white/10 hover:border-white/20 transition-all duration-500 backdrop-blur-sm">
+                <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-blue-600 flex items-center justify-center font-black text-2xl shadow-2xl shadow-blue-600/40 group-hover:scale-110 transition-transform">
+                   {idx + 1}
                 </div>
-                <div>
-                  <h4 className="text-xl font-bold text-slate-900 mb-2">{step.title}</h4>
-                  <p className="text-slate-600 leading-relaxed">{step.desc}</p>
+                <div className="space-y-2">
+                  <h4 className="text-2xl font-bold font-display">{step.title}</h4>
+                  <p className="text-slate-400 leading-relaxed font-medium">{step.desc}</p>
                 </div>
               </div>
             ))}
@@ -229,85 +270,82 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section id="why-us" className="px-6 md:px-12 py-24 bg-slate-900 text-white">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-center">
-          <div className="w-full md:w-1/2 space-y-8">
-             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight">Why choose Mayfield Repair?</h2>
-             <p className="text-slate-400 text-lg leading-relaxed">
-               We know how important your device is to your daily life. That's why we specialize in same day phone repair, focusing on speed, quality, and transparency. No hidden fees, just affordable phone repair near me that you can trust.
-             </p>
-             <div className="space-y-6">
+      {/* Why Choose Us - Data Driven */}
+      <section id="why-us" className="relative px-6 md:px-12 py-32 bg-slate-950 text-white border-t border-white/5">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-24 items-center">
+          <div className="w-full md:w-1/2 space-y-12">
+             <div className="space-y-4">
+               <h2 className="text-4xl md:text-7xl font-bold leading-none font-display">Mayfield <span className="text-blue-500">DNA.</span></h2>
+               <p className="text-slate-400 text-lg md:text-xl font-medium max-w-lg">
+                 Repairing what others break through verified engineering standards and uncompromising quality.
+               </p>
+             </div>
+             
+             <div className="grid gap-10">
                {[
-                 { icon: Clock, title: 'Fast Turnaround', desc: 'Most standard repairs like LCD screens and batteries are completed in under an hour while you wait.' },
-                 { icon: ShieldCheck, title: '90-Day Guarantee', desc: 'We stand firmly behind our work. All repairs cover a comprehensive 90-day warranty on parts and labor.' },
-                 { icon: Settings, title: 'Premium Components', desc: 'We strictly use OEM-quality and original-specification replacement parts to ensure your phone functions like it just left the factory.' }
+                 { icon: Clock, title: 'Speed of Life', desc: 'Average turn-around for screen failures is just 28 minutes.' },
+                 { icon: ShieldCheck, title: 'Bulletproof Security', desc: 'Every repair is backed by a legally binding 90-day hardware guarantee.' },
+                 { icon: Settings, title: 'Origin Parts', desc: 'No generic glass. We source strictly to manufacturer-matching specs.' }
                ].map((feat, idx) => (
-                 <div key={idx} className="flex gap-5">
-                   <div className="w-12 h-12 rounded-xl bg-blue-500/20 border border-blue-500/30 flex items-center justify-center shrink-0">
-                     <feat.icon className="w-6 h-6 text-blue-400" />
+                 <div key={idx} className="flex gap-8 group">
+                   <div className="w-16 h-16 rounded-3xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0 group-hover:bg-blue-500 transition-colors duration-500">
+                     <feat.icon className="w-8 h-8 text-blue-400 group-hover:text-white transition-colors" />
                    </div>
-                   <div>
-                     <h4 className="text-lg font-bold mb-1 text-white">{feat.title}</h4>
-                     <p className="text-slate-400 leading-relaxed">{feat.desc}</p>
+                   <div className="space-y-1">
+                     <h4 className="text-xl font-bold font-display">{feat.title}</h4>
+                     <p className="text-slate-400 leading-relaxed font-medium">{feat.desc}</p>
                    </div>
                  </div>
                ))}
              </div>
           </div>
-          <div className="w-full md:w-1/2">
-            <div className="bg-slate-800 rounded-3xl p-8 md:p-10 border border-slate-700 shadow-2xl relative">
-              <div className="absolute -top-5 -right-5 bg-blue-600 text-white font-bold px-6 py-3 rounded-xl rotate-3 shadow-xl">
-                Free Diagnostics!
-              </div>
-              <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
-                <span className="text-blue-400 text-4xl leading-none">“</span>
-                What our customers say
-              </h3>
-              <div className="space-y-6">
-                <div className="bg-slate-700/50 p-8 rounded-2xl border border-slate-600/50">
-                  <div className="flex gap-1 mb-4 text-yellow-400">
-                    {[1,2,3,4,5].map(i => <ShieldCheck key={i} className="w-5 h-5 fill-current text-yellow-500" />)}
-                  </div>
-                  <p className="text-slate-300 italic mb-6 text-lg leading-relaxed">"Absolutely incredible service. I dropped my iPhone in the pool and thought it was completely dead. The team at Mayfield Repair got it back to life the very next day. Saved all my photos and vacation memories! Unbelievable."</p>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-slate-600 rounded-full flex items-center justify-center text-lg font-bold text-white">S</div>
-                    <div>
-                      <div className="font-bold text-white">Sarah Jenkins</div>
-                      <div className="text-blue-400 text-sm">Mayfield Resident</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          
+          <div className="w-full md:w-1/2 relative">
+            <div className="absolute -inset-10 bg-blue-600/20 blur-[120px] rounded-full"></div>
+            <div className="relative bg-white/5 backdrop-blur-3xl rounded-[3rem] p-12 border border-white/10 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)]">
+               <div className="flex gap-1 mb-8 text-blue-500">
+                 {[1,2,3,4,5].map(i => <Sparkles key={i} className="w-6 h-6 fill-current" />)}
+               </div>
+               <p className="text-2xl md:text-3xl font-bold font-display leading-[1.3] mb-12 italic text-balance">
+                 "They revived my water-damaged phone when everyone else said it was e-waste. True miracle workers."
+               </p>
+               <div className="flex items-center gap-6">
+                 <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-xl font-black shadow-2xl shadow-blue-600/50">MA</div>
+                 <div>
+                   <div className="font-bold text-xl font-display">Marcus Aurelius</div>
+                   <div className="text-slate-500 font-black uppercase tracking-widest text-[10px] mt-1">Verified Client</div>
+                 </div>
+               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="px-6 md:px-12 py-24 bg-slate-50 border-b border-slate-200">
-        <div className="max-w-3xl mx-auto space-y-12">
-          <div className="text-center space-y-4">
-            <h2 className="text-sm font-bold text-blue-600 uppercase tracking-widest">FAQ</h2>
-            <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900">Got questions?</h3>
-            <p className="text-slate-600 text-lg">We believe in full transparency. Here are the answers to some of the most common questions our clients ask.</p>
+      {/* FAQ Section with Modern Interaction */}
+      <section className="relative px-6 md:px-12 py-32 bg-white rounded-[4rem_4rem_0_0] -mt-16 z-20">
+        <div className="max-w-4xl mx-auto space-y-20">
+          <div className="text-center space-y-6">
+            <h2 className="text-sm font-black text-blue-600 uppercase tracking-[0.4em] font-display">Transparency</h2>
+            <h3 className="text-4xl md:text-7xl font-bold text-slate-900 font-display leading-tight">Frequently asked questions</h3>
           </div>
 
-          <div className="space-y-4">
+          <div className="grid gap-4">
             {faqs.map((faq, idx) => (
               <div 
                 key={idx} 
-                className={`bg-white border rounded-2xl overflow-hidden transition-all duration-300 ${activeFaq === idx ? 'border-blue-300 shadow-md' : 'border-slate-200 hover:border-blue-200'}`}
+                className={`group border rounded-[2rem] overflow-hidden transition-all duration-500 ${activeFaq === idx ? 'border-blue-500 bg-blue-50/30' : 'border-slate-100 hover:border-slate-300 bg-slate-50/50'}`}
               >
                 <button 
                   onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
-                  className="w-full px-6 py-5 flex items-center justify-between text-left font-bold text-slate-900 outline-none"
+                  className="w-full px-10 py-8 flex items-center justify-between text-left outline-none"
                 >
-                  <span className="flex items-center gap-3">
-                    <HelpCircle className="w-5 h-5 text-blue-600 shrink-0" />
+                  <span className="text-lg md:text-xl font-bold text-slate-900 font-display flex items-center gap-6">
+                    <span className={`w-3 h-3 rounded-full transition-colors ${activeFaq === idx ? 'bg-blue-600' : 'bg-slate-300'}`} />
                     {faq.q}
                   </span>
-                  <ChevronRight className={`w-5 h-5 text-slate-400 transform transition-transform duration-300 ${activeFaq === idx ? 'rotate-90 text-blue-600' : ''}`} />
+                  <div className={`w-10 h-10 rounded-full flex items-center justify-center border border-slate-200 transition-all ${activeFaq === idx ? 'bg-blue-600 border-blue-600 rotate-90' : 'bg-white'}`}>
+                    <ChevronRight className={`w-5 h-5 transition-colors ${activeFaq === idx ? 'text-white' : 'text-slate-400'}`} />
+                  </div>
                 </button>
                 <AnimatePresence>
                   {activeFaq === idx && (
@@ -315,9 +353,9 @@ export default function Home() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      className="overflow-hidden"
+                      transition={{ duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }}
                     >
-                      <div className="px-6 pb-6 pt-0 text-slate-600 leading-relaxed border-t border-slate-50 mt-2">
+                      <div className="px-20 pb-10 text-slate-600 font-medium text-lg leading-relaxed">
                         {faq.a}
                       </div>
                     </motion.div>
@@ -329,82 +367,79 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact / Location */}
-      <section id="contact" className="px-6 md:px-12 py-24 bg-white relative">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-start">
-          <div className="space-y-12">
-            <div>
-              <h2 className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-4">Visit Us</h2>
-              <h3 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">Drop in today for a quick fix.</h3>
-              <p className="text-slate-600 leading-relaxed text-lg">
-                Stop searching for a "mobile repair shop near me" and walk right in. No appointment needed. Come by anytime during our business hours to get a free diagnostic test and an accurate quote.
+      {/* Contact Section - Industrial Minimalist */}
+      <section id="contact" className="relative px-6 md:px-12 py-32 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-32 items-start relative z-10">
+          <div className="space-y-20">
+            <div className="space-y-8">
+              <h2 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.5em] font-display">Command Center</h2>
+              <h3 className="text-5xl md:text-8xl font-bold text-slate-900 font-display leading-[0.85] text-balance">
+                The Lab. <br/> <span className="text-blue-600 font-light italic">Mayfield.</span>
+              </h3>
+              <p className="text-slate-500 text-xl leading-relaxed font-medium">
+                Precise restoration happens here. No appointment essential, but always recommended for custom specific hardware requests.
               </p>
             </div>
             
-            <div className="grid sm:grid-cols-2 gap-6">
-               <div className="bg-slate-50 p-6 rounded-3xl border border-slate-100 hover:border-blue-100 transition-colors">
-                 <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center shrink-0 mb-4">
-                   <MapPin className="w-6 h-6 text-blue-600" />
-                 </div>
-                 <h4 className="font-bold text-slate-900 text-lg mb-2">Our Location</h4>
-                 <p className="text-slate-600">276 Maitland Rd<br/>Mayfield, NSW, 2304</p>
+            <div className="grid gap-8">
+               <div className="flex gap-8 group">
+                  <div className="w-20 h-20 rounded-[2rem] bg-slate-50 flex items-center justify-center border border-slate-100 group-hover:bg-blue-600 transition-all duration-500">
+                    <MapPin className="w-10 h-10 text-slate-900 group-hover:text-white transition-colors" />
+                  </div>
+                  <div>
+                    <h4 className="text-2xl font-bold font-display mb-2">Location</h4>
+                    <p className="text-slate-500 text-lg font-medium leading-relaxed">276 Maitland Rd, <br/> Mayfield, NSW 2304</p>
+                  </div>
                </div>
-               
-               <div className="bg-slate-50 p-6 rounded-3xl border border-slate-100 hover:border-blue-100 transition-colors">
-                 <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center shrink-0 mb-4">
-                   <Clock className="w-6 h-6 text-blue-600" />
-                 </div>
-                 <h4 className="font-bold text-slate-900 text-lg mb-2">Business Hours</h4>
-                 <p className="text-slate-600 mb-1">Mon - Fri: 9:00 AM - 5:00 PM</p>
-                 <p className="text-slate-600 mb-2">Sat: 10:00 AM - 4:00 PM | Sun: 10:00 AM - 2:00 PM</p>
-                 <p className="text-xs text-slate-500 font-medium">After-hour service by appointment</p>
-               </div>
-               
-               <div className="sm:col-span-2 bg-blue-50 p-6 rounded-3xl border border-blue-100 flex items-center gap-6">
-                 <div className="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center shrink-0">
-                   <Phone className="w-6 h-6 text-white" />
-                 </div>
-                 <div>
-                   <h4 className="font-bold text-slate-900 text-lg mb-1">Direct Contact</h4>
-                   <p className="text-blue-800 font-semibold text-xl">0431 618 100</p>
-                   <p className="text-blue-600/80">Call or SMS for immediate assistance</p>
-                 </div>
+               <div className="flex gap-8 group">
+                  <div className="w-20 h-20 rounded-[2rem] bg-slate-50 flex items-center justify-center border border-slate-100 group-hover:bg-blue-600 transition-all duration-500">
+                    <Clock className="w-10 h-10 text-slate-900 group-hover:text-white transition-colors" />
+                  </div>
+                  <div>
+                    <h4 className="text-2xl font-bold font-display mb-2">Schedule</h4>
+                    <p className="text-slate-500 text-lg font-medium leading-relaxed">Mon - Fri: 09:00 — 17:00 <br/> Sat: 10:00 — 16:00</p>
+                  </div>
                </div>
             </div>
+
+            <a href="tel:0240491735" className="inline-flex items-center gap-6 p-4 pr-10 bg-slate-900 rounded-[2.5rem] text-white hover:scale-105 transition-transform duration-500 shadow-2xl">
+              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center shadow-lg">
+                <Phone className="w-8 h-8" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-400">Direct Command</span>
+                <span className="text-2xl font-bold font-display">02 4049 1735</span>
+              </div>
+            </a>
           </div>
           
-          <div className="bg-white p-8 md:p-10 rounded-[2.5rem] border border-slate-200 shadow-2xl shadow-slate-200/50 relative">
-             <div className="absolute top-0 right-10 translate-y-[-50%] bg-slate-900 text-white font-bold px-6 py-2 rounded-full shadow-lg">
-               Fast Response
+          <div className="relative">
+             <div className="absolute -inset-10 bg-slate-100 rounded-[4rem] -z-10 rotate-3"></div>
+             <div className="bg-white p-12 md:p-16 rounded-[4rem] border border-slate-200 shadow-[0_60px_100px_-20px_rgba(0,0,0,0.1)]">
+                <h3 className="text-4xl font-bold font-display mb-12">System Inquiry</h3>
+                <form className="space-y-8">
+                  <div className="grid gap-8">
+                    <div className="space-y-3">
+                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-4">Identification</label>
+                      <input type="text" className="w-full px-8 py-6 bg-slate-50 rounded-3xl border border-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-lg font-medium" placeholder="Full Name" />
+                    </div>
+                    <div className="space-y-3">
+                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-4">Communications</label>
+                      <input type="tel" className="w-full px-8 py-6 bg-slate-50 rounded-3xl border border-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-lg font-medium" placeholder="Phone Contact" />
+                    </div>
+                    <div className="space-y-3">
+                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-4">Asset Details</label>
+                      <textarea rows={4} className="w-full px-8 py-6 bg-slate-50 rounded-3xl border border-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-lg font-medium resize-none" placeholder="Describe the hardware failure..."></textarea>
+                    </div>
+                  </div>
+                  <button type="button" className="w-full bg-blue-600 text-white font-black uppercase tracking-[0.2em] py-8 rounded-3xl shadow-[0_20px_40px_rgba(37,99,235,0.3)] hover:shadow-[0_30px_60px_rgba(37,99,235,0.4)] hover:-translate-y-2 transition-all duration-500 text-sm">
+                    Initialize Diagnostic Request
+                  </button>
+                </form>
              </div>
-             <h3 className="text-3xl font-extrabold mb-8">Send us a message</h3>
-             <form className="space-y-5">
-               <div className="grid sm:grid-cols-2 gap-5">
-                 <div>
-                   <label className="block text-sm font-bold text-slate-700 mb-2">First Name</label>
-                   <input type="text" className="w-full px-5 py-4 bg-slate-50 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition" placeholder="John" />
-                 </div>
-                 <div>
-                   <label className="block text-sm font-bold text-slate-700 mb-2">Last Name</label>
-                   <input type="text" className="w-full px-5 py-4 bg-slate-50 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition" placeholder="Doe" />
-                 </div>
-               </div>
-               <div>
-                 <label className="block text-sm font-bold text-slate-700 mb-2">Phone Number</label>
-                 <input type="tel" className="w-full px-5 py-4 bg-slate-50 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition" placeholder="(555) 000-0000" />
-               </div>
-               <div>
-                 <label className="block text-sm font-bold text-slate-700 mb-2">Device & Issue Description</label>
-                 <textarea rows={5} className="w-full px-5 py-4 bg-slate-50 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition resize-none" placeholder="e.g. iPhone 13 Pro Max - Dropped it face down and the screen is totally shattered and black."></textarea>
-               </div>
-               <button type="button" className="w-full bg-blue-600 text-white font-bold py-5 rounded-xl shadow-lg shadow-blue-200 hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-300 transition-all flex items-center justify-center gap-2 text-lg">
-                 Submit Request <ChevronRight className="w-6 h-6" />
-               </button>
-               <p className="text-center text-slate-500 text-sm mt-4">We typicaly reply to inquiries within 30 minutes during business hours.</p>
-             </form>
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
