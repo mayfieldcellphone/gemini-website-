@@ -11,6 +11,9 @@ const BlogPostPage = lazy(() => import('./pages/BlogPostPage'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const TermsOfService = lazy(() => import('./pages/TermsOfService'));
 const AfterHoursPage = lazy(() => import('./pages/AfterHoursPage'));
+const SecondHandPhones = lazy(() => import('./pages/SecondHandPhones'));
+const AccessoriesPage = lazy(() => import('./pages/AccessoriesPage'));
+const CorporateRepairs = lazy(() => import('./pages/CorporateRepairs'));
 
 export default function App() {
   return (
@@ -26,6 +29,9 @@ export default function App() {
             <Route path="privacy-policy" element={<PrivacyPolicy />} />
             <Route path="terms-of-service" element={<TermsOfService />} />
             <Route path="after-hours" element={<AfterHoursPage />} />
+            <Route path="second-hand-phones" element={<SecondHandPhones />} />
+            <Route path="accessories" element={<AccessoriesPage />} />
+            <Route path="corporate-repairs" element={<CorporateRepairs />} />
             <Route path=":serviceKeyword/:suburbId" element={<SuburbPage />} />
           </Route>
         </Routes>

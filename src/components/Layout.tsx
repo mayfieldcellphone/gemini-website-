@@ -118,12 +118,12 @@ export default function Layout() {
         </Link>
         
         {/* Desktop Nav Tabs */}
-        <div className="hidden lg:flex items-center gap-10 text-xs font-black uppercase tracking-[0.2em] text-slate-500 flex-1 justify-center ml-8 font-display">
+        <div className="hidden lg:flex items-center gap-8 text-[11px] font-black uppercase tracking-[0.2em] text-slate-500 flex-1 justify-center ml-8 font-display">
           <Link to="/" className="hover:text-blue-600 transition-colors">Home</Link>
-          <Link to="/#brands" className="hover:text-blue-600 transition-colors">Brands</Link>
-          <Link to="/#services" className="hover:text-blue-600 transition-colors">Services</Link>
+          <Link to="/second-hand-phones" className="hover:text-blue-600 transition-colors">Shop Phones</Link>
+          <Link to="/accessories" className="hover:text-blue-600 transition-colors">Accessories</Link>
+          <Link to="/corporate-repairs" className="hover:text-blue-600 transition-colors">Corporate</Link>
           <Link to="/blog" className="hover:text-blue-600 transition-colors">Blog</Link>
-          <Link to="/#why-us" className="hover:text-blue-600 transition-colors">Why Choose Us</Link>
           <Link to="/#contact" className="hover:text-blue-600 transition-colors">Location</Link>
         </div>
 
@@ -150,10 +150,10 @@ export default function Layout() {
           >
             <div className="flex flex-col px-6 py-4 space-y-4">
               <Link to="/" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Home</Link>
-              <Link to="/#brands" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Brands</Link>
-              <Link to="/#services" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Services</Link>
+              <Link to="/second-hand-phones" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Shop Phones</Link>
+              <Link to="/accessories" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Accessories</Link>
+              <Link to="/corporate-repairs" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Corporate Repairs</Link>
               <Link to="/blog" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Blog</Link>
-              <Link to="/#why-us" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Why Choose Us</Link>
               <Link to="/#contact" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Location & Contact</Link>
               <div className="pt-6 mt-2 border-t border-slate-100 flex flex-col space-y-4">
                 <a href="tel:0240491735" className="flex items-center justify-center gap-2 text-blue-600 bg-blue-50 py-3 rounded-xl font-bold">
@@ -212,22 +212,23 @@ export default function Layout() {
           
           <div className="lg:col-span-7 grid sm:grid-cols-3 gap-12">
              <div className="space-y-8">
-               <h4 className="text-white text-xs font-black uppercase tracking-[0.3em] font-display">Navigation</h4>
+               <h4 className="text-white text-xs font-black uppercase tracking-[0.3em] font-display">Our Shop</h4>
                <ul className="space-y-4 text-sm font-medium">
-                 <li><Link to="/" className="hover:text-blue-400 transition-colors">Home</Link></li>
-                 <li><Link to="/#services" className="hover:text-blue-400 transition-colors">Our Services</Link></li>
-                 <li><Link to="/#brands" className="hover:text-blue-400 transition-colors">Top Brands</Link></li>
-                 <li><Link to="/blog" className="hover:text-blue-400 transition-colors">Repair Blog</Link></li>
-                 <li><Link to="/after-hours" className="hover:text-emerald-400 transition-colors font-bold">After Hours Service</Link></li>
-                 <li><Link to="/#contact" className="hover:text-blue-400 transition-colors">Our Location</Link></li>
+                 <li><Link to="/second-hand-phones" className="hover:text-blue-400 transition-colors">Buy Used Phones</Link></li>
+                 <li><Link to="/accessories" className="hover:text-blue-400 transition-colors">Phone Accessories</Link></li>
+                 <li><Link to="/corporate-repairs" className="hover:text-blue-400 transition-colors">Corporate Repairs</Link></li>
+                 <li><Link to="/#services" className="hover:text-blue-400 transition-colors">All Repair Services</Link></li>
+                 <li><Link to="/after-hours" className="hover:text-emerald-400 transition-colors font-bold">After Hours SMS</Link></li>
                </ul>
              </div>
              <div className="space-y-8">
-               <h4 className="text-white text-xs font-black uppercase tracking-[0.3em] font-display">Legal</h4>
+               <h4 className="text-white text-xs font-black uppercase tracking-[0.3em] font-display">Information</h4>
                <ul className="space-y-4 text-sm font-medium">
+                 <li><Link to="/" className="hover:text-blue-400 transition-colors">Home</Link></li>
+                 <li><Link to="/blog" className="hover:text-blue-400 transition-colors">Our Blog</Link></li>
+                 <li><Link to="/#contact" className="hover:text-blue-400 transition-colors">Find Our Shop</Link></li>
                  <li><Link to="/privacy-policy" className="hover:text-blue-400 transition-colors">Privacy Policy</Link></li>
-                 <li><Link to="/terms-of-service" className="hover:text-blue-400 transition-colors">Terms of Service</Link></li>
-                 <li><Link to="/terms-of-service" className="hover:text-blue-400 transition-colors">Warranty & Returns</Link></li>
+                 <li><Link to="/terms-of-service" className="hover:text-blue-400 transition-colors">Terms & Warranty</Link></li>
                </ul>
              </div>
              <div className="space-y-8">
