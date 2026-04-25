@@ -1,13 +1,30 @@
 import { Smartphone, Phone, Menu, X, Facebook, Instagram, Twitter, Linkedin, Youtube, MessageSquare, MapPin, Clock } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import BirdeyeReviewWidget from './BirdeyeReviewWidget';
 import { suburbs, seoServices } from '../data/suburbs';
 
 export default function Layout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSeoDirOpen, setIsSeoDirOpen] = useState(false);
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    // Scroll to top on route change if no hash is present
+    if (!hash) {
+      window.scrollTo(0, 0);
+    } else {
+      // If there is a hash, wait for the element to potentially render then scroll to it
+      setTimeout(() => {
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 0);
+    }
+  }, [pathname, hash]);
 
   useEffect(() => {
     // Delay chatbot loading to improve performance score
