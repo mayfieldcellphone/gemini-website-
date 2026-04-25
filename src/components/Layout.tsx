@@ -178,26 +178,26 @@ export default function Layout() {
              <div className="space-y-8">
                <h4 className="text-white text-xs font-black uppercase tracking-[0.3em] font-display">Navigation</h4>
                <ul className="space-y-4 text-sm font-medium">
-                 <li><Link to="/" className="hover:text-blue-400 transition-colors">Lab Home</Link></li>
-                 <li><Link to="/#services" className="hover:text-blue-400 transition-colors">Technical Services</Link></li>
-                 <li><Link to="/#brands" className="hover:text-blue-400 transition-colors">Verified Brands</Link></li>
-                 <li><Link to="/blog" className="hover:text-blue-400 transition-colors">Service Blog</Link></li>
-                 <li><Link to="/#contact" className="hover:text-blue-400 transition-colors">Locate Lab</Link></li>
+                 <li><Link to="/" className="hover:text-blue-400 transition-colors">Home</Link></li>
+                 <li><Link to="/#services" className="hover:text-blue-400 transition-colors">Our Services</Link></li>
+                 <li><Link to="/#brands" className="hover:text-blue-400 transition-colors">Top Brands</Link></li>
+                 <li><Link to="/blog" className="hover:text-blue-400 transition-colors">Repair Blog</Link></li>
+                 <li><Link to="/#contact" className="hover:text-blue-400 transition-colors">Our Location</Link></li>
                </ul>
              </div>
              <div className="space-y-8">
-               <h4 className="text-white text-xs font-black uppercase tracking-[0.3em] font-display">Legal Lab</h4>
+               <h4 className="text-white text-xs font-black uppercase tracking-[0.3em] font-display">Legal</h4>
                <ul className="space-y-4 text-sm font-medium">
-                 <li><Link to="/privacy-policy" className="hover:text-blue-400 transition-colors">Privacy Protocol</Link></li>
+                 <li><Link to="/privacy-policy" className="hover:text-blue-400 transition-colors">Privacy Policy</Link></li>
                  <li><Link to="/terms-of-service" className="hover:text-blue-400 transition-colors">Terms of Service</Link></li>
-                 <li><Link to="/terms-of-service" className="hover:text-blue-400 transition-colors">Warranty Standards</Link></li>
+                 <li><Link to="/terms-of-service" className="hover:text-blue-400 transition-colors">Warranty & Returns</Link></li>
                </ul>
              </div>
              <div className="space-y-8">
-               <h4 className="text-white text-xs font-black uppercase tracking-[0.3em] font-display">Direct Command</h4>
+               <h4 className="text-white text-xs font-black uppercase tracking-[0.3em] font-display">Contact Us</h4>
                <div className="space-y-4">
                  <a href="tel:0240491735" className="block text-xl font-bold text-white hover:text-blue-400 transition-colors font-display">02 4049 1735</a>
-                 <p className="text-xs text-slate-500 leading-relaxed font-medium">Available during standard business cycles. After-hours via appointment only.</p>
+                 <p className="text-xs text-slate-500 leading-relaxed font-medium">Call us during business hours for helpful advice and free quotes.</p>
                </div>
              </div>
           </div>
@@ -210,7 +210,7 @@ export default function Layout() {
              className="flex items-center text-[10px] text-slate-600 uppercase tracking-[0.5em] font-black hover:text-blue-400 transition-colors w-full text-left focus:outline-none"
              aria-expanded={isSeoDirOpen}
            >
-             Regional Network Directory
+             Local Areas We Serve
              <svg 
                className={`w-4 h-4 ml-3 transform transition-transform duration-500 ${isSeoDirOpen ? 'rotate-180 text-blue-500' : ''}`} 
                fill="none" viewBox="0 0 24 24" stroke="currentColor"

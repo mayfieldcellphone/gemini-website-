@@ -35,7 +35,7 @@ export default function ServicePage() {
         
         <div className="max-w-7xl mx-auto relative z-10">
           <Link to="/" className="inline-flex items-center gap-3 text-white/90 hover:text-white mb-16 font-black uppercase tracking-[0.2em] text-[10px] transition-all bg-white/10 px-6 py-3 rounded-2xl backdrop-blur-md w-fit border border-white/20 group font-display">
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back to Terminal
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back to Home
           </Link>
           
           <div className="flex flex-col md:flex-row md:items-center gap-12">
@@ -82,13 +82,13 @@ export default function ServicePage() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/20 blur-[100px] rounded-full -mr-20 -mt-20 group-hover:bg-blue-600/30 transition-colors duration-700"></div>
             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
               <div className="max-w-md space-y-4">
-                <h3 className="text-3xl md:text-4xl font-bold leading-tight font-display">Ready for restoration?</h3>
-                <p className="text-slate-400 text-xl font-medium leading-relaxed">Reserve your part today to guarantee same-day completion.</p>
+                <h3 className="text-3xl md:text-4xl font-bold leading-tight font-display">Need a repair?</h3>
+                <p className="text-slate-400 text-xl font-medium leading-relaxed">Book your repair today or just walk in for same-day service.</p>
               </div>
               <div className="flex flex-col w-full md:w-auto gap-4 shrink-0">
                 <a href="tel:0240491735" className="inline-flex items-center justify-center gap-4 bg-blue-600 text-white px-10 py-6 rounded-2xl font-black uppercase tracking-[0.2em] text-xs hover:bg-blue-700 transition-all shadow-2xl shadow-blue-600/30">
                   <Phone className="w-5 h-5" />
-                  Call Command
+                  Call Us Now
                 </a>
               </div>
             </div>
@@ -99,7 +99,7 @@ export default function ServicePage() {
         <div className="lg:col-span-4 space-y-8">
           <div className="bg-white/60 backdrop-blur-xl rounded-[3rem] border border-white p-10 shadow-2xl shadow-slate-200/50">
             <h3 className="text-xs font-black text-slate-400 uppercase tracking-[0.4em] mb-10 font-display">
-               Repair Protocol
+               Repair Details
             </h3>
             <ul className="space-y-6">
                {service.features.map((feature, i) => (
@@ -118,9 +118,9 @@ export default function ServicePage() {
              <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center shrink-0 mb-8 border border-white/10 group-hover:bg-blue-600 transition-colors duration-500">
                <MapPin className="w-8 h-8 text-blue-400 group-hover:text-white" />
              </div>
-             <h3 className="font-bold text-2xl mb-4 font-display">The Mayfield Lab</h3>
+             <h3 className="font-bold text-2xl mb-4 font-display">Mayfield Phone Repair</h3>
              <p className="text-slate-400 mb-8 text-lg font-medium leading-relaxed">
-               Instant, free diagnostic test. No appointment necessary for walk-in restoration.
+               Get a free diagnostic test today. No appointment necessary—just walk in for a fast fix.
              </p>
              <p className="font-bold text-xl text-white font-display">276 Maitland Rd<br/>Mayfield, NSW, 2304</p>
              

@@ -147,18 +147,18 @@ export default function Home() {
           <div className="grid lg:grid-cols-12 gap-16 items-start mb-20">
             <div className="lg:col-span-8 space-y-6">
               <div className="inline-block px-4 py-1.5 bg-blue-600 text-white rounded-lg text-[10px] font-black uppercase tracking-[0.2em] font-display">
-                Universal Support
+                Brands We Fix
               </div>
               <h2 className="text-4xl md:text-6xl font-bold text-slate-900 font-display leading-[0.95]">
-                Devices we <span className="text-blue-600">master</span> daily.
+                Devices we fix <span className="text-blue-600">daily.</span>
               </h2>
               <p className="text-slate-600 text-lg max-w-2xl font-medium">
-                From high-precision iPhone micro-soldering Newcastle to rugged Samsung display repairs, we've cataloged expertise for every major manufacturer. Select yours below.
+                From high-precision iPhone screen repairs to Samsung Galaxy battery replacements, we have the expertise for every major brand. Select yours below to learn more.
               </p>
             </div>
             <div className="lg:col-span-4 lg:pt-12">
               <a href="#contact" className="group flex items-center justify-between p-6 bg-white border border-slate-200 rounded-2xl hover:border-blue-500 transition-all font-bold text-slate-900 shadow-sm">
-                <span>Custom Device repair?</span>
+                <span>Custom Device Repair?</span>
                 <ArrowRight className="w-5 h-5 text-blue-600 group-hover:translate-x-2 transition-transform" />
               </a>
             </div>
@@ -176,7 +176,7 @@ export default function Home() {
                 </div>
                 <h4 className="font-bold text-slate-900 text-lg font-display">{brand.name}</h4>
                 <div className="mt-4 flex items-center gap-1 text-[10px] text-blue-600 font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all">
-                  Models <ChevronRight className="w-3 h-3" />
+                  View Models <ChevronRight className="w-3 h-3" />
                 </div>
               </Link>
             ))}
@@ -190,10 +190,10 @@ export default function Home() {
         
         <div className="max-w-4xl mx-auto text-center mb-24 space-y-8">
            <h2 className="text-4xl md:text-7xl font-bold text-slate-900 font-display leading-none">
-             Technical <span className="italic font-light text-blue-600">Solutions</span>
+             Our <span className="italic font-light text-blue-600">Services</span>
            </h2>
            <p className="text-slate-500 text-lg md:text-xl max-w-2xl mx-auto font-medium">
-             Complex faults require precise diagnostics. We go beyond screen swaps to solve the issues others turn away.
+             Complex faults require precise attention. We solve the hardware issues that others turn away.
            </p>
         </div>
 
@@ -219,7 +219,7 @@ export default function Home() {
                 <p className="text-slate-500 leading-relaxed font-medium mb-8">{service.shortDesc}</p>
                 
                 <div className="mt-auto flex items-center text-xs font-black uppercase tracking-widest text-slate-400 group-hover:text-blue-600 transition-colors gap-2">
-                  View Detail <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  Learn More <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
             </motion.div>
@@ -233,10 +233,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-24 items-center relative z-10">
           <div className="w-full md:w-5/12 space-y-12">
             <h2 className="text-4xl md:text-6xl font-bold leading-[0.95] font-display">
-              The <span className="text-blue-500">Repair</span> Experience.
+              How It <span className="text-blue-500">Works.</span>
             </h2>
             <p className="text-slate-400 text-lg leading-relaxed font-medium">
-              We've engineered our process to be as invisible as possible. Speed, precision, and zero friction from start to finish.
+              We've designed our process to be simple and transparent. Fast repairs with zero hidden catches.
             </p>
             
             <div className="flex items-center gap-6">
@@ -244,7 +244,7 @@ export default function Home() {
                 Fix My Phone
               </a>
               <div className="flex flex-col">
-                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500">Call Now</span>
+                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500">Call Us</span>
                 <span className="font-bold text-lg">02 4049 1735</span>
               </div>
             </div>
@@ -252,9 +252,9 @@ export default function Home() {
           
           <div className="w-full md:w-7/12 grid gap-8">
             {[
-              { icon: Truck, title: 'Intake', desc: 'Secure hand-off at our Mayfield lab or nationwide express mail-in.' },
-              { icon: Settings, title: 'Analysis', desc: 'Full-spectrum diagnostic audit with a transparent fixed-price report.' },
-              { icon: Clock, title: 'Execution', desc: 'Ultra-fast restoration using Grade-A components. Back to you in 45m.' }
+              { icon: Truck, title: 'Drop Off', desc: 'Securely leave your device at our Mayfield store or use our express mail-in service.' },
+              { icon: Settings, title: 'Diagnostics', desc: 'Expert analysis of the fault with a transparent fixed-price quote provided upfront.' },
+              { icon: Clock, title: 'Repair', desc: 'Fast restoration using high-quality components. Most screens are ready in 45 minutes.' }
             ].map((step, idx) => (
               <div key={idx} className="group flex gap-8 p-8 bg-white/5 border border-white/10 rounded-[2.5rem] hover:bg-white/10 hover:border-white/20 transition-all duration-500 backdrop-blur-sm">
                 <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-blue-600 flex items-center justify-center font-black text-2xl shadow-2xl shadow-blue-600/40 group-hover:scale-110 transition-transform">
@@ -275,17 +275,17 @@ export default function Home() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-24 items-center">
           <div className="w-full md:w-1/2 space-y-12">
              <div className="space-y-4">
-               <h2 className="text-4xl md:text-7xl font-bold leading-none font-display">Mayfield <span className="text-blue-500">DNA.</span></h2>
+               <h2 className="text-4xl md:text-7xl font-bold leading-none font-display">Why <span className="text-blue-500">Choose Us?</span></h2>
                <p className="text-slate-400 text-lg md:text-xl font-medium max-w-lg">
-                 Repairing what others break through verified engineering standards and uncompromising quality.
+                 Repairing what others break through verified standards and uncompromising quality in parts.
                </p>
              </div>
              
              <div className="grid gap-10">
                {[
-                 { icon: Clock, title: 'Speed of Life', desc: 'Average turn-around for screen failures is just 28 minutes.' },
-                 { icon: ShieldCheck, title: 'Bulletproof Security', desc: 'Every repair is backed by a legally binding 90-day hardware guarantee.' },
-                 { icon: Settings, title: 'Origin Parts', desc: 'No generic glass. We source strictly to manufacturer-matching specs.' }
+                 { icon: Clock, title: 'Same Day Service', desc: 'Average turnaround for screen repairs is under 45 minutes.' },
+                 { icon: ShieldCheck, title: 'Peace of Mind', desc: 'Every repair is backed by our comprehensive 90-day hardware warranty.' },
+                 { icon: Settings, title: 'Quality Parts', desc: 'We only use high-grade components that match your phone\'s original specs.' }
                ].map((feat, idx) => (
                  <div key={idx} className="flex gap-8 group">
                    <div className="w-16 h-16 rounded-3xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0 group-hover:bg-blue-500 transition-colors duration-500">
@@ -306,14 +306,14 @@ export default function Home() {
                <div className="flex gap-1 mb-8 text-blue-500">
                  {[1,2,3,4,5].map(i => <Sparkles key={i} className="w-6 h-6 fill-current" />)}
                </div>
-               <p className="text-2xl md:text-3xl font-bold font-display leading-[1.3] mb-12 italic text-balance">
-                 "They revived my water-damaged phone when everyone else said it was e-waste. True miracle workers."
+               <p className="text-2xl md:text-3xl font-bold font-display leading-[1.3] mb-12 italic text-balance text-slate-100">
+                 "They revived my water-damaged phone when everyone else said it was gone. True professionals!"
                </p>
                <div className="flex items-center gap-6">
                  <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-xl font-black shadow-2xl shadow-blue-600/50">MA</div>
                  <div>
-                   <div className="font-bold text-xl font-display">Marcus Aurelius</div>
-                   <div className="text-slate-500 font-black uppercase tracking-widest text-[10px] mt-1">Verified Client</div>
+                   <div className="font-bold text-xl font-display">Marcus A.</div>
+                   <div className="text-slate-500 font-black uppercase tracking-widest text-[10px] mt-1">Verified Customer</div>
                  </div>
                </div>
             </div>
@@ -321,12 +321,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FAQ Section with Modern Interaction */}
+      {/* FAQ Section */}
       <section className="relative px-6 md:px-12 py-32 bg-white rounded-[4rem_4rem_0_0] -mt-16 z-20">
         <div className="max-w-4xl mx-auto space-y-20">
           <div className="text-center space-y-6">
-            <h2 className="text-sm font-black text-blue-600 uppercase tracking-[0.4em] font-display">Transparency</h2>
-            <h3 className="text-4xl md:text-7xl font-bold text-slate-900 font-display leading-tight">Frequently asked questions</h3>
+            <h2 className="text-sm font-black text-blue-600 uppercase tracking-[0.4em] font-display text-center">Common Questions</h2>
+            <h3 className="text-4xl md:text-7xl font-bold text-slate-900 font-display leading-tight text-center">Frequently asked questions</h3>
           </div>
 
           <div className="grid gap-4">
@@ -367,17 +367,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact Section - Industrial Minimalist */}
+      {/* Contact Section */}
       <section id="contact" className="relative px-6 md:px-12 py-32 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-32 items-start relative z-10">
           <div className="space-y-20">
             <div className="space-y-8">
-              <h2 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.5em] font-display">Command Center</h2>
+              <h2 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.5em] font-display">Visit Our Shop</h2>
               <h3 className="text-5xl md:text-8xl font-bold text-slate-900 font-display leading-[0.85] text-balance">
-                The Lab. <br/> <span className="text-blue-600 font-light italic">Mayfield.</span>
+                Mayfield <br/> <span className="text-blue-600 font-light italic">Phone Repair.</span>
               </h3>
               <p className="text-slate-500 text-xl leading-relaxed font-medium">
-                Precise restoration happens here. No appointment essential, but always recommended for custom specific hardware requests.
+                Expert repairs you can trust. No appointment needed—just walk in during our opening hours for a fast diagnostic.
               </p>
             </div>
             
@@ -387,7 +387,7 @@ export default function Home() {
                     <MapPin className="w-10 h-10 text-slate-900 group-hover:text-white transition-colors" />
                   </div>
                   <div>
-                    <h4 className="text-2xl font-bold font-display mb-2">Location</h4>
+                    <h4 className="text-2xl font-bold font-display mb-2 text-slate-900">Location</h4>
                     <p className="text-slate-500 text-lg font-medium leading-relaxed">276 Maitland Rd, <br/> Mayfield, NSW 2304</p>
                   </div>
                </div>
@@ -396,7 +396,7 @@ export default function Home() {
                     <Clock className="w-10 h-10 text-slate-900 group-hover:text-white transition-colors" />
                   </div>
                   <div>
-                    <h4 className="text-2xl font-bold font-display mb-2">Schedule</h4>
+                    <h4 className="text-2xl font-bold font-display mb-2 text-slate-900">Opening Hours</h4>
                     <p className="text-slate-500 text-lg font-medium leading-relaxed">Mon - Fri: 09:00 — 17:00 <br/> Sat: 10:00 — 16:00</p>
                   </div>
                </div>
@@ -407,7 +407,7 @@ export default function Home() {
                 <Phone className="w-8 h-8" />
               </div>
               <div className="flex flex-col">
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-400">Direct Command</span>
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-400">Direct Call</span>
                 <span className="text-2xl font-bold font-display">02 4049 1735</span>
               </div>
             </a>
@@ -416,24 +416,24 @@ export default function Home() {
           <div className="relative">
              <div className="absolute -inset-10 bg-slate-100 rounded-[4rem] -z-10 rotate-3"></div>
              <div className="bg-white p-12 md:p-16 rounded-[4rem] border border-slate-200 shadow-[0_60px_100px_-20px_rgba(0,0,0,0.1)]">
-                <h3 className="text-4xl font-bold font-display mb-12">System Inquiry</h3>
+                <h3 className="text-4xl font-bold font-display mb-12 text-slate-900">Get a Quote</h3>
                 <form className="space-y-8">
                   <div className="grid gap-8">
                     <div className="space-y-3">
-                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-4">Identification</label>
-                      <input type="text" className="w-full px-8 py-6 bg-slate-50 rounded-3xl border border-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-lg font-medium" placeholder="Full Name" />
+                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-4">Your Name</label>
+                      <input type="text" className="w-full px-8 py-6 bg-slate-50 rounded-3xl border border-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-lg font-medium" placeholder="Ex: John Doe" />
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-4">Communications</label>
-                      <input type="tel" className="w-full px-8 py-6 bg-slate-50 rounded-3xl border border-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-lg font-medium" placeholder="Phone Contact" />
+                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-4">Phone Number</label>
+                      <input type="tel" className="w-full px-8 py-6 bg-slate-50 rounded-3xl border border-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-lg font-medium" placeholder="Ex: 0400 000 000" />
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-4">Asset Details</label>
-                      <textarea rows={4} className="w-full px-8 py-6 bg-slate-50 rounded-3xl border border-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-lg font-medium resize-none" placeholder="Describe the hardware failure..."></textarea>
+                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-4">Repair Details</label>
+                      <textarea rows={4} className="w-full px-8 py-6 bg-slate-50 rounded-3xl border border-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-lg font-medium resize-none" placeholder="Describe your issue..."></textarea>
                     </div>
                   </div>
                   <button type="button" className="w-full bg-blue-600 text-white font-black uppercase tracking-[0.2em] py-8 rounded-3xl shadow-[0_20px_40px_rgba(37,99,235,0.3)] hover:shadow-[0_30px_60px_rgba(37,99,235,0.4)] hover:-translate-y-2 transition-all duration-500 text-sm">
-                    Initialize Diagnostic Request
+                    Send Message
                   </button>
                 </form>
              </div>

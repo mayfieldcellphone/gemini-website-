@@ -41,18 +41,18 @@ export default function SuburbPage() {
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="inline-flex items-center gap-3 px-6 py-2.5 bg-blue-50 border border-blue-100 rounded-2xl mb-4 group hover:scale-105 transition-transform duration-500">
             <MapPin className="w-4 h-4 text-blue-600 scale-125" strokeWidth={3} />
-            <span className="text-[10px] font-black text-blue-800 uppercase tracking-[0.3em] font-display">Local Restoration Node</span>
+            <span className="text-[10px] font-black text-blue-800 uppercase tracking-[0.3em] font-display">Local Repair Experts</span>
           </div>
           <h1 className="text-5xl md:text-8xl font-bold text-slate-900 tracking-tighter leading-none mb-4 font-display">
             {formattedServiceText} in <br className="hidden md:block"/>
             <span className="text-blue-600">{suburbInfo.name}</span>
           </h1>
           <p className="text-xl md:text-2xl text-slate-500 font-medium leading-relaxed italic max-w-3xl mx-auto">
-            Certified technical restoration for residents across {suburbInfo.name}. Precision hardware methodology delivered in under 60 minutes.
+            Professional phone repairs for residents across {suburbInfo.name}. Quality service delivered in under 60 minutes.
           </p>
           <div className="pt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
             <Link to="/#contact" className="w-full sm:w-auto px-10 py-6 bg-slate-900 text-white font-black uppercase tracking-[0.2em] text-xs rounded-2xl shadow-2xl hover:bg-blue-600 transition-all hover:-translate-y-1 font-display">
-              Initiate Repair Protocol
+              Get Your Phone Fixed
             </Link>
             <a href="tel:0240491735" className="w-full sm:w-auto px-10 py-6 bg-white text-slate-900 border border-slate-200 font-black uppercase tracking-[0.2em] text-xs rounded-2xl hover:border-blue-400 transition-all font-display shadow-sm flex items-center justify-center gap-3">
               <Phone className="w-4 h-4 text-blue-600" /> 02 4049 1735
@@ -65,18 +65,18 @@ export default function SuburbPage() {
       <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
           <div className="space-y-4">
-             <h2 className="text-3xl md:text-6xl font-bold text-slate-900 font-display tracking-tight leading-none">Diagnostic Library</h2>
-             <p className="text-xl text-slate-500 font-medium italic">Standard field repairs frequent to the {suburbInfo.name} demographic.</p>
+             <h2 className="text-3xl md:text-6xl font-bold text-slate-900 font-display tracking-tight leading-none">Common Repairs</h2>
+             <p className="text-xl text-slate-500 font-medium italic">Expert repairs frequently requested by {suburbInfo.name} residents.</p>
           </div>
-          <div className="text-[10px] font-black text-slate-400 uppercase tracking-[0.5em] font-display mb-2">Category: Mobile Systems</div>
+          <div className="text-[10px] font-black text-slate-400 uppercase tracking-[0.5em] font-display mb-2">Category: Mobile Repairs</div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
-            { title: `Optical Display Swap`, icon: Smartphone, desc: 'Complete replacement of polarized glass and OLED arrays for all major mobile architectures in under 45 minutes.' },
-            { title: `Energy Cell Restoration`, icon: BatteryCharging, desc: 'Certified swap of lithium-ion cells to restore factory-spec standby duration for all flagship models.' },
-            { title: 'Power Bus Calibration', icon: Zap, desc: 'Correction of micro-soldered charging nodes and port housing integrity for persistent power delivery.' },
-            { title: 'Liquid Extraction', desc: 'Protocol-driven cleaning and chemical neutralization to reverse liquid ingress effects on precision logic boards.', icon: Droplet }
+            { title: `Screen Replacement`, icon: Smartphone, desc: 'Complete replacement of cracked screens and OLED displays for all major brands in under 45 minutes.' },
+            { title: `Battery Replacement`, icon: BatteryCharging, desc: 'Fast battery swaps to restore your phone\'s battery life and performance to factory standards.' },
+            { title: 'Charging Port Repair', icon: Zap, desc: 'Fixing loose or broken charging ports for reliable power. We use high-quality components.' },
+            { title: 'Water Damage', desc: 'Expert cleaning and repair for devices exposed to liquid. We save phones that others can\'t.', icon: Droplet }
           ].map((service, idx) => (
             <div key={idx} className="bg-white/60 backdrop-blur-xl p-10 rounded-[3rem] border border-white hover:border-blue-300 transition-all duration-500 shadow-2xl shadow-slate-200/50 group">
               <div className="w-14 h-14 bg-slate-50 border border-slate-100 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-blue-600 transition-colors">
@@ -96,18 +96,18 @@ export default function SuburbPage() {
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-24 items-center relative z-10">
           <div className="w-full lg:w-1/2 space-y-12">
             <div className="space-y-6">
-              <h2 className="text-4xl md:text-6xl font-bold leading-none font-display tracking-tighter">Trust Protocol</h2>
+              <h2 className="text-4xl md:text-6xl font-bold leading-none font-display tracking-tighter">Why Choose Us?</h2>
               <p className="text-slate-400 text-xl font-medium leading-relaxed italic border-l-4 border-blue-600 pl-8">
-                Why {suburbInfo.name} residents prioritize the Mayfield Lab for precision hardware restoration.
+                Why {suburbInfo.name} residents trust Mayfield Phone Repair for quality service.
               </p>
             </div>
             
             <div className="grid sm:grid-cols-2 gap-10 pt-4">
               {[
-                { title: 'Live Bench Tech', desc: 'Watch your device undergo restoration in real-time. Full transparency protocol.', icon: Clock },
-                { title: '90-Day Warrant', desc: 'Every component swap is tracked and guaranteed via our legal labor warrant.', icon: ShieldCheck },
-                { title: 'Standard Pricing', desc: 'Scientific upfront costs. No variance, no hidden surcharges for {suburbInfo.name} clients.', icon: Wrench },
-                { title: 'Node Connectivity', desc: `Optimized transit path from ${suburbInfo.name}. Strategic lab placement with dedicated parking.`, icon: MapPin }
+                { title: 'Same Day Repairs', desc: 'Most repairs are finished in under 45 minutes. Watch as we fix your device.', icon: Clock },
+                { title: '90-Day Warranty', desc: 'Every repair is backed by our solid 90-day hardware warranty for your peace of mind.', icon: ShieldCheck },
+                { title: 'Fixed Pricing', desc: 'Honest, upfront pricing. No hidden costs or surprise fees for {suburbInfo.name} residents.', icon: Wrench },
+                { title: 'Easy Access', desc: `Conviently located in Mayfield, just a short drive from ${suburbInfo.name} with easy parking.`, icon: MapPin }
               ].map((reason, i) => (
                 <div key={i} className="space-y-4 group">
                   <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-blue-600 transition-colors">
@@ -153,15 +153,15 @@ export default function SuburbPage() {
       {/* How It Works Section */}
       <section className="py-40 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-24 space-y-6">
-          <h2 className="text-4xl md:text-7xl font-bold text-slate-900 font-display tracking-tighter leading-none">Restoration Cycle</h2>
-          <p className="text-xl text-slate-500 font-medium italic">Our standardized three-step methodology for hardware recovery.</p>
+          <h2 className="text-4xl md:text-7xl font-bold text-slate-900 font-display tracking-tighter leading-none">Our Repair Process</h2>
+          <p className="text-xl text-slate-500 font-medium italic">A simple, transparent way to get your hardware back in action.</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-12">
           {[
-            { icon: Truck, title: 'In-Shell Intake', desc: `Physical device delivery from ${suburbInfo.name} nodes. Walk-in protocol fully supported.` },
-            { icon: Wrench, title: 'Hardware Debug', desc: 'Certified technicians execute precision repairs using grade-A OEM silicon components.' },
-            { icon: Sparkles, title: 'Post-Op Return', desc: 'Quality assurance validation followed by immediate device release on the SAME business cycle.' }
+            { icon: Truck, title: 'Check In', desc: `Visit our Mayfield shop from ${suburbInfo.name}. We accept walk-ins every day.` },
+            { icon: Wrench, title: 'Professional Repair', desc: 'Our technicians use high-quality parts to ensure your phone works like new again.' },
+            { icon: Sparkles, title: 'Quality Assurance', desc: 'We test everything before handing it back to ensure a perfect fix every time.' }
           ].map((step, idx) => (
             <div key={idx} className="relative bg-white/60 backdrop-blur-xl p-12 rounded-[3.5rem] border border-white hover:border-blue-400 transition-all duration-500 shadow-2xl shadow-slate-200/40 text-center group">
               <div className="w-20 h-20 bg-blue-100/50 text-blue-600 rounded-[2rem] flex items-center justify-center mb-10 mx-auto border border-blue-100 group-hover:bg-blue-600 group-hover:text-white transition-colors">
@@ -186,16 +186,16 @@ export default function SuburbPage() {
         
         <div className="max-w-4xl mx-auto relative z-10">
           <div className="text-center mb-20 space-y-4">
-            <h2 className="text-4xl md:text-6xl font-bold text-slate-900 font-display tracking-tight">Support Documentation</h2>
-            <p className="text-xl text-slate-500 font-medium italic">Standard inquiries from the {suburbInfo.name} localized node.</p>
+            <h2 className="text-4xl md:text-6xl font-bold text-slate-900 font-display tracking-tight">Need More Info?</h2>
+            <p className="text-xl text-slate-500 font-medium italic">Common questions from {suburbInfo.name} residents.</p>
           </div>
           
           <div className="space-y-6">
             {[
-              { q: 'What is the standard turnaround cycle?', a: 'Due to our persistent inventory of critical parts, 94% of restorations (screens/cells) are completed in under 45 minutes.' },
-              { q: 'Is the labor protected by warrant?', a: 'Indisputably. Every hardware intervention is backed by our 90-day warrant protocol against part or installation variance.' },
-              { q: 'Is appointment scheduling requisite?', a: 'Standard walk-in protocol is prioritized for all ' + suburbInfo.name + ' residents. Pre-booking only required for specialized logic-board restoration.' },
-              { q: 'Are cost evaluations standardized?', a: 'Affirmative. We provide fixed-cost intelligence via our direct phone line or digital command center.' }
+              { q: 'How long does a typical repair take?', a: 'Most screen and battery repairs are completed in under 45 minutes while you wait.' },
+              { q: 'Do you offer a warranty?', a: 'Yes, every repair includes a 90-day warranty on both parts and labor.' },
+              { q: 'Do I need an appointment?', a: 'No, we welcome walk-ins from ' + suburbInfo.name + ' residents during our business hours.' },
+              { q: 'Can I get a quote beforehand?', a: 'Absolutely. Call us or visit our contact page for a free, no-obligation quote.' }
             ].map((faq, idx) => (
               <div key={idx} className="bg-white/80 backdrop-blur-xl p-10 rounded-3xl shadow-xl shadow-slate-200/40 border border-white group hover:border-blue-500 transition-colors">
                 <h4 className="text-xl font-bold text-slate-900 flex items-start gap-4 font-display tracking-tight">
@@ -215,13 +215,13 @@ export default function SuburbPage() {
         <div className="absolute -left-20 -bottom-20 w-[600px] h-[600px] bg-white/5 blur-[120px] rounded-full"></div>
         
         <div className="max-w-4xl mx-auto space-y-12 relative z-10">
-          <h2 className="text-5xl md:text-8xl font-bold leading-none tracking-tighter font-display">Restore Connectivity.</h2>
+          <h2 className="text-5xl md:text-8xl font-bold leading-none tracking-tighter font-display">Get It Fixed Properly.</h2>
           <p className="text-blue-100 text-xl md:text-2xl font-medium italic max-w-3xl mx-auto">
-            From the {suburbInfo.name} node to surrounding sectors like {suburbInfo.nearby.join(', ')} — we are the Mayfield Lab. 
+            Serving {suburbInfo.name} and surrounding areas like {suburbInfo.nearby.join(', ')} — we are Mayfield Phone Repair. 
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-10">
             <Link to="/#contact" className="w-full sm:w-auto px-12 py-8 bg-white text-blue-600 font-black uppercase tracking-[0.3em] text-xs rounded-3xl shadow-2xl hover:bg-slate-900 hover:text-white transition-all hover:scale-105 font-display">
-              Access The Lab
+              Contact Us Now
             </Link>
             <a href="tel:0240491735" className="w-full sm:w-auto px-12 py-8 border-2 border-white/20 text-white font-black uppercase tracking-[0.3em] text-xs rounded-3xl hover:bg-white/10 transition-all font-display flex items-center justify-center gap-4">
               <Phone className="w-5 h-5" /> 02 4049 1735

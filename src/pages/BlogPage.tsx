@@ -9,22 +9,22 @@ export default function BlogPage() {
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-600/5 blur-[120px] rounded-full pointer-events-none"></div>
       
       <Helmet>
-        <title>Technical Intelligence | Mayfield Phone Repair Lab</title>
-        <meta name="description" content="Certified technical insights, hardware restoration protocols, and expert industry analysis from the Mayfield Lab técnicos." />
+        <title>Repair Blog | Mayfield Phone Repair Newcastle</title>
+        <meta name="description" content="Expert phone repair tips, troubleshooting guides, and project highlights from the Mayfield Phone Repair team." />
       </Helmet>
       
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <header className="max-w-4xl mb-32 space-y-8">
           <div className="inline-flex items-center gap-3 px-6 py-2.5 bg-blue-50 border border-blue-100 rounded-2xl mb-4">
             <Zap className="w-4 h-4 text-blue-600" />
-            <span className="text-[10px] font-black text-blue-800 uppercase tracking-[0.3em] font-display">Lab Archive V2.4</span>
+            <span className="text-[10px] font-black text-blue-800 uppercase tracking-[0.3em] font-display">Repair Insights</span>
           </div>
           <h1 className="text-5xl md:text-9xl font-bold text-slate-900 tracking-tighter leading-none font-display">
-            Restoration <br className="hidden md:block" /> Intelligence.
+            The Repair <br className="hidden md:block" /> Blog.
           </h1>
           <p className="text-xl md:text-3xl text-slate-500 font-medium leading-relaxed italic max-w-2xl">
-            Technical methodology and hardware diagnostics from the Mayfield Lab. 
-            <span className="text-blue-600"> Expert guidance for precision repairs.</span>
+            Expert troubleshooting and professional advice from Mayfield Phone Repair.
+            <span className="text-blue-600"> Your local source for quality tech fixes.</span>
           </p>
         </header>
 
@@ -85,19 +85,19 @@ export default function BlogPage() {
           ))}
         </div>
 
-        {/* Lab Technical Footer */}
+        {/* Technical Footer */}
         <div className="mt-40 pt-20 border-t border-slate-200 grid md:grid-cols-3 gap-12">
           <div className="space-y-4">
-             <h4 className="text-xs font-black uppercase tracking-[0.3em] font-display text-slate-400">Content Integrity</h4>
-             <p className="text-slate-500 text-sm font-medium leading-relaxed">All technical content is verified by certified Mayfield Lab technicians for hardware accuracy.</p>
+             <h4 className="text-xs font-black uppercase tracking-[0.3em] font-display text-slate-400">Content Quality</h4>
+             <p className="text-slate-500 text-sm font-medium leading-relaxed">All articles are reviewed by our lead technicians to ensure technical accuracy and helpful advice.</p>
           </div>
           <div className="space-y-4">
-             <h4 className="text-xs font-black uppercase tracking-[0.3em] font-display text-slate-400">Service Nodes</h4>
-             <p className="text-slate-500 text-sm font-medium leading-relaxed">Intelligence shared here applies to Newcastle, Wallsend, and surrounding diagnostic hubs.</p>
+             <h4 className="text-xs font-black uppercase tracking-[0.3em] font-display text-slate-400">Local Service</h4>
+             <p className="text-slate-500 text-sm font-medium leading-relaxed">Providing reliable phone repair services to Mayfield, Newcastle, and surrounding suburbs.</p>
           </div>
           <div className="space-y-4">
-             <h4 className="text-xs font-black uppercase tracking-[0.3em] font-display text-slate-400">SGE Optimized</h4>
-             <p className="text-slate-500 text-sm font-medium leading-relaxed">Data structures are formatted for modern AI extraction and LLM scannability.</p>
+             <h4 className="text-xs font-black uppercase tracking-[0.3em] font-display text-slate-400">AI Search Ready</h4>
+             <p className="text-slate-500 text-sm font-medium leading-relaxed">Content is structured for better visibility in AI-powered search engines and voice search.</p>
           </div>
         </div>
       </div>

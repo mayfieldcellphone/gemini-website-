@@ -52,11 +52,11 @@ export default function BlogPostPage() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           {/* Breadcrumbs */}
           <nav className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mb-12 font-display">
-            <Link to="/" className="hover:text-blue-600 transition-colors">Lab Home</Link>
+            <Link to="/" className="hover:text-blue-600 transition-colors">Home</Link>
             <ChevronRight className="w-3 h-3 text-slate-300" />
-            <Link to="/blog" className="hover:text-blue-600 transition-colors">Intelligence</Link>
+            <Link to="/blog" className="hover:text-blue-600 transition-colors">Repair Blog</Link>
             <ChevronRight className="w-3 h-3 text-slate-300" />
-            <span className="text-slate-900 truncate max-w-[200px]">Current Protocol</span>
+            <span className="text-slate-900 truncate max-w-[200px]">Article Detail</span>
           </nav>
 
           <div className="max-w-4xl">
@@ -100,12 +100,12 @@ export default function BlogPostPage() {
         {/* Left Column: Social/Tools (Sticky) */}
         <div className="hidden lg:block lg:col-span-1">
           <div className="sticky top-32 space-y-8 flex flex-col items-center">
-            <button className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all shadow-sm group">
+            <button className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all shadow-sm group" aria-label="Share">
               <Share2 className="w-5 h-5 group-hover:scale-110 transition-transform" />
             </button>
             <div className="w-px h-12 bg-slate-100"></div>
             <div className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-300 transform -rotate-90 origin-center whitespace-nowrap font-display">
-              Protocol Share
+              Share Article
             </div>
           </div>
         </div>
@@ -128,7 +128,7 @@ export default function BlogPostPage() {
             <div className="space-y-6 relative z-10">
               <div className="flex items-center gap-3 text-blue-400">
                 <Zap className="w-5 h-5 fill-current" />
-                <h2 className="text-xs font-black uppercase tracking-[0.3em] font-display">Executive Summary (TL;DR)</h2>
+                <h2 className="text-xs font-black uppercase tracking-[0.3em] font-display">Key Takeaways (Top Answers)</h2>
               </div>
               <p className="text-xl font-medium text-slate-200 leading-relaxed italic pr-8">
                 {post.excerpt}
@@ -136,11 +136,11 @@ export default function BlogPostPage() {
               <div className="grid sm:grid-cols-2 gap-4 pt-4 border-t border-white/5">
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-1" />
-                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Same-Day Protocol</span>
+                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Same-Day Repair Service</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-1" />
-                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">OEM Component Integrity</span>
+                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Trusted Local Technicians</span>
                 </div>
               </div>
             </div>
@@ -181,34 +181,34 @@ export default function BlogPostPage() {
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-indigo-600"></div>
               
               <div className="space-y-4">
-                <h3 className="text-xs font-black text-slate-400 uppercase tracking-[0.4em] font-display">Lab Booking</h3>
-                <p className="text-2xl font-bold text-slate-900 leading-tight font-display tracking-tight">Need immediate restoration?</p>
-                <p className="text-slate-500 font-medium leading-relaxed">Our technicians are on standby. Most standard repairs are finished in under 60 minutes.</p>
+                <h3 className="text-xs font-black text-slate-400 uppercase tracking-[0.4em] font-display">Fast Booking</h3>
+                <p className="text-2xl font-bold text-slate-900 leading-tight font-display tracking-tight">Need an immediate fix?</p>
+                <p className="text-slate-500 font-medium leading-relaxed">Our technicians are ready to help. Most standard repairs are finished in under 60 minutes.</p>
               </div>
 
               <div className="space-y-4">
                 <Link to="/#contact" className="flex items-center justify-center gap-3 w-full bg-blue-600 text-white px-8 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/20 font-display">
-                  Initiate Booking
+                  Book A Repair
                 </Link>
                 <a href="tel:0240491735" className="flex items-center justify-center gap-3 w-full bg-slate-50 text-slate-900 border border-slate-200 px-8 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] hover:border-blue-400 transition-all font-display">
-                  <Phone className="w-4 h-4" /> Call Command
+                  <Phone className="w-4 h-4" /> Call Shop
                 </a>
               </div>
 
               <div className="pt-6 border-t border-slate-50 flex items-center gap-4 text-emerald-600 text-[10px] font-black uppercase tracking-widest font-display">
-                <ShieldCheck className="w-5 h-5" /> Standard Warrant Included
+                <ShieldCheck className="w-5 h-5" /> 90-Day Warranty Included
               </div>
             </div>
 
             {/* Quick Stats / Info Card */}
             <div className="bg-slate-900 rounded-[3rem] p-10 text-white shadow-2xl relative overflow-hidden">
                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/10 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
-               <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-blue-500 mb-8 font-display">Lab Reliability</h3>
+               <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-blue-500 mb-8 font-display">Service Quality</h3>
                <div className="space-y-6">
                  {[
-                   { label: 'Completion Rate', val: '99.8%' },
-                   { label: 'Average Cycle', val: '45m' },
-                   { label: 'Client Trust', val: '5.0/5' }
+                   { label: 'Success Rate', val: '99.8%' },
+                   { label: 'Avg Repair Time', val: '45m' },
+                   { label: 'Google Rating', val: '5.0/5' }
                  ].map(stat => (
                    <div key={stat.label} className="flex justify-between items-end group">
                      <span className="text-[10px] font-black uppercase tracking-widest text-slate-500 group-hover:text-slate-300 transition-colors">{stat.label}</span>
@@ -224,7 +224,7 @@ export default function BlogPostPage() {
                 <MapPin className="w-6 h-6 text-slate-400 group-hover:text-white" />
               </div>
               <div>
-                <h4 className="font-bold text-slate-900 mb-2 font-display uppercase tracking-widest text-xs">Mayfield Node</h4>
+                <h4 className="font-bold text-slate-900 mb-2 font-display uppercase tracking-widest text-xs">Our Location</h4>
                 <p className="text-slate-500 text-sm font-medium leading-relaxed italic">276 Maitland Rd, Mayfield, NSW, 2304</p>
               </div>
             </div>
