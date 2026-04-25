@@ -184,7 +184,7 @@ export const blogPosts: BlogPost[] = [
         <div class="mt-12 bg-blue-600 text-white p-12 rounded-[3.5rem] shadow-2xl text-center relative overflow-hidden">
           <div class="absolute inset-0 bg-slate-900/10 backdrop-blur-sm"></div>
           <div class="relative z-10">
-            <h3 class="text-4xl font-bold mb-4 font-display tracking-tight">Ready for a Technical Fix?</h3>
+            <h3 class="text-4xl font-bold mb-4 font-display tracking-tight">Ready for a Professional Repair?</h3>
             <p class="text-xl text-blue-100 mb-10 italic max-w-2xl mx-auto">Visit our Mayfield store today for a free diagnostic and a transparent quote.</p>
             <div class="flex flex-col sm:flex-row justify-center gap-6">
               <a href="tel:0240491735" class="bg-slate-900 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display shadow-xl">Call Us Now</a>

@@ -32,7 +32,11 @@ export default function BlogPage() {
           {blogPosts.map((post) => (
             <article key={post.id} className="relative flex flex-col items-start bg-transparent group">
               <Link to={`/blog/${post.slug}`} className="block w-full relative h-[300px] sm:h-[450px] rounded-[3.5rem] overflow-hidden mb-10 shadow-2xl transition-transform duration-500 group-hover:-translate-y-2">
-                <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/0 transition-colors z-10"></div>
+                <div className="absolute inset-0 bg-slate-900/40 group-hover:bg-slate-900/20 transition-colors z-10 flex items-end p-10">
+                  <span className="text-white font-black uppercase tracking-widest text-[10px] flex items-center gap-3">
+                    Read Article <ArrowRight className="w-4 h-4" />
+                  </span>
+                </div>
                 <img
                   src={post.imageUrl}
                   alt={post.title}
