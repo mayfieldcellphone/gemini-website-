@@ -4,17 +4,24 @@ import { suburbs } from '../data/suburbs';
 import { Phone, Clock, ShieldCheck, MapPin, Smartphone, BatteryCharging, Droplet, Zap, Wrench, ArrowRight, Truck, Sparkles, HelpCircle } from 'lucide-react';
 
 export default function SuburbPage() {
-  const { suburbId } = useParams();
+  const { suburbId, serviceKeyword } = useParams();
   
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'auto' });
-  }, [suburbId]);
+  }, [suburbId, serviceKeyword]);
 
-  // Format dynamic fallback
-  const fallbackName = suburbId ? suburbId.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') : 'Your Area';
+  // Format dynamic fallbacks
+  const fallbackSuburbName = suburbId ? suburbId.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') : 'Your Area';
   
+  // Convert "samsung-tablet-repair" to "Samsung Tablet Repair"
+  const formattedServiceText = serviceKeyword 
+    ? serviceKeyword.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+    : 'Phone Repair';
+  
+  const isGeneric = formattedServiceText === 'Phone Repair';
+
   const suburbInfo = suburbs.find(s => s.id === suburbId) || {
-    name: fallbackName,
+    name: fallbackSuburbName,
     distance: 'a short drive away',
     nearby: ['Newcastle', 'Mayfield']
   };
@@ -33,11 +40,11 @@ export default function SuburbPage() {
             <span className="text-xs font-bold text-blue-800 uppercase tracking-wide">Local Repair Service</span>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            Phone Repair in {suburbInfo.name} <br className="hidden md:block"/> 
+            {formattedServiceText} in {suburbInfo.name} <br className="hidden md:block"/> 
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">– Same Day Service</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
-            If you live or work in {suburbInfo.name}, fast and reliable device repair is {suburbInfo.distance} at Mayfield Phone Repair. We provide trusted, same day phone repair {suburbInfo.name} residents can count on. Whether you need a quick screen fix or a complex logic board diagnostic, our premium service gets your device back in your hands immediately.
+            If you live or work in {suburbInfo.name}, fast and reliable {formattedServiceText.toLowerCase()} is {suburbInfo.distance} at Mayfield Phone Repair. We provide trusted, same day service {suburbInfo.name} residents can count on. Whether you need a {isGeneric ? 'quick screen' : 'specialized'} fix or a complex logic board diagnostic, our premium service gets your device back in your hands immediately.
           </p>
           <div className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link to="/#contact" className="w-full sm:w-auto px-8 py-4 bg-blue-600 text-white font-bold rounded-xl shadow-lg shadow-blue-200 hover:bg-blue-700 transition">
@@ -81,7 +88,7 @@ export default function SuburbPage() {
           <div className="w-full lg:w-1/2 space-y-6">
             <h2 className="text-3xl md:text-4xl font-extrabold leading-tight">Why Customers from {suburbInfo.name} Choose Us</h2>
             <p className="text-slate-400 text-lg">
-              When dealing with fragile electronics, you shouldn't have to choose between quality and speed. We are the preferred destination for iPhone repair {suburbInfo.name} and Samsung repair {suburbInfo.name} because we strictly guarantee both.
+              When dealing with fragile electronics, you shouldn't have to choose between quality and speed. We are the preferred destination for {formattedServiceText.toLowerCase()} across {suburbInfo.name} because we strictly guarantee both.
             </p>
             <ul className="space-y-6 pt-4">
               {[

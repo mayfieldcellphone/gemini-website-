@@ -1,4 +1,4 @@
-import { Smartphone, Battery, Droplet, Settings, Layers, Camera, Zap } from 'lucide-react';
+import { Smartphone, Battery, Droplet, Settings, Layers, Camera, Zap, Laptop } from 'lucide-react';
 
 export const servicesData = [
   {
@@ -175,5 +175,30 @@ export const servicesData = [
       }
     ],
     features: ['Safe Debris Extraction', 'USB-C & Lightning Repair', 'Micro-Soldering Support', 'Free Diagnosis'],
+  },
+  {
+    id: 'laptop-repair',
+    icon: Laptop,
+    title: 'Laptop & MacBook Repair',
+    shortDesc: 'Expert laptop repair service for screen, battery, charging, or software issues on Macbooks and all major brands.',
+    heroTitle: 'Professional Laptop & MacBook Repair',
+    heroDescription: 'From shattered screens and dead batteries to charging failures and software crashes, we provide comprehensive repair services for all laptops including Apple MacBooks. Fast, reliable, and specialized service.',
+    color: 'from-blue-700 to-slate-800',
+    content: [
+      {
+        heading: 'Comprehensive Laptop Hardware & Software Solutions',
+        text: 'Laptops and MacBooks are essential for work, study, and daily life. When they break down, you need a prompt and professional solution. Our technicians are highly trained in diagnosing and fixing a wide range of laptop issues including screen replacements, battery swaps, charging port repairs, and resolving persistent software glitches.'
+      },
+      {
+        heading: 'Common Laptop Repair Issues We Fix',
+        list: [
+          'Screen repair for cracked displays or severe dead pixel clusters',
+          'Battery replacement for devices that won\'t hold a charge',
+          'Charging port repair or logic board power delivery fixes',
+          'Software issues, boot loops, virus removal, and OS reinstalls'
+        ]
+      }
+    ],
+    features: ['MacBook Specialist', 'Screen & Battery Fixes', 'No Fix, No Fee', 'Fast Turnaround'],
   }
 ];

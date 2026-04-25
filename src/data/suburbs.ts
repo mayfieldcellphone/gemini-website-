@@ -22,4 +22,19 @@ export const suburbs: Suburb[] = [
   { id: 'georgetown', name: 'Georgetown', distance: 'a 3-minute drive', nearby: ['Waratah', 'Broadmeadow'] },
   { id: 'adamstown', name: 'Adamstown', distance: 'about 12 minutes away', nearby: ['Kotara', 'Broadmeadow'] },
   { id: 'stockton', name: 'Stockton', distance: 'a 15-minute trip across the bridge', nearby: ['Fern Bay', 'Newcastle'] },
+  { id: 'new-lambton', name: 'New Lambton', distance: 'a 7-minute drive', nearby: ['Lambton', 'Kotara'] },
+  { id: 'tighes-hill', name: 'Tighes Hill', distance: 'a quick 3-minute hop', nearby: ['Mayfield', 'Islington'] },
+  { id: 'carrington', name: 'Carrington', distance: 'an 8-minute drive via Industrial Drive', nearby: ['Maryville', 'Wickham'] },
+  { id: 'maryville', name: 'Maryville', distance: 'just a 6-minute drive', nearby: ['Islington', 'Carrington'] },
+];
+
+export const seoServices = [
+  { id: 'phone-repair', name: 'Phone Repair' },
+  { id: 'iphone-repair', name: 'iPhone Repair' },
+  { id: 'samsung-repair', name: 'Samsung Repair' },
+  { id: 'screen-repair', name: 'Screen Repair' },
+  { id: 'ipad-repair', name: 'iPad Repair' },
+  { id: 'macbook-repair', name: 'MacBook Repair' },
+  { id: 'laptop-repair', name: 'Laptop Repair' },
+  { id: 'battery-replacement', name: 'Battery Replacement' }
 ];

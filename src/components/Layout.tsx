@@ -3,9 +3,11 @@ import { motion, AnimatePresence } from 'motion/react';
 import { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import BirdeyeReviewWidget from './BirdeyeReviewWidget';
+import { suburbs, seoServices } from '../data/suburbs';
 
 export default function Layout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSeoDirOpen, setIsSeoDirOpen] = useState(false);
 
   const closeMenu = () => setIsMenuOpen(false);
 
@@ -84,6 +86,7 @@ export default function Layout() {
           <Link to="/" className="hover:text-blue-600 transition-colors">Home</Link>
           <Link to="/#brands" className="hover:text-blue-600 transition-colors">Brands</Link>
           <Link to="/#services" className="hover:text-blue-600 transition-colors">Services</Link>
+          <Link to="/blog" className="hover:text-blue-600 transition-colors">Blog</Link>
           <Link to="/#why-us" className="hover:text-blue-600 transition-colors">Why Choose Us</Link>
           <Link to="/#contact" className="hover:text-blue-600 transition-colors">Location & Contact</Link>
         </div>
@@ -113,6 +116,7 @@ export default function Layout() {
               <Link to="/" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Home</Link>
               <Link to="/#brands" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Brands</Link>
               <Link to="/#services" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Services</Link>
+              <Link to="/blog" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Blog</Link>
               <Link to="/#why-us" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Why Choose Us</Link>
               <Link to="/#contact" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Location & Contact</Link>
               <div className="pt-6 mt-2 border-t border-slate-100 flex flex-col space-y-4">
@@ -166,40 +170,74 @@ export default function Layout() {
             </div>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-12 w-full md:w-auto">
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-12 w-full lg:w-1/3">
              <div>
                <h4 className="text-white font-bold mb-4">Company</h4>
                <ul className="space-y-2 text-sm">
                  <li><Link to="/" className="hover:text-blue-400 transition">About Us</Link></li>
                  <li><Link to="/#services" className="hover:text-blue-400 transition">Services</Link></li>
                  <li><Link to="/#brands" className="hover:text-blue-400 transition">Brands</Link></li>
+                 <li><Link to="/blog" className="hover:text-blue-400 transition">Blog</Link></li>
                  <li><Link to="/#contact" className="hover:text-blue-400 transition">Contact</Link></li>
-               </ul>
-             </div>
-             <div>
-               <h4 className="text-white font-bold mb-4">Service Areas</h4>
-               <ul className="space-y-2 text-sm">
-                 <li><Link to="/phone-repair/newcastle" className="hover:text-blue-400 transition">Newcastle</Link></li>
-                 <li><Link to="/phone-repair/waratah" className="hover:text-blue-400 transition">Waratah</Link></li>
-                 <li><Link to="/phone-repair/wallsend" className="hover:text-blue-400 transition">Wallsend</Link></li>
-                 <li><Link to="/phone-repair/charlestown" className="hover:text-blue-400 transition">Charlestown</Link></li>
-                 <li><Link to="/phone-repair/merewether" className="hover:text-blue-400 transition">Merewether</Link></li>
-                 <li><Link to="/phone-repair/kotara" className="hover:text-blue-400 transition">Kotara</Link></li>
-                 <li><span className="text-slate-600">+ Suburbs in 30km</span></li>
                </ul>
              </div>
              <div>
                <h4 className="text-white font-bold mb-4">Legal</h4>
                <ul className="space-y-2 text-sm">
-                 <li><Link to="/" className="hover:text-blue-400 transition">Privacy Policy</Link></li>
-                 <li><Link to="/" className="hover:text-blue-400 transition">Terms of Service</Link></li>
-                 <li><Link to="/" className="hover:text-blue-400 transition">Warranty Info</Link></li>
+                 <li><Link to="/privacy-policy" className="hover:text-blue-400 transition">Privacy Policy</Link></li>
+                 <li><Link to="/terms-of-service" className="hover:text-blue-400 transition">Terms of Service</Link></li>
+                 <li><Link to="/terms-of-service" className="hover:text-blue-400 transition">Warranty Info</Link></li>
                </ul>
              </div>
           </div>
         </div>
+
+        {/* SEO Local Suburbs Mega Footer (Expandable) */}
+        <div className="max-w-7xl mx-auto border-t border-slate-800 pt-8 mb-8 hidden md:block">
+           <button 
+             onClick={() => setIsSeoDirOpen(!isSeoDirOpen)}
+             className="flex items-center text-xs text-slate-500 uppercase tracking-widest font-bold hover:text-slate-300 transition-colors w-full text-left focus:outline-none"
+             aria-expanded={isSeoDirOpen}
+           >
+             Local Service Directory
+             <svg 
+               className={`w-4 h-4 ml-2 transform transition-transform duration-300 ${isSeoDirOpen ? 'rotate-180' : ''}`} 
+               fill="none" viewBox="0 0 24 24" stroke="currentColor"
+             >
+               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+             </svg>
+           </button>
+           
+           <AnimatePresence>
+             {isSeoDirOpen && (
+               <motion.div 
+                 initial={{ height: 0, opacity: 0 }}
+                 animate={{ height: 'auto', opacity: 1 }}
+                 exit={{ height: 0, opacity: 0 }}
+                 transition={{ duration: 0.3 }}
+                 className="overflow-hidden"
+               >
+                 <div className="text-[10px] text-slate-600 leading-relaxed text-justify opacity-60 hover:opacity-100 transition-opacity duration-300 pt-4">
+                   {suburbs.map((suburb, i) => (
+                      <span key={suburb.id}>
+                        {seoServices.map((service, j) => (
+                          <span key={`${suburb.id}-${service.id}`}>
+                            <Link to={`/${service.id}/${suburb.id}`} className="hover:text-blue-400 focus:text-blue-400">
+                              {service.name} {suburb.name}
+                            </Link>
+                            {/* Add comma unless it's the very last item in both arrays */}
+                            {!(i === suburbs.length - 1 && j === seoServices.length - 1) && <span className="mx-1.5">&bull;</span>}
+                          </span>
+                        ))}
+                      </span>
+                   ))}
+                 </div>
+               </motion.div>
+             )}
+           </AnimatePresence>
+        </div>
         
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-xs uppercase tracking-widest gap-4">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-xs uppercase tracking-widest gap-4 border-t border-slate-800 pt-8">
           <div>&copy; {new Date().getFullYear()} MAYFIELD PHONE REPAIR.</div>
           <div>All Rights Reserved.</div>
         </div>

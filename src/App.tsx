@@ -4,6 +4,10 @@ import Home from './pages/Home';
 import BrandPage from './pages/BrandPage';
 import ServicePage from './pages/ServicePage';
 import SuburbPage from './pages/SuburbPage';
+import BlogPage from './pages/BlogPage';
+import BlogPostPage from './pages/BlogPostPage';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 
 export default function App() {
   return (
@@ -13,7 +17,11 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="brand/:brandId" element={<BrandPage />} />
           <Route path="service/:serviceId" element={<ServicePage />} />
-          <Route path="phone-repair/:suburbId" element={<SuburbPage />} />
+          <Route path="blog" element={<BlogPage />} />
+          <Route path="blog/:slug" element={<BlogPostPage />} />
+          <Route path="privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="terms-of-service" element={<TermsOfService />} />
+          <Route path=":serviceKeyword/:suburbId" element={<SuburbPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
