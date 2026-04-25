@@ -135,7 +135,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Mayfield Phone Repair Team',
     date: '2026-04-15',
     excerpt: 'Looking for a reliable phone repair shop in Mayfield or Newcastle? See why local expertise, transparent pricing, and solid warranties are essential for your device.',
-    imageUrl: 'https://images.unsplash.com/photo-1597872253359-46e4c7cbfe95?auto=format&fit=crop&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80',
     tags: ['Local Repair', 'Mayfield', 'Phone Maintenance'],
     content: `
       <section class="space-y-8">
