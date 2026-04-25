@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { brands } from '../data/brands';
 import { servicesData } from '../data/services';
+import { blogPosts } from '../data/blogs';
 
 const BackgroundDecoration = () => (
   <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
@@ -317,6 +318,51 @@ export default function Home() {
                  </div>
                </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Blog Section */}
+      <section className="relative px-6 md:px-12 py-32 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-20">
+            <div className="space-y-6">
+              <h2 className="text-sm font-black text-blue-600 uppercase tracking-[0.4em] font-display">Repair Insights</h2>
+              <h3 className="text-4xl md:text-6xl font-bold text-slate-900 font-display leading-[0.95]">
+                Latest from our <span className="text-blue-600">experts.</span>
+              </h3>
+            </div>
+            <Link to="/blog" className="group flex items-center gap-3 text-xs font-black uppercase tracking-widest text-slate-900 pb-2 border-b-2 border-slate-900 hover:border-blue-600 hover:text-blue-600 transition-all">
+              View All Articles <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-10">
+            {blogPosts.slice(0, 3).map((post) => (
+              <Link 
+                key={post.id} 
+                to={`/blog/${post.slug}`}
+                className="group flex flex-col h-full bg-slate-50 rounded-[2.5rem] overflow-hidden border border-slate-100 hover:border-blue-200 transition-all"
+              >
+                <div className="aspect-[16/10] overflow-hidden">
+                  <img src={post.imageUrl} alt={post.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                </div>
+                <div className="p-8 space-y-4 flex-1 flex flex-col">
+                  <div className="flex items-center gap-4 text-[10px] font-black uppercase tracking-widest text-slate-400">
+                    <span>{new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                  </div>
+                  <h4 className="text-xl font-bold font-display text-slate-900 group-hover:text-blue-600 transition-colors line-clamp-2">
+                    {post.title}
+                  </h4>
+                  <p className="text-slate-500 text-sm font-medium line-clamp-2 mb-6">
+                    {post.excerpt}
+                  </p>
+                  <div className="mt-auto flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-blue-600 group-hover:gap-4 transition-all">
+                    Read More <ArrowRight className="w-3.5 h-3.5" />
+                  </div>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
