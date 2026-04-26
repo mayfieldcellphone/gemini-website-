@@ -1,9 +1,13 @@
 import { motion } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
-import { Smartphone, Zap, ShieldCheck, Heart, ArrowRight, LayoutGrid, Tablet, Laptop, Headphones, Speaker, Watch } from 'lucide-react';
+import { Smartphone, Zap, ShieldCheck, Heart, ArrowRight, LayoutGrid, Tablet, Laptop, Headphones, Speaker, Watch, ChevronRight } from 'lucide-react';
 import { brands } from '../data/brands';
+import { LATEST_MODELS } from '../constants/models';
+import { useState } from 'react';
 
 export default function AccessoriesPage() {
+  const [activeTab, setActiveTab] = useState<'iphone' | 'samsung' | 'google' | 'ipad'>('iphone');
+
   const categories = [
     { icon: <Smartphone className="w-6 h-6" />, title: "Phone Cases", description: "Silicon, Clear, Armor & Wallet cases for all models." },
     { icon: <Zap className="w-6 h-6" />, title: "Cables & Bricks", description: "Fast chargers, USB-C, Lightning & Wireless pads." },
@@ -16,10 +20,10 @@ export default function AccessoriesPage() {
   return (
     <div className="pt-20">
       <Helmet>
-        <title>Phone Cases & Accessories Mayfield | Chargers, Glass & More Newcastle</title>
-        <meta name="description" content="Shop premium phone cases, fast chargers, tempered glass, and audio accessories in Mayfield. Supporting iPhone, Samsung, Google Pixel and more." />
-        <meta property="og:title" content="Premium Tech Accessories - Mayfield Cell Phone Repairs" />
-        <meta property="og:description" content="Protect and power your device with our range of high-quality cases, chargers, and protectors." />
+        <title>iPhone 17 & 16 Accessories Mayfield | Samsung S26 Cases Newcastle</title>
+        <meta name="description" content="Shop the latest iPhone 17, 16, and Samsung S26 accessories in Mayfield. Fast chargers, tempered glass, and premium cases for all Newcastle device owners." />
+        <meta property="og:title" content="Latest iPhone 17 & Samsung Accessories - Mayfield Cell Phone Repairs" />
+        <meta property="og:description" content="Protect your new iPhone 17 or Galaxy S26 with our premium range of cases and glass. Visit us in Mayfield." />
       </Helmet>
       {/* Hero Section */}
       <section className="relative px-6 md:px-12 py-32 bg-white overflow-hidden">
@@ -32,17 +36,17 @@ export default function AccessoriesPage() {
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 border border-slate-200 rounded-full">
                 <Heart className="w-4 h-4 text-rose-500" />
-                <span className="text-[10px] font-black uppercase tracking-widest text-slate-500">Premium Tech Essentials</span>
+                <span className="text-[10px] font-black uppercase tracking-widest text-slate-500">Premium Tech Essentials 2026</span>
               </div>
-              <h1 className="text-6xl md:text-8xl font-bold text-slate-900 font-display leading-[0.85] tracking-tight">
-                Gear Up Your <br/><span className="text-blue-600 italic font-light">Devices.</span>
+              <h1 className="text-6xl md:text-8xl font-bold text-slate-900 font-display leading-[0.85] tracking-tight text-balance">
+                Latest Gear for <br/><span className="text-blue-600 italic font-light">iPhone 17 & S26.</span>
               </h1>
               <p className="text-slate-500 text-xl leading-relaxed font-medium max-w-xl italic">
-                From the latest iPhone 15 chargers to protective cases for every Samsung Galaxy model. Quality accessories at Mayfield's best prices.
+                Supporting Newcastle's newest flagship devices. From iPhone 17 Pro Max screen protectors to Galaxy S26 Ultra rugged cases. Quality gear, local service.
               </p>
               <div className="flex gap-6">
-                <a href="#categories" className="px-10 py-6 bg-slate-900 text-white rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-600 transition-all shadow-xl">
-                  Shop Categories
+                <a href="#matrix" className="px-10 py-6 bg-slate-900 text-white rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-600 transition-all shadow-xl">
+                  Check Compatibility
                 </a>
               </div>
             </motion.div>
@@ -58,10 +62,56 @@ export default function AccessoriesPage() {
               </div>
               {/* Floating badges */}
               <div className="absolute top-10 -right-5 bg-blue-600 text-white p-6 rounded-3xl shadow-2xl rotate-6 animate-pulse">
-                <p className="text-xl font-bold">Best Prices</p>
-                <p className="text-[10px] uppercase font-black opacity-80">Guaranteed</p>
+                <p className="text-xl font-bold">2026 Ready</p>
+                <p className="text-[10px] uppercase font-black opacity-80">Full Series Support</p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Device Support Matrix */}
+      <section id="matrix" className="px-6 md:px-12 py-32 bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto space-y-16">
+          <div className="text-center space-y-4">
+            <h2 className="text-sm font-black text-blue-600 uppercase tracking-[0.4em] font-display">Compatibility Search</h2>
+            <h3 className="text-4xl md:text-6xl font-bold text-slate-900 font-display italic">Find Your <span className="text-blue-600">Model.</span></h3>
+          </div>
+
+          <div className="bg-slate-50 p-4 rounded-[2.5rem] inline-flex flex-wrap justify-center border border-slate-200 mx-auto w-full md:w-auto md:min-w-[400px]">
+             {(['iphone', 'samsung', 'google', 'ipad'] as const).map((tab) => (
+               <button
+                 key={tab}
+                 onClick={() => setActiveTab(tab)}
+                 className={`px-8 py-4 rounded-2xl font-black uppercase tracking-widest text-[10px] transition-all ${
+                   activeTab === tab ? 'bg-slate-900 text-white shadow-lg' : 'text-slate-500 hover:text-blue-600'
+                 }`}
+               >
+                 {tab === 'ipad' ? 'iPads' : tab.charAt(0).toUpperCase() + tab.slice(1)}
+               </button>
+             ))}
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+             {LATEST_MODELS[activeTab].map((series, idx) => (
+               <motion.div 
+                 key={series.title}
+                 initial={{ opacity: 0, y: 20 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 transition={{ delay: idx * 0.05 }}
+                 className="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-xl transition-all duration-500"
+               >
+                 <h4 className="text-lg font-bold text-slate-900 mb-6 font-display">{series.title}</h4>
+                 <ul className="space-y-4">
+                   {series.models.map(m => (
+                     <li key={m} className="flex items-center gap-3 text-slate-500 text-sm font-medium group cursor-default">
+                       <div className="w-1.5 h-1.5 rounded-full bg-blue-600 opacity-20 group-hover:opacity-100 transition-opacity"></div>
+                       {m}
+                     </li>
+                   ))}
+                 </ul>
+               </motion.div>
+             ))}
           </div>
         </div>
       </section>

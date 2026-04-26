@@ -5,9 +5,9 @@ export const servicesData = [
     id: 'screen-repair',
     icon: Smartphone,
     title: 'Screen Repair',
-    shortDesc: 'Cracked or shattered screen? For the best screen repair Mayfield has to offer, we replace displays with high-quality OEM-spec parts in under 30 minutes.',
-    heroTitle: 'Expert Screen Repair Mayfield',
-    heroDescription: 'Don\'t let a cracked screen ruin your day. Our fast phone repair service specializes in seamless display replacements for all major brands. We provide same day phone repair to get you back online instantly.',
+    shortDesc: 'Cracked or shattered screen? For the best screen repair Mayfield has to offer, we replace displays for iPhone 17, 16, and Samsung S26 models in under 30 minutes.',
+    heroTitle: 'Expert Screen Repair Mayfield | iPhone 17 & S26 Specialists',
+    heroDescription: 'Don\'t let a cracked screen ruin your day. Our fast phone repair service specializes in seamless display replacements for the newest flagships like iPhone 17 Pro Max and Samsung S26 Ultra. We provide same day phone repair to get you back online instantly.',
     color: 'from-blue-600 to-indigo-600',
     content: [
       {
@@ -155,9 +155,9 @@ export const servicesData = [
     id: 'charging-port-repair',
     icon: Zap,
     title: 'Charging Port Repair',
-    shortDesc: 'Device won\'t charge or the cable feels loose? We clean, repair, or micro-solder faulty charging ports to keep your battery continuously powered.',
-    heroTitle: 'Reliable Charging Port Repair',
-    heroDescription: 'A phone that won\'t charge is a useless phone. If you have to hold your cable at a specific angle just to get power, rely on our affordable phone repair near me to fix or replace your charging port immediately.',
+    shortDesc: 'iPhone 17 or Galaxy S26 won\'t charge? We clean, repair, or micro-solder faulty USB-C and Lightning ports to keep your battery powered.',
+    heroTitle: 'Reliable Charging Port Repair | USB-C Experts',
+    heroDescription: 'A phone that won\'t charge is a useless phone. Whether it\'s the new USB-C on the iPhone 17 or a Galaxy S26 port, rely on our affordable phone repair services in Mayfield to fix it fast.',
     color: 'from-amber-500 to-orange-600',
     content: [
       {

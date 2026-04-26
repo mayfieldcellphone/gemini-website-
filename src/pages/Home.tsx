@@ -79,10 +79,10 @@ export default function Home() {
   return (
     <div className="relative">
       <Helmet>
-        <title>Phone Repair Mayfield | Fast Screen & Battery Fix Newcastle</title>
-        <meta name="description" content="Newcastle's #1 Phone Repair Shop in Mayfield. We fix iPhone, Samsung, Google Pixel & more. Same-day screen repairs, battery replacements & water damage service. 90-day warranty." />
-        <meta property="og:title" content="Expert Phone Repair Mayfield | Same Day Service" />
-        <meta property="og:description" content="Cracked screen? Battery issues? Mayfield's trusted phone repair experts are here to help. Fast turnaround and quality parts for all major brands." />
+        <title>iPhone 17 & 16 Repair Mayfield | Samsung S26 Screen Fix Newcastle</title>
+        <meta name="description" content="Mayfield's leading repair shop for the newest iPhone 17, 16, and Samsung S26 series. Same-day screen repairs, battery replacements & water damage service in Newcastle. 90-day warranty." />
+        <meta property="og:title" content="Expert iPhone 17 & 16 Repair Mayfield | Same Day Service" />
+        <meta property="og:description" content="Cracked iPhone 17 screen? Samsung S26 battery issues? Mayfield's trusted experts fix the newest flagships with quality parts and fast turnaround." />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -485,15 +485,15 @@ export default function Home() {
       {/* Popular Models SEO Section */}
       <section className="py-20 px-6 md:px-12 bg-slate-50 border-t border-slate-100">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-xs font-black text-slate-400 uppercase tracking-[0.4em] font-display mb-12 text-center">Specialist Models We Serviced This Week</h2>
+          <h2 className="text-xs font-black text-slate-400 uppercase tracking-[0.4em] font-display mb-12 text-center">Specialist 2026 Flagship Repairs</h2>
           <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 text-sm font-bold text-slate-500 font-display italic">
-            <span className="hover:text-blue-600 transition-colors cursor-default">iPhone 15 Pro Max Screen Replacement</span>
-            <span className="hover:text-blue-600 transition-colors cursor-default">Samsung S24 Ultra Battery Fix</span>
-            <span className="hover:text-blue-600 transition-colors cursor-default">Google Pixel 8 Pro Back Glass</span>
-            <span className="hover:text-blue-600 transition-colors cursor-default">iPhone 14 Plus Logic Board</span>
-            <span className="hover:text-blue-600 transition-colors cursor-default">Samsung Z Fold 5 Inner Display</span>
-            <span className="hover:text-blue-600 transition-colors cursor-default">iPad Pro 12.9 Charging Port</span>
-            <span className="hover:text-blue-600 transition-colors cursor-default">iPhone 13 OLED Restoration</span>
+            <span className="hover:text-blue-600 transition-colors cursor-default">iPhone 17 Pro Max Screen Restoration</span>
+            <span className="hover:text-blue-600 transition-colors cursor-default">Samsung S26 Ultra Display Fix</span>
+            <span className="hover:text-blue-600 transition-colors cursor-default">iPhone 16 Pro Battery Replacement</span>
+            <span className="hover:text-blue-600 transition-colors cursor-default">Google Pixel 10 Pro Port Repair</span>
+            <span className="hover:text-blue-600 transition-colors cursor-default">iPad Pro 13" (M4) Glass Repair</span>
+            <span className="hover:text-blue-600 transition-colors cursor-default">Samsung Z Fold 7 Screen Swap</span>
+            <span className="hover:text-blue-600 transition-colors cursor-default">iPhone 17 Plus Camera Lens</span>
           </div>
         </div>
       </section>

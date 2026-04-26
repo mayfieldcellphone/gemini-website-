@@ -799,5 +799,33 @@ export const blogPosts: BlogPost[] = [
         </div>
       </section>
     `
+  },
+  {
+    id: '5',
+    title: 'iPhone 17 Repair Newcastle: First Look at 2026 Flagship Fixes',
+    slug: 'iphone-17-repair-newcastle-mayfield',
+    author: 'Mayfield Technical Team',
+    date: '2026-04-26',
+    excerpt: 'The iPhone 17 series has arrived with new internal architectures. Learn how Mayfield Phone Repair handles the latest screen and battery technology.',
+    imageUrl: 'https://images.unsplash.com/photo-1621330396173-e41b1cafd17f?auto=format&fit=crop&q=80',
+    tags: ['iPhone 17', 'Repair Guide', 'Newcastle', 'Apple Fix'],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-rose-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-rose-100 italic">Technical Brief</h2>
+          <p class="text-2xl font-bold">The iPhone 17 Pro Max introduces a refined internal layout that requires precision alignment tools—which we already have in Mayfield.</p>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">As Newcastle's premier independent repair lab, we’ve already decoded the assembly process for the <strong>iPhone 17 repair</strong>. Whether you’ve cracked your first iPhone 17 screen or need a diagnostic on the new thermal management system, we are ready.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight italic">New Display Technology</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">The iPhone 17 series features even more resilient glass, but high-impact drops can still cause OLED damage. Our premium replacement panels maintain the 120Hz refresh rate and peak brightness levels you expect from a brand-new device.</p>
+
+        <div class="p-8 bg-slate-50 border border-slate-200 rounded-3xl">
+          <h3 class="text-xl font-bold mb-4 font-display">Mayfield Priority Service</h3>
+          <p class="text-slate-500 italic">For the newest models like the iPhone 17 Pro, we offer a dedicated express lane to ensure you are reconnected with your device in record time.</p>
+        </div>
+      </section>
+    `
   }
 ];
