@@ -1,0 +1,12 @@
+# SPA Routing: Redirect all requests to index.html if the file/dir doesn't exist
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
+
+# Example Redirects for old URLs (Uncomment and update as needed)
+# Redirect 301 /old-page-url https://mayfieldphonerepair.com.au/new-page-url

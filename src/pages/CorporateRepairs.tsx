@@ -1,5 +1,6 @@
 import { useState, FormEvent } from 'react';
 import { motion } from 'motion/react';
+import { Helmet } from 'react-helmet-async';
 import { Building2, GraduationCap, ShieldCheck, Clock, CheckCircle2, Zap, ArrowRight, Mail, Phone, Users, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { db, handleFirestoreError, OperationType } from '../lib/firebase';
@@ -66,6 +67,12 @@ export default function CorporateRepairs() {
 
   return (
     <div className="pt-20">
+      <Helmet>
+        <title>Corporate & School Phone Repair Mayfield | Fleet Maintenance Newcastle</title>
+        <meta name="description" content="Specialized fleet repair solutions for Mayfield's schools, universities, and businesses. Priority turnaround, B2B invoicing, and bulk volume discounts." />
+        <meta property="og:title" content="Corporate Phone Repair Solutions - Mayfield Cell Phone Repairs" />
+        <meta property="og:description" content="Need reliable repairs for your staff or student devices? We offer priority service for local organizations and Hunter Valley education providers." />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative px-6 md:px-12 py-32 bg-slate-50 overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-slate-200/50 -skew-x-12 translate-x-1/2"></div>

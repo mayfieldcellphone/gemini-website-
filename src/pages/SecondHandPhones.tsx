@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { Helmet } from 'react-helmet-async';
 import { CheckCircle2, RefreshCw, Smartphone, ShieldCheck, ArrowRight, Zap, Database, Gift } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -28,6 +29,12 @@ export default function SecondHandPhones() {
 
   return (
     <div className="pt-20">
+      <Helmet>
+        <title>Buy Refurbished iPhones & Samsung Mayfield | Newcastle Quality Used Phones</title>
+        <meta name="description" content="Premium refurbished iPhones and Samsung Galaxy phones in Mayfield. All devices include a warranty, new batteries, and original parts. Trade-ins welcome." />
+        <meta property="og:title" content="Quality Used & Refurbished Phones - Mayfield Phone Repair" />
+        <meta property="og:description" content="Looking for a reliable used phone? We stock high-quality refurbished devices with verified original components." />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative px-6 md:px-12 py-24 bg-slate-900 overflow-hidden">
         <div className="absolute inset-0 opacity-20">

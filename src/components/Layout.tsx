@@ -102,10 +102,15 @@ export default function Layout() {
       {/* Top Utility Header */}
       <div className="bg-slate-900 text-slate-300 py-3 px-6 md:px-12 text-sm flex flex-col lg:flex-row justify-between items-center gap-3 relative z-50">
         <div className="flex flex-wrap justify-center lg:justify-start items-center gap-x-6 gap-y-2">
-          <div className="flex items-center gap-2">
+          <a 
+            href="https://www.google.com/maps/search/?api=1&query=276+Maitland+Rd+Mayfield+NSW+2304" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="flex items-center gap-2 hover:text-white transition-colors"
+          >
             <MapPin className="w-4 h-4 text-blue-400 shrink-0" />
             <span>276 Maitland Rd, Mayfield, NSW, 2304</span>
-          </div>
+          </a>
           <div className="hidden sm:block w-px h-4 bg-slate-700"></div>
           <div className="flex items-center gap-2">
             <Clock className="w-4 h-4 text-blue-400 shrink-0" />

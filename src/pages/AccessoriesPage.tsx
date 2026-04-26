@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { Helmet } from 'react-helmet-async';
 import { Smartphone, Zap, ShieldCheck, Heart, ArrowRight, LayoutGrid, Tablet, Laptop, Headphones, Speaker, Watch } from 'lucide-react';
 import { brands } from '../data/brands';
 
@@ -14,6 +15,12 @@ export default function AccessoriesPage() {
 
   return (
     <div className="pt-20">
+      <Helmet>
+        <title>Phone Cases & Accessories Mayfield | Chargers, Glass & More Newcastle</title>
+        <meta name="description" content="Shop premium phone cases, fast chargers, tempered glass, and audio accessories in Mayfield. Supporting iPhone, Samsung, Google Pixel and more." />
+        <meta property="og:title" content="Premium Tech Accessories - Mayfield Cell Phone Repairs" />
+        <meta property="og:description" content="Protect and power your device with our range of high-quality cases, chargers, and protectors." />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative px-6 md:px-12 py-32 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto">

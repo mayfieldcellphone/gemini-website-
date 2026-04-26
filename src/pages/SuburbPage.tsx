@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { suburbs } from '../data/suburbs';
 import { Phone, Clock, ShieldCheck, MapPin, Smartphone, BatteryCharging, Droplet, Zap, Wrench, ArrowRight, Truck, Sparkles, HelpCircle } from 'lucide-react';
 
@@ -30,6 +31,12 @@ export default function SuburbPage() {
 
   return (
     <div className="flex-1 bg-white overflow-hidden relative">
+      <Helmet>
+        <title>{`${formattedServiceText} in ${suburbInfo.name} | Fast Phone Repairs`}</title>
+        <meta name="description" content={`Professional ${formattedServiceText} for residents in ${suburbInfo.name}. Trusted Mayfield technicians, fast turnaround, and 90-day warranty.`} />
+        <meta property="og:title" content={`${formattedServiceText} ${suburbInfo.name} - Mayfield Phone Repair`} />
+        <meta property="og:description" content={`Get your phone fixed today in ${suburbInfo.name}. Screen repairs, battery replacements, and more with expert diagnostics.`} />
+      </Helmet>
       {/* Background Textures */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
         <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]"></div>

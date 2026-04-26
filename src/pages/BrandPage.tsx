@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { brands } from '../data/brands';
+import { Helmet } from 'react-helmet-async';
 import { ArrowLeft, Smartphone, CheckCircle2, ShieldCheck, Wrench, BatteryCharging, Zap, Droplet, Phone, Clock, MapPin, Sparkles } from 'lucide-react';
 import { useEffect } from 'react';
 
@@ -25,6 +26,12 @@ export default function BrandPage() {
 
   return (
     <div className="flex-1 bg-slate-50">
+      <Helmet>
+        <title>{`${brand.name} Repair Mayfield | Professional Newcastle Service`}</title>
+        <meta name="description" content={`Expert ${brand.name} repairs in Mayfield. ${brand.description} Same-day screen, battery, and diagnostic services by specialist technicians.`} />
+        <meta property="og:title" content={`${brand.name} Repair Newcastle - Mayfield Cell Phone Repairs`} />
+        <meta property="og:description" content={brand.description} />
+      </Helmet>
       {/* Dynamic Header */}
       <div className={`bg-gradient-to-br ${brand.color} text-white pt-24 pb-40 px-6 md:px-12 relative overflow-hidden`}>
         <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">

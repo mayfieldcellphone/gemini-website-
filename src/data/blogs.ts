@@ -732,5 +732,49 @@ export const blogPosts: BlogPost[] = [
         </div>
       </section>
     `
+  },
+  {
+    id: '3',
+    title: 'Samsung Repair Newcastle: Expert Galaxy Fixes in Mayfield',
+    slug: 'samsung-repair-newcastle-mayfield',
+    author: 'Mayfield Phone Repair Team',
+    date: '2026-04-26',
+    excerpt: 'Looking for Samsung repair in Newcastle? From S24 Ultra screen replacements to battery fixes for the A-series, we offer fast, premium service in Mayfield.',
+    imageUrl: 'https://images.unsplash.com/photo-1610945415295-d9baf060e871?auto=format&fit=crop&q=80',
+    tags: ['Samsung Repair', 'Galaxy Fix', 'Newcastle', 'Mayfield'],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-indigo-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-indigo-100">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-indigo-200 text-[10px] font-black uppercase tracking-widest">Can Samsung curved screens be repaired in Newcastle?</span>
+              <p class="text-xl font-bold">Yes, we specialize in curved AMOLED screen replacements for the Samsung S-series at our Mayfield lab.</p>
+            </div>
+            <div class="flex flex-col gap-2">
+              <span class="text-indigo-200 text-[10px] font-black uppercase tracking-widest">How long is the warranty on Samsung repairs?</span>
+              <p class="text-xl font-bold">All our Samsung repairs include a 90-day comprehensive guarantee on parts and labor.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">Samsung devices are engineering marvels, but their complex OLED displays and glass-heavy designs make them vulnerable. If you're looking for <strong>Samsung repair Newcastle</strong> residents trust, our Mayfield facility is equipped with specialized tools for precision Galaxy restoration.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Genuine Quality for Galaxy Devices</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">Unlike basic repair shops, we understand the specific calibration required for Samsung biometric sensors and high-refresh-rate displays. Whether it's a flagship S24 Ultra or a reliable A-series device, we ensure the fit and finish meet strict standards.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Our Samsung Service Menu</h2>
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100">
+            <h3 class="text-xl font-bold mb-3 text-slate-900">AMOLED Screen Swaps</h3>
+            <p class="text-slate-500">Fast replacement for cracked glass or display bleeding on all Galaxy models.</p>
+          </div>
+          <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100">
+            <h3 class="text-xl font-bold mb-3 text-slate-900">Charging Port Repair</h3>
+            <p class="text-slate-500">Fixing "moisture detected" errors and loose charging connections.</p>
+          </div>
+        </div>
+      </section>
+    `
   }
 ];

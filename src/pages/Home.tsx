@@ -1,5 +1,6 @@
 import { Smartphone, Battery, Droplet, Settings, ShieldCheck, Clock, CheckCircle2, ChevronRight, Phone, MapPin, Mail, ArrowRight, Truck, Wrench, Sparkles, HelpCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { Helmet } from 'react-helmet-async';
 import { useState, useEffect, FormEvent } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { db, handleFirestoreError, OperationType } from '../lib/firebase';
@@ -77,10 +78,16 @@ export default function Home() {
 
   return (
     <div className="relative">
+      <Helmet>
+        <title>Phone Repair Mayfield | Fast Screen & Battery Fix Newcastle</title>
+        <meta name="description" content="Newcastle's #1 Phone Repair Shop in Mayfield. We fix iPhone, Samsung, Google Pixel & more. Same-day screen repairs, battery replacements & water damage service. 90-day warranty." />
+        <meta property="og:title" content="Expert Phone Repair Mayfield | Same Day Service" />
+        <meta property="og:description" content="Cracked screen? Battery issues? Mayfield's trusted phone repair experts are here to help. Fast turnaround and quality parts for all major brands." />
+      </Helmet>
       <BackgroundDecoration />
       
       {/* Hero Section */}
-      <section className="relative px-6 md:px-12 py-20 md:py-32 flex flex-col md:flex-row items-center gap-16 overflow-hidden">
+      <section className="relative px-6 md:px-12 py-12 md:py-24 flex flex-col md:flex-row items-center gap-16 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,_var(--tw-gradient-stops))] from-blue-50/50 via-transparent to-transparent"></div>
         
         <motion.div 
@@ -177,7 +184,7 @@ export default function Home() {
       </section>
 
       {/* Brands Section with seamless transition */}
-      <section id="brands" className="relative px-6 md:px-12 py-32 bg-slate-50/50 backdrop-blur-3xl">
+      <section id="brands" className="relative px-6 md:px-12 py-20 md:py-24 bg-slate-50/50 backdrop-blur-3xl">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-12 gap-16 items-start mb-20">
             <div className="lg:col-span-8 space-y-6">
@@ -220,7 +227,7 @@ export default function Home() {
       </section>
 
       {/* Services Section with glass cards */}
-      <section id="services" className="relative px-6 md:px-12 py-32 overflow-hidden">
+      <section id="services" className="relative px-6 md:px-12 py-20 md:py-24 overflow-hidden">
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
         
         <div className="max-w-4xl mx-auto text-center mb-24 space-y-8">
@@ -263,7 +270,7 @@ export default function Home() {
       </section>
 
       {/* Process / Steps - Refined Typography & Spacing */}
-      <section className="relative px-6 md:px-12 py-32 bg-slate-950 text-white rounded-[4rem_4rem_0_0] overflow-hidden">
+      <section className="relative px-6 md:px-12 py-20 md:py-24 bg-slate-950 text-white rounded-[4rem_4rem_0_0] overflow-hidden">
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-600/10 blur-[150px] rounded-full"></div>
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-24 items-center relative z-10">
           <div className="w-full md:w-5/12 space-y-12">
@@ -306,7 +313,7 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us - Data Driven */}
-      <section id="why-us" className="relative px-6 md:px-12 py-32 bg-slate-950 text-white border-t border-white/5">
+      <section id="why-us" className="relative px-6 md:px-12 py-20 md:py-24 bg-slate-950 text-white border-t border-white/5">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-24 items-center">
           <div className="w-full md:w-1/2 space-y-12">
              <div className="space-y-4">
@@ -357,7 +364,7 @@ export default function Home() {
       </section>
 
       {/* Blog Section */}
-      <section className="relative px-6 md:px-12 py-32 bg-white">
+      <section className="relative px-6 md:px-12 py-20 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-20">
             <div className="space-y-6">
@@ -408,7 +415,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="relative px-6 md:px-12 py-32 bg-white rounded-[4rem_4rem_0_0] -mt-16 z-20">
+      <section className="relative px-6 md:px-12 py-20 md:py-24 bg-white rounded-[4rem_4rem_0_0] -mt-16 z-20">
         <div className="max-w-4xl mx-auto space-y-20">
           <div className="text-center space-y-6">
             <h2 className="text-sm font-black text-blue-600 uppercase tracking-[0.4em] font-display text-center">Common Questions</h2>
@@ -424,6 +431,9 @@ export default function Home() {
                 <button 
                   onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
                   className="w-full px-10 py-8 flex items-center justify-between text-left outline-none"
+                  aria-expanded={activeFaq === idx}
+                  aria-controls={`faq-answer-${idx}`}
+                  id={`faq-question-${idx}`}
                 >
                   <span className="text-lg md:text-xl font-bold text-slate-900 font-display flex items-center gap-6">
                     <span className={`w-3 h-3 rounded-full transition-colors ${activeFaq === idx ? 'bg-blue-600' : 'bg-slate-300'}`} />
@@ -440,6 +450,9 @@ export default function Home() {
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }}
+                      id={`faq-answer-${idx}`}
+                      role="region"
+                      aria-labelledby={`faq-question-${idx}`}
                     >
                       <div className="px-20 pb-10 text-slate-600 font-medium text-lg leading-relaxed">
                         {faq.a}
@@ -454,7 +467,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="relative px-6 md:px-12 py-32 bg-white overflow-hidden">
+      <section id="contact" className="relative px-6 md:px-12 py-20 md:py-24 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto space-y-24 relative z-10">
           <div className="max-w-3xl space-y-8">
             <h2 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.5em] font-display">Visit Our Shop</h2>

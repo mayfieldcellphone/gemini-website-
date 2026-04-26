@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { servicesData } from '../data/services';
+import { Helmet } from 'react-helmet-async';
 import { ArrowLeft, CheckCircle2, Phone, MapPin } from 'lucide-react';
 import { useEffect } from 'react';
 
@@ -27,6 +28,12 @@ export default function ServicePage() {
 
   return (
     <div className="flex-1 bg-slate-50">
+      <Helmet>
+        <title>{`${service.title} Mayfield | Newcastle Device Repair`}</title>
+        <meta name="description" content={service.shortDesc} />
+        <meta property="og:title" content={`${service.title} - Mayfield Cell Phone Repairs`} />
+        <meta property="og:description" content={service.heroDescription} />
+      </Helmet>
       {/* Dynamic Header */}
       <div className={`bg-gradient-to-br ${service.color} text-white pt-24 pb-40 px-6 md:px-12 relative overflow-hidden`}>
         <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
