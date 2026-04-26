@@ -462,7 +462,7 @@ export const blogPosts: BlogPost[] = [
           <p class="mb-8 font-medium text-slate-400">Need a specific price for your model? Call us or send an SMS for an instant, no-obligation quote today.</p>
           <div class="flex flex-col sm:flex-row gap-4">
             <a href="tel:0240491735" class="bg-blue-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display text-center shadow-lg shadow-blue-600/30">02 4049 1735</a>
-            <a href="sms:0436118100" class="bg-emerald-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display text-center">SMS For Quote</a>
+            <a href="sms:0431618100" class="bg-emerald-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display text-center">SMS For Quote</a>
           </div>
         </div>
       </section>

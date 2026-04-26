@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# AI Crawler visibility
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://mayfieldphonerepair.com.au/sitemap.xml

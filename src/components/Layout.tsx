@@ -2,7 +2,7 @@ import { Smartphone, Phone, Menu, X, Facebook, Instagram, Twitter, Linkedin, You
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import BirdeyeReviewWidget from './BirdeyeReviewWidget';
+import { Helmet } from 'react-helmet-async';
 import { suburbs, seoServices } from '../data/suburbs';
 
 export default function Layout() {
@@ -26,25 +26,6 @@ export default function Layout() {
     }
   }, [pathname, hash]);
 
-  useEffect(() => {
-    // Delay chatbot loading to improve performance score
-    const timer = setTimeout(() => {
-      const script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.src = 'https://birdeye.com/embed/v6/110315/1/2620446701/89b0ec9ad7b6e3429a216196386d88f1c2f4a2be91fe1a62';
-      script.async = true;
-      script.defer = true;
-      script.crossOrigin = 'anonymous';
-      document.body.appendChild(script);
-
-      const container = document.createElement('div');
-      container.id = 'bf-revz-widget-2620446701';
-      document.body.appendChild(container);
-    }, 3500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   const closeMenu = () => setIsMenuOpen(false);
 
   const socialLinks = [
@@ -67,6 +48,57 @@ export default function Layout() {
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900 flex flex-col scroll-smooth">
+      <Helmet>
+        <link rel="canonical" href={`https://mayfieldphonerepair.com.au${pathname === '/' ? '' : pathname}`} />
+        <meta property="og:url" content="https://mayfieldphonerepair.com.au" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:domain" content="mayfieldphonerepair.com.au" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Mayfield Cell Phone Repairs",
+            "image": "https://mayfieldphonerepair.com.au/logo.png",
+            "@id": "https://mayfieldphonerepair.com.au",
+            "url": "https://mayfieldphonerepair.com.au",
+            "telephone": "02 4049 1735",
+            "priceRange": "$$",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "276 Maitland Rd",
+              "addressLocality": "Mayfield",
+              "addressRegion": "NSW",
+              "postalCode": "2304",
+              "addressCountry": "AU"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": -32.8988,
+              "longitude": 151.7345
+            },
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "09:00",
+                "closes": "17:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Saturday",
+                "opens": "09:00",
+                "closes": "15:00"
+              }
+            ],
+            "sameAs": [
+              "https://www.facebook.com/mayfieldcellphonerepairs/",
+              "https://www.instagram.com/mayfieldcellphonerepairs/",
+              "https://www.pinterest.com/mayfieldcellphonerepairs0496"
+            ]
+          })}
+        </script>
+      </Helmet>
       {/* Top Utility Header */}
       <div className="bg-slate-900 text-slate-300 py-3 px-6 md:px-12 text-sm flex flex-col lg:flex-row justify-between items-center gap-3 relative z-50">
         <div className="flex flex-wrap justify-center lg:justify-start items-center gap-x-6 gap-y-2">
@@ -87,9 +119,9 @@ export default function Layout() {
             <span>02 4049 1735</span>
           </a>
           <div className="w-px h-4 bg-slate-700"></div>
-          <a href="sms:0436118100" className="flex items-center gap-1.5 hover:text-white transition group">
+          <a href="sms:0431618100" className="flex items-center gap-1.5 hover:text-white transition group">
             <MessageSquare className="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" />
-            <span className="text-emerald-400">Emergency SMS: 0436 118 100</span>
+            <span className="text-emerald-400">Emergency SMS: 0431 618 100</span>
           </a>
           <div className="hidden xl:flex items-center gap-3 border-l border-slate-700 pl-6 ml-2">
             {socialLinks.slice(0, 4).map((link, idx) => {
@@ -178,9 +210,6 @@ export default function Layout() {
         <Outlet />
       </main>
 
-      {/* Global Reviews Section */}
-      <BirdeyeReviewWidget />
-
       {/* Modern Footer */}
       <footer className="bg-slate-950 pt-32 pb-12 px-6 md:px-12 text-slate-500 overflow-hidden relative">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[300px] bg-blue-600/5 blur-[120px] rounded-full"></div>
@@ -232,6 +261,7 @@ export default function Layout() {
                  <li><Link to="/" className="hover:text-blue-400 transition-colors">Home</Link></li>
                  <li><Link to="/#brands" className="hover:text-blue-400 transition-colors">Top Brands</Link></li>
                  <li><Link to="/blog" className="hover:text-blue-400 transition-colors">Repair Blog</Link></li>
+                 <li className="hidden md:block"><Link to="/about-us" className="hover:text-blue-400 transition-colors">About Us</Link></li>
                  <li><Link to="/#contact" className="hover:text-blue-400 transition-colors">Our Location</Link></li>
                  <li><Link to="/privacy-policy" className="hover:text-blue-400 transition-colors">Privacy Policy</Link></li>
                </ul>
@@ -296,6 +326,7 @@ export default function Layout() {
           <div className="flex gap-8">
             <Link to="/privacy-policy" className="hover:text-blue-400 transition-colors">Privacy</Link>
             <Link to="/terms-of-service" className="hover:text-blue-400 transition-colors">Terms</Link>
+            <Link to="/admin" className="text-slate-800 hover:text-blue-500 transition-colors border-l border-white/5 pl-8">Staff Portal</Link>
           </div>
         </div>
       </footer>

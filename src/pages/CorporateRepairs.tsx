@@ -1,8 +1,42 @@
+import { useState, FormEvent } from 'react';
 import { motion } from 'motion/react';
 import { Building2, GraduationCap, ShieldCheck, Clock, CheckCircle2, Zap, ArrowRight, Mail, Phone, Users, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { db, handleFirestoreError, OperationType } from '../lib/firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 export default function CorporateRepairs() {
+  const [formData, setFormData] = useState({
+    organization: '',
+    contactName: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleFormSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      await addDoc(collection(db, 'corporate_leads'), {
+        ...formData,
+        status: 'new',
+        createdAt: serverTimestamp()
+      });
+      setSubmitStatus('success');
+      setFormData({ organization: '', contactName: '', email: '', phone: '', message: '' });
+    } catch (error) {
+      handleFirestoreError(error, OperationType.CREATE, 'corporate_leads');
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const sectors = [
     {
       icon: <GraduationCap className="w-8 h-8" />,
@@ -160,15 +194,87 @@ export default function CorporateRepairs() {
 
       {/* Contact / CTA */}
       <section id="quote" className="px-6 md:px-12 py-32 bg-white">
-        <div className="max-w-7xl mx-auto bg-slate-50 rounded-[5rem] p-12 md:p-24 border border-slate-100 shadow-xl overflow-hidden relative">
-          <div className="absolute top-0 right-0 w-2/3 h-full bg-blue-600/5 -skew-x-12 translate-x-1/2"></div>
-          <div className="max-w-4xl mx-auto space-y-20 relative z-10">
-             <div className="text-center space-y-6">
-                <h2 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em]">Start Today</h2>
-                <h3 className="text-5xl md:text-7xl font-bold text-slate-900 font-display italic leading-tight text-balance">Modern Service for Modern Organizations.</h3>
-             </div>
+        <div className="max-w-7xl mx-auto space-y-20">
+          <div className="bg-slate-50 rounded-[5rem] p-12 md:p-24 border border-slate-100 shadow-xl overflow-hidden relative">
+            <div className="absolute top-0 right-0 w-2/3 h-full bg-blue-600/5 -skew-x-12 translate-x-1/2"></div>
+            <div className="max-w-4xl mx-auto space-y-20 relative z-10">
+               <div className="text-center space-y-6">
+                  <h2 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em]">Start Today</h2>
+                  <h3 className="text-5xl md:text-7xl font-bold text-slate-900 font-display italic leading-tight text-balance">Inquire About B2B Programs.</h3>
+               </div>
 
-             <div className="grid md:grid-cols-2 gap-12">
+               <form onSubmit={handleFormSubmit} className="grid md:grid-cols-2 gap-8 bg-white p-12 rounded-[3rem] border border-slate-200 shadow-sm relative overflow-hidden">
+                 <div className="space-y-2">
+                    <label className="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-2">Organization</label>
+                    <input 
+                      type="text" 
+                      required
+                      value={formData.organization}
+                      onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
+                      className="w-full px-6 py-4 bg-slate-50 rounded-2xl border border-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-sm font-medium" 
+                      placeholder="School or Business Name" 
+                    />
+                 </div>
+                 <div className="space-y-2">
+                    <label className="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-2">Contact Name</label>
+                    <input 
+                      type="text" 
+                      required
+                      value={formData.contactName}
+                      onChange={(e) => setFormData({ ...formData, contactName: e.target.value })}
+                      className="w-full px-6 py-4 bg-slate-50 rounded-2xl border border-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-sm font-medium" 
+                      placeholder="Full Name" 
+                    />
+                 </div>
+                 <div className="space-y-2">
+                    <label className="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-2">Email Address</label>
+                    <input 
+                      type="email" 
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full px-6 py-4 bg-slate-50 rounded-2xl border border-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-sm font-medium" 
+                      placeholder="work@email.com" 
+                    />
+                 </div>
+                 <div className="space-y-2">
+                    <label className="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-2">Phone</label>
+                    <input 
+                      type="tel" 
+                      required
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="w-full px-6 py-4 bg-slate-50 rounded-2xl border border-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-sm font-medium" 
+                      placeholder="Direct Line" 
+                    />
+                 </div>
+                 <div className="md:col-span-2 space-y-2">
+                    <label className="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-2">Message & Device List</label>
+                    <textarea 
+                      rows={4}
+                      required
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      className="w-full px-6 py-4 bg-slate-50 rounded-2xl border border-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-sm font-medium resize-none" 
+                      placeholder="Describe your fleet size and repair needs..." 
+                    ></textarea>
+                 </div>
+                 <div className="md:col-span-2 flex flex-col items-center gap-4">
+                    <button 
+                      type="submit" 
+                      disabled={isSubmitting}
+                      className="w-full md:w-auto px-16 py-6 bg-blue-600 text-white font-black uppercase tracking-widest rounded-2xl shadow-xl hover:bg-slate-900 transition-all text-xs disabled:opacity-50"
+                    >
+                      {isSubmitting ? 'Submitting...' : 'Submit Inquiry'}
+                    </button>
+                    {submitStatus === 'success' && <p className="text-emerald-600 font-bold uppercase tracking-widest text-[10px]">Inquiry Sent Successfully! We'll contact you shortly.</p>}
+                    {submitStatus === 'error' && <p className="text-rose-600 font-bold uppercase tracking-widest text-[10px]">Error submitting inquiry. Please try again.</p>}
+                 </div>
+               </form>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12">
                 <div className="space-y-6 p-10 bg-white rounded-[3rem] border border-slate-200 shadow-sm hover:shadow-lg transition-all text-center">
                    <div className="w-16 h-16 bg-slate-900 text-white rounded-2xl flex items-center justify-center mx-auto mb-6">
                       <Mail className="w-8 h-8" />
@@ -187,7 +293,6 @@ export default function CorporateRepairs() {
                 </div>
              </div>
           </div>
-        </div>
       </section>
     </div>
   );

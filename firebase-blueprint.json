@@ -1,0 +1,43 @@
+{
+  "entities": {
+    "quote": {
+      "title": "Quote Request",
+      "description": "Customer inquiry for a repair quote",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Customer name" },
+        "phone": { "type": "string", "description": "Customer phone number" },
+        "details": { "type": "string", "description": "Repair details" },
+        "status": { "type": "string", "enum": ["pending", "contacted", "completed", "cancelled"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "phone", "details", "status", "createdAt", "updatedAt"]
+    },
+    "corporate_inquiry": {
+      "title": "Corporate Inquiry",
+      "description": "B2B or school repair inquiry",
+      "type": "object",
+      "properties": {
+        "organization": { "type": "string", "description": "Organization name" },
+        "contactName": { "type": "string", "description": "Primary contact name" },
+        "email": { "type": "string", "description": "Corporate email" },
+        "phone": { "type": "string", "description": "Contact phone" },
+        "message": { "type": "string", "description": "Inquiry details" },
+        "status": { "type": "string", "enum": ["new", "scheduled", "completed"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["organization", "contactName", "email", "phone", "status", "createdAt"]
+    }
+  },
+  "firestore": {
+    "quotes": {
+      "schema": "quote",
+      "description": "Collection of public quote requests"
+    },
+    "corporate_leads": {
+      "schema": "corporate_inquiry",
+      "description": "Collection of corporate leads"
+    }
+  }
+}

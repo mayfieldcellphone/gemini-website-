@@ -1,0 +1,87 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 0. Global Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Phase 3: Primitive Definition
+    function isValidId(id) { return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$'); }
+    function incoming() { return request.resource.data; }
+    function existing() { return resource.data; }
+    function isSignedIn() { return request.auth != null; }
+    function isAdmin() { 
+      return isSignedIn() && (
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid)) ||
+        request.auth.token.email == 'mayfieldcellphonerepairs@gmail.com'
+      );
+    }
+
+    // Phase 4: Drafting the "Fortress" Rules
+    
+    // quotes
+    match /quotes/{quoteId} {
+      function isValidQuote(data) {
+        return data.keys().hasAll(['name', 'phone', 'details', 'status', 'createdAt', 'updatedAt']) &&
+               data.keys().size() == 6 &&
+               data.name is string && data.name.size() > 0 && data.name.size() <= 100 &&
+               data.phone is string && data.phone.size() >= 8 && data.phone.size() <= 15 &&
+               data.details is string && data.details.size() > 0 && data.details.size() <= 2000 &&
+               data.status in ['pending', 'contacted', 'completed', 'cancelled'] &&
+               data.createdAt is timestamp &&
+               data.updatedAt is timestamp;
+      }
+
+      allow create: if isValidId(quoteId) && 
+                      isValidQuote(incoming()) && 
+                      incoming().status == 'pending' &&
+                      incoming().createdAt == request.time &&
+                      incoming().updatedAt == request.time;
+      
+      allow read, list: if isAdmin();
+      
+      allow update: if isAdmin() && 
+                      isValidQuote(incoming()) &&
+                      incoming().diff(existing()).affectedKeys().hasOnly(['status', 'updatedAt']) &&
+                      incoming().updatedAt == request.time;
+      
+      allow delete: if isAdmin();
+    }
+
+    // corporate_leads
+    match /corporate_leads/{leadId} {
+      function isValidLead(data) {
+        return data.keys().hasAll(['organization', 'contactName', 'email', 'phone', 'message', 'status', 'createdAt']) &&
+               data.keys().size() == 7 &&
+               data.organization is string && data.organization.size() <= 200 &&
+               data.contactName is string && data.contactName.size() <= 200 &&
+               data.email is string && data.email.matches('^.+@.+$') &&
+               data.phone is string && data.phone.size() <= 15 &&
+               data.message is string && data.message.size() <= 5000 &&
+               data.status in ['new', 'scheduled', 'completed'] &&
+               data.createdAt is timestamp;
+      }
+
+      allow create: if isValidId(leadId) && 
+                      isValidLead(incoming()) && 
+                      incoming().status == 'new' &&
+                      incoming().createdAt == request.time;
+      
+      allow read, list: if isAdmin();
+      
+      allow update: if isAdmin() && 
+                      isValidLead(incoming()) &&
+                      incoming().diff(existing()).affectedKeys().hasOnly(['status']) &&
+                      incoming().createdAt == existing().createdAt;
+      
+      allow delete: if isAdmin();
+    }
+
+    // admins
+    match /admins/{userId} {
+      allow read: if isSignedIn() && request.auth.uid == userId;
+      allow write: if false; // Only manageable via console or service account
+    }
+  }
+}

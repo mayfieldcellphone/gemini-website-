@@ -1,7 +1,9 @@
 import { Smartphone, Battery, Droplet, Settings, ShieldCheck, Clock, CheckCircle2, ChevronRight, Phone, MapPin, Mail, ArrowRight, Truck, Wrench, Sparkles, HelpCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { useEffect, useState } from 'react';
+import { useState, useEffect, FormEvent } from 'react';
 import { useLocation, Link } from 'react-router-dom';
+import { db, handleFirestoreError, OperationType } from '../lib/firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { brands } from '../data/brands';
 import { servicesData } from '../data/services';
 import { blogPosts } from '../data/blogs';
@@ -24,6 +26,36 @@ const BackgroundDecoration = () => (
 export default function Home() {
   const location = useLocation();
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const [formData, setFormData] = useState({ name: '', phone: '', details: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleFormSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.phone || !formData.details) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      await addDoc(collection(db, 'quotes'), {
+        ...formData,
+        status: 'pending',
+        createdAt: serverTimestamp(),
+        updatedAt: serverTimestamp()
+      });
+      setSubmitStatus('success');
+      setFormData({ name: '', phone: '', details: '' });
+    } catch (error) {
+      handleFirestoreError(error, OperationType.CREATE, 'quotes');
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   useEffect(() => {
     if (location.hash) {
@@ -483,7 +515,7 @@ export default function Home() {
                   </div>
                   <div className="flex flex-col">
                     <span className="text-[8px] font-black uppercase tracking-widest text-emerald-600">After Hours Service</span>
-                    <span className="text-lg font-bold font-display">SMS 0436 118 100</span>
+                    <span className="text-lg font-bold font-display">SMS 0431 618 100</span>
                   </div>
                 </Link>
               </div>
@@ -494,23 +526,54 @@ export default function Home() {
                <div className="absolute -inset-6 bg-slate-50 rounded-[3rem] -z-10 rotate-2"></div>
                <div className="bg-white p-10 rounded-[3rem] border border-slate-200 shadow-[0_40px_80px_-15px_rgba(0,0,0,0.08)]">
                   <h3 className="text-2xl font-bold font-display mb-8 text-slate-900">Get a Free Quote</h3>
-                  <form className="space-y-6">
-                    <div className="space-y-2">
-                      <label className="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-2">Name</label>
-                      <input type="text" className="w-full px-6 py-4 bg-slate-50 rounded-2xl border border-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-sm font-medium" placeholder="Ex: John Doe" />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-2">Phone</label>
-                      <input type="tel" className="w-full px-6 py-4 bg-slate-50 rounded-2xl border border-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-sm font-medium" placeholder="Ex: 0400 000 000" />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-2">How can we help?</label>
-                      <textarea rows={3} className="w-full px-6 py-4 bg-slate-50 rounded-2xl border border-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-sm font-medium resize-none" placeholder="Describe the issue..."></textarea>
-                    </div>
-                    <button type="button" className="w-full bg-blue-600 text-white font-black uppercase tracking-widest py-5 rounded-2xl shadow-[0_15px_30px_rgba(37,99,235,0.2)] hover:shadow-[0_20px_40px_rgba(37,99,235,0.3)] hover:-translate-y-1 transition-all duration-500 text-xs">
-                      Send Request
-                    </button>
-                  </form>
+                <form className="space-y-6" onSubmit={handleFormSubmit}>
+                  <div className="space-y-2">
+                    <label className="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-2">Name</label>
+                    <input 
+                      type="text" 
+                      required
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full px-6 py-4 bg-slate-50 rounded-2xl border border-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-sm font-medium" 
+                      placeholder="Ex: John Doe" 
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-2">Phone</label>
+                    <input 
+                      type="tel" 
+                      required
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="w-full px-6 py-4 bg-slate-50 rounded-2xl border border-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-sm font-medium" 
+                      placeholder="Ex: 0400 000 000" 
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-2">How can we help?</label>
+                    <textarea 
+                      rows={3} 
+                      required
+                      value={formData.details}
+                      onChange={(e) => setFormData({ ...formData, details: e.target.value })}
+                      className="w-full px-6 py-4 bg-slate-50 rounded-2xl border border-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-sm font-medium resize-none" 
+                      placeholder="Describe the issue..."
+                    ></textarea>
+                  </div>
+                  <button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="w-full bg-blue-600 text-white font-black uppercase tracking-widest py-5 rounded-2xl shadow-[0_15px_30px_rgba(37,99,235,0.2)] hover:shadow-[0_20px_40px_rgba(37,99,235,0.3)] hover:-translate-y-1 transition-all duration-500 text-xs disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send Request'}
+                  </button>
+                  {submitStatus === 'success' && (
+                    <p className="text-emerald-600 text-[10px] font-black uppercase tracking-widest text-center animate-pulse">Request Sent Successfully!</p>
+                  )}
+                  {submitStatus === 'error' && (
+                    <p className="text-rose-600 text-[10px] font-black uppercase tracking-widest text-center">Error sending request. Please try again.</p>
+                  )}
+                </form>
                </div>
             </div>
           </div>
