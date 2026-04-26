@@ -2,7 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { suburbs } from '../data/suburbs';
-import { Phone, Clock, ShieldCheck, MapPin, Smartphone, BatteryCharging, Droplet, Zap, Wrench, ArrowRight, Truck, Sparkles, HelpCircle } from 'lucide-react';
+import { Phone, Clock, ShieldCheck, MapPin, Smartphone, BatteryCharging, Droplet, Zap, Wrench, ArrowRight, Truck, Sparkles, HelpCircle, CheckCircle2 } from 'lucide-react';
 
 export default function SuburbPage() {
   const { suburbId, serviceKeyword } = useParams();
