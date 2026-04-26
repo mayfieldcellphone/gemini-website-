@@ -77,7 +77,7 @@ export default function Layout() {
           <div className="hidden sm:block w-px h-4 bg-slate-700"></div>
           <div className="flex items-center gap-2">
             <Clock className="w-4 h-4 text-blue-400 shrink-0" />
-            <span>Mon-Fri: 9am-5pm | Sat-Sun: 10am-4pm</span>
+            <span>Mon-Fri: 9am-5pm | Sat: 10am-4pm | Sun: 10am-2pm</span>
           </div>
         </div>
         
