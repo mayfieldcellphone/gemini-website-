@@ -29,6 +29,10 @@ export const suburbs: Suburb[] = [
   { id: 'mayfield-east', name: 'Mayfield East', distance: 'practically on our doorstep, 1 minute away', nearby: ['Mayfield', 'Tighes Hill'] },
   { id: 'mayfield-west', name: 'Mayfield West', distance: 'just a 2-minute drive down the road', nearby: ['Mayfield', 'Waratah'] },
   { id: 'wickham', name: 'Wickham', distance: 'an 8-minute drive via Hannell St', nearby: ['Maryville', 'Newcastle'] },
+  { id: 'waratah', name: 'Waratah', distance: 'just a 4-minute drive via Turton Rd', nearby: ['Georgetown', 'Mayfield West'] },
+  { id: 'wallsend', name: 'Wallsend', distance: 'a 12-minute drive via Newcastle Rd', nearby: ['Jesmond', 'Elermore Vale'] },
+  { id: 'jesmond', name: 'Jesmond', distance: 'a 10-minute drive down Newcastle Rd', nearby: ['Birmingham Gardens', 'Waratah West'] },
+  { id: 'hamilton', name: 'Hamilton', distance: 'only 7 minutes away via Maitland Rd', nearby: ['Islington', 'Broadmeadow'] },
 ];
 
 export const seoServices = [

@@ -187,6 +187,52 @@ export default function SuburbPage() {
         </div>
       </section>
 
+      {/* Long-form SEO Content Block */}
+      <section className="py-32 px-6 md:px-12 bg-white relative z-10">
+        <div className="max-w-4xl mx-auto space-y-16">
+          <div className="space-y-8">
+            <h2 className="text-4xl md:text-6xl font-bold text-slate-900 font-display tracking-tight leading-none italic">
+              Premium {formattedServiceText} Services for {suburbInfo.name} Residents
+            </h2>
+            <div className="prose prose-slate prose-lg lg:prose-xl max-w-none text-slate-600 leading-relaxed font-medium">
+              <p>
+                Living in <strong>{suburbInfo.name}</strong> means you’re just <strong>{suburbInfo.distance}</strong> away from the most trusted phone repair laboratory in the Hunter region. At Mayfield Phone Repair, we understand that your mobile device is your lifeline—for work, family, and navigation. That’s why we’ve optimized our service protocol to be as efficient as possible, specifically for our neighbors in {suburbInfo.name}.
+              </p>
+              <p>
+                Our technicians are specialists in micro-soldering, component restoration, and certified diagnostics. Whether you’re dealing with a shattered iPhone screen, a Samsung Galaxy with a failing battery, or a Google Pixel that won’t charge, we use only premium-grade parts to ensure your device returns to factory specifications.
+              </p>
+              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6 font-display italic">Why Newcastle Locals Choose Our Mayfield Lab</h3>
+              <p>
+                While there are many repair options, we differentiate ourselves through transparency and technical depth. Unlike many "mall kiosks," we perform all repairs in a controlled, anti-static laboratory environment. This ensures that delicate internal components, like biometric sensors (Face ID / Fingerprint) and logic boards, are handled with the highest level of care.
+              </p>
+              <ul className="space-y-4 list-none pl-0">
+                <li className="flex items-start gap-4">
+                  <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center shrink-0 mt-1">
+                    <CheckCircle2 className="w-3 h-3 text-blue-600" />
+                  </div>
+                  <span><strong>Direct Access:</strong> No middleman. You speak directly to the person repairing your device.</span>
+                </li>
+                <li className="flex items-start gap-4">
+                  <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center shrink-0 mt-1">
+                    <CheckCircle2 className="w-3 h-3 text-blue-600" />
+                  </div>
+                  <span><strong>Premium Logistics:</strong> We maintain a massive inventory of screens and batteries for all major models, meaning no waiting for orders.</span>
+                </li>
+                <li className="flex items-start gap-4">
+                  <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center shrink-0 mt-1">
+                    <CheckCircle2 className="w-3 h-3 text-blue-600" />
+                  </div>
+                  <span><strong>Warranty Peace of Mind:</strong> Our 90-day warranty is comprehensive, covering both part defects and our specialized labor.</span>
+                </li>
+              </ul>
+              <p className="mt-12 italic">
+                If you reside in <strong>{suburbInfo.name}</strong> or nearby areas like {suburbInfo.nearby.join(' and ')}, don't settle for a subpar fix. Visit us at 276 Maitland Rd, Mayfield, and experience why we are consistently rated #1 for phone repair in the Newcastle area.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQs Section */}
       <section className="py-40 px-6 md:px-12 bg-slate-50 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/5 blur-[100px] rounded-full pointer-events-none translate-x-1/2 -translate-y-1/2"></div>

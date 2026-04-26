@@ -83,6 +83,20 @@ export default function Home() {
         <meta name="description" content="Newcastle's #1 Phone Repair Shop in Mayfield. We fix iPhone, Samsung, Google Pixel & more. Same-day screen repairs, battery replacements & water damage service. 90-day warranty." />
         <meta property="og:title" content="Expert Phone Repair Mayfield | Same Day Service" />
         <meta property="og:description" content="Cracked screen? Battery issues? Mayfield's trusted phone repair experts are here to help. Fast turnaround and quality parts for all major brands." />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+              "@type": "Question",
+              "name": faq.q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.a
+              }
+            }))
+          })}
+        </script>
       </Helmet>
       <BackgroundDecoration />
       
@@ -102,7 +116,9 @@ export default function Home() {
           </div>
           
           <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold leading-[0.9] tracking-tight text-slate-900 font-display text-balance">
-            Phone Repair in Mayfield <span className="block text-4xl md:text-5xl lg:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 mt-4 italic font-light">Same Day Service</span>
+            iPhone & Samsung <br/>
+            <span className="text-blue-600">Phone Repair</span> <br/>
+            in Mayfield NSW
           </h1>
           
           <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-xl font-medium">
@@ -462,6 +478,22 @@ export default function Home() {
                 </AnimatePresence>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Popular Models SEO Section */}
+      <section className="py-20 px-6 md:px-12 bg-slate-50 border-t border-slate-100">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-xs font-black text-slate-400 uppercase tracking-[0.4em] font-display mb-12 text-center">Specialist Models We Serviced This Week</h2>
+          <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 text-sm font-bold text-slate-500 font-display italic">
+            <span className="hover:text-blue-600 transition-colors cursor-default">iPhone 15 Pro Max Screen Replacement</span>
+            <span className="hover:text-blue-600 transition-colors cursor-default">Samsung S24 Ultra Battery Fix</span>
+            <span className="hover:text-blue-600 transition-colors cursor-default">Google Pixel 8 Pro Back Glass</span>
+            <span className="hover:text-blue-600 transition-colors cursor-default">iPhone 14 Plus Logic Board</span>
+            <span className="hover:text-blue-600 transition-colors cursor-default">Samsung Z Fold 5 Inner Display</span>
+            <span className="hover:text-blue-600 transition-colors cursor-default">iPad Pro 12.9 Charging Port</span>
+            <span className="hover:text-blue-600 transition-colors cursor-default">iPhone 13 OLED Restoration</span>
           </div>
         </div>
       </section>

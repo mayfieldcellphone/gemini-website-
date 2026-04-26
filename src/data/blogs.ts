@@ -760,19 +760,42 @@ export const blogPosts: BlogPost[] = [
 
         <p class="text-xl leading-relaxed text-slate-600">Samsung devices are engineering marvels, but their complex OLED displays and glass-heavy designs make them vulnerable. If you're looking for <strong>Samsung repair Newcastle</strong> residents trust, our Mayfield facility is equipped with specialized tools for precision Galaxy restoration.</p>
 
-        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Genuine Quality for Galaxy Devices</h2>
-        <p class="text-lg text-slate-600 leading-relaxed">Unlike basic repair shops, we understand the specific calibration required for Samsung biometric sensors and high-refresh-rate displays. Whether it's a flagship S24 Ultra or a reliable A-series device, we ensure the fit and finish meet strict standards.</p>
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight text-balance">The Challenge of Modern AMOLED Repair</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">Modern Samsung screens are incredibly thin and often curved. Replacing just the glass involves a high-risk process, which is why we typically recommend a full assembly replacement using top-tier AMOLED panels. This preserves the color accuracy and touch sensitivity that Samsung is known for.</p>
 
-        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Our Samsung Service Menu</h2>
-        <div class="grid sm:grid-cols-2 gap-6">
-          <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100">
-            <h3 class="text-xl font-bold mb-3 text-slate-900">AMOLED Screen Swaps</h3>
-            <p class="text-slate-500">Fast replacement for cracked glass or display bleeding on all Galaxy models.</p>
-          </div>
-          <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100">
-            <h3 class="text-xl font-bold mb-3 text-slate-900">Charging Port Repair</h3>
-            <p class="text-slate-500">Fixing "moisture detected" errors and loose charging connections.</p>
-          </div>
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Common Samsung Issues We Solve</h2>
+        <ul class="list-disc pl-6 space-y-2 text-slate-600">
+          <li><strong>Green Line Issue:</strong> Software and hardware diagnostics for display glitches.</li>
+          <li><strong>Moisture Detected:</strong> Cleaning and repairing charging ports affected by corrosion.</li>
+          <li><strong>Battery Swelling:</strong> Safe removal and replacement of dangerous lithium polymer cells.</li>
+        </ul>
+      </section>
+    `
+  },
+  {
+    id: '4',
+    title: 'iPhone Screen Repair Cost in Mayfield & Newcastle (2026 Guide)',
+    slug: 'iphone-screen-repair-cost-newcastle-mayfield',
+    author: 'SEO Expert @ Mayfield Phone Repair',
+    date: '2026-04-26',
+    excerpt: 'Transparency matters. We break down the costs of iPhone screen repairs for every model from iPhone 11 to iPhone 16 Pro Max in Newcastle.',
+    imageUrl: 'https://images.unsplash.com/photo-1556656793-062ff98782fe?auto=format&fit=crop&q=80',
+    tags: ['iPhone Repair', 'Cost Guide', 'Newcastle', 'Mayfield'],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-blue-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-blue-100 italic">Quick Pricing Snapshot</h2>
+          <p class="text-2xl font-bold">Most iPhone screen repairs in Mayfield range from $99 to $399 depending on the model and OLED vs LCD technology.</p>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">When you break your phone, the first question is always "How much?". If you are searching for <strong>iPhone screen repair cost Newcastle</strong>, this guide provides current 2026 estimates for our Mayfield shop.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight italic">Why Prices Vary Between Models</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">Older models like the iPhone 11 use LCD panels, which are significantly cheaper to manufacture. Starting with the iPhone 12, Apple shifted entirely to OLED, which offers better contrast but comes at a higher repair cost. Additionally, Pro models feature 120Hz "ProMotion" technology, necessitating higher-end replacement components.</p>
+
+        <div class="p-8 bg-slate-50 border border-slate-200 rounded-3xl">
+          <h3 class="text-xl font-bold mb-4 font-display">Fast Fix Guarantee</h3>
+          <p class="text-slate-500 italic">At Mayfield Phone Repair, 95% of iPhone screen swaps are completed in under 30 minutes, allowing you to grab a coffee nearby and come back to a perfect device.</p>
         </div>
       </section>
     `
