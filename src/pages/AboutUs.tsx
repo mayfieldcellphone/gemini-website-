@@ -105,7 +105,7 @@ export default function AboutUs() {
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-3xl md:text-5xl font-display font-bold text-slate-900 tracking-tight">The Technician Advantage</h2>
             <p className="text-slate-500 text-lg max-w-2xl mx-auto">
-              Our lab isn't just a repair shop; it's a precision environment where Newcastle's 
+              Our workshop isn't just a repair shop; it's a precision environment where Newcastle's 
               most skilled technicians bring devices back to life.
             </p>
           </div>

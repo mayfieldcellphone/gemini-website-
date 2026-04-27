@@ -35,10 +35,11 @@
 
   .text-technical {
     font-size: 0.65rem;
-    font-weight: 800;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.25em;
-    font-family: var(--font-mono);
+    letter-spacing: 0.2em;
+    color: var(--color-slate-400);
+    font-family: var(--font-sans);
   }
 
   .glass-card {
