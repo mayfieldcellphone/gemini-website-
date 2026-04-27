@@ -131,14 +131,44 @@ export default function AdminDashboard() {
         <div className="w-20 h-20 bg-blue-100 rounded-3xl flex items-center justify-center text-blue-600 mb-8">
            <Smartphone className="w-10 h-10" />
         </div>
-        <h1 className="text-4xl font-bold text-slate-900 mb-4 font-display">Staff Portal</h1>
-        <p className="text-slate-500 mb-8 max-w-sm italic">This area is for Mayfield Cellphone Repairs staff only. Please sign in with your authorized Google account.</p>
-        <button 
-          onClick={login}
-          className="px-10 py-5 bg-slate-900 text-white rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-600 transition-all shadow-xl flex items-center gap-3"
-        >
-          Sign In with Google
-        </button>
+        <h1 className="text-4xl font-bold text-slate-900 mb-4 font-display italic">Staff Portal</h1>
+        
+        {user ? (
+          <div className="max-w-md w-full space-y-8">
+            <div className="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 italic space-y-4">
+              <p className="text-slate-500">
+                Logged in as <span className="font-bold text-slate-900">{user.email}</span>
+              </p>
+              <p className="text-xs text-rose-500 font-bold uppercase tracking-widest">Access Denied</p>
+              <p className="text-sm text-slate-400">This account is not authorized to access the dashboard. Please switch to the correct staff account.</p>
+            </div>
+            
+            <div className="flex flex-col gap-4">
+              <button 
+                onClick={login}
+                className="px-10 py-6 bg-slate-900 text-white rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-600 transition-all shadow-xl flex items-center justify-center gap-3"
+              >
+                Switch Account
+              </button>
+              <button 
+                onClick={logout}
+                className="flex items-center justify-center gap-2 text-slate-400 hover:text-rose-600 font-black uppercase tracking-widest text-[10px] transition-colors"
+              >
+                <LogOut className="w-4 h-4" /> Sign Out
+              </button>
+            </div>
+          </div>
+        ) : (
+          <>
+            <p className="text-slate-500 mb-8 max-w-sm italic">This area is for Mayfield Cellphone Repairs staff only. Please sign in with your authorized Google account.</p>
+            <button 
+              onClick={login}
+              className="px-10 py-6 bg-slate-900 text-white rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-600 transition-all shadow-xl flex items-center gap-3 mx-auto"
+            >
+              Sign In with Google
+            </button>
+          </>
+        )}
       </div>
     );
   }

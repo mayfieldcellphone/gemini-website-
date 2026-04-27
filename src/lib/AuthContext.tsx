@@ -22,10 +22,16 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       setUser(user);
       if (user) {
-        // Simple admin check: either fixed email or check in 'admins' collection
-        const adminDoc = await getDoc(doc(db, 'admins', user.uid));
-        const isEmailAdmin = user.email === 'mayfieldcellphonerepairs@gmail.com';
-        setIsAdmin(adminDoc.exists() || isEmailAdmin);
+        try {
+          // Simple admin check: either fixed email or check in 'admins' collection
+          const adminDoc = await getDoc(doc(db, 'admins', user.uid));
+          const isEmailAdmin = user.email?.toLowerCase() === 'mayfieldcellphonerepairs@gmail.com'.toLowerCase();
+          setIsAdmin(adminDoc.exists() || isEmailAdmin);
+        } catch (error) {
+          console.error("Admin check failed:", error);
+          const isEmailAdmin = user.email?.toLowerCase() === 'mayfieldcellphonerepairs@gmail.com'.toLowerCase();
+          setIsAdmin(isEmailAdmin);
+        }
       } else {
         setIsAdmin(false);
       }
@@ -36,8 +42,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   const login = async () => {
-    const provider = new GoogleAuthProvider();
-    await signInWithPopup(auth, provider);
+    try {
+      const provider = new GoogleAuthProvider();
+      // Using prompt select_account to help user switch if needed
+      provider.setCustomParameters({ prompt: 'select_account' });
+      await signInWithPopup(auth, provider);
+    } catch (error) {
+      console.error("Login failed:", error);
+      alert("Login failed. Please ensure popups are allowed for this site.");
+    }
   };
 
   const logout = async () => {
