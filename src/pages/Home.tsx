@@ -132,8 +132,14 @@ export default function Home() {
               onClick={openBooking}
               className="w-full sm:w-auto text-center px-10 py-5 bg-slate-900 text-white font-black uppercase tracking-[0.2em] text-[10px] rounded-2xl shadow-2xl shadow-slate-900/20 hover:bg-blue-600 hover:-translate-y-1 transition-all"
             >
-              Book Your Repair
+              Book A Repair
             </button>
+            <Link 
+              to="/#contact"
+              className="w-full sm:w-auto text-center px-10 py-5 bg-blue-600 text-white font-black uppercase tracking-[0.2em] text-[10px] rounded-2xl shadow-2xl shadow-blue-600/20 hover:bg-blue-700 transition-all"
+            >
+              Get A Quote
+            </Link>
             <a href="tel:0240491735" className="w-full sm:w-auto flex items-center justify-center gap-4 px-10 py-5 bg-white border-2 border-slate-900 text-slate-900 font-black uppercase tracking-[0.2em] text-[10px] rounded-2xl hover:bg-slate-50 transition-all group">
               <Phone className="w-4 h-4 text-blue-600" />
               <span>02 4049 1735</span>
@@ -301,17 +307,19 @@ export default function Home() {
               A systematic approach to device restoration. Transparent, fast, and verified by standard tests.
             </p>
             
-            <div className="flex flex-col sm:flex-row items-center gap-6">
+            <div className="flex flex-col sm:flex-row items-center gap-4">
               <button 
                 onClick={openBooking}
                 className="w-full sm:w-auto bg-white text-slate-950 px-10 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] hover:bg-blue-500 hover:text-white transition-all shadow-2xl shadow-blue-500/20"
               >
-                Start Your Repair
+                Book Repair
               </button>
-              <div className="flex flex-col">
-                <span className="text-technical text-slate-600">CALL US DIRECT</span>
-                <span className="font-bold text-lg font-display tracking-tight">02 4049 1735</span>
-              </div>
+              <Link
+                to="/#contact"
+                className="w-full sm:w-auto bg-blue-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] hover:bg-blue-700 transition-all shadow-2xl shadow-blue-600/20 text-center"
+              >
+                Get Quote
+              </Link>
             </div>
           </div>
           

@@ -2,10 +2,12 @@ import { useParams, Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { suburbs } from '../data/suburbs';
+import { useUI } from '../contexts/UIContext';
 import { Phone, Clock, ShieldCheck, MapPin, Smartphone, BatteryCharging, Droplet, Zap, Wrench, ArrowRight, Truck, Sparkles, HelpCircle, CheckCircle2 } from 'lucide-react';
 
 export default function SuburbPage() {
   const { suburbId, serviceKeyword } = useParams();
+  const { openBooking } = useUI();
   
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'auto' });
@@ -58,12 +60,15 @@ export default function SuburbPage() {
             Professional phone repairs for residents across {suburbInfo.name}. Quality service delivered in under 60 minutes.
           </p>
           <div className="pt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
-            <Link to="/#contact" className="w-full sm:w-auto px-10 py-6 bg-slate-900 text-white font-black uppercase tracking-[0.2em] text-xs rounded-2xl shadow-2xl hover:bg-blue-600 transition-all hover:-translate-y-1 font-display">
-              Get Your Phone Fixed
+            <button 
+              onClick={openBooking}
+              className="w-full sm:w-auto px-10 py-6 bg-slate-900 text-white font-black uppercase tracking-[0.2em] text-xs rounded-2xl shadow-2xl hover:bg-blue-600 transition-all hover:-translate-y-1 font-display"
+            >
+              Book Repair Online
+            </button>
+            <Link to="/#contact" className="w-full sm:w-auto px-10 py-6 bg-blue-600 text-white font-black uppercase tracking-[0.2em] text-xs rounded-2xl shadow-2xl hover:bg-blue-700 transition-all hover:-translate-y-1 font-display">
+              Get A Quote
             </Link>
-            <a href="tel:0240491735" className="w-full sm:w-auto px-10 py-6 bg-white text-slate-900 border border-slate-200 font-black uppercase tracking-[0.2em] text-xs rounded-2xl hover:border-blue-400 transition-all font-display shadow-sm flex items-center justify-center gap-3">
-              <Phone className="w-4 h-4 text-blue-600" /> 02 4049 1735
-            </a>
           </div>
         </div>
       </section>
@@ -273,12 +278,15 @@ export default function SuburbPage() {
             Serving {suburbInfo.name} and surrounding areas like {suburbInfo.nearby.join(', ')} — we are Mayfield Phone Repair. 
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-10">
+            <button 
+              onClick={openBooking}
+              className="w-full sm:w-auto px-12 py-8 bg-slate-900 text-white font-black uppercase tracking-[0.3em] text-xs rounded-3xl shadow-2xl hover:bg-blue-700 transition-all hover:scale-105 font-display"
+            >
+              Book My Repair
+            </button>
             <Link to="/#contact" className="w-full sm:w-auto px-12 py-8 bg-white text-blue-600 font-black uppercase tracking-[0.3em] text-xs rounded-3xl shadow-2xl hover:bg-slate-900 hover:text-white transition-all hover:scale-105 font-display">
-              Contact Us Now
+              Get A Quote
             </Link>
-            <a href="tel:0240491735" className="w-full sm:w-auto px-12 py-8 border-2 border-white/20 text-white font-black uppercase tracking-[0.3em] text-xs rounded-3xl hover:bg-white/10 transition-all font-display flex items-center justify-center gap-4">
-              <Phone className="w-5 h-5" /> 02 4049 1735
-            </a>
           </div>
         </div>
       </section>

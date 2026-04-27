@@ -94,14 +94,15 @@ export default function ServicePage() {
                 <h3 className="text-3xl md:text-4xl font-bold leading-tight font-display">Need a repair?</h3>
                 <p className="text-slate-400 text-xl font-medium leading-relaxed">Book your repair today or just walk in for same-day service.</p>
               </div>
-              <div className="flex flex-col w-full md:w-auto gap-4 shrink-0">
-                <button onClick={openBooking} className="inline-flex items-center justify-center gap-4 bg-white text-slate-900 px-10 py-6 rounded-2xl font-black uppercase tracking-[0.2em] text-xs hover:bg-slate-100 transition-all shadow-xl">
-                  <Calendar className="w-5 h-5 text-blue-600" />
-                  Book Online
+              <div className="flex flex-col w-full md:w-auto gap-4 shrink-0 font-display">
+                <button onClick={openBooking} className="inline-flex items-center justify-center gap-4 bg-white text-slate-900 px-10 py-6 rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] hover:bg-slate-100 transition-all shadow-xl">
+                  Book A Repair
                 </button>
-                <a href="tel:0240491735" className="inline-flex items-center justify-center gap-4 bg-blue-600 text-white px-10 py-6 rounded-2xl font-black uppercase tracking-[0.2em] text-xs hover:bg-blue-700 transition-all shadow-2xl shadow-blue-600/30">
-                  <Phone className="w-5 h-5" />
-                  Call Us Now
+                <Link to="/#contact" className="inline-flex items-center justify-center gap-4 bg-blue-600 text-white px-10 py-6 rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] hover:bg-blue-700 transition-all shadow-2xl shadow-blue-600/30">
+                  Get A Quote
+                </Link>
+                <a href="tel:0240491735" className="inline-flex items-center justify-center gap-4 text-white/40 hover:text-white transition-all text-[8px] font-black uppercase tracking-widest">
+                  <Phone className="w-3 h-3" /> Call 02 4049 1735
                 </a>
               </div>
             </div>

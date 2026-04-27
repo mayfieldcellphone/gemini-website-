@@ -734,7 +734,7 @@ export const blogPosts: BlogPost[] = [
     `
   },
   {
-    id: '3',
+    id: '12',
     title: 'Samsung Repair Newcastle: Expert Galaxy Fixes in Mayfield',
     slug: 'samsung-repair-newcastle-mayfield',
     author: 'Mayfield Phone Repair Team',
@@ -773,7 +773,7 @@ export const blogPosts: BlogPost[] = [
     `
   },
   {
-    id: '4',
+    id: '13',
     title: 'iPhone Screen Repair Cost in Mayfield & Newcastle (2026 Guide)',
     slug: 'iphone-screen-repair-cost-newcastle-mayfield',
     author: 'SEO Expert @ Mayfield Phone Repair',
@@ -801,7 +801,7 @@ export const blogPosts: BlogPost[] = [
     `
   },
   {
-    id: '5',
+    id: '14',
     title: 'iPhone 17 Repair Newcastle: First Look at 2026 Flagship Fixes',
     slug: 'iphone-17-repair-newcastle-mayfield',
     author: 'Mayfield Technical Team',
@@ -829,7 +829,7 @@ export const blogPosts: BlogPost[] = [
     `
   },
   {
-    id: '12',
+    id: '15',
     title: 'iPhone Screen Repair in Mayfield NSW: Cost, Time & Best Options (2026 Guide)',
     slug: 'iphone-screen-repair-mayfield-cost-guide-2026',
     author: 'Mayfield Technical Team',
@@ -866,7 +866,7 @@ export const blogPosts: BlogPost[] = [
     `
   },
   {
-    id: '13',
+    id: '16',
     title: 'Why Your Phone Battery Drains Fast (And Where to Fix It in Mayfield NSW)',
     slug: 'phone-battery-drain-fix-mayfield',
     author: 'Mayfield Repair Specialists',
@@ -903,7 +903,7 @@ export const blogPosts: BlogPost[] = [
     `
   },
   {
-    id: '14',
+    id: '17',
     title: 'Phone Not Charging? Top 7 Causes & Repair Solutions in Mayfield Newcastle',
     slug: 'phone-not-charging-fix-mayfield-newcastle',
     author: 'Mayfield Technical Team',
@@ -940,7 +940,7 @@ export const blogPosts: BlogPost[] = [
     `
   },
   {
-    id: '15',
+    id: '18',
     title: 'Is It Worth Repairing Your Phone or Buying a New One? (Mayfield Guide 2026)',
     slug: 'repair-vs-replace-phone-guide-mayfield-2026',
     author: 'Repair Strategy Team',
@@ -977,7 +977,7 @@ export const blogPosts: BlogPost[] = [
     `
   },
   {
-    id: '16',
+    id: '19',
     title: 'Dropped Your Phone in Water? What to Do Immediately (Mayfield Repair Guide)',
     slug: 'dropped-phone-in-water-emergency-mayfield',
     author: 'Emergency Repair Team',

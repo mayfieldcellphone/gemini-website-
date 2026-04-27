@@ -1,6 +1,7 @@
-import { useParams, Navigate, Link } from 'react-router-dom';
+import { useParams, Navigate, Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { blogPosts } from '../data/blogs';
+import { useUI } from '../contexts/UIContext';
 import { 
   ChevronRight, 
   Calendar, 
@@ -19,11 +20,31 @@ import { useEffect } from 'react';
 
 export default function BlogPostPage() {
   const { slug } = useParams();
+  const { openBooking } = useUI();
+  const { hash } = useLocation();
   const post = blogPosts.find(p => p.slug === slug);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [slug]);
+    if (!hash) {
+      window.scrollTo(0, 0);
+    }
+  }, [slug, hash]);
+
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const anchor = target.closest('a');
+      if (anchor) {
+        const href = anchor.getAttribute('href');
+        if (href === '#booking' || href === '/#booking') {
+          e.preventDefault();
+          openBooking();
+        }
+      }
+    };
+    document.addEventListener('click', handleClick);
+    return () => document.removeEventListener('click', handleClick);
+  }, [openBooking]);
 
   if (!post) {
     return <Navigate to="/blog" replace />;
@@ -187,8 +208,14 @@ export default function BlogPostPage() {
               </div>
 
               <div className="space-y-4">
-                <Link to="/#contact" className="flex items-center justify-center gap-3 w-full bg-blue-600 text-white px-8 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/20 font-display">
+                <button 
+                  onClick={openBooking}
+                  className="flex items-center justify-center gap-3 w-full bg-slate-900 text-white px-8 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] hover:bg-blue-600 transition-all shadow-xl shadow-slate-900/20 font-display"
+                >
                   Book A Repair
+                </button>
+                <Link to="/#contact" className="flex items-center justify-center gap-3 w-full bg-blue-600 text-white px-8 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/20 font-display">
+                  Get A Quote
                 </Link>
                 <a href="tel:0240491735" className="flex items-center justify-center gap-3 w-full bg-slate-50 text-slate-900 border border-slate-200 px-8 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] hover:border-blue-400 transition-all font-display">
                   <Phone className="w-4 h-4" /> Call Shop
@@ -265,9 +292,15 @@ export default function BlogPostPage() {
       </section>
 
       {/* Final Floating Action Button (Mobile) */}
-      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-40 lg:hidden w-[90%] max-w-sm">
-        <Link to="/#contact" className="flex items-center justify-center gap-4 bg-slate-900 text-white px-8 py-5 rounded-3xl font-black uppercase tracking-[0.2em] text-xs shadow-2xl shadow-blue-600/30 font-display">
-          Start Repair <ArrowRight className="w-4 h-4" />
+      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-40 lg:hidden w-[90%] max-w-sm flex gap-3">
+        <button 
+          onClick={openBooking}
+          className="flex-1 flex items-center justify-center gap-4 bg-blue-600 text-white px-6 py-5 rounded-3xl font-black uppercase tracking-[0.1em] text-[10px] shadow-2xl shadow-blue-600/30 font-display"
+        >
+          Book Repair
+        </button>
+        <Link to="/#contact" className="flex-1 flex items-center justify-center gap-4 bg-slate-900 text-white px-6 py-5 rounded-3xl font-black uppercase tracking-[0.1em] text-[10px] shadow-2xl shadow-slate-900/30 font-display">
+          Get Quote
         </Link>
       </div>
     </div>

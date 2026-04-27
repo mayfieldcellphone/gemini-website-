@@ -118,13 +118,18 @@ export default function BrandPage() {
                 <p className="text-slate-400 text-xl font-medium leading-relaxed">We source precision parts for legacy and rare models within 24-48 hours. If it's not listed, we can still fix it.</p>
               </div>
               <div className="flex flex-col w-full md:w-auto gap-4 shrink-0">
-                <a href="tel:0240491735" className="inline-flex items-center justify-center gap-4 bg-blue-600 text-white px-10 py-6 rounded-2xl font-black uppercase tracking-[0.2em] text-xs hover:bg-blue-700 transition-all shadow-2xl shadow-blue-600/30">
-                  <Phone className="w-5 h-5" />
-                  Call Us
-                </a>
-                <button onClick={openBooking} className="inline-flex items-center justify-center gap-4 bg-white/5 text-white border border-white/10 px-10 py-6 rounded-2xl font-black uppercase tracking-[0.2em] text-xs hover:bg-white hover:text-slate-900 transition-all">
-                  Get a Quote
+                <button
+                  onClick={openBooking}
+                  className="inline-flex items-center justify-center gap-4 bg-blue-600 text-white px-10 py-6 rounded-2xl font-black uppercase tracking-[0.2em] text-xs hover:bg-blue-700 transition-all shadow-2xl shadow-blue-600/30 font-display"
+                >
+                  Book My Repair
                 </button>
+                <Link to="/#contact" className="inline-flex items-center justify-center gap-4 bg-white/5 text-white border border-white/10 px-10 py-6 rounded-2xl font-black uppercase tracking-[0.2em] text-xs hover:bg-white hover:text-slate-900 transition-all font-display">
+                  Get A Quote
+                </Link>
+                <a href="tel:0240491735" className="inline-flex items-center justify-center gap-4 text-white/60 hover:text-white transition-all text-[10px] font-black uppercase tracking-widest font-display">
+                  <Phone className="w-4 h-4" /> Call 02 4049 1735
+                </a>
               </div>
             </div>
           </div>
