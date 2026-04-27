@@ -55,314 +55,144 @@ export default function Layout() {
 
   const closeMenu = () => setIsMenuOpen(false);
 
-  const navigation = [
+  const socialLinks = [
+    { name: 'Facebook', url: 'https://www.facebook.com/mayfieldcellphonerepairs', icon: <Facebook className="w-5 h-5" /> },
+    { name: 'Instagram', url: 'https://www.instagram.com/mayfieldcellphonerepairs/', icon: <Instagram className="w-5 h-5" /> },
+    { name: 'Twitter', url: 'https://twitter.com/Mayfiel32990272', icon: <Twitter className="w-5 h-5" /> },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/company/mayfield-cell-phone-repairs/', icon: <Linkedin className="w-5 h-5" /> },
+    { name: 'YouTube', url: 'https://www.youtube.com/@mayfieldcellphonerepairs', icon: <Youtube className="w-5 h-5" /> },
     { 
-      name: 'Repairs', 
-      href: '/#services',
-      dropdown: {
-        title: 'REPAIRS',
-        subtitle: 'Most fixes walk out same-day.',
-        sections: [
-          {
-            title: 'BY ISSUE',
-            links: [
-              { name: 'Screen repair', href: '/service/screen-repair' },
-              { name: 'Battery replacement', href: '/service/battery-replacement' },
-              { name: 'Charging port', href: '/service/charging-port' },
-              { name: 'Water damage', href: '/service/water-damage' },
-              { name: 'Back glass', href: '/service/back-glass' },
-              { name: 'Camera repair', href: '/service/camera-repair' },
-            ]
-          },
-          {
-            title: 'BY DEVICE',
-            links: [
-              { name: 'iPhone', href: '/brand/apple' },
-              { name: 'Samsung Galaxy', href: '/brand/samsung' },
-              { name: 'Google Pixel', href: '/brand/google' },
-              { name: 'iPad', href: '/brand/apple' },
-              { name: 'MacBook', href: '/service/macbook' },
-              { name: 'Laptops', href: '/service/laptop' },
-            ]
-          },
-          {
-            title: 'QUICK ACTIONS',
-            links: [
-              { name: 'Instant quote', href: '/#contact' },
-              { name: 'Book appointment', href: '#', onClick: openBooking },
-              { name: 'Track your repair', href: '/#contact' },
-              { name: 'Start voice check-in', href: '#' },
-              { name: 'Get SMS updates', href: '/#contact' },
-              { name: 'Trade-in valuation', href: '/second-hand-phones' },
-            ]
-          }
-        ],
-        featured: {
-          title: 'iPhone 15 screen · from $179',
-          desc: 'OEM display, True-tone preserved, 45 min turnaround.',
-          cta: 'Book now →',
-          href: '#',
-          onClick: openBooking
-        }
-      }
+      name: 'Pinterest', 
+      url: 'https://www.pinterest.com/mayfieldcellphonerepairs0496', 
+      icon: <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.951-7.252 4.168 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.367 18.624 0 12.017 0z"/></svg> 
     },
     { 
-      name: 'iPhone', 
-      href: '/brand/apple',
-      dropdown: {
-        title: 'APPLE REPAIRS',
-        subtitle: 'Specialized diagnostic center.',
-        sections: [
-          {
-            title: 'MODELS',
-            links: [
-              { name: 'iPhone 15 Series', href: '/brand/apple' },
-              { name: 'iPhone 14 Series', href: '/brand/apple' },
-              { name: 'iPhone 13 Series', href: '/brand/apple' },
-              { name: 'iPhone 12 Series', href: '/brand/apple' },
-              { name: 'Legacy Models', href: '/brand/apple' },
-            ]
-          },
-          {
-            title: 'SERVICES',
-            links: [
-              { name: 'Screen Replacement', href: '/service/screen-repair' },
-              { name: 'Battery Health fix', href: '/service/battery-replacement' },
-              { name: 'Logic Board Repair', href: '/#contact' },
-              { name: 'Data Recovery', href: '/service/data-recovery' },
-            ]
-          }
-        ]
-      }
-    },
-    { 
-      name: 'Samsung', 
-      href: '/brand/samsung',
-      dropdown: {
-        title: 'SAMSUNG CARE',
-        subtitle: 'Certified part handling.',
-        sections: [
-          {
-            title: 'MODELS',
-            links: [
-              { name: 'S24 / S23 Series', href: '/brand/samsung' },
-              { name: 'S22 / S21 Series', href: '/brand/samsung' },
-              { name: 'A-Series Models', href: '/brand/samsung' },
-              { name: 'Tab Series', href: '/brand/samsung' },
-            ]
-          }
-        ]
-      }
-    },
-    { 
-      name: 'iPad & Mac', 
-      href: '/service/macbook',
-      dropdown: {
-        title: 'TABLETS & LAPTOPS',
-        subtitle: 'Advanced hardware repair.',
-        sections: [
-          {
-            title: 'DEVICES',
-            links: [
-              { name: 'iPad Pro / Air', href: '/brand/apple' },
-              { name: 'MacBook Pro / Air', href: '/service/macbook' },
-              { name: 'Surface Pro', href: '#' },
-              { name: 'PC Laptops', href: '/service/laptop' },
-            ]
-          }
-        ]
-      }
-    },
-    { name: 'Shop', href: '/second-hand-phones' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'About', href: '/about-us' },
+      name: 'TikTok', 
+      url: 'https://www.tiktok.com/@mayfield.cell.pho', 
+      icon: <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93v7.2c0 1.25-.12 2.52-.61 3.69-.73 1.75-2.22 3.16-4.04 3.73-1.89.58-4.03.49-5.83-.41-1.65-.83-2.92-2.3-3.41-4.07-.46-1.64-.32-3.46.36-5.01.69-1.55 2.05-2.74 3.66-3.23 1.56-.47 3.29-.36 4.79.24V14.1c-1.08-.24-2.24-.1-3.21.36-.88.42-1.57 1.17-1.86 2.09-.28.91-.21 1.94.19 2.8.44.95 1.34 1.66 2.35 1.92s2.17.06 3.06-.35c1.03-.48 1.77-1.42 2.06-2.52.17-.67.24-1.37.24-2.06V.02z"/></svg> 
+    }
   ];
 
   return (
-    <div className="min-h-screen bg-[#fdfdfc] font-sans text-slate-900 flex flex-col scroll-smooth">
+    <div className="min-h-screen bg-slate-50 font-sans text-slate-900 flex flex-col scroll-smooth">
       <Helmet>
         <link rel="canonical" href={`https://mayfieldphonerepair.com.au${pathname === '/' ? '' : pathname}`} />
       </Helmet>
 
       {/* Top Utility Header */}
-      <div className="bg-[#0e0e0d] text-white py-2 px-6 md:px-12 text-[10px] font-black uppercase tracking-[0.2em] flex justify-between items-center relative z-50">
-        <div className="flex items-center gap-6">
+      <div className="bg-slate-900 text-slate-300 py-3 px-6 md:px-12 text-sm flex flex-col lg:flex-row justify-between items-center gap-3 relative z-50">
+        <div className="flex flex-wrap justify-center lg:justify-start items-center gap-x-6 gap-y-2">
+          <a 
+            href="https://www.google.com/maps/search/?api=1&query=276+Maitland+Rd+Mayfield+NSW+2304" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="flex items-center gap-2 hover:text-white transition-colors"
+          >
+            <MapPin className="w-4 h-4 text-blue-400 shrink-0" />
+            <span>276 Maitland Rd, Mayfield, NSW, 2304</span>
+          </a>
+          <div className="hidden sm:block w-px h-4 bg-slate-700"></div>
           <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-            <span>OPEN TODAY • 9:00 - 5:00</span>
-          </div>
-          <div className="hidden md:flex items-center gap-3">
-            <span className="text-rose-500">SAME-DAY REPAIRS</span>
-            <span className="w-1 h-1 rounded-full bg-slate-700"></span>
-            <span className="text-white">12-MO WARRANTY</span>
+            <Clock className="w-4 h-4 text-blue-400 shrink-0" />
+            <span>Mon-Fri: 9am-5pm | Sat: 10am-4pm | Sun: 10am-2pm</span>
           </div>
         </div>
         
-        <div className="flex items-center gap-6">
-          <a href="https://maps.google.com" target="_blank" rel="noreferrer" className="hidden lg:flex items-center gap-2 hover:text-blue-400 transition">
-            <span>276 MAITLAND RD, MAYFIELD NSW</span>
-          </a>
-          <span className="hidden lg:block w-1 h-1 rounded-full bg-slate-700"></span>
-          <a href="tel:0240491735" className="flex items-center gap-2 hover:text-blue-400 transition">
+        <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 font-semibold">
+          <a href="tel:0240491735" className="flex items-center gap-1.5 hover:text-white transition">
+            <Phone className="w-4 h-4 text-blue-400" />
             <span>02 4049 1735</span>
           </a>
-          <span className="hidden sm:block w-1 h-1 rounded-full bg-slate-700"></span>
-          <Link to="/#contact" className="hidden sm:flex items-center gap-1 hover:text-blue-400 transition">
-            <span>TRACK REPAIR</span>
-            <ArrowUpRight className="w-3 h-3" />
-          </Link>
+          <div className="w-px h-4 bg-slate-700"></div>
+          <a href="sms:0431618100" className="flex items-center gap-1.5 hover:text-white transition group">
+            <MessageSquare className="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" />
+            <span className="text-emerald-400">Emergency SMS: 0431 618 100</span>
+          </a>
+          <div className="hidden xl:flex items-center gap-3 border-l border-slate-700 pl-6 ml-2">
+            {socialLinks.slice(0, 4).map((link, idx) => {
+               // Clone the icon to make it slightly smaller for the top bar
+               const icon = { ...link.icon, props: { ...link.icon.props, className: 'w-4 h-4' } };
+               return (
+                 <a key={idx} href={link.url} target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition" aria-label={link.name}>
+                   {icon}
+                 </a>
+               );
+            })}
+          </div>
         </div>
       </div>
 
       {/* Main Navigation Header */}
-      <nav className="h-20 bg-[#f8f7f3] border-b border-slate-200 flex items-center justify-between px-6 md:px-12 sticky top-0 z-40">
-        <div className="flex items-center gap-12">
-          <Link to="/" className="flex items-center shrink-0" onClick={closeMenu}>
-            <div className="mr-3 w-10 h-10 bg-white border border-slate-200 rounded-xl flex items-center justify-center text-blue-600 shadow-sm">
-              <Smartphone className="w-6 h-6" strokeWidth={2.5} />
+      <nav className="h-20 bg-white border-b border-slate-200 flex items-center justify-between px-6 md:px-12 sticky top-0 z-40 shadow-sm">
+        <Link to="/" className="flex items-center shrink-0 group" onClick={closeMenu}>
+          <span className="text-xl md:text-2xl font-extrabold tracking-tight text-blue-600 flex items-center">
+            Mayfield
+            <div className="flex items-center justify-center mx-1.5 sm:mx-2 w-7 h-7 sm:w-8 sm:h-8 bg-slate-900 text-white rounded-[0.45rem] shadow-md group-hover:-rotate-6 transition-transform">
+              <Smartphone className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={2.5} />
             </div>
-            <div className="flex flex-col -space-y-1">
-              <span className="text-2xl font-black tracking-tighter text-blue-700 leading-none">MAYFIELD</span>
-              <span className="text-[10px] font-black tracking-[0.4em] text-slate-900 leading-none">PHONE REPAIR</span>
-            </div>
-          </Link>
-          
-          {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-8">
-            {navigation.map((item) => (
-              <div 
-                key={item.name} 
-                className="relative group"
-                onMouseEnter={() => setActiveDropdown(item.name)}
-                onMouseLeave={() => setActiveDropdown(null)}
-              >
-                <Link 
-                  to={item.href} 
-                  className={`text-[13px] font-bold flex items-center gap-1 transition-colors ${activeDropdown === item.name ? 'text-blue-600' : 'text-slate-800'}`}
-                >
-                  {item.name}
-                  {item.dropdown && <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === item.name ? 'rotate-180' : ''}`} />}
-                </Link>
-
-                {/* Dropdown / Mega Menu */}
-                <AnimatePresence>
-                  {activeDropdown === item.name && item.dropdown && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                      className="absolute top-full left-1/2 -translate-x-1/2 pt-6 w-[800px]"
-                    >
-                      <div className="bg-white rounded-[2rem] shadow-2xl border border-slate-100 p-10 overflow-hidden">
-                        <div className="grid grid-cols-12 gap-12">
-                          <div className="col-span-8 grid grid-cols-3 gap-8">
-                            <div className="col-span-3 pb-6 border-b border-slate-50">
-                              <span className="text-[10px] font-black uppercase tracking-[0.3em] text-rose-500 mb-2 block">▽ {item.dropdown.title}</span>
-                              <h3 className="text-3xl font-black font-display tracking-tight text-slate-900">{item.dropdown.subtitle}</h3>
-                            </div>
-                            {item.dropdown.sections.map((section) => (
-                              <div key={section.title} className="space-y-4">
-                                <h4 className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400">{section.title}</h4>
-                                <ul className="space-y-2.5">
-                                  {section.links.map((link) => (
-                                    <li key={link.name}>
-                                      {link.onClick ? (
-                                        <button onClick={link.onClick} className="text-[13px] font-bold text-slate-600 hover:text-blue-600 transition-colors text-left block w-full">{link.name}</button>
-                                      ) : (
-                                        <Link to={link.href} className="text-[13px] font-bold text-slate-600 hover:text-blue-600 transition-colors block">{link.name}</Link>
-                                      )}
-                                    </li>
-                                  ))}
-                                </ul>
-                              </div>
-                            ))}
-                          </div>
-                          <div className="col-span-4">
-                            {item.dropdown.featured && (
-                              <div className="bg-[#0e0e0d] p-8 rounded-3xl text-white h-full flex flex-col justify-between">
-                                <div>
-                                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-rose-500 mb-2 block">FEATURED</span>
-                                  <h4 className="text-xl font-bold mb-4 font-display leading-tight">{item.dropdown.featured.title}</h4>
-                                  <p className="text-xs text-slate-400 leading-relaxed">{item.dropdown.featured.desc}</p>
-                                </div>
-                                <button 
-                                  onClick={item.dropdown.featured.onClick}
-                                  className="w-full bg-rose-600 hover:bg-rose-700 text-white py-4 rounded-xl text-xs font-black uppercase tracking-widest transition-colors flex items-center justify-center gap-2 mt-8"
-                                >
-                                  {item.dropdown.featured.cta}
-                                </button>
-                              </div>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            ))}
-          </div>
-        </div>
+            Repair
+          </span>
+        </Link>
         
-        <div className="flex items-center gap-4">
-          <button className="hidden xl:flex items-center gap-3 px-6 py-3 bg-[#f3f1eb] rounded-full text-[11px] font-black uppercase tracking-widest hover:bg-[#eae7df] transition-colors group">
-            <div className="w-6 h-6 bg-rose-600 rounded-full flex items-center justify-center text-white relative">
-              <Mic className="w-3 h-3" />
-              <span className="absolute -top-1 -right-1 w-3 h-3 bg-rose-500 rounded-full border-2 border-[#f3f1eb] animate-pulse"></span>
-            </div>
-            <span>Voice check-in</span>
-          </button>
-          
+        {/* Desktop Nav Tabs */}
+        <div className="hidden lg:flex items-center gap-8 text-[11px] font-black uppercase tracking-[0.2em] text-slate-500 flex-1 justify-center ml-8 font-display">
+          <Link to="/" className="hover:text-blue-600 transition-colors">Home</Link>
+          <Link to="/#brands" className="hover:text-blue-600 transition-colors">Brands</Link>
+          <Link to="/#services" className="hover:text-blue-600 transition-colors">Services</Link>
+          <Link to="/blog" className="hover:text-blue-600 transition-colors">Blog</Link>
+          <Link to="/#why-us" className="hover:text-blue-600 transition-colors">Why Choose Us</Link>
+          <Link to="/#contact" className="hover:text-blue-600 transition-colors">Location</Link>
+        </div>
+
+        {/* Desktop CTA */}
+        <div className="hidden lg:flex items-center shrink-0">
           <button 
             onClick={openBooking}
-            className="bg-[#0e0e0d] text-white px-8 py-3.5 rounded-xl hover:bg-blue-700 transition-all flex items-center gap-3 group shadow-xl shadow-slate-200"
+            className="bg-slate-900 text-white px-8 py-3 rounded-xl hover:bg-blue-600 transition shadow-xl shadow-slate-200 font-black uppercase tracking-widest text-[10px] font-display"
           >
-            <span className="text-[11px] font-black uppercase tracking-widest">Book repair</span>
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-          </button>
-          
-          {/* Mobile Menu Toggle */}
-          <button className="lg:hidden p-2 text-slate-900" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+            Book a Repair
           </button>
         </div>
+
+        {/* Mobile Menu Toggle */}
+        <button className="lg:hidden p-2 text-slate-600 hover:text-blue-600 transition-colors" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          {isMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+        </button>
       </nav>
 
-      {/* Mobile Menu (Sliding) */}
+      {/* Mobile Menu (Drawer/Slide down) */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed inset-0 bg-[#f8f7f3] z-[60] lg:hidden flex flex-col p-8 overflow-y-auto"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="lg:hidden bg-white border-b border-slate-200 overflow-hidden sticky top-20 z-30 shadow-lg"
           >
-            <div className="flex justify-between items-center mb-12">
-              <div className="flex flex-col -space-y-1">
-                <span className="text-2xl font-black tracking-tighter text-blue-700">MAYFIELD</span>
-                <span className="text-[10px] font-black tracking-[0.4em] text-slate-900">PHONE REPAIR</span>
+            <div className="flex flex-col px-6 py-4 space-y-4">
+              <Link to="/" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Home</Link>
+              <Link to="/#brands" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Brands</Link>
+              <Link to="/#services" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Services</Link>
+              <Link to="/blog" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Blog</Link>
+              <Link to="/#why-us" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Why Choose Us</Link>
+              <Link to="/#contact" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Location & Contact</Link>
+              <div className="pt-6 mt-2 border-t border-slate-100 flex flex-col space-y-4">
+                <Link to="/second-hand-phones" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Shop Phones</Link>
+                <Link to="/accessories" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Accessories</Link>
+                <Link to="/corporate-repairs" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Corporate Repairs</Link>
               </div>
-              <button onClick={closeMenu} className="p-2 bg-white rounded-full shadow-sm border border-slate-100">
-                <X className="w-6 h-6" />
-              </button>
-            </div>
-            
-            <div className="flex flex-col space-y-6">
-              {navigation.map((item) => (
-                <Link key={item.name} to={item.href} onClick={closeMenu} className="text-4xl font-black font-display tracking-tight text-slate-900 border-b border-slate-200 pb-4">
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-            
-            <div className="mt-auto pt-12">
-              <button 
-                onClick={() => { openBooking(); closeMenu(); }}
-                className="w-full bg-blue-600 text-white py-5 rounded-2xl font-black uppercase tracking-widest text-sm shadow-xl shadow-blue-100"
-              >
-                Book Repair Now
-              </button>
+              <div className="pt-6 mt-2 border-t border-slate-100 flex flex-col space-y-4">
+                <a href="tel:0240491735" className="flex items-center justify-center gap-2 text-blue-600 bg-blue-50 py-3 rounded-xl font-bold">
+                  <Phone className="w-5 h-5" />
+                  <span>Call: 02 4049 1735</span>
+                </a>
+                <button 
+                  onClick={() => { openBooking(); closeMenu(); }}
+                  className="bg-blue-600 text-white text-center px-5 py-3 rounded-xl font-bold shadow-lg shadow-blue-200"
+                >
+                  Book Online Now
+                </button>
+              </div>
             </div>
           </motion.div>
         )}
