@@ -64,7 +64,10 @@
         "customerName": { "type": "string" },
         "email": { "type": "string" },
         "phone": { "type": "string" },
-        "serviceType": { "type": "string" },
+        "category": { "type": "string" },
+        "brand": { "type": "string" },
+        "model": { "type": "string" },
+        "service": { "type": "string" },
         "date": { "type": "string" },
         "time": { "type": "string" },
         "details": { "type": "string" },
@@ -72,7 +75,7 @@
         "createdAt": { "type": "string", "format": "date-time" },
         "updatedAt": { "type": "string", "format": "date-time" }
       },
-      "required": ["customerName", "phone", "serviceType", "date", "time", "status", "createdAt", "updatedAt"]
+      "required": ["customerName", "phone", "category", "brand", "model", "service", "date", "time", "status", "createdAt", "updatedAt"]
     }
   },
   "firestore": {

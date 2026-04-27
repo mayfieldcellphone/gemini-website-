@@ -42,12 +42,14 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleClose = () => {
     onClose();
     setTimeout(() => {
       setStep(1);
       setIsSuccess(false);
+      setError(null);
       setFormData({
         category: '',
         brand: '',
@@ -87,8 +89,10 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null);
 
     try {
+      console.log('Attempting to save booking:', formData);
       await addDoc(collection(db, 'bookings'), {
         ...formData,
         status: 'pending',
@@ -96,10 +100,18 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
         updatedAt: serverTimestamp()
       });
       
-      await sendSMSNotification('booking', formData);
+      console.log('Booking saved to Firestore, sending SMS...');
       setIsSuccess(true);
-    } catch (error) {
-      handleFirestoreError(error, OperationType.CREATE, 'bookings');
+      
+      // Send SMS in background
+      sendSMSNotification('booking', formData).catch(err => {
+        console.warn('SMS notification error:', err);
+      });
+    } catch (err) {
+      console.error('Submit error:', err);
+      const message = err instanceof Error ? err.message : 'An unknown error occurred';
+      setError(message);
+      handleFirestoreError(err, OperationType.CREATE, 'bookings');
     } finally {
       setIsSubmitting(false);
     }
@@ -439,6 +451,16 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                           className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-100 transition-all font-medium text-slate-900"
                         />
                       </div>
+
+                      {error && (
+                        <div className="p-4 bg-rose-50 border border-rose-100 rounded-2xl flex items-start gap-3">
+                          <X className="w-5 h-5 text-rose-500 shrink-0 mt-0.5" />
+                          <div className="space-y-1">
+                            <p className="text-sm font-bold text-rose-900">Submission Failed</p>
+                            <p className="text-xs text-rose-600 font-medium leading-relaxed">{error}</p>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   )}
 
