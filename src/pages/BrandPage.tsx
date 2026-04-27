@@ -3,8 +3,10 @@ import { brands } from '../data/brands';
 import { Helmet } from 'react-helmet-async';
 import { ArrowLeft, Smartphone, CheckCircle2, ShieldCheck, Wrench, BatteryCharging, Zap, Droplet, Phone, Clock, MapPin, Sparkles } from 'lucide-react';
 import { useEffect } from 'react';
+import { useUI } from '../contexts/UIContext';
 
 export default function BrandPage() {
+  const { openBooking } = useUI();
   const { brandId } = useParams();
   const brand = brands.find(b => b.id === brandId);
 
@@ -90,10 +92,10 @@ export default function BrandPage() {
                   </h3>
                   <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
                     {category.models.map(model => (
-                      <Link key={model} to="/#contact" className="bg-slate-50/50 p-5 rounded-2xl border border-slate-100 hover:border-blue-400 hover:bg-white hover:shadow-xl hover:shadow-blue-600/5 transition-all cursor-pointer flex justify-between items-center group">
+                      <button key={model} onClick={openBooking} className="bg-slate-50/50 p-5 rounded-2xl border border-slate-100 hover:border-blue-400 hover:bg-white hover:shadow-xl hover:shadow-blue-600/5 transition-all cursor-pointer flex justify-between items-center group">
                         <span className="font-bold text-slate-700 group-hover:text-blue-900 tracking-tight">{model}</span>
                         <ArrowLeft className="w-4 h-4 text-blue-600 rotate-180 transform group-hover:translate-x-1 transition-transform opacity-0 group-hover:opacity-100" strokeWidth={3} />
-                      </Link>
+                      </button>
                     ))}
                   </div>
                 </div>
@@ -120,9 +122,9 @@ export default function BrandPage() {
                   <Phone className="w-5 h-5" />
                   Call Us
                 </a>
-                <Link to="/#contact" className="inline-flex items-center justify-center gap-4 bg-white/5 text-white border border-white/10 px-10 py-6 rounded-2xl font-black uppercase tracking-[0.2em] text-xs hover:bg-white hover:text-slate-900 transition-all">
+                <button onClick={openBooking} className="inline-flex items-center justify-center gap-4 bg-white/5 text-white border border-white/10 px-10 py-6 rounded-2xl font-black uppercase tracking-[0.2em] text-xs hover:bg-white hover:text-slate-900 transition-all">
                   Get a Quote
-                </Link>
+                </button>
               </div>
             </div>
           </div>

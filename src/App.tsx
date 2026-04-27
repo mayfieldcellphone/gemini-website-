@@ -1,6 +1,7 @@
 import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
+import { UIProvider } from './contexts/UIContext';
 
 const Home = lazy(() => import('./pages/Home'));
 const BrandPage = lazy(() => import('./pages/BrandPage'));
@@ -19,8 +20,9 @@ const AboutUs = lazy(() => import('./pages/AboutUs'));
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
+    <UIProvider>
+      <Routes>
+        <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="brand/:brandId" element={<BrandPage />} />
         <Route path="service/:serviceId" element={<ServicePage />} />
@@ -37,5 +39,6 @@ export default function App() {
         <Route path=":serviceKeyword/:suburbId" element={<SuburbPage />} />
       </Route>
     </Routes>
+    </UIProvider>
   );
 }

@@ -3,8 +3,10 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
 import { useState, useEffect, FormEvent } from 'react';
 import { useLocation, Link } from 'react-router-dom';
+import { useUI } from '../contexts/UIContext';
 import { db, handleFirestoreError, OperationType } from '../lib/firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { sendSMSNotification } from '../lib/notifications';
 import { brands } from '../data/brands';
 import { servicesData } from '../data/services';
 import { blogPosts } from '../data/blogs';
@@ -25,6 +27,7 @@ const BackgroundDecoration = () => (
 );
 
 export default function Home() {
+  const { openBooking } = useUI();
   const location = useLocation();
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [formData, setFormData] = useState({ name: '', phone: '', details: '' });
@@ -48,6 +51,10 @@ export default function Home() {
         createdAt: serverTimestamp(),
         updatedAt: serverTimestamp()
       });
+
+      // Send SMS Notification
+      await sendSMSNotification('quote', formData);
+
       setSubmitStatus('success');
       setFormData({ name: '', phone: '', details: '' });
     } catch (error) {
@@ -126,9 +133,12 @@ export default function Home() {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center gap-6 pt-4">
-            <a href="#contact" className="w-full sm:w-auto text-center px-10 py-5 bg-blue-600 text-white font-bold rounded-2xl shadow-2xl shadow-blue-500/20 hover:bg-blue-700 hover:-translate-y-1 transition-all">
+            <button 
+              onClick={openBooking}
+              className="w-full sm:w-auto text-center px-10 py-5 bg-blue-600 text-white font-bold rounded-2xl shadow-2xl shadow-blue-500/20 hover:bg-blue-700 hover:-translate-y-1 transition-all"
+            >
               Book a Repair
-            </a>
+            </button>
             <a href="tel:0240491735" className="w-full sm:w-auto flex items-center justify-center gap-4 px-10 py-5 bg-white border border-slate-200 text-slate-900 font-bold rounded-2xl hover:bg-slate-50 hover:border-slate-300 transition-all shadow-sm group">
               <Phone className="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform" />
               <span>02 4049 1735</span>
@@ -215,10 +225,13 @@ export default function Home() {
               </p>
             </div>
             <div className="lg:col-span-4 lg:pt-12">
-              <a href="#contact" className="group flex items-center justify-between p-6 bg-white border border-slate-200 rounded-2xl hover:border-blue-500 transition-all font-bold text-slate-900 shadow-sm">
+              <button 
+                onClick={openBooking}
+                className="group flex items-center justify-between w-full p-6 bg-white border border-slate-200 rounded-2xl hover:border-blue-500 transition-all font-bold text-slate-900 shadow-sm"
+              >
                 <span>Custom Device Repair?</span>
                 <ArrowRight className="w-5 h-5 text-blue-600 group-hover:translate-x-2 transition-transform" />
-              </a>
+              </button>
             </div>
           </div>
 
@@ -298,9 +311,12 @@ export default function Home() {
             </p>
             
             <div className="flex items-center gap-6">
-              <a href="#contact" className="bg-white text-slate-950 px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-500 hover:text-white transition-all shadow-2xl shadow-blue-500/20">
+              <button 
+                onClick={openBooking}
+                className="bg-white text-slate-950 px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-500 hover:text-white transition-all shadow-2xl shadow-blue-500/20"
+              >
                 Fix My Phone
-              </a>
+              </button>
               <div className="flex flex-col">
                 <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500">Call Us</span>
                 <span className="font-bold text-lg">02 4049 1735</span>

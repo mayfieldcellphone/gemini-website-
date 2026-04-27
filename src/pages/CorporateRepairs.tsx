@@ -5,6 +5,7 @@ import { Building2, GraduationCap, ShieldCheck, Clock, CheckCircle2, Zap, ArrowR
 import { Link } from 'react-router-dom';
 import { db, handleFirestoreError, OperationType } from '../lib/firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { sendSMSNotification } from '../lib/notifications';
 
 export default function CorporateRepairs() {
   const [formData, setFormData] = useState({
@@ -28,6 +29,14 @@ export default function CorporateRepairs() {
         status: 'new',
         createdAt: serverTimestamp()
       });
+
+      // Send SMS Notification
+      await sendSMSNotification('corporate', {
+        companyName: formData.organization,
+        contactName: formData.contactName,
+        phone: formData.phone
+      });
+
       setSubmitStatus('success');
       setFormData({ organization: '', contactName: '', email: '', phone: '', message: '' });
     } catch (error) {

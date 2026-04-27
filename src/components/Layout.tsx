@@ -6,10 +6,11 @@ import { Helmet } from 'react-helmet-async';
 import { suburbs, seoServices } from '../data/suburbs';
 import ChatWidget from './ChatWidget';
 import BookingModal from './BookingModal';
+import { useUI } from '../contexts/UIContext';
 
 export default function Layout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const { isBookingModalOpen, openBooking, closeBooking } = useUI();
   const [isSeoDirOpen, setIsSeoDirOpen] = useState(false);
   const { pathname, hash } = useLocation();
 
@@ -170,7 +171,7 @@ export default function Layout() {
         {/* Desktop CTA */}
         <div className="hidden lg:flex items-center shrink-0">
           <button 
-            onClick={() => setIsBookingModalOpen(true)}
+            onClick={openBooking}
             className="bg-slate-900 text-white px-8 py-3 rounded-xl hover:bg-blue-600 transition shadow-xl shadow-slate-200 font-black uppercase tracking-widest text-[10px] font-display"
           >
             Book a Repair
@@ -209,7 +210,7 @@ export default function Layout() {
                   <span>Call: 02 4049 1735</span>
                 </a>
                 <button 
-                  onClick={() => { setIsBookingModalOpen(true); closeMenu(); }}
+                  onClick={() => { openBooking(); closeMenu(); }}
                   className="bg-blue-600 text-white text-center px-5 py-3 rounded-xl font-bold shadow-lg shadow-blue-200"
                 >
                   Book Online Now
@@ -224,8 +225,8 @@ export default function Layout() {
         <Outlet />
       </main>
 
-      <ChatWidget onOpenBooking={() => setIsBookingModalOpen(true)} />
-      <BookingModal isOpen={isBookingModalOpen} onClose={() => setIsBookingModalOpen(false)} />
+      <ChatWidget onOpenBooking={openBooking} />
+      <BookingModal isOpen={isBookingModalOpen} onClose={closeBooking} />
 
       {/* Modern Footer */}
       <footer className="bg-slate-950 pt-32 pb-12 px-6 md:px-12 text-slate-500 overflow-hidden relative">

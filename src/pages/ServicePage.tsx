@@ -1,10 +1,12 @@
 import { useParams, Link } from 'react-router-dom';
 import { servicesData } from '../data/services';
 import { Helmet } from 'react-helmet-async';
-import { ArrowLeft, CheckCircle2, Phone, MapPin } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, Phone, MapPin, Calendar } from 'lucide-react';
 import { useEffect } from 'react';
+import { useUI } from '../contexts/UIContext';
 
 export default function ServicePage() {
+  const { openBooking } = useUI();
   const { serviceId } = useParams();
   const service = servicesData.find(s => s.id === serviceId);
 
@@ -93,6 +95,10 @@ export default function ServicePage() {
                 <p className="text-slate-400 text-xl font-medium leading-relaxed">Book your repair today or just walk in for same-day service.</p>
               </div>
               <div className="flex flex-col w-full md:w-auto gap-4 shrink-0">
+                <button onClick={openBooking} className="inline-flex items-center justify-center gap-4 bg-white text-slate-900 px-10 py-6 rounded-2xl font-black uppercase tracking-[0.2em] text-xs hover:bg-slate-100 transition-all shadow-xl">
+                  <Calendar className="w-5 h-5 text-blue-600" />
+                  Book Online
+                </button>
                 <a href="tel:0240491735" className="inline-flex items-center justify-center gap-4 bg-blue-600 text-white px-10 py-6 rounded-2xl font-black uppercase tracking-[0.2em] text-xs hover:bg-blue-700 transition-all shadow-2xl shadow-blue-600/30">
                   <Phone className="w-5 h-5" />
                   Call Us Now
