@@ -45,7 +45,7 @@ interface CorporateLead {
 const ITEMS_PER_PAGE = 8;
 
 export default function AdminDashboard() {
-  const { user, isAdmin, login, logout, loading } = useAuth();
+  const { user, isAdmin, login, loginWithRedirect, logout, loading } = useAuth();
   const [activeTab, setActiveTab] = useState<'quotes' | 'corporate'>('quotes');
   const [quotes, setQuotes] = useState<Quote[]>([]);
   const [corporateLeads, setCorporateLeads] = useState<CorporateLead[]>([]);
@@ -145,10 +145,16 @@ export default function AdminDashboard() {
             
             <div className="flex flex-col gap-4">
               <button 
-                onClick={login}
+                onClick={() => login()}
                 className="px-10 py-6 bg-slate-900 text-white rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-600 transition-all shadow-xl flex items-center justify-center gap-3"
               >
-                Switch Account
+                Switch Account (Popup)
+              </button>
+              <button 
+                onClick={() => loginWithRedirect()}
+                className="px-10 py-6 bg-white text-slate-900 border border-slate-200 rounded-2xl font-black uppercase tracking-widest text-xs hover:border-blue-600 transition-all shadow-sm flex items-center justify-center gap-3"
+              >
+                Switch Account (Redirect)
               </button>
               <button 
                 onClick={logout}
@@ -159,15 +165,23 @@ export default function AdminDashboard() {
             </div>
           </div>
         ) : (
-          <>
-            <p className="text-slate-500 mb-8 max-w-sm italic">This area is for Mayfield Cellphone Repairs staff only. Please sign in with your authorized Google account.</p>
-            <button 
-              onClick={login}
-              className="px-10 py-6 bg-slate-900 text-white rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-600 transition-all shadow-xl flex items-center gap-3 mx-auto"
-            >
-              Sign In with Google
-            </button>
-          </>
+          <div className="max-w-md w-full space-y-6">
+            <p className="text-slate-500 mb-8 max-w-sm italic mx-auto">This area is for Mayfield Cellphone Repairs staff only. Please sign in with your authorized Google account.</p>
+            <div className="flex flex-col gap-4">
+              <button 
+                onClick={() => login()}
+                className="px-10 py-6 bg-slate-900 text-white rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-600 transition-all shadow-xl flex items-center justify-center gap-3"
+              >
+                Sign In with Google (Popup)
+              </button>
+              <button 
+                onClick={() => loginWithRedirect()}
+                className="px-10 py-6 bg-white text-slate-900 border border-slate-200 rounded-2xl font-black uppercase tracking-widest text-xs hover:border-blue-600 transition-all shadow-sm flex items-center justify-center gap-3"
+              >
+                Sign In with Google (Redirect)
+              </button>
+            </div>
+          </div>
         )}
       </div>
     );
