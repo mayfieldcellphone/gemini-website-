@@ -13,7 +13,8 @@ import { blogPosts } from '../data/blogs';
 
 const BackgroundDecoration = () => (
   <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10 bg-white">
-    <div className="absolute top-0 left-0 w-full h-full bg-grid-slate-100 opacity-[0.2] md:opacity-[0.4]" />
+    {/* Grid removed on small mobile to speed up rendering */}
+    <div className="absolute top-0 left-0 w-full h-full bg-grid-slate-100 opacity-[0.2] md:opacity-[0.4] hidden sm:block" />
     <div className="absolute top-[10%] left-[5%] w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px] hidden lg:block" />
     <div className="absolute bottom-[20%] right-[10%] w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[120px] hidden lg:block" />
   </div>
@@ -178,7 +179,7 @@ export default function Home() {
 
             {/* Floating Trust Card: Social Proof */}
             <motion.div 
-              animate={{ y: [0, -10, 0] }}
+              animate={{ y: typeof window !== 'undefined' && window.innerWidth < 768 ? 0 : [0, -10, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
               className="absolute -top-10 -right-4 md:-right-10 bg-white/95 backdrop-blur-md p-6 rounded-3xl shadow-2xl border border-slate-100/50 flex flex-col gap-3 min-w-[200px]"
             >
@@ -465,20 +466,13 @@ export default function Home() {
                     <ChevronRight className="w-5 h-5" />
                   </div>
                 </button>
-                <AnimatePresence>
+                <div className="flex-1 overflow-hidden">
                   {activeFaq === idx && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="px-20 pb-10 text-slate-500 font-medium text-lg leading-relaxed border-t border-slate-50 pt-8 mx-4">
-                        {faq.a}
-                      </div>
-                    </motion.div>
+                    <div className="px-10 md:px-20 pb-10 text-slate-500 font-medium text-lg leading-relaxed border-t border-slate-50 pt-8 mx-4">
+                      {faq.a}
+                    </div>
                   )}
-                </AnimatePresence>
+                </div>
               </div>
             ))}
           </div>

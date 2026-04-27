@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { suburbs, seoServices } from '../data/suburbs';
-import ChatWidget from './ChatWidget';
+import LazyChat from './LazyChat';
 import LazyTawk from './LazyTawk';
 import BookingModal from './BookingModal';
 import { useUI } from '../contexts/UIContext';
@@ -226,7 +226,7 @@ export default function Layout() {
         <Outlet />
       </main>
 
-      <ChatWidget onOpenBooking={openBooking} />
+      <LazyChat onOpenBooking={openBooking} />
       <LazyTawk />
       <BookingModal isOpen={isBookingModalOpen} onClose={closeBooking} />
 
