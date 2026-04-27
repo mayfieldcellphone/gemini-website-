@@ -28,9 +28,58 @@
         "createdAt": { "type": "string", "format": "date-time" }
       },
       "required": ["organization", "contactName", "email", "phone", "status", "createdAt"]
+    },
+    "chat_message": {
+      "title": "Chat Message",
+      "description": "A single message in a chat conversation",
+      "type": "object",
+      "properties": {
+        "text": { "type": "string" },
+        "senderId": { "type": "string" },
+        "senderName": { "type": "string" },
+        "isAdmin": { "type": "boolean" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["text", "senderId", "senderName", "isAdmin", "timestamp"]
+    },
+    "chat_session": {
+      "title": "Chat Session",
+      "description": "A live chat conversation between a customer and staff",
+      "type": "object",
+      "properties": {
+        "customerName": { "type": "string" },
+        "customerEmail": { "type": "string" },
+        "status": { "type": "string", "enum": ["active", "archived"] },
+        "lastMessage": { "type": "string" },
+        "lastUpdatedAt": { "type": "string", "format": "date-time" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["status", "lastUpdatedAt", "createdAt"]
+    },
+    "booking": {
+      "title": "Repair Booking",
+      "description": "A scheduled repair appointment",
+      "type": "object",
+      "properties": {
+        "customerName": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "serviceType": { "type": "string" },
+        "date": { "type": "string" },
+        "time": { "type": "string" },
+        "details": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "confirmed", "completed", "cancelled"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["customerName", "phone", "serviceType", "date", "time", "status", "createdAt", "updatedAt"]
     }
   },
   "firestore": {
+    "bookings": {
+      "schema": "booking",
+      "description": "Collection of repair appointments"
+    },
     "quotes": {
       "schema": "quote",
       "description": "Collection of public quote requests"
@@ -38,6 +87,14 @@
     "corporate_leads": {
       "schema": "corporate_inquiry",
       "description": "Collection of corporate leads"
+    },
+    "chats": {
+      "schema": "chat_session",
+      "description": "Active and archived chat sessions"
+    },
+    "chats/{chatId}/messages": {
+      "schema": "chat_message",
+      "description": "Messages within a specific chat session"
     }
   }
 }

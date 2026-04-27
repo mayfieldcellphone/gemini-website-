@@ -60,6 +60,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       console.error("Login failed:", error);
       if (error.code === 'auth/popup-blocked') {
         alert("Popups were blocked by your browser. Please allow popups or use the 'Login with Redirect' option.");
+      } else if (error.code === 'auth/unauthorized-domain') {
+        alert(`This domain (${window.location.hostname}) is not authorized in your Firebase Project. Please add it to Authentication > Settings > Authorized domains in the Firebase Console.`);
       } else if (error.code === 'auth/cancelled-popup-request') {
         // Ignore user cancellation
       } else {
@@ -75,7 +77,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       await signInWithRedirect(auth, provider);
     } catch (error: any) {
       console.error("Redirect login failed:", error);
-      alert("Redirect login failed: " + error.message);
+      if (error.code === 'auth/unauthorized-domain') {
+        alert(`This domain (${window.location.hostname}) is not authorized in your Firebase Project. Please add it to Authentication > Settings > Authorized domains in the Firebase Console.`);
+      } else {
+        alert("Redirect login failed: " + error.message);
+      }
     }
   };
 

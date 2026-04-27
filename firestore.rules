@@ -14,12 +14,42 @@ service cloud.firestore {
     function isAdmin() { 
       return isSignedIn() && (
         exists(/databases/$(database)/documents/admins/$(request.auth.uid)) ||
-        request.auth.token.email == 'mayfieldcellphonerepairs@gmail.com'
+        (request.auth.token.email == 'mayfieldcellphonerepairs@gmail.com' && request.auth.token.email_verified == true)
       );
     }
 
     // Phase 4: Drafting the "Fortress" Rules
     
+    // bookings
+    match /bookings/{bookingId} {
+      function isValidBooking(data) {
+        return data.keys().hasAll(['customerName', 'phone', 'serviceType', 'date', 'time', 'status', 'createdAt', 'updatedAt']) &&
+               data.customerName is string && data.customerName.size() > 0 && data.customerName.size() <= 100 &&
+               data.phone is string && data.phone.size() >= 8 && data.phone.size() <= 15 &&
+               data.serviceType is string && data.serviceType.size() > 0 &&
+               data.date is string && data.date.size() > 0 &&
+               data.time is string && data.time.size() > 0 &&
+               data.status in ['pending', 'confirmed', 'completed', 'cancelled'] &&
+               data.createdAt is timestamp &&
+               data.updatedAt is timestamp;
+      }
+
+      allow create: if isValidId(bookingId) && 
+                      isValidBooking(incoming()) && 
+                      incoming().status == 'pending' &&
+                      incoming().createdAt == request.time &&
+                      incoming().updatedAt == request.time;
+      
+      allow read, list: if isAdmin();
+      
+      allow update: if isAdmin() && 
+                      isValidBooking(incoming()) &&
+                      incoming().diff(existing()).affectedKeys().hasOnly(['status', 'updatedAt']) &&
+                      incoming().updatedAt == request.time;
+      
+      allow delete: if isAdmin();
+    }
+
     // quotes
     match /quotes/{quoteId} {
       function isValidQuote(data) {
@@ -82,6 +112,48 @@ service cloud.firestore {
     match /admins/{userId} {
       allow read: if isSignedIn() && request.auth.uid == userId;
       allow write: if false; // Only manageable via console or service account
+    }
+
+    // chats
+    match /chats/{chatId} {
+      function isValidChat(data) {
+        return data.keys().hasAll(['status', 'lastUpdatedAt', 'createdAt']) &&
+               data.status in ['active', 'archived'] &&
+               data.lastUpdatedAt is timestamp &&
+               data.createdAt is timestamp;
+      }
+
+      allow create: if isValidId(chatId) && 
+                      isValidChat(incoming()) &&
+                      incoming().status == 'active' &&
+                      incoming().createdAt == request.time &&
+                      incoming().lastUpdatedAt == request.time;
+      
+      allow read: if true; 
+      allow list: if isAdmin();
+      
+      allow update: if true && // Allow anyone to update lastMessage/lastUpdatedAt
+                      incoming().lastUpdatedAt == request.time;
+      
+      allow delete: if isAdmin();
+
+      // messages
+      match /messages/{messageId} {
+        function isValidMessage(data) {
+          return data.keys().hasAll(['text', 'senderId', 'senderName', 'isAdmin', 'timestamp']) &&
+                 data.text is string && data.text.size() > 0 &&
+                 data.senderName is string &&
+                 data.isAdmin is bool &&
+                 data.timestamp is timestamp;
+        }
+
+        allow create: if isValidId(messageId) &&
+                        isValidMessage(incoming()) &&
+                        incoming().timestamp == request.time &&
+                        (incoming().isAdmin == false || isAdmin());
+        
+        allow read, list: if true;
+      }
     }
   }
 }
