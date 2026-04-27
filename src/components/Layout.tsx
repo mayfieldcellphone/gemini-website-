@@ -359,6 +359,17 @@ export default function Layout() {
             <Link to="/admin" className="text-slate-800 hover:text-blue-500 transition-colors border-l border-white/5 pl-8">Staff Portal</Link>
           </div>
         </div>
+
+        <div className="max-w-7xl mx-auto mt-12 pt-12 border-t border-white/5 opacity-40">
+          <div className="flex flex-col gap-6 text-[9px] leading-relaxed text-slate-600 font-display font-black uppercase tracking-[0.2em] text-center md:text-left">
+            <p>
+              Aussibk with ABN 11433439336 trading as Mayfield Phone Repair.
+            </p>
+            <p className="max-w-4xl normal-case tracking-normal font-medium text-slate-700 italic">
+              Mayfield Phone Repair is an independent repair service provider and is not affiliated with Apple Inc., Samsung Electronics, or any other original equipment manufacturer (OEM). All trademarks are the property of their respective owners. We use high-quality replacement parts for all repairs.
+            </p>
+          </div>
+        </div>
       </footer>
     </div>
   );
