@@ -119,8 +119,8 @@ export default function Home() {
           
           <h1 className="text-5xl md:text-7xl lg:text-9xl font-black leading-[0.85] tracking-tighter text-slate-900 font-display text-balance">
             Phone <br/>
-            <span className="text-blue-600">Repair</span> <br/>
-            Newcastle.
+            Repair <br/>
+            <span className="text-blue-600">Newcastle & Mayfield.</span>
           </h1>
           
           <p className="text-lg md:text-2xl text-slate-600 leading-relaxed max-w-xl font-medium border-l-4 border-blue-100 pl-6">
