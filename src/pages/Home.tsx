@@ -114,17 +114,17 @@ export default function Home() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-full shadow-sm">
             <span className="flex h-2 w-2 rounded-full bg-blue-600 animate-pulse"></span>
-            <span className="text-technical text-blue-700">OPEN NOW IN MAYFIELD NSW</span>
+            <span className="text-technical text-blue-700">PREMIER REPAIR SERVICE // MAYFIELD</span>
           </div>
           
           <h1 className="text-5xl md:text-7xl lg:text-9xl font-black leading-[0.85] tracking-tighter text-slate-900 font-display text-balance">
-            Expert <br/>
-            <span className="text-blue-600">Phone</span> <br/>
-            Repairs.
+            Phone <br/>
+            <span className="text-blue-600">Repair</span> <br/>
+            Newcastle.
           </h1>
           
           <p className="text-lg md:text-2xl text-slate-600 leading-relaxed max-w-xl font-medium border-l-4 border-blue-100 pl-6">
-            Mayfield's premier repair specialists for high-spec device restoration. We fix everything from cracked screens to complex hardware faults. 
+            Mayfield's highest-rated specialists for high-spec device restoration. We provide Newcastle with precision repairs that other shops turn away. 
           </p>
           
           <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
@@ -248,7 +248,7 @@ export default function Home() {
               </h2>
             </div>
             <p className="md:max-w-xs text-slate-500 text-xs font-semibold leading-relaxed">
-              Equipped with precision tools for screen repairs, battery replacements, and structural restoration.
+              Equipped with precision tools for screen repairs, battery replacements, and structural restoration in Mayfield.
             </p>
           </div>
 
@@ -344,7 +344,7 @@ export default function Home() {
                <span className="text-technical text-blue-500">SERVICE GUARANTEE</span>
                <h2 className="text-4xl md:text-7xl font-black leading-none font-display tracking-tighter">Why <br/> Choose Us?</h2>
                <p className="text-slate-400 text-lg font-medium max-w-lg">
-                 Restoring flagship performance through verified components and expert precision.
+                 Mayfield's leading choice for flagship performance through verified components and Newcastle's best experts.
                </p>
              </div>
              

@@ -20,7 +20,16 @@ async function startServer() {
       const accountSid = process.env.TWILIO_ACCOUNT_SID;
       const authToken = process.env.TWILIO_AUTH_TOKEN;
       const fromNumber = process.env.TWILIO_FROM_NUMBER;
-      const adminNumber = process.env.ADMIN_PHONE_NUMBER || "0431618100";
+      let adminNumber = process.env.ADMIN_PHONE_NUMBER || "0431618100";
+
+      // Format Australian phone numbers to E.164 if they start with 04 or 02
+      const formatToE164 = (num: string) => {
+        const clean = num.replace(/\s+/g, '');
+        if (clean.startsWith('0') && !clean.startsWith('00')) {
+          return '+61' + clean.substring(1);
+        }
+        return clean.startsWith('+') ? clean : `+61${clean}`;
+      };
 
       if (!accountSid || !authToken || !fromNumber) {
         console.warn("Twilio credentials not configured. SMS not sent.");
@@ -31,17 +40,17 @@ async function startServer() {
       
       let message = "";
       if (type === "booking") {
-        message = `NEW BOOKING: ${data.customerName} (${data.phone}) - ${data.serviceType} on ${data.date} at ${data.time}. Details: ${data.details || 'None'}`;
+        message = `NEW BOOKING: ${data.customerName} (${data.phone}) - ${data.service || 'Repair'} on ${data.date} at ${data.time}. Details: ${data.details || 'None'}`;
       } else if (type === "quote") {
-        message = `NEW QUOTE: ${data.name} (${data.phone}) - ${data.details}. Brand: ${data.brand || 'N/A'}`;
+        message = `NEW QUOTE: ${data.name} (${data.phone}) - ${data.details}.`;
       } else if (type === "corporate") {
         message = `NEW CORP LEAD: ${data.companyName} - ${data.contactName} (${data.phone})`;
       }
 
       const response = await client.messages.create({
         body: message,
-        from: fromNumber,
-        to: adminNumber
+        from: formatToE164(fromNumber),
+        to: formatToE164(adminNumber)
       });
 
       console.log("SMS sent successfully:", response.sid);

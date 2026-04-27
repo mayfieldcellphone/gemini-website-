@@ -196,14 +196,14 @@ export default function SuburbPage() {
             </h2>
             <div className="prose prose-slate prose-lg lg:prose-xl max-w-none text-slate-600 leading-relaxed font-medium">
               <p>
-                Living in <strong>{suburbInfo.name}</strong> means you’re just <strong>{suburbInfo.distance}</strong> away from the most trusted phone repair laboratory in the Hunter region. At Mayfield Phone Repair, we understand that your mobile device is your lifeline—for work, family, and navigation. That’s why we’ve optimized our service protocol to be as efficient as possible, specifically for our neighbors in {suburbInfo.name}.
+                Living in <strong>{suburbInfo.name}</strong> means you’re just <strong>{suburbInfo.distance}</strong> away from the most trusted phone repair specialists in the Hunter region. At Mayfield Phone Repair, we understand that your mobile device is your lifeline—for work, family, and navigation. That’s why we’ve optimized our service protocol to be as efficient as possible, specifically for our neighbors in {suburbInfo.name}.
               </p>
               <p>
                 Our technicians are specialists in micro-soldering, component restoration, and certified diagnostics. Whether you’re dealing with a shattered iPhone screen, a Samsung Galaxy with a failing battery, or a Google Pixel that won’t charge, we use only premium-grade parts to ensure your device returns to factory specifications.
               </p>
-              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6 font-display italic">Why Newcastle Locals Choose Our Mayfield Lab</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6 font-display italic">Why Newcastle Locals Choose Our Mayfield Service</h3>
               <p>
-                While there are many repair options, we differentiate ourselves through transparency and technical depth. Unlike many "mall kiosks," we perform all repairs in a controlled, anti-static laboratory environment. This ensures that delicate internal components, like biometric sensors (Face ID / Fingerprint) and logic boards, are handled with the highest level of care.
+                While there are many repair options, we differentiate ourselves through transparency and technical depth. Unlike many "mall kiosks," we perform all repairs in a controlled, professional workshop environment. This ensures that delicate internal components, like biometric sensors (Face ID / Fingerprint) and logic boards, are handled with the highest level of care.
               </p>
               <ul className="space-y-4 list-none pl-0">
                 <li className="flex items-start gap-4">

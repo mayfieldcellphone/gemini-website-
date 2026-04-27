@@ -749,7 +749,7 @@ export const blogPosts: BlogPost[] = [
           <div class="space-y-6">
             <div class="flex flex-col gap-2">
               <span class="text-indigo-200 text-[10px] font-black uppercase tracking-widest">Can Samsung curved screens be repaired in Newcastle?</span>
-              <p class="text-xl font-bold">Yes, we specialize in curved AMOLED screen replacements for the Samsung S-series at our Mayfield lab.</p>
+              <p class="text-xl font-bold">Yes, we specialize in curved AMOLED screen replacements for the Samsung S-series at our Mayfield service centre.</p>
             </div>
             <div class="flex flex-col gap-2">
               <span class="text-indigo-200 text-[10px] font-black uppercase tracking-widest">How long is the warranty on Samsung repairs?</span>
@@ -816,7 +816,7 @@ export const blogPosts: BlogPost[] = [
           <p class="text-2xl font-bold">The iPhone 17 Pro Max introduces a refined internal layout that requires precision alignment tools—which we already have in Mayfield.</p>
         </div>
 
-        <p class="text-xl leading-relaxed text-slate-600">As Newcastle's premier independent repair lab, we’ve already decoded the assembly process for the <strong>iPhone 17 repair</strong>. Whether you’ve cracked your first iPhone 17 screen or need a diagnostic on the new thermal management system, we are ready.</p>
+        <p class="text-xl leading-relaxed text-slate-600">As Newcastle's premier independent repair service, we’ve already decoded the assembly process for the <strong>iPhone 17 repair</strong>. Whether you’ve cracked your first iPhone 17 screen or need a diagnostic on the new thermal management system, we are ready.</p>
 
         <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight italic">New Display Technology</h2>
         <p class="text-lg text-slate-600 leading-relaxed">The iPhone 17 series features even more resilient glass, but high-impact drops can still cause OLED damage. Our premium replacement panels maintain the 120Hz refresh rate and peak brightness levels you expect from a brand-new device.</p>
