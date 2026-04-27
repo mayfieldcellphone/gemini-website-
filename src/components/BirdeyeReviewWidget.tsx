@@ -8,11 +8,12 @@ export default function BirdeyeReviewWidget() {
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          setShouldLoad(true);
+          // Add a small extra delay to ensure FCP is settled
+          setTimeout(() => setShouldLoad(true), 1000);
           observer.disconnect();
         }
       },
-      { rootMargin: '200px' }
+      { rootMargin: '50px' } // Reduced margin to ensure it only loads close to viewport
     );
 
     if (containerRef.current) {

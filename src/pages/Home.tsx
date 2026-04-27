@@ -12,12 +12,10 @@ import { servicesData } from '../data/services';
 import { blogPosts } from '../data/blogs';
 
 const BackgroundDecoration = () => (
-  <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
-    <div className="absolute top-0 left-0 w-full h-full bg-grid-slate-100 opacity-[0.4]" />
-    <div className="absolute top-[10%] left-[5%] w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px] animate-pulse hidden md:block" />
-    <div className="absolute bottom-[20%] right-[10%] w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[120px] animate-pulse hidden md:block" style={{ animationDelay: '2s' }} />
-    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-full bg-slate-200/50 hidden lg:block" />
-    <div className="absolute top-1/3 left-0 w-full h-px bg-slate-200/50 hidden lg:block" />
+  <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10 bg-white">
+    <div className="absolute top-0 left-0 w-full h-full bg-grid-slate-100 opacity-[0.2] md:opacity-[0.4]" />
+    <div className="absolute top-[10%] left-[5%] w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px] hidden lg:block" />
+    <div className="absolute bottom-[20%] right-[10%] w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[120px] hidden lg:block" />
   </div>
 );
 
@@ -107,9 +105,9 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,_var(--tw-gradient-stops))] from-blue-100/30 via-transparent to-transparent"></div>
         
         <motion.div 
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
           className="w-full lg:w-[55%] space-y-10 relative z-10 lg:pr-8"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-full shadow-sm">
@@ -159,10 +157,10 @@ export default function Home() {
         </motion.div>
         
         <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="w-full lg:w-[40%] relative z-10"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="w-full lg:w-[40%] relative z-10 hidden md:block"
         >
           {/* Main Image Container with offset layout */}
           <div className="relative group">
