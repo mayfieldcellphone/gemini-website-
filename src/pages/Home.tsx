@@ -479,8 +479,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Technical Portfolio / SEO Section */}
-      <section className="py-20 px-6 md:px-12 bg-slate-50 border-t border-slate-200">
+      {/* Service Areas Section */}
+      <section className="py-20 px-6 md:px-12 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-12">
             <span className="text-technical text-slate-400">MAYFIELD REPAIR REGISTRY</span>
@@ -495,6 +495,39 @@ export default function Home() {
             <span className="hover:text-blue-600 transition-colors uppercase">IPAD PRO M4 GLASS REPAIR</span>
             <span className="hover:text-blue-600 transition-colors uppercase">Z FOLD 7 HINGE SERVICE</span>
             <span className="hover:text-blue-600 transition-colors uppercase">S25 COMPACT REPAIR SERVICE</span>
+          </div>
+
+          <div className="mt-24 pt-24 border-t border-slate-100">
+            <div className="text-center space-y-4 mb-16">
+              <span className="text-technical text-blue-600">NEWCASTLE & HUNTER REGION</span>
+              <h2 className="text-3xl md:text-5xl font-black text-slate-900 font-display tracking-tighter">Areas We Service.</h2>
+              <p className="text-slate-500 font-medium italic max-w-2xl mx-auto">Providing Newcastle and the surrounding suburbs with premium-grade phone restoration services.</p>
+            </div>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+              {[
+                { name: 'Newcastle', id: 'newcastle' },
+                { name: 'Mayfield', id: 'mayfield' },
+                { name: 'Waratah', id: 'waratah' },
+                { name: 'Hamilton', id: 'hamilton' },
+                { name: 'Wallsend', id: 'wallsend' },
+                { name: 'Jesmond', id: 'jesmond' },
+                { name: 'Lambton', id: 'lambton' },
+                { name: 'Merewether', id: 'merewether' },
+                { name: 'Charlestown', id: 'charlestown' },
+                { name: 'Broadmeadow', id: 'broadmeadow' },
+                { name: 'Kotara', id: 'kotara' },
+                { name: 'Islington', id: 'islington' }
+              ].map((area) => (
+                <Link 
+                  key={area.id}
+                  to={`/phone-repair/${area.id}`}
+                  className="px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl text-center hover:border-blue-400 hover:text-blue-600 hover:bg-white transition-all font-display font-bold text-sm tracking-tight"
+                >
+                  {area.name}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>

@@ -29,6 +29,7 @@ export const suburbs: Suburb[] = [
   { id: 'mayfield-east', name: 'Mayfield East', distance: 'practically on our doorstep, 1 minute away', nearby: ['Mayfield', 'Tighes Hill'] },
   { id: 'mayfield-west', name: 'Mayfield West', distance: 'just a 2-minute drive down the road', nearby: ['Mayfield', 'Waratah'] },
   { id: 'wickham', name: 'Wickham', distance: 'an 8-minute drive via Hannell St', nearby: ['Maryville', 'Newcastle'] },
+  { id: 'mayfield', name: 'Mayfield', distance: 'right here in our shop', nearby: ['Waratah', 'Islington'] },
 ];
 
 export const seoServices = [

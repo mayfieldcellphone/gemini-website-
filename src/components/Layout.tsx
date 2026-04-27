@@ -1,27 +1,4 @@
-import { 
-  Smartphone, 
-  Phone, 
-  Menu, 
-  X, 
-  Facebook, 
-  Instagram, 
-  Twitter, 
-  Linkedin, 
-  Youtube, 
-  MessageSquare, 
-  MapPin, 
-  Clock, 
-  ChevronDown, 
-  ArrowRight,
-  ArrowUpRight,
-  Mic,
-  Laptop,
-  Tablet,
-  Watch,
-  Gamepad2,
-  Settings,
-  Mail
-} from 'lucide-react';
+import { Smartphone, Phone, Menu, X, Facebook, Instagram, Twitter, Linkedin, Youtube, MessageSquare, MapPin, Clock } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
@@ -33,15 +10,16 @@ import { useUI } from '../contexts/UIContext';
 
 export default function Layout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const { isBookingModalOpen, openBooking, closeBooking } = useUI();
   const [isSeoDirOpen, setIsSeoDirOpen] = useState(false);
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
+    // Scroll to top on route change if no hash is present
     if (!hash) {
       window.scrollTo(0, 0);
     } else {
+      // If there is a hash, wait for the element to potentially render then scroll to it
       setTimeout(() => {
         const id = hash.replace('#', '');
         const element = document.getElementById(id);
@@ -50,7 +28,6 @@ export default function Layout() {
         }
       }, 0);
     }
-    setActiveDropdown(null);
   }, [pathname, hash]);
 
   const closeMenu = () => setIsMenuOpen(false);
@@ -77,8 +54,55 @@ export default function Layout() {
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900 flex flex-col scroll-smooth">
       <Helmet>
         <link rel="canonical" href={`https://mayfieldphonerepair.com.au${pathname === '/' ? '' : pathname}`} />
+        <meta property="og:url" content="https://mayfieldphonerepair.com.au" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:domain" content="mayfieldphonerepair.com.au" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Mayfield Cell Phone Repairs",
+            "image": "https://mayfieldphonerepair.com.au/logo.png",
+            "@id": "https://mayfieldphonerepair.com.au",
+            "url": "https://mayfieldphonerepair.com.au",
+            "telephone": "02 4049 1735",
+            "priceRange": "$$",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "276 Maitland Rd",
+              "addressLocality": "Mayfield",
+              "addressRegion": "NSW",
+              "postalCode": "2304",
+              "addressCountry": "AU"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": -32.8988,
+              "longitude": 151.7345
+            },
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "09:00",
+                "closes": "17:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Saturday",
+                "opens": "09:00",
+                "closes": "15:00"
+              }
+            ],
+            "sameAs": [
+              "https://www.facebook.com/mayfieldcellphonerepairs/",
+              "https://www.instagram.com/mayfieldcellphonerepairs/",
+              "https://www.pinterest.com/mayfieldcellphonerepairs0496"
+            ]
+          })}
+        </script>
       </Helmet>
-
       {/* Top Utility Header */}
       <div className="bg-slate-900 text-slate-300 py-3 px-6 md:px-12 text-sm flex flex-col lg:flex-row justify-between items-center gap-3 relative z-50">
         <div className="flex flex-wrap justify-center lg:justify-start items-center gap-x-6 gap-y-2">
@@ -160,7 +184,6 @@ export default function Layout() {
         </button>
       </nav>
 
-      {/* Mobile Menu (Drawer/Slide down) */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
@@ -205,137 +228,133 @@ export default function Layout() {
       <ChatWidget onOpenBooking={openBooking} />
       <BookingModal isOpen={isBookingModalOpen} onClose={closeBooking} />
 
-      {/* COMPREHENSIVE DARK FOOTER */}
-      <footer className="bg-[#0e0e0d] pt-32 pb-12 px-6 md:px-12 text-slate-400 relative overflow-hidden">
-        {/* Background Decoration */}
-        <div className="absolute bottom-[-5%] left-1/2 -translate-x-1/2 select-none pointer-events-none w-full">
-           <h2 className="text-[12vw] font-black text-white/[0.03] leading-none text-center font-display tracking-tighter uppercase whitespace-nowrap">MAYFIELD.</h2>
+      {/* Modern Footer */}
+      <footer className="bg-slate-950 pt-32 pb-12 px-6 md:px-12 text-slate-500 overflow-hidden relative">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[300px] bg-blue-600/5 blur-[120px] rounded-full"></div>
+        
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 mb-24 relative z-10">
+          <div className="lg:col-span-5 space-y-10">
+            <Link to="/" className="inline-flex items-center group">
+              <span className="text-2xl font-black tracking-tight text-white flex items-center font-display">
+                Mayfield
+                <div className="flex items-center justify-center mx-3 w-9 h-9 bg-blue-600 text-white rounded-2xl shadow-xl shadow-blue-600/20 group-hover:-rotate-6 transition-transform">
+                  <Smartphone className="w-5 h-5" strokeWidth={3} />
+                </div>
+                Repair
+              </span>
+            </Link>
+            <p className="text-lg leading-relaxed text-slate-400 font-medium max-w-sm">
+              The premier destination for certified mobile diagnostics and precision hardware restoration in Mayfield.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              {socialLinks.map(link => (
+                <a 
+                  key={link.name} 
+                  href={link.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all shadow-sm hover:shadow-blue-600/20 hover:-translate-y-1"
+                  aria-label={link.name}
+                >
+                  {link.icon}
+                </a>
+              ))}
+            </div>
+          </div>
+          
+          <div className="lg:col-span-7 grid sm:grid-cols-4 gap-12">
+             <div className="space-y-8">
+               <h4 className="text-white text-xs font-black uppercase tracking-[0.3em] font-display">Service Areas</h4>
+               <ul className="space-y-4 text-sm font-medium">
+                 <li><Link to="/phone-repair/newcastle" className="hover:text-blue-400 transition-colors">Newcastle</Link></li>
+                 <li><Link to="/phone-repair/mayfield" className="hover:text-blue-400 transition-colors">Mayfield</Link></li>
+                 <li><Link to="/phone-repair/waratah" className="hover:text-blue-400 transition-colors">Waratah</Link></li>
+                 <li><Link to="/phone-repair/hamilton" className="hover:text-blue-400 transition-colors">Hamilton</Link></li>
+                 <li><Link to="/phone-repair/wallsend" className="hover:text-blue-400 transition-colors">Wallsend</Link></li>
+                 <li><Link to="/phone-repair/jesmond" className="hover:text-blue-400 transition-colors">Jesmond</Link></li>
+               </ul>
+             </div>
+             <div className="space-y-8">
+               <h4 className="text-white text-xs font-black uppercase tracking-[0.3em] font-display">Specialist Pages</h4>
+               <ul className="space-y-4 text-sm font-medium">
+                 <li><Link to="/second-hand-phones" className="hover:text-blue-400 transition-colors">Buy Refurbished</Link></li>
+                 <li><Link to="/accessories" className="hover:text-blue-400 transition-colors">Accessories</Link></li>
+                 <li><Link to="/corporate-repairs" className="hover:text-blue-400 transition-colors">B2B Repairs</Link></li>
+                 <li><Link to="/after-hours" className="hover:text-emerald-400 transition-colors font-bold">After Hours</Link></li>
+                 <li><Link to="/#services" className="hover:text-blue-400 transition-colors">All Services</Link></li>
+               </ul>
+             </div>
+             <div className="space-y-8">
+               <h4 className="text-white text-xs font-black uppercase tracking-[0.3em] font-display">Quick Links</h4>
+               <ul className="space-y-4 text-sm font-medium">
+                 <li><Link to="/" className="hover:text-blue-400 transition-colors">Home</Link></li>
+                 <li><Link to="/blog" className="hover:text-blue-400 transition-colors">Repair Blog</Link></li>
+                 <li className="hidden md:block"><Link to="/about-us" className="hover:text-blue-400 transition-colors">About Us</Link></li>
+                 <li><Link to="/#contact" className="hover:text-blue-400 transition-colors">Location</Link></li>
+                 <li><Link to="/privacy-policy" className="hover:text-blue-400 transition-colors">Privacy</Link></li>
+               </ul>
+             </div>
+             <div className="space-y-8">
+               <h4 className="text-white text-xs font-black uppercase tracking-[0.3em] font-display">Contact Us</h4>
+               <div className="space-y-4">
+                 <a href="tel:0240491735" className="block text-xl font-bold text-white hover:text-blue-400 transition-colors font-display">02 4049 1735</a>
+                 <p className="text-xs text-slate-500 leading-relaxed font-medium">Free advice & quotes.</p>
+               </div>
+             </div>
+          </div>
         </div>
 
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-12 mb-24">
-            <div className="col-span-2 md:col-span-3 lg:col-span-2 space-y-8">
-              <div className="flex flex-col -space-y-1">
-                <div className="flex items-center gap-3 mb-4">
-                   <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-slate-900">
-                     <Smartphone className="w-6 h-6" />
-                   </div>
-                   <div className="flex flex-col -space-y-1">
-                    <span className="text-2xl font-black tracking-tighter text-white">MAYFIELD</span>
-                    <span className="text-[10px] font-black tracking-[0.4em] text-white/50">PHONE REPAIR</span>
-                  </div>
-                </div>
-                <p className="text-sm leading-relaxed max-w-xs font-medium">
-                  Locally owned repair shop on Maitland Rd. Same-day iPhone, Samsung, iPad & MacBook repairs with a 12-month warranty.
-                </p>
-                <div className="flex gap-4 pt-6">
-                  {['IG', 'FB', 'GM', 'YT'].map(social => (
-                    <a key={social} href="#" className="text-[10px] font-black tracking-widest hover:text-white transition-colors">{social}</a>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-rose-500">REPAIRS</h4>
-              <ul className="text-sm font-medium space-y-3">
-                <li><Link to="/service/screen-repair" className="hover:text-white transition-colors">Screen repair</Link></li>
-                <li><Link to="/service/battery-replacement" className="hover:text-white transition-colors">Battery replacement</Link></li>
-                <li><Link to="/service/charging-port" className="hover:text-white transition-colors">Charging port</Link></li>
-                <li><Link to="/service/water-damage" className="hover:text-white transition-colors">Water damage</Link></li>
-                <li><Link to="/service/back-glass" className="hover:text-white transition-colors">Back glass</Link></li>
-                <li><Link to="/service/camera-repair" className="hover:text-white transition-colors">Camera</Link></li>
-              </ul>
-            </div>
-
-            <div className="space-y-6">
-              <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-rose-500">DEVICES</h4>
-              <ul className="text-sm font-medium space-y-3">
-                <li><Link to="/brand/apple" className="hover:text-white transition-colors">iPhone</Link></li>
-                <li><Link to="/brand/samsung" className="hover:text-white transition-colors">Samsung</Link></li>
-                <li><Link to="/brand/google" className="hover:text-white transition-colors">Google Pixel</Link></li>
-                <li><Link to="/brand/apple" className="hover:text-white transition-colors">iPad</Link></li>
-                <li><Link to="/service/macbook" className="hover:text-white transition-colors">MacBook</Link></li>
-                <li><Link to="/service/laptop" className="hover:text-white transition-colors">Laptops</Link></li>
-              </ul>
-            </div>
-
-            <div className="space-y-6">
-              <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-rose-500">SHOP</h4>
-              <ul className="text-sm font-medium space-y-3">
-                <li><Link to="/accessories" className="hover:text-white transition-colors">Phone accessories</Link></li>
-                <li><Link to="/second-hand-phones" className="hover:text-white transition-colors">Second-hand phones</Link></li>
-                <li><Link to="/accessories" className="hover:text-white transition-colors">Screen protectors</Link></li>
-                <li><Link to="/accessories" className="hover:text-white transition-colors">Cases</Link></li>
-                <li><Link to="/second-hand-phones" className="hover:text-white transition-colors">Trade-in</Link></li>
-                <li><Link to="/corporate-repairs" className="hover:text-white transition-colors">Bulk orders</Link></li>
-              </ul>
-            </div>
-
-            <div className="space-y-6">
-              <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-rose-500">MAYFIELD</h4>
-              <ul className="text-sm font-medium space-y-3">
-                <li><Link to="/about-us" className="hover:text-white transition-colors">About us</Link></li>
-                <li><Link to="/#contact" className="hover:text-white transition-colors">Suburbs we serve</Link></li>
-                <li><Link to="/blog" className="hover:text-white transition-colors">Blog</Link></li>
-                <li><Link to="/#contact" className="hover:text-white transition-colors">FAQs</Link></li>
-                <li><Link to="/#contact" className="hover:text-white transition-colors">Reviews</Link></li>
-                <li><Link to="/#contact" className="hover:text-white transition-colors">Contact</Link></li>
-              </ul>
-            </div>
-
-            <div className="space-y-6">
-              <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-rose-500">SMART</h4>
-              <ul className="text-sm font-medium space-y-3">
-                <li><button className="hover:text-white transition-colors text-left">Voice check-in</button></li>
-                <li><button className="hover:text-white transition-colors text-left">Web chat</button></li>
-                <li><button onClick={openBooking} className="hover:text-white transition-colors text-left">Instant quote</button></li>
-                <li><Link to="/#contact" className="hover:text-white transition-colors">Track repair</Link></li>
-                <li><button className="hover:text-white transition-colors text-left">SMS updates</button></li>
-                <li><Link to="/admin" className="hover:text-white transition-colors">Customer portal</Link></li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Contact Cards */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 border border-white/10 rounded-[2rem] overflow-hidden mb-24">
-             <div className="p-8 border-b md:border-b-0 md:border-r border-white/10 group hover:bg-white/[0.02] transition-colors">
-               <span className="text-[9px] font-black uppercase tracking-[0.3em] text-rose-500 block mb-4">VISIT</span>
-               <h5 className="text-xl font-black text-white font-display mb-1">276 Maitland Rd</h5>
-               <p className="text-sm font-medium text-slate-500">Mayfield NSW 2304</p>
-             </div>
-             <div className="p-8 border-b md:border-b-0 lg:border-r border-white/10 group hover:bg-white/[0.02] transition-colors">
-               <span className="text-[9px] font-black uppercase tracking-[0.3em] text-rose-500 block mb-4">CALL</span>
-               <a href="tel:0240491735" className="text-xl font-black text-white font-display mb-1 block">02 4049 1735</a>
-               <p className="text-sm font-medium text-slate-500">Mon–Sun, business hrs</p>
-             </div>
-             <div className="p-8 border-b md:border-b-0 md:border-r border-white/10 group hover:bg-white/[0.02] transition-colors">
-               <span className="text-[9px] font-black uppercase tracking-[0.3em] text-rose-500 block mb-4">EMAIL</span>
-               <a href="mailto:mayfieldphonerepair@gmail.com" className="text-xl font-black text-white font-display mb-1 block overflow-hidden text-ellipsis">mayfieldphonerepair</a>
-               <p className="text-sm font-medium text-slate-500">@gmail.com</p>
-             </div>
-             <div className="p-8 group hover:bg-white/[0.02] transition-colors">
-               <span className="text-[9px] font-black uppercase tracking-[0.3em] text-rose-500 block mb-4">SMS</span>
-               <h5 className="text-xl font-black text-white font-display mb-1">0485 864 772</h5>
-               <p className="text-sm font-medium text-slate-500">Text for fast quote</p>
-             </div>
-          </div>
-
-          <div className="flex flex-col lg:flex-row justify-between items-center gap-8 py-12 border-t border-white/10">
-            <div className="flex flex-wrap justify-center items-center gap-6 text-[10px] font-black uppercase tracking-widest text-slate-500">
-               <span>© {new Date().getFullYear()} Mayfield Phone Repair</span>
-               <span className="w-1 h-1 bg-slate-800 rounded-full"></span>
-               <span>ABN 11 433 439 336</span>
-               <span className="w-1 h-1 bg-slate-800 rounded-full"></span>
-               <span className="text-white/60 italic">All repairs backed by 12-mo warranty</span>
-            </div>
-            
-            <div className="flex gap-8 text-[11px] font-bold text-slate-400">
-              <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy</Link>
-              <Link to="/terms-of-service" className="hover:text-white transition-colors">Terms</Link>
-              <Link to="/privacy-policy" className="hover:text-white transition-colors">Warranty</Link>
-              <Link to="/privacy-policy" className="hover:text-white transition-colors">Sitemap</Link>
-            </div>
+        {/* SEO Local Suburbs Mega Footer (Expandable) */}
+        <div className="max-w-7xl mx-auto border-t border-white/5 pt-12 mb-12 hidden md:block relative z-10">
+           <button 
+             onClick={() => setIsSeoDirOpen(!isSeoDirOpen)}
+             className="flex items-center text-[10px] text-slate-600 uppercase tracking-[0.5em] font-black hover:text-blue-400 transition-colors w-full text-left focus:outline-none"
+             aria-expanded={isSeoDirOpen}
+           >
+             Local Areas We Serve
+             <svg 
+               className={`w-4 h-4 ml-3 transform transition-transform duration-500 ${isSeoDirOpen ? 'rotate-180 text-blue-500' : ''}`} 
+               fill="none" viewBox="0 0 24 24" stroke="currentColor"
+             >
+               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
+             </svg>
+           </button>
+           
+           <AnimatePresence>
+             {isSeoDirOpen && (
+               <motion.div 
+                 initial={{ height: 0, opacity: 0 }}
+                 animate={{ height: 'auto', opacity: 1 }}
+                 exit={{ height: 0, opacity: 0 }}
+                 transition={{ duration: 0.5, ease: "circOut" }}
+                 className="overflow-hidden"
+               >
+                 <div className="text-[10px] text-slate-600 leading-[2] text-justify opacity-40 hover:opacity-100 transition-all duration-500 pt-8 font-medium">
+                   {suburbs.map((suburb, i) => (
+                      <span key={suburb.id} className="inline-block">
+                        {seoServices.map((service, j) => (
+                          <span key={`${suburb.id}-${service.id}`}>
+                            <Link to={`/${service.id}/${suburb.id}`} className="hover:text-blue-400 transition-colors">
+                              {service.name} {suburb.name}
+                            </Link>
+                            {/* Add comma unless it's the very last item in both arrays */}
+                            {!(i === suburbs.length - 1 && j === seoServices.length - 1) && <span className="mx-2 text-slate-800">/</span>}
+                          </span>
+                        ))}
+                      </span>
+                   ))}
+                 </div>
+               </motion.div>
+             )}
+           </AnimatePresence>
+        </div>
+        
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-[10px] font-black uppercase tracking-[0.4em] gap-8 border-t border-white/5 pt-12 opacity-30">
+          <div>&copy; {new Date().getFullYear()} MAYFIELD PHONE REPAIR.</div>
+          <div className="flex gap-8">
+            <Link to="/privacy-policy" className="hover:text-blue-400 transition-colors">Privacy</Link>
+            <Link to="/terms-of-service" className="hover:text-blue-400 transition-colors">Terms</Link>
+            <Link to="/admin" className="text-slate-800 hover:text-blue-500 transition-colors border-l border-white/5 pl-8">Staff Portal</Link>
           </div>
         </div>
       </footer>
