@@ -1,70 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://mayfieldphonerepair.com.au/</loc>
-    <lastmod>2026-04-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://mayfieldphonerepair.com.au/blog</loc>
-    <lastmod>2026-04-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://mayfieldphonerepair.com.au/about-us</loc>
-    <lastmod>2026-04-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://mayfieldphonerepair.com.au/after-hours</loc>
-    <lastmod>2026-04-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://mayfieldphonerepair.com.au/second-hand-phones</loc>
-    <lastmod>2026-04-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://mayfieldphonerepair.com.au/corporate-repairs</loc>
-    <lastmod>2026-04-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://mayfieldphonerepair.com.au/accessories</loc>
-    <lastmod>2026-04-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <!-- SEO Local Pages - Sample Suburbs -->
-  <url>
-    <loc>https://mayfieldphonerepair.com.au/iphone-repair/newcastle</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mayfieldphonerepair.com.au/iphone-repair/waratah</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mayfieldphonerepair.com.au/iphone-repair/wallsend</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mayfieldphonerepair.com.au/screen-repair/newcastle</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mayfieldphonerepair.com.au/phone-repair/charlestown</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mayfieldphonerepair.com.au/phone-repair/hamilton</loc>
-    <priority>0.5</priority>
-  </url>
+  <!-- Static Pages -->
+  <url><loc>https://mayfieldphonerepair.com.au/</loc><priority>1.0</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/blog</loc><priority>0.9</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/about-us</loc><priority>0.8</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/after-hours</loc><priority>0.8</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/second-hand-phones</loc><priority>0.8</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/corporate-repairs</loc><priority>0.8</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/accessories</loc><priority>0.7</priority></url>
+
+  <!-- Brand Pages -->
+  <url><loc>https://mayfieldphonerepair.com.au/brand/apple</loc><priority>0.8</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/brand/samsung</loc><priority>0.8</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/brand/google</loc><priority>0.8</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/brand/oppo</loc><priority>0.7</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/brand/motorola</loc><priority>0.7</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/brand/huawei</loc><priority>0.7</priority></url>
+
+  <!-- Service Pages -->
+  <url><loc>https://mayfieldphonerepair.com.au/service/screen-repair</loc><priority>0.8</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/service/battery-replacement</loc><priority>0.8</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/service/charging-port</loc><priority>0.8</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/service/water-damage</loc><priority>0.8</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/service/data-recovery</loc><priority>0.8</priority></url>
+
+  <!-- Blog Posts (Original) -->
+  <url><loc>https://mayfieldphonerepair.com.au/blog/iphone-screen-repair-mayfield-newcastle</loc><priority>0.7</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/blog/samsung-screen-repair-newcastle-mayfield</loc><priority>0.7</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/blog/phone-repair-near-me-mayfield-newcastle</loc><priority>0.7</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/blog/iphone-battery-drain-causes-fixes</loc><priority>0.7</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/blog/phone-water-damage-emergency-guide</loc><priority>0.7</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/blog/repair-vs-replace-phone-guide-2026</loc><priority>0.7</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/blog/phone-repair-cost-guide-2026-australia</loc><priority>0.7</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/blog/phone-not-charging-causes-fixes</loc><priority>0.7</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/blog/cheap-vs-professional-phone-repair-difference</loc><priority>0.7</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/blog/iphone-repair-vs-replacement-guide-2026</loc><priority>0.7</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/blog/pixel-screen-repair-newcastle-guide</loc><priority>0.7</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/blog/iphone-17-repair-newcastle-mayfield</loc><priority>0.7</priority></url>
+
+  <!-- New Blog Posts -->
+  <url><loc>https://mayfieldphonerepair.com.au/blog/iphone-screen-repair-mayfield-cost-guide-2026</loc><priority>0.7</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/blog/phone-battery-drain-fix-mayfield</loc><priority>0.7</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/blog/phone-not-charging-fix-mayfield-newcastle</loc><priority>0.7</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/blog/repair-vs-replace-phone-guide-mayfield-2026</loc><priority>0.7</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/blog/dropped-phone-in-water-emergency-mayfield</loc><priority>0.7</priority></url>
+
+  <!-- Suburb Landing Pages (Selection) -->
+  <url><loc>https://mayfieldphonerepair.com.au/phone-repair/newcastle</loc><priority>0.6</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/phone-repair/waratah</loc><priority>0.6</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/phone-repair/wallsend</loc><priority>0.6</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/phone-repair/jesmond</loc><priority>0.6</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/phone-repair/hamilton</loc><priority>0.6</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/phone-repair/lambton</loc><priority>0.6</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/iphone-repair/newcastle</loc><priority>0.6</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/iphone-repair/waratah</loc><priority>0.6</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/samsung-repair/newcastle</loc><priority>0.6</priority></url>
+  <url><loc>https://mayfieldphonerepair.com.au/screen-repair/mayfield</loc><priority>0.6</priority></url>
 </urlset>

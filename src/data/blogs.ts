@@ -827,5 +827,190 @@ export const blogPosts: BlogPost[] = [
         </div>
       </section>
     `
+  },
+  {
+    id: '12',
+    title: 'iPhone Screen Repair in Mayfield NSW: Cost, Time & Best Options (2026 Guide)',
+    slug: 'iphone-screen-repair-mayfield-cost-guide-2026',
+    author: 'Mayfield Technical Team',
+    date: '2026-04-27',
+    excerpt: 'Cracked your iPhone screen? Get the definitive 2026 guide on iPhone screen repair Mayfield costs, turnaround times, and why quality components matter.',
+    imageUrl: 'https://images.unsplash.com/photo-1556656793-062ff98782fe?auto=format&fit=crop&q=80',
+    tags: ['iPhone Repair', 'Mayfield', 'Screen Fix', 'Cost Guide'],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-blue-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-blue-100">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-blue-200 text-[10px] font-black uppercase tracking-widest">How much is iPhone screen repair in Mayfield?</span>
+              <p class="text-xl font-bold">Standard screen repairs range from $120 to $450 depending on your model. Free quotes are available in-store.</p>
+            </div>
+            <div class="flex flex-col gap-2">
+              <span class="text-blue-200 text-[10px] font-black uppercase tracking-widest">How long does a screen fix take?</span>
+              <p class="text-xl font-bold">Most iPhone screens are replaced in under 45 minutes at our Mayfield facility.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">If you're looking for <strong>iPhone screen repair Mayfield</strong>, you want three things: quality, speed, and a fair price. At Mayfield Phone Repair, we specialize in iPhone screen restoration, using premium parts that maintain your display's original vibrancy and touch sensitivity.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">2026 Repair Cost Breakdown</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">Repair costs vary based on the technology (LCD vs OLED) used in your device. We provide transparent, upfront pricing so you know exactly what to expect before we begin work on your iPhone.</p>
+
+        <div class="p-8 bg-slate-50 border border-slate-200 rounded-3xl">
+          <h3 class="text-xl font-bold mb-4 font-display">Why Choose Professional Repair?</h3>
+          <p class="text-slate-500 italic font-medium">Generic kits often lack the precision gaskets required to maintain water resistance. Our Mayfield team ensures your iPhone is resealed to original standards, protecting your internal electronics.</p>
+        </div>
+      </section>
+    `
+  },
+  {
+    id: '13',
+    title: 'Why Your Phone Battery Drains Fast (And Where to Fix It in Mayfield NSW)',
+    slug: 'phone-battery-drain-fix-mayfield',
+    author: 'Mayfield Repair Specialists',
+    date: '2026-04-27',
+    excerpt: 'Is your phone dying by lunch? Discover why phone battery drains fast and how our Mayfield technicians can restore your all-day power with a premium swap.',
+    imageUrl: 'https://images.unsplash.com/photo-1627389955609-70231f899981?auto=format&fit=crop&q=80',
+    tags: ['Battery Drain', 'Mayfield', 'Phone Repair', 'Maintenance'],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-emerald-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-emerald-100">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-emerald-200 text-[10px] font-black uppercase tracking-widest">Why is my battery draining so fast?</span>
+              <p class="text-xl font-bold">Common causes include aging lithium cells, rogue background apps, or hardware faults. A 20-minute battery health check can find the root cause.</p>
+            </div>
+            <div class="flex flex-col gap-2">
+              <span class="text-emerald-200 text-[10px] font-black uppercase tracking-widest">Where can I get a battery replacement in Mayfield?</span>
+              <p class="text-xl font-bold">Visit us at 276 Maitland Rd for same-day battery replacements for all major phone brands.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">If your phone battery drains fast, you aren't alone. As devices age, their chemical capacity decreases. At our Mayfield repair centre, we see this problem daily and provide high-capacity, factory-spec battery replacements that get you through the day again.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Simple Battery Saving Tips</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">Before seeking a hardware fix, try disabling Location Services for non-essential apps and turning off "Background App Refresh" in your settings. These small software tweaks can often add significant standby time.</p>
+
+        <div class="p-8 bg-emerald-50 border border-emerald-200 rounded-3xl">
+          <h3 class="text-xl font-bold mb-4 font-display text-emerald-900">Certified Battery Swaps</h3>
+          <p class="text-emerald-800 font-medium italic">We use premium lithium cells that are tested for safety and longevity. Every Mayfield battery replacement is backed by our professional 90-day warranty.</p>
+        </div>
+      </section>
+    `
+  },
+  {
+    id: '14',
+    title: 'Phone Not Charging? Top 7 Causes & Repair Solutions in Mayfield Newcastle',
+    slug: 'phone-not-charging-fix-mayfield-newcastle',
+    author: 'Mayfield Technical Team',
+    date: '2026-04-27',
+    excerpt: 'Frustrated by a phone not charging? Learn the top 7 causes from lint to logic board issues, and discover professional solutions in Mayfield & Newcastle.',
+    imageUrl: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&q=80',
+    tags: ['Charging Fix', 'Mayfield', 'Newcastle', 'Phone Repair'],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-indigo-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-indigo-100">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-indigo-200 text-[10px] font-black uppercase tracking-widest">What causes a phone to stop charging?</span>
+              <p class="text-xl font-bold">Most cases are caused by debris in the port, a faulty cable, or a physically damaged charging assembly.</p>
+            </div>
+            <div class="flex flex-col gap-2">
+              <span class="text-indigo-200 text-[10px] font-black uppercase tracking-widest">Where is the best "phone not charging fix near me"?</span>
+              <p class="text-xl font-bold">Mayfield Phone Repair provides expert charging port diagnostics and repairs for all major flagships in Newcastle.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">Searching for a <strong>phone not charging fix near me</strong>? Before you assume your phone is dead, it's often a simple repair to the charging port or a deep clean of the internal pins. Our Mayfield technicians have the precision tools to restore connectivity fast.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">The 7 Most Common Charging Faults</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">From pocket lint buildup to liquid corrosion, we've identified the most frequent reasons phones stop taking power. Most repairs take less than 45 minutes and are far cheaper than a new phone.</p>
+
+        <div class="p-8 bg-slate-50 border border-slate-200 rounded-3xl">
+          <h3 class="text-xl font-bold mb-4 font-display">Deep Cleaning vs Repair</h3>
+          <p class="text-slate-500 italic font-medium">Sometimes a professional ultrasonic clean is all that's needed to fix a "broken" port. We always diagnose the simplest fix first to save you money.</p>
+        </div>
+      </section>
+    `
+  },
+  {
+    id: '15',
+    title: 'Is It Worth Repairing Your Phone or Buying a New One? (Mayfield Guide 2026)',
+    slug: 'repair-vs-replace-phone-guide-mayfield-2026',
+    author: 'Repair Strategy Team',
+    date: '2026-04-27',
+    excerpt: 'Stuck between fixing your screen or buying a new device? Our Mayfield guide breaks down the financial ROI of phone repair vs replacement in 2026.',
+    imageUrl: 'https://images.unsplash.com/photo-1556656793-062ff987825d?auto=format&fit=crop&q=80',
+    tags: ['Repair ROI', 'Mayfield', 'Consumer Guide', 'Newcastle'],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-slate-900 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-slate-400">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-slate-500 text-[10px] font-black uppercase tracking-widest">When should I fix my phone?</span>
+              <p class="text-xl font-bold">If the repair cost is under 50% of the phone's resale value, it's almost always smarter to repair than replace.</p>
+            </div>
+            <div class="flex flex-col gap-2">
+              <span class="text-slate-500 text-[10px] font-black uppercase tracking-widest">How long do repaired phones last?</span>
+              <p class="text-xl font-bold">A quality repair with premium parts can extend your flagship phone's life by another 2-3 years.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">With new phone prices increasing, many Mayfield residents are wondering if it's worth repairing their current device. In 2026, the performance differences between models are smaller than ever, making a professional repair a very high-value investment.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">The Sustainability Factor</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">Repairing your phone isn't just good for your wallet; it's essential for the environment. By choosing a Mayfield repair expert, you're reducing e-waste and keeping a perfectly functional device in the loop.</p>
+
+        <div class="p-8 bg-blue-50 border border-blue-100 rounded-3xl">
+          <h3 class="text-xl font-bold mb-4 font-display text-blue-900">Honest Appraisals</h3>
+          <p class="text-blue-800 font-medium italic">We pride ourselves on transparency. If a repair doesn't make financial sense, we'll tell you upfront and help you evaluate your best next steps.</p>
+        </div>
+      </section>
+    `
+  },
+  {
+    id: '16',
+    title: 'Dropped Your Phone in Water? What to Do Immediately (Mayfield Repair Guide)',
+    slug: 'dropped-phone-in-water-emergency-mayfield',
+    author: 'Emergency Repair Team',
+    date: '2026-04-27',
+    excerpt: 'Liquid damage is a race against time. Follow our emergency guide for dropped phones in water and get professional rescue services at our Mayfield store.',
+    imageUrl: 'https://images.unsplash.com/photo-1547014762-3a94fb4df70a?auto=format&fit=crop&q=80',
+    tags: ['Water Damage', 'Mayfield', 'Phone Repair', 'Emergency'],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-rose-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-rose-100">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-rose-200 text-[10px] font-black uppercase tracking-widest">What should I do immediately?</span>
+              <p class="text-xl font-bold">Turn the phone OFF. Do not charge it. Do not use rice. Dry the exterior and bring it to our professionals immediately.</p>
+            </div>
+            <div class="flex flex-col gap-2">
+              <span class="text-rose-200 text-[10px] font-black uppercase tracking-widest">Can water-damaged phones be saved?</span>
+              <p class="text-xl font-bold">Yes, with a professional ultrasonic clean and chemical neutralization, most water-damaged phones can be fully rescued.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">Dropped your phone in water? It's a high-stress moment, but the survival of your data and device depends on your next steps. Skip the myths and follow our Mayfield emergency guide to maximize your chances of a successful rescue.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">The "Rice Myth" Debunked</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">Contrary to popular belief, rice does not pull moisture out of the internal logic board. It often causes delays that allow corrosion to set in. The only real solution is professional disassembly and cleaning at our Mayfield lab.</p>
+
+        <div class="p-8 bg-rose-50 border border-rose-200 rounded-3xl">
+          <h3 class="text-xl font-bold mb-4 font-display text-rose-900 italic font-display">Immediate Rescue Lane</h3>
+          <p class="text-rose-800 font-medium italic">We prioritize liquid-damage cases at our Mayfield store to stop corrosion before it starts. Visit us immediately for the best chance of survival.</p>
+        </div>
+      </section>
+    `
   }
 ];
