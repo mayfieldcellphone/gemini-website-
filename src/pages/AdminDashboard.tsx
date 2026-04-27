@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { useAuth } from '../lib/AuthContext';
 import { db, handleFirestoreError, OperationType } from '../lib/firebase';
 import { collection, query, orderBy, onSnapshot, doc, updateDoc, serverTimestamp } from 'firebase/firestore';
@@ -17,7 +17,9 @@ import {
   Search,
   Building2,
   Mail,
-  Smartphone
+  Smartphone,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 
 interface Quote {
@@ -40,12 +42,15 @@ interface CorporateLead {
   createdAt: any;
 }
 
+const ITEMS_PER_PAGE = 8;
+
 export default function AdminDashboard() {
   const { user, isAdmin, login, logout, loading } = useAuth();
   const [activeTab, setActiveTab] = useState<'quotes' | 'corporate'>('quotes');
   const [quotes, setQuotes] = useState<Quote[]>([]);
   const [corporateLeads, setCorporateLeads] = useState<CorporateLead[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     if (!isAdmin) return;
@@ -68,6 +73,11 @@ export default function AdminDashboard() {
     };
   }, [isAdmin]);
 
+  // Reset page on tab/search change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [activeTab, searchTerm]);
+
   const updateQuoteStatus = async (id: string, status: Quote['status']) => {
     try {
       await updateDoc(doc(db, 'quotes', id), { 
@@ -86,6 +96,26 @@ export default function AdminDashboard() {
       handleFirestoreError(err, OperationType.UPDATE, 'corporate_leads');
     }
   };
+
+  const filteredQuotes = useMemo(() => {
+    return quotes.filter(q => 
+      q.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+      q.phone.includes(searchTerm)
+    );
+  }, [quotes, searchTerm]);
+
+  const filteredLeads = useMemo(() => {
+    return corporateLeads.filter(l => 
+      l.organization.toLowerCase().includes(searchTerm.toLowerCase()) || 
+      l.contactName.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }, [corporateLeads, searchTerm]);
+
+  const totalItems = activeTab === 'quotes' ? filteredQuotes.length : filteredLeads.length;
+  const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
+  const currentItems = activeTab === 'quotes' 
+    ? filteredQuotes.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE)
+    : filteredLeads.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
 
   if (loading) {
     return (
@@ -201,7 +231,7 @@ export default function AdminDashboard() {
         </div>
 
         {/* List Content */}
-        <div className="space-y-6">
+        <div className="space-y-10">
            <AnimatePresence mode="wait">
              <motion.div
                key={activeTab}
@@ -211,9 +241,7 @@ export default function AdminDashboard() {
                className="grid gap-6"
              >
                {activeTab === 'quotes' ? (
-                  quotes
-                    .filter(q => q.name.toLowerCase().includes(searchTerm.toLowerCase()) || q.phone.includes(searchTerm))
-                    .map(quote => (
+                  currentItems.map(quote => (
                       <div key={quote.id} className="bg-white p-8 rounded-[2.5rem] border border-slate-200 shadow-sm hover:border-blue-200 transition-all group">
                          <div className="flex flex-col lg:flex-row gap-8 justify-between lg:items-center">
                             <div className="space-y-4">
@@ -253,9 +281,7 @@ export default function AdminDashboard() {
                       </div>
                     ))
                ) : (
-                  corporateLeads
-                    .filter(l => l.organization.toLowerCase().includes(searchTerm.toLowerCase()) || l.contactName.toLowerCase().includes(searchTerm.toLowerCase()))
-                    .map(lead => (
+                  currentItems.map(lead => (
                       <div key={lead.id} className="bg-white p-8 rounded-[2.5rem] border border-slate-200 shadow-sm hover:border-indigo-200 transition-all group">
                          <div className="flex flex-col lg:flex-row gap-8 justify-between lg:items-center">
                             <div className="space-y-4">
@@ -293,9 +319,57 @@ export default function AdminDashboard() {
                       </div>
                     ))
                )}
-               {(activeTab === 'quotes' ? quotes : corporateLeads).length === 0 && (
+               
+               {/* Empty State */}
+               {currentItems.length === 0 && (
                  <div className="bg-white p-20 rounded-[3rem] text-center border-2 border-dashed border-slate-100">
                     <p className="text-slate-400 font-medium italic">No entries found matching your criteria.</p>
+                 </div>
+               )}
+
+               {/* Pagination Controls */}
+               {totalPages > 1 && (
+                 <div className="flex items-center justify-between bg-white px-8 py-6 rounded-[2rem] border border-slate-200 mt-4">
+                    <p className="text-sm text-slate-400 font-medium italic">
+                       Showing <span className="font-bold text-slate-600">{((currentPage - 1) * ITEMS_PER_PAGE) + 1}</span> to <span className="font-bold text-slate-600">{Math.min(currentPage * ITEMS_PER_PAGE, totalItems)}</span> of <span className="font-bold text-slate-600">{totalItems}</span> entries
+                    </p>
+                    <div className="flex gap-2">
+                       <button 
+                         onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+                         disabled={currentPage === 1}
+                         className="p-3 rounded-xl border border-slate-100 text-slate-400 hover:text-blue-600 hover:bg-blue-50 transition-all disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-slate-400"
+                       >
+                          <ChevronLeft className="w-5 h-5" />
+                       </button>
+                       <div className="flex gap-1 items-center px-4">
+                          {[...Array(totalPages)].map((_, i) => {
+                             const pageNumber = i + 1;
+                             // Basic pagination hiding for many pages
+                             if (totalPages > 7) {
+                                if (pageNumber !== 1 && pageNumber !== totalPages && Math.abs(pageNumber - currentPage) > 1) {
+                                   if (Math.abs(pageNumber - currentPage) === 2) return <span key={pageNumber} className="text-slate-300">...</span>;
+                                   return null;
+                                }
+                             }
+                             return (
+                                <button
+                                  key={pageNumber}
+                                  onClick={() => setCurrentPage(pageNumber)}
+                                  className={`w-8 h-8 rounded-lg text-xs font-black transition-all ${currentPage === pageNumber ? 'bg-slate-900 text-white shadow-lg' : 'text-slate-400 hover:text-slate-600'}`}
+                                >
+                                   {pageNumber}
+                                </button>
+                             );
+                          })}
+                       </div>
+                       <button 
+                         onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+                         disabled={currentPage === totalPages}
+                         className="p-3 rounded-xl border border-slate-100 text-slate-400 hover:text-blue-600 hover:bg-blue-50 transition-all disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-slate-400"
+                       >
+                          <ChevronRight className="w-5 h-5" />
+                       </button>
+                    </div>
                  </div>
                )}
              </motion.div>
