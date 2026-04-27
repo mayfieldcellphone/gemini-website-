@@ -20,14 +20,14 @@ export default function Layout() {
     if (!hash) {
       window.scrollTo(0, 0);
     } else {
-      // If there is a hash, wait for the element to potentially render then scroll to it
-      setTimeout(() => {
+      // Use requestAnimationFrame for smoother performance on hash scroll
+      requestAnimationFrame(() => {
         const id = hash.replace('#', '');
         const element = document.getElementById(id);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
         }
-      }, 0);
+      });
     }
   }, [pathname, hash]);
 

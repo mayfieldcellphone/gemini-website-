@@ -106,7 +106,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,_var(--tw-gradient-stops))] from-blue-100/30 via-transparent to-transparent"></div>
         
         <motion.div 
-          initial={{ opacity: 0 }}
+          initial={typeof window !== 'undefined' && window.innerWidth < 768 ? { opacity: 1 } : { opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
           className="w-full lg:w-[55%] space-y-10 relative z-10 lg:pr-8"
@@ -119,7 +119,7 @@ export default function Home() {
           <h1 className="text-5xl md:text-7xl lg:text-9xl font-black leading-[0.85] tracking-tighter text-slate-900 font-display text-balance">
             Phone <br/>
             Repair <br/>
-            <span className="text-blue-600">Newcastle & Mayfield.</span>
+            <span className="text-blue-600 font-display">Newcastle & Mayfield.</span>
           </h1>
           
           <p className="text-lg md:text-2xl text-slate-600 leading-relaxed max-w-xl font-medium border-l-4 border-blue-100 pl-6">
@@ -135,11 +135,11 @@ export default function Home() {
             </button>
             <Link 
               to="/#contact"
-              className="w-full sm:w-auto text-center px-10 py-5 bg-blue-600 text-white font-black uppercase tracking-[0.2em] text-[10px] rounded-2xl shadow-2xl shadow-blue-600/20 hover:bg-blue-700 transition-all"
+              className="w-full sm:w-auto text-center px-10 py-5 bg-blue-600 text-white font-black uppercase tracking-[0.2em] text-[10px] rounded-2xl shadow-2xl shadow-blue-600/20 hover:bg-blue-700 transition-all font-display"
             >
               Get A Quote
             </Link>
-            <a href="tel:0240491735" className="w-full sm:w-auto flex items-center justify-center gap-4 px-10 py-5 bg-white border-2 border-slate-900 text-slate-900 font-black uppercase tracking-[0.2em] text-[10px] rounded-2xl hover:bg-slate-50 transition-all group">
+            <a href="tel:0240491735" className="w-full sm:w-auto flex items-center justify-center gap-4 px-10 py-5 bg-white border-2 border-slate-900 text-slate-900 font-black uppercase tracking-[0.2em] text-[10px] rounded-2xl hover:bg-slate-50 transition-all group font-display">
               <Phone className="w-4 h-4 text-blue-600" />
               <span>02 4049 1735</span>
             </a>
