@@ -13,16 +13,11 @@ import { blogPosts } from '../data/blogs';
 
 const BackgroundDecoration = () => (
   <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
-    <div className="absolute top-[10%] left-[5%] w-[400px] h-[400px] bg-blue-400/5 rounded-full blur-[100px] animate-pulse hidden md:block" />
-    <div className="absolute bottom-[20%] right-[10%] w-[500px] h-[500px] bg-indigo-400/5 rounded-full blur-[120px] animate-pulse hidden md:block" style={{ animationDelay: '2s' }} />
-    <svg className="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <pattern id="dotGrid" width="40" height="40" patternUnits="userSpaceOnUse">
-          <circle cx="2" cy="2" r="1" fill="currentColor" />
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#dotGrid)" />
-    </svg>
+    <div className="absolute top-0 left-0 w-full h-full bg-grid-slate-100 opacity-[0.4]" />
+    <div className="absolute top-[10%] left-[5%] w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px] animate-pulse hidden md:block" />
+    <div className="absolute bottom-[20%] right-[10%] w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[120px] animate-pulse hidden md:block" style={{ animationDelay: '2s' }} />
+    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-full bg-slate-200/50 hidden lg:block" />
+    <div className="absolute top-1/3 left-0 w-full h-px bg-slate-200/50 hidden lg:block" />
   </div>
 );
 
@@ -108,55 +103,51 @@ export default function Home() {
       <BackgroundDecoration />
       
       {/* Hero Section */}
-      <section className="relative px-6 md:px-12 py-12 md:py-24 flex flex-col md:flex-row items-center gap-16 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,_var(--tw-gradient-stops))] from-blue-50/50 via-transparent to-transparent"></div>
+      <section className="relative px-6 md:px-12 py-12 md:py-20 flex flex-col md:flex-row items-center gap-12 lg:gap-16 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,_var(--tw-gradient-stops))] from-blue-100/30 via-transparent to-transparent"></div>
         
         <motion.div 
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="w-full lg:w-[60%] space-y-10 relative z-10 lg:pr-8"
+          className="w-full lg:w-[55%] space-y-8 relative z-10 lg:pr-8"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm border border-blue-100 rounded-full shadow-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-full shadow-sm">
             <span className="flex h-2 w-2 rounded-full bg-blue-600 animate-pulse"></span>
-            <span className="text-[10px] sm:text-xs font-bold text-blue-700 uppercase tracking-widest font-display">Premium phone repair Mayfield NSW</span>
+            <span className="text-technical text-blue-700">STATUS: ACTIVE // MAYFIELD NSW</span>
           </div>
           
-          <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold leading-[0.9] tracking-tight text-slate-900 font-display text-balance">
-            iPhone & Samsung <br/>
-            <span className="text-blue-600">Phone Repair</span> <br/>
-            in Mayfield NSW
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.85] tracking-tighter text-slate-900 font-display text-balance">
+            Precision <br/>
+            <span className="text-blue-600">Repair</span> <br/>
+            Experts.
           </h1>
           
-          <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-xl font-medium">
-            Cracked screen? Battery draining fast? Get your device fixed today with fast, affordable service and warranty. Trusted by Newcastle locals as the premier choice for certified mobile diagnostics.
+          <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-xl font-medium border-l-4 border-blue-100 pl-6">
+            Newcastle's premier lab for high-spec device restoration. We specialize in the complex repairs that high-street shops turn away. 
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center gap-6 pt-4">
+          <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
             <button 
               onClick={openBooking}
-              className="w-full sm:w-auto text-center px-10 py-5 bg-blue-600 text-white font-bold rounded-2xl shadow-2xl shadow-blue-500/20 hover:bg-blue-700 hover:-translate-y-1 transition-all"
+              className="w-full sm:w-auto text-center px-10 py-5 bg-slate-900 text-white font-black uppercase tracking-[0.2em] text-[10px] rounded-2xl shadow-2xl shadow-slate-900/20 hover:bg-blue-600 hover:-translate-y-1 transition-all"
             >
-              Book a Repair
+              Initialize Booking
             </button>
-            <a href="tel:0240491735" className="w-full sm:w-auto flex items-center justify-center gap-4 px-10 py-5 bg-white border border-slate-200 text-slate-900 font-bold rounded-2xl hover:bg-slate-50 hover:border-slate-300 transition-all shadow-sm group">
-              <Phone className="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform" />
+            <a href="tel:0240491735" className="w-full sm:w-auto flex items-center justify-center gap-4 px-10 py-5 bg-white border-2 border-slate-900 text-slate-900 font-black uppercase tracking-[0.2em] text-[10px] rounded-2xl hover:bg-slate-50 transition-all group">
+              <Phone className="w-4 h-4 text-blue-600" />
               <span>02 4049 1735</span>
             </a>
           </div>
 
-          <div className="flex flex-wrap items-center gap-x-10 gap-y-6 pt-6 border-t border-slate-200/50">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center">
-                <ShieldCheck className="w-4 h-4 text-emerald-600" />
-              </div>
-              <span className="text-sm font-bold text-slate-700 font-display">90-Day Warranty</span>
+          <div className="grid grid-cols-2 gap-8 pt-8 border-t border-slate-200">
+            <div className="space-y-1">
+              <span className="text-technical text-slate-400">WARRANTY_TYPE</span>
+              <p className="text-sm font-bold text-slate-900 font-display uppercase tracking-widest">90-Day Hardware Guarantee</p>
             </div>
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-              </div>
-              <span className="text-sm font-bold text-slate-700 font-display">Free Diagnostics</span>
+            <div className="space-y-1">
+              <span className="text-technical text-slate-400">DIAGNOSTIC_FEE</span>
+              <p className="text-sm font-bold text-slate-900 font-display uppercase tracking-widest">$0.00 / Free Check-up</p>
             </div>
           </div>
         </motion.div>
@@ -209,45 +200,36 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Brands Section with seamless transition */}
-      <section id="brands" className="relative px-6 md:px-12 py-20 md:py-24 bg-slate-50/50 backdrop-blur-3xl">
+      {/* Brands Section */}
+      <section id="brands" className="relative px-6 md:px-12 py-16 md:py-20 bg-slate-50 border-y border-slate-200">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-12 gap-16 items-start mb-20">
+          <div className="grid lg:grid-cols-12 gap-12 items-end mb-12">
             <div className="lg:col-span-8 space-y-6">
-              <div className="inline-block px-4 py-1.5 bg-blue-600 text-white rounded-lg text-[10px] font-black uppercase tracking-[0.2em] font-display">
-                Brands We Fix
-              </div>
-              <h2 className="text-4xl md:text-6xl font-bold text-slate-900 font-display leading-[0.95]">
-                Devices we fix <span className="text-blue-600">daily.</span>
+              <span className="text-technical text-blue-600">CERTIFIED_REPAIR_MODELS</span>
+              <h2 className="text-4xl md:text-6xl font-black text-slate-900 font-display leading-[0.85] tracking-tighter">
+                Hardware <br/> Coverage.
               </h2>
-              <p className="text-slate-600 text-lg max-w-2xl font-medium">
-                From high-precision iPhone screen repairs to Samsung Galaxy battery replacements, we have the expertise for every major brand. Select yours below to learn more.
-              </p>
             </div>
-            <div className="lg:col-span-4 lg:pt-12">
-              <button 
-                onClick={openBooking}
-                className="group flex items-center justify-between w-full p-6 bg-white border border-slate-200 rounded-2xl hover:border-blue-500 transition-all font-bold text-slate-900 shadow-sm"
-              >
-                <span>Custom Device Repair?</span>
-                <ArrowRight className="w-5 h-5 text-blue-600 group-hover:translate-x-2 transition-transform" />
-              </button>
+            <div className="lg:col-span-4">
+              <p className="text-slate-500 text-sm font-medium leading-relaxed mb-6">
+                Direct component-level support for all major flagship ecosystems. Select a manufacturer for specific technical data.
+              </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-6 gap-px bg-slate-200 border border-slate-200 overflow-hidden rounded-3xl">
             {brands.map((brand, idx) => (
               <Link 
                 key={brand.id}
                 to={`/brand/${brand.id}`}
-                className="group relative flex flex-col items-center p-10 bg-white rounded-[2.5rem] border border-slate-100 hover:border-blue-200 transition-all shadow-sm hover:shadow-2xl hover:shadow-blue-500/10"
+                className="group relative flex flex-col items-center p-8 bg-white hover:bg-slate-50 transition-all"
               >
-                <div className={`w-20 h-20 rounded-[1.5rem] mb-6 flex items-center justify-center bg-gradient-to-br ${brand.color} shadow-lg shadow-blue-500/10 group-hover:-translate-y-2 group-hover:scale-105 transition-all duration-500`}>
-                  <Smartphone className="w-10 h-10 text-white opacity-95" />
+                <div className={`w-16 h-16 rounded-2xl mb-6 flex items-center justify-center bg-gradient-to-br ${brand.color} shadow-lg shadow-blue-500/10 group-hover:-translate-y-1 transition-all duration-300`}>
+                  <Smartphone className="w-8 h-8 text-white" />
                 </div>
-                <h4 className="font-bold text-slate-900 text-lg font-display">{brand.name}</h4>
-                <div className="mt-4 flex items-center gap-1 text-[10px] text-blue-600 font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all">
-                  View Models <ChevronRight className="w-3 h-3" />
+                <h4 className="font-bold text-slate-900 text-sm font-display tracking-wider uppercase">{brand.name}</h4>
+                <div className="mt-4 text-[8px] font-black uppercase tracking-[0.2em] text-blue-600 opacity-0 group-hover:opacity-100 transition-all">
+                  Load Models
                 </div>
               </Link>
             ))}
@@ -255,88 +237,98 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Section with glass cards */}
-      <section id="services" className="relative px-6 md:px-12 py-20 md:py-24 overflow-hidden">
-        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
-        
-        <div className="max-w-4xl mx-auto text-center mb-24 space-y-8">
-           <h2 className="text-4xl md:text-7xl font-bold text-slate-900 font-display leading-none">
-             Our <span className="italic font-light text-blue-600">Services</span>
-           </h2>
-           <p className="text-slate-500 text-lg md:text-xl max-w-2xl mx-auto font-medium">
-             Complex faults require precise attention. We solve the hardware issues that others turn away.
-           </p>
-        </div>
+      {/* Services Section */}
+      <section id="services" className="relative px-6 md:px-12 py-16 md:py-20 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-16">
+            <div className="space-y-4">
+              <span className="text-technical text-slate-400">LAB_SERVICES_DIRECTORY</span>
+              <h2 className="text-4xl md:text-7xl font-black text-slate-900 font-display leading-none tracking-tighter">
+                Specialist <span className="italic font-light text-blue-600 underline underline-offset-8">Lab.</span>
+              </h2>
+            </div>
+            <p className="md:max-w-xs text-slate-500 text-xs font-semibold leading-relaxed">
+              Equipped with precision diagnostics for micro-soldering, liquid damage mitigation, and structural restoration.
+            </p>
+          </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto relative z-10">
-          {servicesData.map((service, idx) => (
-            <motion.div 
-              key={service.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-            >
-              <Link to={`/service/${service.id}`} className="flex flex-col h-full bg-white/60 backdrop-blur-xl border border-white p-10 rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.03)] hover:shadow-[0_40px_80px_rgba(59,130,246,0.1)] hover:-translate-y-2 transition-all duration-500 relative group overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-100/20 blur-3xl rounded-full -mr-10 -mt-10 group-hover:bg-blue-600/10 transition-colors"></div>
-                
-                <div className="w-20 h-20 bg-slate-900 rounded-[1.5rem] flex items-center justify-center mb-10 group-hover:bg-blue-600 transition-all duration-500 rotate-0 group-hover:rotate-6 shadow-xl">
-                  <service.icon className="w-10 h-10 text-white" />
-                </div>
-                
-                <h4 className="text-2xl font-bold text-slate-900 mb-4 font-display group-hover:text-blue-600 transition-colors">
-                  {service.title}
-                </h4>
-                <p className="text-slate-500 leading-relaxed font-medium mb-8">{service.shortDesc}</p>
-                
-                <div className="mt-auto flex items-center text-xs font-black uppercase tracking-widest text-slate-400 group-hover:text-blue-600 transition-colors gap-2">
-                  Learn More <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </Link>
-            </motion.div>
-          ))}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {servicesData.map((service, idx) => (
+              <motion.div 
+                key={service.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.05 }}
+              >
+                <Link to={`/service/${service.id}`} className="flex flex-col h-full bg-slate-50 border border-slate-100 p-8 rounded-3xl hover:border-blue-500 hover:bg-white hover:shadow-2xl hover:shadow-blue-500/5 transition-all duration-300 group">
+                  <div className="flex items-center justify-between mb-8">
+                    <div className="w-12 h-12 bg-white border border-slate-200 rounded-xl flex items-center justify-center group-hover:bg-blue-600 group-hover:border-blue-600 transition-all">
+                      <service.icon className="w-6 h-6 text-slate-900 group-hover:text-white" />
+                    </div>
+                    <span className="text-technical text-slate-300 group-hover:text-blue-200">0{idx + 1}</span>
+                  </div>
+                  
+                  <h4 className="text-lg font-bold text-slate-900 mb-3 font-display tracking-tight group-hover:text-blue-600">
+                    {service.title}
+                  </h4>
+                  <p className="text-slate-500 text-xs leading-relaxed font-medium mb-6 line-clamp-2">{service.shortDesc}</p>
+                  
+                  <div className="mt-auto pt-6 border-t border-slate-100 flex items-center justify-between text-[9px] font-black uppercase tracking-widest text-slate-400 group-hover:text-blue-600">
+                    <span>View Technical Data</span>
+                    <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Process / Steps - Refined Typography & Spacing */}
-      <section className="relative px-6 md:px-12 py-20 md:py-24 bg-slate-950 text-white rounded-[4rem_4rem_0_0] overflow-hidden">
+      {/* Process / Steps */}
+      <section className="relative px-6 md:px-12 py-16 md:py-20 bg-slate-950 text-white rounded-[3rem_3rem_0_0] overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full bg-grid-slate-100 opacity-[0.03]" />
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-600/10 blur-[150px] rounded-full"></div>
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-24 items-center relative z-10">
-          <div className="w-full md:w-5/12 space-y-12">
-            <h2 className="text-4xl md:text-6xl font-bold leading-[0.95] font-display">
-              How It <span className="text-blue-500">Works.</span>
-            </h2>
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 lg:gap-24 items-center relative z-10">
+          <div className="w-full md:w-5/12 space-y-10">
+            <div className="space-y-4">
+              <span className="text-technical text-blue-500">OPERATIONAL_PROTOCOL</span>
+              <h2 className="text-4xl md:text-6xl font-black leading-[0.85] font-display tracking-tighter">
+                How We <br/> <span className="text-blue-500 underline underline-offset-8">Execute.</span>
+              </h2>
+            </div>
             <p className="text-slate-400 text-lg leading-relaxed font-medium">
-              We've designed our process to be simple and transparent. Fast repairs with zero hidden catches.
+              A systematic approach to device restoration. Transparent, fast, and verified by standard bench tests.
             </p>
             
-            <div className="flex items-center gap-6">
+            <div className="flex flex-col sm:flex-row items-center gap-6">
               <button 
                 onClick={openBooking}
-                className="bg-white text-slate-950 px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-500 hover:text-white transition-all shadow-2xl shadow-blue-500/20"
+                className="w-full sm:w-auto bg-white text-slate-950 px-10 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] hover:bg-blue-500 hover:text-white transition-all shadow-2xl shadow-blue-500/20"
               >
-                Fix My Phone
+                Start Repair
               </button>
               <div className="flex flex-col">
-                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500">Call Us</span>
-                <span className="font-bold text-lg">02 4049 1735</span>
+                <span className="text-technical text-slate-600">INBOUND_LINE</span>
+                <span className="font-bold text-lg font-display tracking-tight">02 4049 1735</span>
               </div>
             </div>
           </div>
           
-          <div className="w-full md:w-7/12 grid gap-8">
+          <div className="w-full md:w-7/12 grid gap-4">
             {[
-              { icon: Truck, title: 'Drop Off', desc: 'Securely leave your device at our Mayfield store or use our express mail-in service.' },
-              { icon: Settings, title: 'Diagnostics', desc: 'Expert analysis of the fault with a transparent fixed-price quote provided upfront.' },
-              { icon: Clock, title: 'Repair', desc: 'Fast restoration using high-quality components. Most screens are ready in 45 minutes.' }
+              { icon: Truck, title: 'Inbound Receipt', desc: 'Secure drop-off at Mayfield or express mail-in with tracking.' },
+              { icon: Settings, title: 'Analysis', desc: 'Bench diagnostics and structural analysis with a fixed-price quote.' },
+              { icon: Clock, title: 'Restoration', desc: 'Component replacement and full function testing. Ready in 45m.' }
             ].map((step, idx) => (
-              <div key={idx} className="group flex gap-8 p-8 bg-white/5 border border-white/10 rounded-[2.5rem] hover:bg-white/10 hover:border-white/20 transition-all duration-500 backdrop-blur-sm">
-                <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-blue-600 flex items-center justify-center font-black text-2xl shadow-2xl shadow-blue-600/40 group-hover:scale-110 transition-transform">
-                   {idx + 1}
+              <div key={idx} className="group flex gap-8 p-6 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-4 text-technical text-white/10 font-black text-4xl">0{idx + 1}</div>
+                <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-blue-600 flex items-center justify-center font-black text-xl shadow-2xl shadow-blue-600/40 group-hover:scale-105 transition-transform">
+                   <step.icon className="w-7 h-7 text-white" />
                 </div>
-                <div className="space-y-2">
-                  <h4 className="text-2xl font-bold font-display">{step.title}</h4>
-                  <p className="text-slate-400 leading-relaxed font-medium">{step.desc}</p>
+                <div className="space-y-1 relative z-10">
+                  <h4 className="text-xl font-bold font-display uppercase tracking-wider">{step.title}</h4>
+                  <p className="text-slate-400 text-sm leading-relaxed font-medium max-w-md">{step.desc}</p>
                 </div>
               </div>
             ))}
@@ -344,30 +336,31 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us - Data Driven */}
-      <section id="why-us" className="relative px-6 md:px-12 py-20 md:py-24 bg-slate-950 text-white border-t border-white/5">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-24 items-center">
+      {/* Why Choose Us */}
+      <section id="why-us" className="relative px-6 md:px-12 py-16 md:py-20 bg-slate-950 text-white border-t border-white/5">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 lg:gap-24 items-center">
           <div className="w-full md:w-1/2 space-y-12">
              <div className="space-y-4">
-               <h2 className="text-4xl md:text-7xl font-bold leading-none font-display">Why <span className="text-blue-500">Choose Us?</span></h2>
-               <p className="text-slate-400 text-lg md:text-xl font-medium max-w-lg">
-                 Repairing what others break through verified standards and uncompromising quality in parts.
+               <span className="text-technical text-blue-500">DIAGNOSTIC_STANDARDS</span>
+               <h2 className="text-4xl md:text-7xl font-black leading-none font-display tracking-tighter">Why Our <br/> Lab?</h2>
+               <p className="text-slate-400 text-lg font-medium max-w-lg">
+                 Restoring flagship performance through verified components and aerospace-grade precision.
                </p>
              </div>
              
-             <div className="grid gap-10">
+             <div className="grid gap-8">
                {[
-                 { icon: Clock, title: 'Same Day Service', desc: 'Average turnaround for screen repairs is under 45 minutes.' },
-                 { icon: ShieldCheck, title: 'Peace of Mind', desc: 'Every repair is backed by our comprehensive 90-day hardware warranty.' },
-                 { icon: Settings, title: 'Quality Parts', desc: 'We only use high-grade components that match your phone\'s original specs.' }
+                 { icon: Clock, title: 'RAPID_TURNAROUND', desc: 'Flagship series screen restoration in <45 minutes.' },
+                 { icon: ShieldCheck, title: 'HARDWARE_WARRANTY', desc: '90-day comprehensive component guarantee.' },
+                 { icon: Settings, title: 'OEM_SPEC_PARTS', desc: 'Components verified to match original manufacturer data.' }
                ].map((feat, idx) => (
-                 <div key={idx} className="flex gap-8 group">
-                   <div className="w-16 h-16 rounded-3xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0 group-hover:bg-blue-500 transition-colors duration-500">
-                     <feat.icon className="w-8 h-8 text-blue-400 group-hover:text-white transition-colors" />
+                 <div key={idx} className="flex gap-6 group">
+                   <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-blue-600 transition-colors duration-300">
+                     <feat.icon className="w-6 h-6 text-blue-400 group-hover:text-white transition-colors" />
                    </div>
-                   <div className="space-y-1">
-                     <h4 className="text-xl font-bold font-display">{feat.title}</h4>
-                     <p className="text-slate-400 leading-relaxed font-medium">{feat.desc}</p>
+                   <div className="space-y-0.5">
+                     <h4 className="text-technical text-slate-100">{feat.title}</h4>
+                     <p className="text-slate-400 text-sm font-medium">{feat.desc}</p>
                    </div>
                  </div>
                ))}
@@ -376,18 +369,18 @@ export default function Home() {
           
           <div className="w-full md:w-1/2 relative">
             <div className="absolute -inset-10 bg-blue-600/20 blur-[120px] rounded-full"></div>
-            <div className="relative bg-white/5 backdrop-blur-3xl rounded-[3rem] p-12 border border-white/10 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)]">
+            <div className="relative bg-white/5 backdrop-blur-3xl rounded-3xl p-10 border border-white/10 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)]">
                <div className="flex gap-1 mb-8 text-blue-500">
-                 {[1,2,3,4,5].map(i => <Sparkles key={i} className="w-6 h-6 fill-current" />)}
+                 {[1,2,3,4,5].map(i => <Sparkles key={i} className="w-4 h-4 fill-current" />)}
                </div>
-               <p className="text-2xl md:text-3xl font-bold font-display leading-[1.3] mb-12 italic text-balance text-slate-100">
-                 "They revived my water-damaged phone when everyone else said it was gone. True professionals!"
+               <p className="text-xl md:text-2xl font-bold font-display leading-tight mb-8 italic text-slate-100">
+                 "Component-level expertise that saved my data when others suggested a total replacement. Exceptional diagnostics."
                </p>
-               <div className="flex items-center gap-6">
-                 <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-xl font-black shadow-2xl shadow-blue-600/50">MA</div>
+               <div className="flex items-center gap-4">
+                 <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-sm font-black shadow-lg">MA</div>
                  <div>
-                   <div className="font-bold text-xl font-display">Marcus A.</div>
-                   <div className="text-slate-500 font-black uppercase tracking-widest text-[10px] mt-1">Verified Customer</div>
+                   <div className="font-bold text-base font-display">Marcus A.</div>
+                   <div className="text-technical text-slate-500">VERIFIED_CLIENT // 2026</div>
                  </div>
                </div>
             </div>
@@ -396,48 +389,42 @@ export default function Home() {
       </section>
 
       {/* Blog Section */}
-      <section className="relative px-6 md:px-12 py-20 md:py-24 bg-white">
+      <section className="relative px-6 md:px-12 py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-20">
-            <div className="space-y-6">
-              <h2 className="text-sm font-black text-blue-600 uppercase tracking-[0.4em] font-display">Repair Insights</h2>
-              <h3 className="text-4xl md:text-6xl font-bold text-slate-900 font-display leading-[0.95]">
-                Latest from our <span className="text-blue-600">experts.</span>
+          <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
+            <div className="space-y-4">
+              <span className="text-technical text-blue-600">TECHNICAL_KNOWLEDGE_BASE</span>
+              <h3 className="text-4xl md:text-6xl font-black text-slate-900 font-display leading-[0.85] tracking-tighter">
+                Latest <br/> Insights.
               </h3>
             </div>
-            <Link to="/blog" className="group flex items-center gap-3 text-xs font-black uppercase tracking-widest text-slate-900 pb-2 border-b-2 border-slate-900 hover:border-blue-600 hover:text-blue-600 transition-all">
-              View All Articles <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <Link to="/blog" className="group flex items-center gap-3 text-technical text-slate-900 border-b-2 border-slate-900 hover:border-blue-600 hover:text-blue-600 transition-all transition-all">
+              OPEN_ARCHIVE <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-10">
+          <div className="grid md:grid-cols-3 gap-6">
             {blogPosts.slice(0, 3).map((post) => (
               <Link 
                 key={post.id} 
                 to={`/blog/${post.slug}`}
-                className="group flex flex-col h-full bg-slate-50 rounded-[2.5rem] overflow-hidden border border-slate-100 hover:border-blue-200 transition-all"
+                className="group flex flex-col h-full bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 hover:border-blue-200 transition-all"
               >
-                <div className="aspect-[16/10] overflow-hidden">
+                <div className="aspect-[16/9] overflow-hidden">
                   <img 
                     src={post.imageUrl} 
                     alt={post.title} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                     loading="lazy"
-                    decoding="async"
                   />
                 </div>
                 <div className="p-8 space-y-4 flex-1 flex flex-col">
-                  <div className="flex items-center gap-4 text-[10px] font-black uppercase tracking-widest text-slate-400">
-                    <span>{new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
-                  </div>
-                  <h4 className="text-xl font-bold font-display text-slate-900 group-hover:text-blue-600 transition-colors line-clamp-2">
+                  <span className="text-technical text-slate-400">DATA_POSTED // {new Date(post.date).toLocaleDateString()}</span>
+                  <h4 className="text-lg font-bold font-display text-slate-900 group-hover:text-blue-600 transition-colors line-clamp-2">
                     {post.title}
                   </h4>
-                  <p className="text-slate-500 text-sm font-medium line-clamp-2 mb-6">
-                    {post.excerpt}
-                  </p>
-                  <div className="mt-auto flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-blue-600 group-hover:gap-4 transition-all">
-                    Read More <ArrowRight className="w-3.5 h-3.5" />
+                  <div className="mt-auto pt-6 flex items-center gap-2 text-technical text-blue-600">
+                    LEARN_MORE <ArrowRight className="w-3 h-3" />
                   </div>
                 </div>
               </Link>
@@ -447,32 +434,29 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="relative px-6 md:px-12 py-20 md:py-24 bg-white rounded-[4rem_4rem_0_0] -mt-16 z-20">
-        <div className="max-w-4xl mx-auto space-y-20">
-          <div className="text-center space-y-6">
-            <h2 className="text-sm font-black text-blue-600 uppercase tracking-[0.4em] font-display text-center">Common Questions</h2>
-            <h3 className="text-4xl md:text-7xl font-bold text-slate-900 font-display leading-tight text-center">Frequently asked questions</h3>
+      <section className="relative px-6 md:px-12 py-16 md:py-20 bg-slate-50">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center space-y-4 mb-16">
+            <span className="text-technical text-blue-600">PROTOCOL_FAQ</span>
+            <h3 className="text-4xl md:text-7xl font-black text-slate-900 font-display leading-[0.85] tracking-tighter">Support <br/> Vectors.</h3>
           </div>
 
-          <div className="grid gap-4">
+          <div className="grid gap-2">
             {faqs.map((faq, idx) => (
               <div 
                 key={idx} 
-                className={`group border rounded-[2rem] overflow-hidden transition-all duration-500 ${activeFaq === idx ? 'border-blue-500 bg-blue-50/30' : 'border-slate-100 hover:border-slate-300 bg-slate-50/50'}`}
+                className={`group border rounded-2xl overflow-hidden transition-all duration-300 ${activeFaq === idx ? 'border-blue-500 bg-white shadow-xl shadow-blue-500/5' : 'border-slate-200 bg-white/50 hover:bg-white'}`}
               >
                 <button 
                   onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
-                  className="w-full px-10 py-8 flex items-center justify-between text-left outline-none"
-                  aria-expanded={activeFaq === idx}
-                  aria-controls={`faq-answer-${idx}`}
-                  id={`faq-question-${idx}`}
+                  className="w-full px-8 py-6 flex items-center justify-between text-left outline-none"
                 >
-                  <span className="text-lg md:text-xl font-bold text-slate-900 font-display flex items-center gap-6">
-                    <span className={`w-3 h-3 rounded-full transition-colors ${activeFaq === idx ? 'bg-blue-600' : 'bg-slate-300'}`} />
+                  <span className="text-base md:text-lg font-bold text-slate-900 font-display flex items-center gap-4">
+                    <span className="text-technical text-blue-600 opacity-50">Q{idx + 1}</span>
                     {faq.q}
                   </span>
-                  <div className={`w-10 h-10 rounded-full flex items-center justify-center border border-slate-200 transition-all ${activeFaq === idx ? 'bg-blue-600 border-blue-600 rotate-90' : 'bg-white'}`}>
-                    <ChevronRight className={`w-5 h-5 transition-colors ${activeFaq === idx ? 'text-white' : 'text-slate-400'}`} />
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center border border-slate-200 transition-all ${activeFaq === idx ? 'bg-blue-600 border-blue-600 rotate-90 text-white' : 'text-slate-400'}`}>
+                    <ChevronRight className="w-4 h-4" />
                   </div>
                 </button>
                 <AnimatePresence>
@@ -481,12 +465,9 @@ export default function Home() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }}
-                      id={`faq-answer-${idx}`}
-                      role="region"
-                      aria-labelledby={`faq-question-${idx}`}
+                      transition={{ duration: 0.3 }}
                     >
-                      <div className="px-20 pb-10 text-slate-600 font-medium text-lg leading-relaxed">
+                      <div className="px-16 pb-8 text-slate-500 font-medium text-base leading-relaxed border-t border-slate-50 pt-6 mx-4">
                         {faq.a}
                       </div>
                     </motion.div>
@@ -498,144 +479,148 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Popular Models SEO Section */}
-      <section className="py-20 px-6 md:px-12 bg-slate-50 border-t border-slate-100">
+      {/* Technical Portfolio / SEO Section */}
+      <section className="py-12 px-6 md:px-12 bg-slate-50 border-t border-slate-200">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-xs font-black text-slate-400 uppercase tracking-[0.4em] font-display mb-12 text-center">Specialist 2026 Flagship Repairs</h2>
-          <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 text-sm font-bold text-slate-500 font-display italic">
-            <span className="hover:text-blue-600 transition-colors cursor-default">iPhone 17 Pro Max Screen Restoration</span>
-            <span className="hover:text-blue-600 transition-colors cursor-default">Samsung S26 Ultra Display Fix</span>
-            <span className="hover:text-blue-600 transition-colors cursor-default">iPhone 16 Pro Battery Replacement</span>
-            <span className="hover:text-blue-600 transition-colors cursor-default">Google Pixel 10 Pro Port Repair</span>
-            <span className="hover:text-blue-600 transition-colors cursor-default">iPad Pro 13" (M4) Glass Repair</span>
-            <span className="hover:text-blue-600 transition-colors cursor-default">Samsung Z Fold 7 Screen Swap</span>
-            <span className="hover:text-blue-600 transition-colors cursor-default">iPhone 17 Plus Camera Lens</span>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-12">
+            <span className="text-technical text-slate-400">RESTODATA_REGISTRY_2026</span>
+            <div className="h-px flex-1 bg-slate-200 hidden md:block"></div>
+            <span className="text-technical text-blue-600">CERTIFIED_ASSEMBLIES</span>
+          </div>
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-[11px] font-black text-slate-400 font-mono tracking-widest leading-loose">
+            <span className="hover:text-blue-600 transition-colors uppercase">IPHONE_17_PRO_MAX_RESTORE</span>
+            <span className="hover:text-blue-600 transition-colors uppercase">SAMSUNG_S26_ULTRA_DISPLAY</span>
+            <span className="hover:text-blue-600 transition-colors uppercase">IPHONE_16_BATTERY_SWAP</span>
+            <span className="hover:text-blue-600 transition-colors uppercase">PIXEL_10_PRO_LOGIC_FIX</span>
+            <span className="hover:text-blue-600 transition-colors uppercase">IPAD_PRO_M4_GLASS_BOND</span>
+            <span className="hover:text-blue-600 transition-colors uppercase">Z_FOLD_7_HINGE_REBUILD</span>
+            <span className="hover:text-blue-600 transition-colors uppercase">S25_COMPACT_COMPONENT_RESTORE</span>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="relative px-6 md:px-12 py-20 md:py-24 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto space-y-24 relative z-10">
-          <div className="max-w-3xl space-y-8">
-            <h2 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.5em] font-display">Visit Our Shop</h2>
-            <h3 className="text-5xl md:text-8xl font-bold text-slate-900 font-display leading-[0.85] text-balance">
-              Mayfield <br/> <span className="text-blue-600 font-light italic">Phone Repair.</span>
-            </h3>
-            <p className="text-slate-500 text-xl leading-relaxed font-medium">
-              Expert repairs you can trust. No appointment needed—just walk in during our opening hours for a fast diagnostic.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-12 items-start">
-            {/* Column 1: Location & Call */}
-            <div className="space-y-10">
-              <div className="flex gap-8 group">
-                <div className="w-16 h-16 shrink-0 rounded-2xl bg-slate-50 flex items-center justify-center border border-slate-100 group-hover:bg-blue-600 transition-all duration-500">
-                  <MapPin className="w-8 h-8 text-slate-900 group-hover:text-white transition-colors" />
+      <section id="contact" className="relative px-6 md:px-12 py-16 md:py-20 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="bg-slate-950 rounded-[3rem] p-10 md:p-16 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-600/10 blur-[120px] rounded-full translate-x-1/2"></div>
+            <div className="absolute inset-0 bg-grid-slate-100 opacity-[0.02]" />
+            
+            <div className="relative z-10 flex flex-col lg:flex-row gap-12 lg:gap-20">
+              <div className="w-full lg:w-[45%] space-y-12">
+                <div className="space-y-6">
+                  <span className="text-technical text-blue-500">COMMS_CHANNEL_ESTABLISHED</span>
+                  <h2 className="text-5xl md:text-8xl font-black text-white font-display leading-[0.85] tracking-tighter">
+                    Ready to <br/> <span className="text-blue-500">Fix?</span>
+                  </h2>
+                  <p className="text-slate-400 text-lg font-medium max-w-sm">
+                    Enter your hardware parameters below for a preliminary quote and slot allocation.
+                  </p>
                 </div>
-                <div>
-                  <h4 className="text-xl font-bold font-display mb-2 text-slate-900 uppercase tracking-widest text-xs">Location</h4>
-                  <p className="text-slate-500 text-lg font-medium leading-relaxed font-display">276 Maitland Rd, <br/> Mayfield, NSW 2304</p>
+                
+                <div className="grid gap-6">
+                   <div className="flex items-center gap-6 group">
+                      <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group-hover:bg-blue-600 transition-colors shadow-lg">
+                        <MapPin className="w-5 h-5 text-blue-400 group-hover:text-white" />
+                      </div>
+                      <div>
+                        <p className="text-technical text-slate-500">LAB_LOCATION</p>
+                        <p className="text-white font-bold text-base font-display">276 Maitland Rd, Mayfield NSW 2304</p>
+                      </div>
+                   </div>
+
+                   <div className="flex items-center gap-6 group">
+                      <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group-hover:bg-blue-600 transition-colors shadow-lg">
+                        <Phone className="w-5 h-5 text-blue-400 group-hover:text-white" />
+                      </div>
+                      <div>
+                        <p className="text-technical text-slate-500">VOICE_UPLINK</p>
+                        <p className="text-white font-bold text-base font-display">02 4049 1735</p>
+                      </div>
+                   </div>
+
+                   <div className="flex items-center gap-6 group">
+                      <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group-hover:bg-blue-600 transition-colors shadow-lg">
+                        <Clock className="w-5 h-5 text-blue-400 group-hover:text-white" />
+                      </div>
+                      <div>
+                        <p className="text-technical text-slate-500">OPERATIONAL_HOURS</p>
+                        <p className="text-white font-bold text-base font-display">M-F: 09:00-17:00 | SAT: 10:00-16:00</p>
+                      </div>
+                   </div>
+                </div>
+
+                <div className="pt-6 border-t border-white/5">
+                  <Link to="/after-hours" className="flex items-center gap-6 p-4 bg-white/5 border border-emerald-500/30 rounded-2xl text-white hover:bg-emerald-500/10 transition-all group">
+                    <div className="w-10 h-10 bg-emerald-500 rounded-lg flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform">
+                      <Clock className="w-5 h-5 text-white" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-technical text-emerald-400">AFTER_HOURS_PROTOCOLS</span>
+                      <span className="text-lg font-bold font-display tracking-tight text-white">SMS 0431 618 100</span>
+                    </div>
+                  </Link>
                 </div>
               </div>
               
-              <div className="pt-6 border-t border-slate-100">
-                <a href="tel:0240491735" className="flex items-center gap-6 p-4 bg-slate-900 rounded-[2rem] text-white hover:scale-105 transition-transform duration-500 shadow-xl">
-                  <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center shadow-lg">
-                    <Phone className="w-6 h-6" />
+              <div className="w-full lg:w-[55%]">
+                <div className="bg-white p-8 md:p-10 rounded-[2.5rem] border border-slate-200 shadow-2xl relative">
+                  <div className="absolute top-0 right-0 p-8 hidden md:block">
+                     <span className="text-technical text-slate-300">REF: RFQ-26</span>
                   </div>
-                  <div className="flex flex-col">
-                    <span className="text-[8px] font-black uppercase tracking-widest text-blue-400">Direct Call</span>
-                    <span className="text-lg font-bold font-display">02 4049 1735</span>
-                  </div>
-                </a>
-              </div>
-            </div>
-
-            {/* Column 2: Hours & SMS */}
-            <div className="space-y-10">
-              <div className="flex gap-8 group">
-                <div className="w-16 h-16 shrink-0 rounded-2xl bg-slate-50 flex items-center justify-center border border-slate-100 group-hover:bg-blue-600 transition-all duration-500">
-                  <Clock className="w-8 h-8 text-slate-900 group-hover:text-white transition-colors" />
+                  <h3 className="text-2xl font-black font-display mb-8 text-slate-900 uppercase tracking-tight">Request Estimate</h3>
+                  <form className="space-y-4" onSubmit={handleFormSubmit}>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div className="space-y-1.5">
+                        <label className="text-technical text-slate-400 ml-1">CLIENT_IDENTITY</label>
+                        <input 
+                          type="text" 
+                          required
+                          value={formData.name}
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          className="w-full px-5 py-3.5 bg-slate-50 rounded-xl border border-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-sm font-medium" 
+                          placeholder="Ex: John Doe" 
+                        />
+                      </div>
+                      <div className="space-y-1.5">
+                        <label className="text-technical text-slate-400 ml-1">PHONE_CONTACT</label>
+                        <input 
+                          type="tel" 
+                          required
+                          value={formData.phone}
+                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          className="w-full px-5 py-3.5 bg-slate-50 rounded-xl border border-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-sm font-medium" 
+                          placeholder="Ex: 0400 000 000" 
+                        />
+                      </div>
+                    </div>
+                    <div className="space-y-1.5">
+                      <label className="text-technical text-slate-400 ml-1">HARDWARE_FAULT_SYNOPSIS</label>
+                      <textarea 
+                        rows={3} 
+                        required
+                        value={formData.details}
+                        onChange={(e) => setFormData({ ...formData, details: e.target.value })}
+                        className="w-full px-5 py-3.5 bg-slate-50 rounded-xl border border-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-sm font-medium resize-none text-[13px]" 
+                        placeholder="Describe the issue..."
+                      ></textarea>
+                    </div>
+                    <button 
+                      type="submit" 
+                      disabled={isSubmitting}
+                      className="w-full bg-slate-950 text-white font-black uppercase tracking-[0.2em] py-5 rounded-xl shadow-xl hover:bg-blue-600 hover:-translate-y-1 transition-all duration-300 text-[10px] disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {isSubmitting ? 'TRANSMITTING...' : 'INITIALIZE_REQUEST'}
+                    </button>
+                    {submitStatus === 'success' && (
+                      <p className="text-technical text-emerald-600 text-center animate-bounce">TRANSMISSION_COMPLETE</p>
+                    )}
+                    {submitStatus === 'error' && (
+                      <p className="text-technical text-rose-600 text-center">TRANSMISSION_ERROR</p>
+                    )}
+                  </form>
                 </div>
-                <div>
-                  <h4 className="text-xl font-bold font-display mb-2 text-slate-900 uppercase tracking-widest text-xs">Opening Hours</h4>
-                  <div className="text-slate-500 text-base font-medium space-y-1 font-display">
-                    <p className="flex justify-between gap-4"><span>Mon - Fri:</span> <span>09:00 — 17:00</span></p>
-                    <p className="flex justify-between gap-4"><span>Sat:</span> <span>10:00 — 16:00</span></p>
-                    <p className="flex justify-between gap-4"><span>Sun:</span> <span>10:00 — 14:00</span></p>
-                  </div>
-                </div>
               </div>
-
-              <div className="pt-6 border-t border-slate-100">
-                <Link to="/after-hours" className="flex items-center gap-6 p-4 bg-white border-2 border-emerald-500 rounded-[2rem] text-slate-900 hover:scale-105 transition-transform duration-500 shadow-lg group">
-                  <div className="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform">
-                    <Clock className="w-6 h-6 text-white" />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-[8px] font-black uppercase tracking-widest text-emerald-600">After Hours Service</span>
-                    <span className="text-lg font-bold font-display">SMS 0431 618 100</span>
-                  </div>
-                </Link>
-              </div>
-            </div>
-
-            {/* Column 3: Quote Form */}
-            <div className="relative">
-               <div className="absolute -inset-6 bg-slate-50 rounded-[3rem] -z-10 rotate-2"></div>
-               <div className="bg-white p-10 rounded-[3rem] border border-slate-200 shadow-[0_40px_80px_-15px_rgba(0,0,0,0.08)]">
-                  <h3 className="text-2xl font-bold font-display mb-8 text-slate-900">Get a Free Quote</h3>
-                <form className="space-y-6" onSubmit={handleFormSubmit}>
-                  <div className="space-y-2">
-                    <label className="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-2">Name</label>
-                    <input 
-                      type="text" 
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-6 py-4 bg-slate-50 rounded-2xl border border-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-sm font-medium" 
-                      placeholder="Ex: John Doe" 
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-2">Phone</label>
-                    <input 
-                      type="tel" 
-                      required
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-6 py-4 bg-slate-50 rounded-2xl border border-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-sm font-medium" 
-                      placeholder="Ex: 0400 000 000" 
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-2">How can we help?</label>
-                    <textarea 
-                      rows={3} 
-                      required
-                      value={formData.details}
-                      onChange={(e) => setFormData({ ...formData, details: e.target.value })}
-                      className="w-full px-6 py-4 bg-slate-50 rounded-2xl border border-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-sm font-medium resize-none" 
-                      placeholder="Describe the issue..."
-                    ></textarea>
-                  </div>
-                  <button 
-                    type="submit" 
-                    disabled={isSubmitting}
-                    className="w-full bg-blue-600 text-white font-black uppercase tracking-widest py-5 rounded-2xl shadow-[0_15px_30px_rgba(37,99,235,0.2)] hover:shadow-[0_20px_40px_rgba(37,99,235,0.3)] hover:-translate-y-1 transition-all duration-500 text-xs disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {isSubmitting ? 'Sending...' : 'Send Request'}
-                  </button>
-                  {submitStatus === 'success' && (
-                    <p className="text-emerald-600 text-[10px] font-black uppercase tracking-widest text-center animate-pulse">Request Sent Successfully!</p>
-                  )}
-                  {submitStatus === 'error' && (
-                    <p className="text-rose-600 text-[10px] font-black uppercase tracking-widest text-center">Error sending request. Please try again.</p>
-                  )}
-                </form>
-               </div>
             </div>
           </div>
         </div>
