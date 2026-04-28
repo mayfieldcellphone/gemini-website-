@@ -24,7 +24,7 @@ import {
 import { format } from 'date-fns';
 import { db, auth, handleFirestoreError, OperationType } from '../lib/firebase';
 import { collection, query, orderBy, onSnapshot, doc, updateDoc, addDoc, serverTimestamp, limit } from 'firebase/firestore';
-import { useAuthState } from 'react-firebase-hooks/auth';
+import { useAuth } from '../lib/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -79,7 +79,7 @@ interface Message {
 }
 
 export default function AdminDashboard() {
-  const [user] = useAuthState(auth);
+  const { user, isAdmin, loading: authLoading, logout: performLogout } = useAuth();
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<'quotes' | 'corporate' | 'chats' | 'bookings'>('bookings');
   const [quotes, setQuotes] = useState<Quote[]>([]);
@@ -95,12 +95,13 @@ export default function AdminDashboard() {
   const ITEMS_PER_PAGE = 5;
 
   useEffect(() => {
-    if (!user) {
+    if (!authLoading && (!user || !isAdmin)) {
       navigate('/admin/login');
       return;
     }
 
-    // Quotes Listener
+    if (user && isAdmin) {
+      // Quotes Listener
     const quotesQuery = query(collection(db, 'quotes'), orderBy('createdAt', 'desc'));
     const unsubscribeQuotes = onSnapshot(quotesQuery, (snapshot) => {
       setQuotes(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Quote)));
@@ -125,13 +126,14 @@ export default function AdminDashboard() {
       setLoading(false);
     }, (error) => handleFirestoreError(error, OperationType.GET, 'bookings'));
 
-    return () => {
-      unsubscribeQuotes();
-      unsubscribeCorporate();
-      unsubscribeChats();
-      unsubscribeBookings();
-    };
-  }, [user, navigate]);
+      return () => {
+        unsubscribeQuotes();
+        unsubscribeCorporate();
+        unsubscribeChats();
+        unsubscribeBookings();
+      };
+    }
+  }, [user, isAdmin, authLoading, navigate]);
 
   useEffect(() => {
     if (!activeChatId) {
@@ -198,7 +200,7 @@ export default function AdminDashboard() {
   };
 
   const logout = () => {
-    auth.signOut();
+    performLogout();
     navigate('/');
   };
 

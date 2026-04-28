@@ -16,6 +16,7 @@ const SecondHandPhones = lazy(() => import('./pages/SecondHandPhones'));
 const AccessoriesPage = lazy(() => import('./pages/AccessoriesPage'));
 const CorporateRepairs = lazy(() => import('./pages/CorporateRepairs'));
 const AdminDashboard = lazy(() => import('./pages/AdminDashboard'));
+const AdminLogin = lazy(() => import('./pages/AdminLogin'));
 const AboutUs = lazy(() => import('./pages/AboutUs'));
 
 export default function App() {
@@ -36,6 +37,7 @@ export default function App() {
         <Route path="accessories" element={<AccessoriesPage />} />
         <Route path="corporate-repairs" element={<CorporateRepairs />} />
         <Route path="admin" element={<AdminDashboard />} />
+        <Route path="admin/login" element={<AdminLogin />} />
         <Route path=":serviceKeyword/:suburbId" element={<SuburbPage />} />
       </Route>
     </Routes>
