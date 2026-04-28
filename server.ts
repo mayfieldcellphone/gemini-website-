@@ -3,6 +3,7 @@ import { createServer as createViteServer } from "vite";
 import path from "path";
 import twilio from "twilio";
 import dotenv from "dotenv";
+import { GoogleGenAI } from "@google/genai";
 
 dotenv.config();
 
@@ -11,6 +12,59 @@ async function startServer() {
   const PORT = 3000;
 
   app.use(express.json());
+  
+  // Gemini AI Voice Endpoint
+  app.post("/api/voice", async (req, res) => {
+    try {
+      const { message, history } = req.body;
+      const apiKey = process.env.GEMINI_API_KEY;
+
+      if (!apiKey) {
+        return res.status(500).json({ error: "Gemini API key not configured on server" });
+      }
+
+      const ai = new GoogleGenAI({ apiKey });
+      
+      const response = await ai.models.generateContent({
+        model: "gemini-3-flash-preview",
+        contents: [
+          ...history,
+          { role: 'user', parts: [{ text: message }] }
+        ],
+        config: {
+          systemInstruction: `
+You are the official "Mayfield Cell Phone Repairs" Voice Assistant. 
+You are helpful, professional, and friendly, with a "local" Newcastle vibe (warm, direct, but polite).
+
+CORE BUSINESS FACTS:
+- Location: 276 Maitland Rd, Mayfield, NSW, 2304.
+- Phone: 02 4049 1735.
+- Emergency SMS (After hours): 0431 618 100.
+- Opening Hours: Mon-Fri: 9am-5pm, Sat: 10am-4pm, Sun: 10am-2pm.
+- Warranty: 90-day guarantee on all repairs.
+- Major Services: Screen Repair (iPhone/Samsung/Pixel), Battery Replacement, Water Damage, Back Glass, Charging Ports, Camera repair, and Laptop/MacBook repair.
+- Major Brands: Apple (iPhone/iPad/Mac), Samsung, Google Pixel, Oppo, Motorola, Huawei.
+- Pricing: Free comprehensive assessments. Most screen repairs done in 30 minutes.
+
+Your goals:
+1. Greet the customer and ask about their device.
+2. Identify the device and issue.
+3. Provide specific facts: 30-minute screens and 90-day warranty.
+4. If they seem ready to book, tell them: "I've opened the booking form for you, just fill in your details."
+5. Never guess prices.
+
+Keep responses concise (max 2-3 sentences) because they will be read aloud. Plain text only.
+`,
+          temperature: 0.7,
+        },
+      });
+
+      res.json({ text: response.text });
+    } catch (error) {
+      console.error("Gemini Server Error:", error);
+      res.status(500).json({ error: "AI failed to respond" });
+    }
+  });
 
   // Twilio SMS Endpoint
   app.post("/api/notify", async (req, res) => {
