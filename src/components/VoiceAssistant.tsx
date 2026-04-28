@@ -71,6 +71,15 @@ const VoiceAssistant: React.FC = () => {
     if (isListening) {
       recognitionRef.current?.stop();
     } else {
+      // Prime the speech synthesis on user gesture to "unlock" audio
+      // This is crucial for mobile browsers and strict desktop policies
+      try {
+        const silentMsg = new SpeechSynthesisUtterance("");
+        window.speechSynthesis.speak(silentMsg);
+      } catch (e) {
+        console.warn("Audio priming failed:", e);
+      }
+      
       setTranscript('');
       setAiResponse('');
       setIsListening(true);
@@ -92,16 +101,23 @@ const VoiceAssistant: React.FC = () => {
     
     setAiResponse(response);
     setIsProcessing(false);
-    speak(response);
+    
+    // Small delay to let the transcript settle visually
+    setTimeout(() => speak(response), 100);
 
     // Trigger booking modal if user wants to book
     if (response.toLowerCase().includes("opened the booking form") || 
         response.toLowerCase().includes("fill in your details")) {
-      setTimeout(() => openBooking(), 2000);
+      setTimeout(() => openBooking(), 3000);
     }
   };
 
   const speak = (text: string) => {
+    if (!window.speechSynthesis) {
+      console.error("Speech Synthesis not supported in this browser.");
+      return;
+    }
+
     // Cancel any current speech
     window.speechSynthesis.cancel();
     
@@ -110,17 +126,26 @@ const VoiceAssistant: React.FC = () => {
     utterance.rate = 1.0;
     utterance.pitch = 1.0;
     
-    // Try to find a nice local voice if available
-    const voices = window.speechSynthesis.getVoices();
-    const preferredVoice = voices.find(v => v.lang.includes('en-AU') && v.name.includes('Natural')) 
-                          || voices.find(v => v.lang.includes('en-AU'))
-                          || voices[0];
-    
-    if (preferredVoice) {
-      utterance.voice = preferredVoice;
-    }
+    // Function to set voice
+    const setVoice = () => {
+      const voices = window.speechSynthesis.getVoices();
+      const preferredVoice = voices.find(v => v.lang.includes('en-AU') && (v.name.includes('Natural') || v.name.includes('Google'))) 
+                            || voices.find(v => v.lang.includes('en-AU'))
+                            || voices.find(v => v.lang.includes('en-GB'))
+                            || voices[0];
+      
+      if (preferredVoice) {
+        utterance.voice = preferredVoice;
+      }
+      window.speechSynthesis.speak(utterance);
+    };
 
-    window.speechSynthesis.speak(utterance);
+    // Chrome/Safari often load voices asynchronously
+    if (window.speechSynthesis.getVoices().length === 0) {
+      window.speechSynthesis.onvoiceschanged = setVoice;
+    } else {
+      setVoice();
+    }
   };
 
   return (
