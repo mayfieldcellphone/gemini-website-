@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Mic, MicOff, X, Volume2, Loader2, Sparkles } from 'lucide-react';
-import { getVoiceResponse } from '../lib/gemini';
+import { getVoiceResponse, getTTSAudio } from '../lib/gemini';
 import { useUI } from '../contexts/UIContext';
 
 // Type definitions for Web Speech API
@@ -112,7 +112,16 @@ const VoiceAssistant: React.FC = () => {
     }
   };
 
-  const speak = (text: string) => {
+  const speak = async (text: string) => {
+    // Attempt high-quality AI voice first
+    const aiVoiceUrl = await getTTSAudio(text);
+    if (aiVoiceUrl) {
+      const audio = new Audio(aiVoiceUrl);
+      audio.play();
+      return;
+    }
+
+    // Fallback to browser synthesis
     if (!window.speechSynthesis) {
       console.error("Speech Synthesis not supported in this browser.");
       return;
