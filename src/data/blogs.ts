@@ -1012,5 +1012,155 @@ export const blogPosts: BlogPost[] = [
         </div>
       </section>
     `
+  },
+  {
+    id: '20',
+    title: 'Mayfield Phone Repairs: Why Newcastle Trusts Us for Every Screen & Battery Fix',
+    slug: 'mayfield-phone-repairs-newcastle-trust',
+    author: 'Mayfield SEO Team',
+    date: '2026-05-01',
+    excerpt: 'Discover why Mayfield Phone Repairs has become the top choice for Newcastle residents seeking fast, high-quality, and affordable mobile restoration.',
+    imageUrl: 'https://images.unsplash.com/photo-1596524430615-b46475ddff6e?auto=format&fit=crop&q=80',
+    tags: ['Mayfield Phone Repairs', 'Newcastle', 'Quality Service'],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-blue-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-blue-100">SEO Strategy / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-blue-200 text-[10px] font-black uppercase tracking-widest">Why is Mayfield Phone Repairs the best choice in Newcastle?</span>
+              <p class="text-xl font-bold">We combine same-day speed (most fixes in 30 mins) with premium components and a solid 90-day warranty.</p>
+            </div>
+            <div class="flex flex-col gap-2">
+              <span class="text-blue-200 text-[10px] font-black uppercase tracking-widest">Do you cover all major brands?</span>
+              <p class="text-xl font-bold">Yes, we specialize in iPhone, Samsung, Google Pixel, and Oppo repairs right here in Mayfield.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">When you search for <strong>Mayfield phone repairs</strong>, you are looking for more than just a quick fix—you're looking for a technician you can trust with your digital life. At Mayfield Phone Repair, we've built our reputation on transparency, technical excellence, and deep roots in the Newcastle community.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Real Expertise for Newcastle Residents</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">Unlike "cheap" mall kiosks, our approach to <a href="/newcastle" class="text-blue-600 hover:underline">Newcastle phone repair</a> involves precision tools and factory-spec adhesives. Whether it's a shattered <a href="/service/iphone-screen-repair" class="text-blue-600 hover:underline">iPhone screen</a> or a dying battery, we ensure your device is restored to its original functionality without compromising its internal integrity.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">The Importance of Quality Parts</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">A common mistake in the repair industry is using "B-grade" components that fail within weeks. At Mayfield Phone Repairs, we strictly source <strong>Premium and OEM-grade parts</strong>. This means your colors stay vibrant, your touch response remains sharp, and your battery lasts just as long as it did the day you bought it. For official guidance on device maintenance, you can always check the <a href="https://support.apple.com/en-au" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Apple Support</a> or <a href="https://www.samsung.com/au/support/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Samsung Support</a> pages.</p>
+
+        <div class="p-8 bg-slate-50 border border-slate-200 rounded-3xl">
+          <h3 class="text-xl font-bold mb-4 font-display">Trusted Local Service</h3>
+          <p class="text-slate-500 italic font-medium text-balance">From Maitland Rd to the heart of Newcastle, we are proud to be the highest-rated independent repairer. Visit us today and see why our customers consistently leave 5-star reviews.</p>
+        </div>
+
+        <div class="mt-12 bg-slate-900 text-white p-12 rounded-[3.5rem] shadow-2xl relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-blue-600/20 blur-3xl rounded-full"></div>
+          <h3 class="text-3xl font-bold mb-4 font-display italic">Quality You Can Feel</h3>
+          <p class="mb-8 font-medium text-slate-400 italic">Don't risk your expensive hardware with subpar service. Get professional Mayfield phone repairs today.</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="tel:0240491735" class="bg-blue-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display text-center shadow-lg shadow-blue-600/30">Call 02 4049 1735</a>
+            <a href="/#contact" class="bg-white text-slate-900 px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display text-center">Visit Our Mayfield Store</a>
+          </div>
+        </div>
+      </section>
+    `
+  },
+  {
+    id: '21',
+    title: 'Mayfield Cell Phone Repairs: Specialist Solutions for Modern Smartphones',
+    slug: 'mayfield-cell-phone-repairs-specialist-solutions',
+    author: 'Mayfield Repair Specialists',
+    date: '2026-05-02',
+    excerpt: 'Looking for a deeper level of technical expertise? Discover why Mayfield Cell Phone Repairs leads the way in complex logic board and premium hardware fixes.',
+    imageUrl: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80',
+    tags: ['Mayfield Cell Phone Repairs', 'Technical Expertise', 'Maintenance'],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-emerald-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-emerald-100">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-emerald-200 text-[10px] font-black uppercase tracking-widest">What makes Mayfield Cell Phone Repairs different?</span>
+              <p class="text-xl font-bold">We handle complex internal issues—from charging port desoldering to precision lithium-ion cell replacements.</p>
+            </div>
+            <div class="flex flex-col gap-2">
+              <span class="text-emerald-200 text-[10px] font-black uppercase tracking-widest">Can you fix phones that other shops rejected?</span>
+              <p class="text-xl font-bold">Absolutely. Our advanced diagnostics lab in Mayfield is designed for deep-level hardware troubleshooting.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">The term <strong>Mayfield cell phone repairs</strong> has become synonymous with high-tech rescue missions. While many shops only offer simple "swap-and-go" fixes, our team specializes in the intricate science of modern electronics maintenance.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Beyond the Screen: Internal Restoration</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">Smartphone internal architecture has become incredibly dense. Issues like a <a href="/service/battery-replacement" class="text-blue-600 hover:underline">phone battery draining fast</a> or a <a href="/service/charging-port-repair" class="text-blue-600 hover:underline">broken charging port</a> often require microscopic precision. At Mayfield Cell Phone Repairs, we use ultrasonic cleaning and micro-soldering stations to ensure every connection is factory-perfect.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Repairability Standards in 2026</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">Modern devices like the iPhone 17 and Samsung S24 have unique internal challenges. We stay at the forefront of the "Right to Repair" movement, following rigorous guidelines from industry leaders like <a href="https://www.ifixit.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">iFixit</a> to ensure your device is handled with the respect its engineering deserves.</p>
+
+        <div class="p-8 bg-emerald-50 border border-emerald-200 rounded-3xl">
+          <h3 class="text-xl font-bold mb-4 font-display text-emerald-900 italic font-medium">Precision Diagnostics</h3>
+          <p class="text-emerald-800 font-medium italic">Don't guess what's wrong with your phone. Our Mayfield technicians provide a comprehensive hardware audit to catch minor issues before they become permanent failures.</p>
+        </div>
+
+        <div class="mt-12 bg-slate-900 text-white p-12 rounded-[3.5rem] shadow-2xl relative overflow-hidden">
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-emerald-600/10 blur-3xl rounded-full"></div>
+          <h3 class="text-3xl font-bold mb-4 font-display italic">Specialist Tech Rescue</h3>
+          <p class="mb-8 font-medium text-slate-400 italic">Got a complex hardware issue? Visit the specialists at Mayfield Cell Phone Repairs today.</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="tel:0240491735" class="bg-emerald-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display text-center shadow-lg shadow-emerald-600/30">Get A Specialist Quote</a>
+            <a href="/#contact" class="bg-white text-slate-900 px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display text-center">Visit Our Lab</a>
+          </div>
+        </div>
+      </section>
+    `
+  },
+  {
+    id: '22',
+    title: 'Top-Rated Phone Repairs Mayfield: Fast, Reliable, and Local Store on Maitland Rd',
+    slug: 'fast-phone-repairs-mayfield-local-service',
+    author: 'Mayfield Local Guide',
+    date: '2026-05-03',
+    excerpt: 'Cracked screen at lunch? Discover the fastest phone repairs Mayfield has to offer, with same-day fixes that get you back online in 30 minutes.',
+    imageUrl: 'https://images.unsplash.com/photo-1556656793-062ff987825d?auto=format&fit=crop&q=80',
+    tags: ['Phone Repairs Mayfield', 'Local Store', 'Fast Service'],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-blue-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-blue-100">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-blue-200 text-[10px] font-black uppercase tracking-widest">Where can I find fast phone repairs in Mayfield?</span>
+              <p class="text-xl font-bold">Visit us at 276 Maitland Rd, Mayfield. We offer 30-minute standard screen and battery swaps.</p>
+            </div>
+            <div class="flex flex-col gap-2">
+              <span class="text-blue-200 text-[10px] font-black uppercase tracking-widest">Do I need an appointment?</span>
+              <p class="text-xl font-bold">Walk-ins are always welcome! We prioritize local residents to ensure the fastest turnaround times in Newcastle.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">If you're looking for <strong>phone repairs Mayfield</strong> locals swear by, you've come to the right place. Our store on Maitland Rd is designed for efficiency, ensuring that your broken screen or water-damaged device doesn't ruin your entire day.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">The 30-Minute Fix Challenge</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">We understand that your phone is your connection to the world. That's why we stock parts for every major model—from iPhone to Google Pixel—allowing us to perform most repairs on-site while you wait. Even complex cases like <a href="/service/water-damage-repair" class="text-blue-600 hover:underline">water damage repair</a> are handled with urgency and professional care.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Support Local, Get Local Care</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">When you choose phone repairs Mayfield experts, you're supporting a local business that understands the Newcastle community. We pride ourselves on being 100% transparent—no hidden fees, no unnecessary jargon. For more information on your specific model, you can visit the official <a href="https://support.google.com/pixelphone/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Google Pixel Help</a> centre.</p>
+
+        <div class="p-8 bg-slate-50 border border-slate-200 rounded-3xl">
+          <h3 class="text-xl font-bold mb-4 font-display">Mayfield's Trusted Technicians</h3>
+          <p class="text-slate-500 italic font-medium text-balance">Conveniently located with easy street parking, we are your neighborhood one-stop-shop for tech rescue. Visit 276 Maitland Rd today.</p>
+        </div>
+
+        <div class="mt-12 bg-slate-900 text-white p-12 rounded-[3.5rem] shadow-2xl relative overflow-hidden">
+          <div class="absolute inset-0 bg-blue-600/5 blur-3xl"></div>
+          <h3 class="text-3xl font-bold mb-4 font-display">Back Online in No Time</h3>
+          <p class="mb-8 font-medium text-slate-400 italic">Broken phone holding you back? Get the fastest phone repairs Mayfield has seen.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="tel:0240491735" class="bg-blue-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display text-center shadow-lg shadow-blue-600/30">Call 02 4049 1735</a>
+            <a href="/#contact" class="bg-white text-slate-900 px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display text-center">Get directions</a>
+          </div>
+        </div>
+      </section>
+    `
   }
 ];
