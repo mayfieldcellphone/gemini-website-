@@ -62,6 +62,37 @@ async function startServer() {
     }
   });
 
+  // Legacy SEO Redirects (301 Permanent)
+  const legacyRedirects: Record<string, string> = {
+    '/book-repair': '/#contact',
+    '/products': '/accessories',
+    '/tag/cost-of-screen-repairs/': '/blog',
+    '/contact': '/#contact',
+    '/about': '/about',
+    '/apple-repair/macbook-repair': '/service/laptop-macbook-repair',
+    '/newcastle-phone-repair': '/newcastle',
+    '/phone-repair-adamstown-nsw': '/service/iphone-screen-repair/adamstown',
+    '/maitland-phone-repair': '/maitland',
+    '/hamilton-north-phone-repair': '/hamilton-north',
+    '/shop-accessories': '/accessories',
+    '/services/charging-port-repair-mayfield': '/service/charging-port-repair/mayfield',
+    '/broadmeadow-phone-repair': '/broadmeadow',
+    '/camera-replacement': '/service/camera-replacement',
+    '/services/phone-battery-replacement-mayfield': '/service/battery-replacement/mayfield',
+    '/services': '/#services',
+    '/services/iphone-screen-repair-mayfield': '/service/iphone-screen-repair/mayfield',
+    '/laptop-macbook-repair': '/service/laptop-macbook-repair',
+    '/new-lambton-phone-repair': '/new-lambton',
+    '/services/water-damage-repair-mayfield': '/service/water-damage-repair/mayfield',
+    '/the-complete-guide-to-iphone-back-glass/': '/blog'
+  };
+
+  Object.entries(legacyRedirects).forEach(([oldPath, newPath]) => {
+    app.get(oldPath, (req, res) => {
+      res.redirect(301, newPath);
+    });
+  });
+
   // Vite middleware for development
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
