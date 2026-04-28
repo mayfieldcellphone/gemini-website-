@@ -21,7 +21,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Mayfield Phone Repair Team',
     date: '2026-04-20',
     excerpt: 'Cracked your iPhone screen in Mayfield? Get fast answers on repair costs, same-day service times, and why local professional repair beats DIY kits.',
-    imageUrl: 'https://images.unsplash.com/photo-1512054502232-10a0a035d672?auto=format&fit=crop&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1512054502232-10a0a035d672?auto=format&fit=crop&q=80&w=600',
     tags: ['iPhone Repair', 'Screen Replacement', 'Mayfield'],
     content: `
       <section class="space-y-8">
@@ -78,7 +78,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Mayfield Phone Repair Team',
     date: '2026-04-18',
     excerpt: 'Finding reliable Samsung Galaxy repair in Newcastle? Learn about AMOLED screen costs, biometric sensor calibration, and why expert local service is key.',
-    imageUrl: 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&q=80&w=600',
     tags: ['Samsung Repair', 'Screen Replacement', 'Newcastle'],
     content: `
       <section class="space-y-8">
@@ -135,7 +135,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Mayfield Phone Repair Team',
     date: '2026-04-15',
     excerpt: 'Looking for a reliable phone repair shop in Mayfield or Newcastle? See why local expertise, transparent pricing, and solid warranties are essential for your device.',
-    imageUrl: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=600',
     tags: ['Local Repair', 'Mayfield', 'Phone Maintenance'],
     content: `
       <section class="space-y-8">
@@ -202,7 +202,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Mayfield Phone Repair Team',
     date: '2026-04-22',
     excerpt: 'Is your iPhone dying before midday? Discover the most common reasons for battery drain in 2026, from software glitches to aging hardware, and when it is time for a professional replacement.',
-    imageUrl: 'https://images.unsplash.com/photo-1627389955609-70231f899981?auto=format&fit=crop&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1627389955609-70231f899981?auto=format&fit=crop&q=80&w=600',
     tags: ['iPhone Battery', 'Phone Maintenance', 'Repair Tips'],
     content: `
       <section class="space-y-8">
@@ -263,7 +263,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Mayfield Phone Repair Team',
     date: '2026-04-24',
     excerpt: 'Dropped your phone in the pool or a puddle? Learn the critical "Dos and Don\'ts" of water damage, why rice is a myth, and how professional cleaning can save your data.',
-    imageUrl: 'https://images.unsplash.com/photo-1547014762-3a94fb4df70a?auto=format&fit=crop&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1547014762-3a94fb4df70a?auto=format&fit=crop&q=80&w=600',
     tags: ['Water Damage', 'Emergency Fix', 'iPhone Repair'],
     content: `
       <section class="space-y-8">
@@ -324,7 +324,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Mayfield Phone Repair Team',
     date: '2026-04-25',
     excerpt: 'Facing a major phone repair? Learn how to calculate the "Repair ROI," why modern flagship phones are designed to last 5+ years, and when upgrading makes more sense.',
-    imageUrl: 'https://images.unsplash.com/photo-1556656793-062ff987825d?auto=format&fit=crop&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1556656793-062ff987825d?auto=format&fit=crop&q=80&w=600',
     tags: ['Repair vs Replace', 'Consumer Advice', 'Newcastle'],
     content: `
       <section class="space-y-8">
@@ -385,7 +385,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Mayfield Phone Repair Team',
     date: '2026-04-26',
     excerpt: 'Get transparent pricing on common phone repairs in 2026. From iPhone screens to Samsung batteries, learn what affects the cost and how to avoid overpaying.',
-    imageUrl: 'https://images.unsplash.com/photo-1580519542036-c47de6196ba5?auto=format&fit=crop&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1580519542036-c47de6196ba5?auto=format&fit=crop&q=80&w=600',
     tags: ['Repair Costs', 'Australian Guide', 'Pricing'],
     content: `
       <section class="space-y-8">

@@ -13,8 +13,8 @@ import { blogPosts } from '../data/blogs';
 
 const BackgroundDecoration = () => (
   <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10 bg-white">
-    {/* Grid removed on small mobile to speed up rendering */}
-    <div className="absolute top-0 left-0 w-full h-full bg-grid-slate-100 opacity-[0.2] md:opacity-[0.4] hidden sm:block" />
+    {/* Grid removed on mobile to speed up rendering */}
+    <div className="absolute top-0 left-0 w-full h-full bg-grid-slate-100 opacity-[0.2] md:opacity-[0.4] hidden md:block" />
     <div className="absolute top-[10%] left-[5%] w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px] hidden lg:block" />
     <div className="absolute bottom-[20%] right-[10%] w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[120px] hidden lg:block" />
   </div>
@@ -27,6 +27,18 @@ export default function Home() {
   const [formData, setFormData] = useState({ name: '', phone: '', details: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Speed optimization: Detect mobile and simplify DOM
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleFormSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -116,7 +128,7 @@ export default function Home() {
             <span className="text-technical text-blue-700">PREMIER REPAIR SERVICE // MAYFIELD</span>
           </div>
           
-          <h1 className="text-5xl md:text-7xl lg:text-9xl font-black leading-[0.85] tracking-tighter text-slate-900 font-display text-balance">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-black leading-[0.85] tracking-tighter text-slate-900 font-display text-balance">
             Phone <br/>
             Repair <br/>
             <span className="text-blue-600 font-display">Newcastle & Mayfield.</span>
@@ -157,52 +169,54 @@ export default function Home() {
           </div>
         </motion.div>
         
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="w-full lg:w-[40%] relative z-10 hidden md:block"
-        >
-          {/* Main Image Container with offset layout */}
-          <div className="relative group">
-            <div className="absolute -inset-4 bg-gradient-to-tr from-blue-600/20 to-indigo-600/20 rounded-[4rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-            <div className="relative aspect-[4/5] rounded-[3.5rem] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.15)] overflow-hidden border-8 border-white">
-              <img 
-                src="https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?auto=format&fit=crop&q=80&w=800" 
-                alt="Expert phone repair" 
-                className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000"
-                fetchPriority="high"
-                decoding="async"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
-            </div>
+        {!isMobile && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="w-full lg:w-[40%] relative z-10 hidden lg:block"
+          >
+            {/* Main Image Container with offset layout */}
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-gradient-to-tr from-blue-600/20 to-indigo-600/20 rounded-[4rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+              <div className="relative aspect-[4/5] rounded-[3.5rem] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.15)] overflow-hidden border-8 border-white">
+                <img 
+                  src="https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?auto=format&fit=crop&q=80&w=800" 
+                  alt="Expert phone repair" 
+                  className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000"
+                  fetchPriority="high"
+                  decoding="async"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
+              </div>
 
-            {/* Floating Trust Card: Social Proof */}
-            <motion.div 
-              animate={{ y: typeof window !== 'undefined' && window.innerWidth < 768 ? 0 : [0, -10, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute -top-10 -right-4 md:-right-10 bg-white/95 backdrop-blur-md p-6 rounded-3xl shadow-2xl border border-slate-100/50 flex flex-col gap-3 min-w-[200px]"
-            >
-              <div className="flex items-center gap-2">
-                <div className="flex -space-x-2">
-                  {[1,2,3].map(i => (
-                    <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
-                      <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt="User" />
-                    </div>
-                  ))}
+              {/* Floating Trust Card: Social Proof */}
+              <motion.div 
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+                className="absolute -top-10 -right-4 md:-right-10 bg-white/95 backdrop-blur-md p-6 rounded-3xl shadow-2xl border border-slate-100/50 flex flex-col gap-3 min-w-[200px]"
+              >
+                <div className="flex items-center gap-2">
+                  <div className="flex -space-x-2">
+                    {[1,2,3].map(i => (
+                      <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
+                        <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt="User" />
+                      </div>
+                    ))}
+                  </div>
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">+1,200 Fixed</span>
                 </div>
-                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">+1,200 Fixed</span>
-              </div>
-              <div className="h-px bg-slate-100 w-full" />
-              <div className="flex items-center justify-between">
-                <div className="flex text-amber-400 gap-0.5">
-                  {[1,2,3,4,5].map(i => <Sparkles key={i} className="w-3 h-3 fill-current" />)}
+                <div className="h-px bg-slate-100 w-full" />
+                <div className="flex items-center justify-between">
+                  <div className="flex text-amber-400 gap-0.5">
+                    {[1,2,3,4,5].map(i => <Sparkles key={i} className="w-3 h-3 fill-current" />)}
+                  </div>
+                  <span className="text-xs font-black text-slate-900">5.0 RATING</span>
                 </div>
-                <span className="text-xs font-black text-slate-900">5.0 RATING</span>
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
       </section>
 
       {/* Brands Section */}

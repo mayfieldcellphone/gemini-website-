@@ -9,7 +9,7 @@ export default function BirdeyeReviewWidget() {
       (entries) => {
         if (entries[0].isIntersecting) {
           // Add a small extra delay to ensure FCP is settled
-          setTimeout(() => setShouldLoad(true), 1000);
+          setTimeout(() => setShouldLoad(true), 3000);
           observer.disconnect();
         }
       },

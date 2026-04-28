@@ -39,9 +39,9 @@ export default function SuburbPage() {
         <meta property="og:title" content={`${formattedServiceText} ${suburbInfo.name} - Mayfield Phone Repair`} />
         <meta property="og:description" content={`Get your phone fixed today in ${suburbInfo.name}. Screen repairs, battery replacements, and more with expert diagnostics.`} />
       </Helmet>
-      {/* Background Textures */}
+      {/* Background Textures - texture hidden on mobile for performance */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
-        <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] hidden md:block"></div>
         <div className="absolute top-0 left-1/4 w-[1000px] h-[600px] bg-blue-600/5 blur-[120px] rounded-full"></div>
       </div>
       
