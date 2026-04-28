@@ -23,24 +23,24 @@ export default function App() {
   return (
     <UIProvider>
       <Routes>
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="brand/:brandId" element={<BrandPage />} />
-        <Route path="service/:serviceId" element={<ServicePage />} />
-        <Route path="blog" element={<BlogPage />} />
-        <Route path="blog/:slug" element={<BlogPostPage />} />
-        <Route path="about-us" element={<AboutUs />} />
-        <Route path="privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="terms-of-service" element={<TermsOfService />} />
-        <Route path="after-hours" element={<AfterHoursPage />} />
-        <Route path="second-hand-phones" element={<SecondHandPhones />} />
-        <Route path="accessories" element={<AccessoriesPage />} />
-        <Route path="corporate-repairs" element={<CorporateRepairs />} />
-        <Route path="admin" element={<AdminDashboard />} />
-        <Route path="admin/login" element={<AdminLogin />} />
-        <Route path=":serviceKeyword/:suburbId" element={<SuburbPage />} />
-      </Route>
-    </Routes>
+          <Route index element={<Home />} />
+          <Route path="brand/:brandId" element={<BrandPage />} />
+          <Route path="service/:serviceId" element={<ServicePage />} />
+          <Route path="blog" element={<BlogPage />} />
+          <Route path="blog/:slug" element={<BlogPostPage />} />
+          <Route path="about-us" element={<AboutUs />} />
+          <Route path="privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="terms-of-service" element={<TermsOfService />} />
+          <Route path="after-hours" element={<AfterHoursPage />} />
+          <Route path="second-hand-phones" element={<SecondHandPhones />} />
+          <Route path="accessories" element={<AccessoriesPage />} />
+          <Route path="corporate-repairs" element={<CorporateRepairs />} />
+          <Route path=":serviceKeyword/:suburbId" element={<SuburbPage />} />
+        </Route>
+      </Routes>
     </UIProvider>
   );
 }

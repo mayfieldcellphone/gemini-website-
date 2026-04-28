@@ -225,7 +225,16 @@ export default function AdminDashboard() {
   const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
   const currentItems = filteredItems.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
 
-  if (loading && !user) return null;
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-white flex flex-col items-center justify-center p-6">
+        <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mb-4"></div>
+        <p className="text-slate-500 font-bold uppercase tracking-widest text-[10px]">Authenticating Session...</p>
+      </div>
+    );
+  }
+
+  if (!user || !isAdmin) return null;
 
   return (
     <div className="min-h-screen bg-[#F8FAFC]">

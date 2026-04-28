@@ -356,7 +356,7 @@ export default function Layout() {
           <div className="flex gap-8">
             <Link to="/privacy-policy" className="hover:text-blue-400 transition-colors">Privacy</Link>
             <Link to="/terms-of-service" className="hover:text-blue-400 transition-colors">Terms</Link>
-            <Link to="/admin" className="text-slate-800 hover:text-blue-500 transition-colors border-l border-white/5 pl-8">Staff Portal</Link>
+            <Link to="/admin" className="text-slate-500 hover:text-blue-500 transition-colors border-l border-white/5 pl-8">Staff Portal</Link>
           </div>
         </div>
 
