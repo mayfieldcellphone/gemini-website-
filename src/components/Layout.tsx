@@ -7,6 +7,7 @@ import { suburbs, seoServices } from '../data/suburbs';
 import LazyChat from './LazyChat';
 import LazyTawk from './LazyTawk';
 import BookingModal from './BookingModal';
+import VoiceAssistant from './VoiceAssistant';
 import { useUI } from '../contexts/UIContext';
 
 const socialLinks = [
@@ -228,6 +229,7 @@ export default function Layout() {
 
       <LazyChat onOpenBooking={openBooking} />
       <LazyTawk />
+      <VoiceAssistant />
       <BookingModal isOpen={isBookingModalOpen} onClose={closeBooking} />
 
       {/* Modern Footer */}
