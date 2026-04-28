@@ -27,6 +27,8 @@ const TIME_SLOTS = [
 
 export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
   const [step, setStep] = useState(1);
+  const [isManualModel, setIsManualModel] = useState(false);
+  const [customModel, setCustomModel] = useState('');
   const [formData, setFormData] = useState({
     category: '',
     brand: '',
@@ -50,6 +52,8 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
       setStep(1);
       setIsSuccess(false);
       setError(null);
+      setIsManualModel(false);
+      setCustomModel('');
       setFormData({
         category: '',
         brand: '',
@@ -272,20 +276,55 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                           <label className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 block">Select Model</label>
                           <div className="grid grid-cols-2 gap-2 max-h-60 overflow-y-auto pr-2 custom-scrollbar">
                             {availableModels.length > 0 ? (
-                              availableModels.map(model => (
+                              <>
+                                {availableModels.map(model => (
+                                  <button
+                                    key={model}
+                                    type="button"
+                                    onClick={() => {
+                                      setFormData({ ...formData, model });
+                                      setIsManualModel(false);
+                                    }}
+                                    className={`p-4 rounded-xl border-2 text-sm font-bold text-left transition-all ${
+                                      formData.model === model && !isManualModel
+                                        ? 'border-blue-600 bg-blue-600 text-white shadow-lg'
+                                        : 'border-slate-50 bg-slate-50 text-slate-600 hover:border-blue-100'
+                                    }`}
+                                  >
+                                    {model}
+                                  </button>
+                                ))}
                                 <button
-                                  key={model}
                                   type="button"
-                                  onClick={() => setFormData({ ...formData, model })}
+                                  onClick={() => {
+                                    setIsManualModel(true);
+                                    setFormData({ ...formData, model: '' });
+                                  }}
                                   className={`p-4 rounded-xl border-2 text-sm font-bold text-left transition-all ${
-                                    formData.model === model
+                                    isManualModel
                                       ? 'border-blue-600 bg-blue-600 text-white shadow-lg'
                                       : 'border-slate-50 bg-slate-50 text-slate-600 hover:border-blue-100'
                                   }`}
                                 >
-                                  {model}
+                                  Other / Not Listed
                                 </button>
-                              ))
+                                
+                                {isManualModel && (
+                                  <div className="col-span-2 pt-2">
+                                    <input
+                                      type="text"
+                                      placeholder="Type your model (e.g. iPhone 6)"
+                                      value={customModel}
+                                      onChange={(e) => {
+                                        setCustomModel(e.target.value);
+                                        setFormData({ ...formData, model: e.target.value });
+                                      }}
+                                      className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-100 transition-all font-bold text-slate-900"
+                                      autoFocus
+                                    />
+                                  </div>
+                                )}
+                              </>
                             ) : (
                               <div className="col-span-2">
                                 <input
