@@ -4,6 +4,10 @@ export interface Brand {
   description: string;
   longDescription: string;
   color: string;
+  startingPrice: {
+    screen: string;
+    battery: string;
+  };
   deviceCategories: {
     name: string;
     models: string[];
@@ -19,6 +23,7 @@ export const brands: Brand[] = [
     description: 'Expert iPhone, iPad, and MacBook repairs. From shattered screens to logic board level micro-soldering.', 
     longDescription: 'Apple devices are beautifully crafted but require specialized tools and deep expertise to repair correctly. At Mayfield Phone Repair, our technicians are highly trained in handling everything from the latest iPhone 17 Pro Max down to legacy devices. We use premium OEM-spec displays that maintain your True Tone functionality, original battery capacities to ensure lasting power, and specialized water-resistant seals to ensure your device goes back together exactly as Apple intended.',
     color: 'from-slate-800 to-black', 
+    startingPrice: { screen: '129', battery: '89' },
     deviceCategories: [
       { name: 'iPhone', models: ['iPhone 17 Pro Max', 'iPhone 17 Pro', 'iPhone 17', 'iPhone 16 Pro Max', 'iPhone 16 Pro', 'iPhone 16', 'iPhone 15 Pro Max', 'iPhone 15 Pro', 'iPhone 14 Series', 'iPhone 13 / 12 Series'] },
       { name: 'iPad', models: ['iPad Pro (M4)', 'iPad Air (M2)', 'iPad Pro 12.9"', 'iPad Pro 11"', 'iPad Mini (Newest)', 'iPad (Standard Gen 7-10)'] },
@@ -34,6 +39,7 @@ export const brands: Brand[] = [
     description: 'Samsung Galaxy S-series, Note, Z-Fold, and A-series repairs using premium quality AMOLED components.', 
     longDescription: 'Samsung Galaxy devices feature some of the most vibrant and advanced AMOLED displays on the market. When these break, you need a repair shop that doesn\'t compromise on screen quality. We source original-specification Samsung replacement parts to ensure your in-display fingerprint reader works flawlessly, your colors stay punchy, and your camera lenses remain scratch-free. We also specialize in the complex mechanics of Z-Fold and Z-Flip screen replacements.',
     color: 'from-blue-600 to-blue-900', 
+    startingPrice: { screen: '149', battery: '99' },
     deviceCategories: [
       { name: 'Galaxy S Series', models: ['Galaxy S26 Ultra', 'Galaxy S26+', 'Galaxy S26', 'Galaxy S25 Ultra', 'Galaxy S25+', 'Galaxy S25', 'Galaxy S24 Ultra', 'Galaxy S24 Series', 'Galaxy S23 Series'] },
       { name: 'Z Fold & Flip', models: ['Galaxy Z Fold 7', 'Galaxy Z Flip 7', 'Galaxy Z Fold 6', 'Galaxy Z Flip 6', 'Galaxy Z Fold 5', 'Galaxy Z Flip 5'] },
@@ -48,6 +54,7 @@ export const brands: Brand[] = [
     description: 'Fast screen, battery, and camera replacements for all Google Pixel models.', 
     longDescription: 'Google Pixel phones are renowned for their camera prowess and clean software software experience. If you\'ve shattered your Pixel screen or noticed a severe drop in battery life, our specialists can help. We have deep experience safely navigating the internal architecture of Google devices, ensuring that components like the Tensor chip cooling assemblies and delicate camera sensors are perfectly preserved during the repair process.',
     color: 'from-blue-500 to-green-600', 
+    startingPrice: { screen: '139', battery: '89' },
     deviceCategories: [
       { name: 'Pixel Pro Models', models: ['Pixel 10 Pro', 'Pixel 9 Pro XL', 'Pixel 9 Pro', 'Pixel 8 Pro', 'Pixel 7 Pro'] },
       { name: 'Pixel Standard Models', models: ['Pixel 10', 'Pixel 9', 'Pixel 8', 'Pixel 7', 'Pixel 6'] },
@@ -62,6 +69,7 @@ export const brands: Brand[] = [
     description: 'Reliable repair services for Oppo Find, Reno, and A-series smartphones.', 
     longDescription: 'Oppo pushes the boundaries of fast charging with their SuperVOOC technology and sleek form factors. When your charging port fails or your screen shatters, it requires prompt, professional attention. We stock a wide variety of parts for the Find X series all the way down to the budget A-series, meaning you won\'t be waiting weeks for overseas shipping. Get your Oppo back up to 100% capacity in no time.',
     color: 'from-emerald-500 to-teal-700', 
+    startingPrice: { screen: '119', battery: '79' },
     deviceCategories: [
       { name: 'Find X Series', models: ['Find X7 Ultra', 'Find X7', 'Find X6 Pro', 'Find X5 Pro', 'Find X3 Pro'] },
       { name: 'Reno Series', models: ['Reno 12 Pro', 'Reno 12', 'Reno 11 Pro', 'Reno 10 Pro+', 'Reno 8 Pro'] },
@@ -76,6 +84,7 @@ export const brands: Brand[] = [
     description: 'Moto Edge, Razr, and G-series screen and hardware component repairs.', 
     longDescription: 'From the durable G-series to the cutting-edge foldable Razr, Motorola offers a vast lineup of devices. Mayfield Phone Repair technicians are well-versed in Moto components. Whether it is replacing a massive battery in the G Power series or fixing the hinge mechanism on a Razr, we provide cost-effective options that are often a fraction of the price of replacing the entire handset altogether.',
     color: 'from-indigo-500 to-purple-800', 
+    startingPrice: { screen: '99', battery: '69' },
     deviceCategories: [
       { name: 'Razr (Foldables)', models: ['Motorola Razr+ (2024)', 'Motorola Razr (2024)', 'Razr+ (2023)', 'Razr 5G'] },
       { name: 'Edge Series', models: ['Edge 50 Pro', 'Edge 50 Ultra', 'Edge 40 Pro', 'Edge 40', 'Edge 30 Ultra'] },
@@ -90,6 +99,7 @@ export const brands: Brand[] = [
     description: 'Specialized Huawei Pura and Mate series device diagnosis and repairs.', 
     longDescription: 'Huawei devices feature complex internal layouts particularly focused around their massive camera modules and curved waterfall displays. Sourcing high-quality parts for Huawei can be difficult for average consumers, but our established network allows us to get the right components fast. We handle intense glass replacements, heavy impact frame damage, and logic board issues across all Huawei models.',
     color: 'from-red-600 to-rose-900', 
+    startingPrice: { screen: '129', battery: '79' },
     deviceCategories: [
       { name: 'Pura/P Series', models: ['Pura 70 Ultra', 'Pura 70 Pro', 'Pura 70', 'P60 Pro', 'P50 Pro'] },
       { name: 'Mate Series', models: ['Mate 60 Pro', 'Mate 60', 'Mate 50 Pro', 'Mate 40 Pro', 'Mate 30 Pro'] },

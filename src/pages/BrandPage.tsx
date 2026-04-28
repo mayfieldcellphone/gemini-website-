@@ -77,6 +77,45 @@ export default function BrandPage() {
             </div>
           </div>
 
+          {/* Pricing Transparency Section - SEO Requirement */}
+          <div className="bg-blue-600 rounded-[3.5rem] p-10 md:p-16 text-white shadow-2xl relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 blur-3xl rounded-full -mr-32 -mt-32"></div>
+            <div className="relative z-10 space-y-8">
+              <div className="space-y-4">
+                <span className="text-[10px] font-black uppercase tracking-[0.4em] text-blue-100 opacity-60">Transparency Report</span>
+                <h2 className="text-4xl md:text-5xl font-bold font-display tracking-tight">Starting Prices.</h2>
+                <p className="text-blue-100/80 text-lg font-medium">Clear, upfront pricing for residents in Newcastle and Mayfield. No hidden fees.</p>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-6">
+                <div className="bg-white/10 backdrop-blur-md p-8 rounded-[2.5rem] border border-white/10 hover:bg-white/20 transition-all">
+                  <Smartphone className="w-10 h-10 mb-6 text-blue-200" />
+                  <div className="space-y-1">
+                    <p className="text-blue-100 text-sm font-bold uppercase tracking-widest">Screen Restoration</p>
+                    <p className="text-4xl font-black font-display">From ${brand.startingPrice.screen}</p>
+                  </div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-md p-8 rounded-[2.5rem] border border-white/10 hover:bg-white/20 transition-all">
+                  <BatteryCharging className="w-10 h-10 mb-6 text-blue-200" />
+                  <div className="space-y-1">
+                    <p className="text-blue-100 text-sm font-bold uppercase tracking-widest">Battery Cell Swap</p>
+                    <p className="text-4xl font-black font-display">From ${brand.startingPrice.battery}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-6 flex flex-col sm:flex-row items-center gap-6">
+                <p className="text-blue-100/60 text-xs italic font-medium max-w-sm">
+                  * Prices vary by specific model and part availability. Standard assessment is always $0.00.
+                </p>
+                <div className="h-px flex-1 bg-white/10 hidden sm:block"></div>
+                <Link to="/#contact" className="bg-white text-blue-600 px-8 py-4 rounded-2xl font-black uppercase tracking-widest text-[10px] hover:bg-slate-900 hover:text-white transition-all font-display shrink-0">
+                  Get Exact Quote
+                </Link>
+              </div>
+            </div>
+          </div>
+
           {/* Categorized Models */}
           <div className="space-y-12">
             <div className="space-y-4">

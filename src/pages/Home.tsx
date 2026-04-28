@@ -182,7 +182,7 @@ export default function Home() {
                 <div className="relative aspect-[4/5] rounded-[3.5rem] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.15)] overflow-hidden border-8 border-white hidden md:block">
                   <img 
                     src="https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?auto=format&fit=crop&q=80&w=600" 
-                    alt="Expert phone repair" 
+                    alt="Technician repairing an iPhone screen in Mayfield repair shop" 
                     className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000"
                     fetchPriority="high"
                     decoding="async"
@@ -200,7 +200,7 @@ export default function Home() {
                   <div className="flex -space-x-2">
                     {[1,2,3].map(i => (
                       <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
-                        <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt="User" />
+                        <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt={`Mayfield Phone Repair Customer ${i}`} />
                       </div>
                     ))}
                   </div>
@@ -434,7 +434,7 @@ export default function Home() {
                 <div className="aspect-[16/9] overflow-hidden">
                   <img 
                     src={post.imageUrl} 
-                    alt={post.title} 
+                    alt={`Mayfield Phone Repair Blog: ${post.title}`} 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                     loading="lazy"
                   />

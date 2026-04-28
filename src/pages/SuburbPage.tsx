@@ -201,37 +201,40 @@ export default function SuburbPage() {
             </h2>
             <div className="prose prose-slate prose-lg lg:prose-xl max-w-none text-slate-600 leading-relaxed font-medium">
               <p>
-                Living in <strong>{suburbInfo.name}</strong> means you’re just <strong>{suburbInfo.distance}</strong> away from the most trusted phone repair specialists in the Hunter region. At Mayfield Phone Repair, we understand that your mobile device is your lifeline—for work, family, and navigation. That’s why we’ve optimized our service protocol to be as efficient as possible, specifically for our neighbors in {suburbInfo.name}.
+                Living in <strong>{suburbInfo.name}</strong> means you’re just <strong>{suburbInfo.distance}</strong> away from the most trusted phone repair specialists in the Hunter region. At Mayfield Phone Repair, we understand that your mobile device is your lifeline—for work, family, and navigation through the busy Newcastle streets. That’s why we’ve optimized our service protocol to be as efficient as possible, specifically for our neighbors in {suburbInfo.name} who need their hardware restored without the typical city-center wait times.
               </p>
               <p>
-                Our technicians are specialists in micro-soldering, component restoration, and certified diagnostics. Whether you’re dealing with a shattered iPhone screen, a Samsung Galaxy with a failing battery, or a Google Pixel that won’t charge, we use only premium-grade parts to ensure your device returns to factory specifications.
+                Our technicians are specialists in micro-soldering, component restoration, and certified diagnostics. Whether you’re dealing with a shattered iPhone 17 screen, a Samsung Galaxy S26 with a failing battery, or a Google Pixel 10 that won’t charge, we use only premium-grade parts to ensure your device returns to factory specifications. We are conveniently located at 276 Maitland Rd, right near the heart of Mayfield, making us easily accessible for anyone traveling from {suburbInfo.name} via standard transit or car.
               </p>
               <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6 font-display italic">Why Newcastle Locals Choose Our Mayfield Service</h3>
               <p>
-                While there are many repair options, we differentiate ourselves through transparency and technical depth. Unlike many "mall kiosks," we perform all repairs in a controlled, professional workshop environment. This ensures that delicate internal components, like biometric sensors (Face ID / Fingerprint) and logic boards, are handled with the highest level of care.
+                While there are many repair options near {suburbInfo.name}, we differentiate ourselves through transparency and technical depth. Unlike many "mall kiosks" in the larger shopping centers like Charlestown or Kotara, we perform all repairs in a controlled, professional workshop environment. This ensures that delicate internal components, like biometric sensors (Face ID / Fingerprint) and logic boards, are handled with the highest level of care. 
+              </p>
+              <p>
+                Many of our customers from {suburbInfo.name} prefer our shop because of the ease of parking and the ability to grab a coffee at a local Mayfield cafe while they wait. We are just down the road from landmarks like the Balance Collective gym and the historic Mayfield post office, making it a productive trip for any resident of {suburbInfo.name}.
               </p>
               <ul className="space-y-4 list-none pl-0">
                 <li className="flex items-start gap-4">
                   <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center shrink-0 mt-1">
                     <CheckCircle2 className="w-3 h-3 text-blue-600" />
                   </div>
-                  <span><strong>Direct Access:</strong> No middleman. You speak directly to the person repairing your device.</span>
+                  <span><strong>Direct Access:</strong> No middleman. You speak directly to the person repairing your device. Unlike big-box retailers, we give you the technical truth about your hardware.</span>
                 </li>
                 <li className="flex items-start gap-4">
                   <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center shrink-0 mt-1">
                     <CheckCircle2 className="w-3 h-3 text-blue-600" />
                   </div>
-                  <span><strong>Premium Logistics:</strong> We maintain a massive inventory of screens and batteries for all major models, meaning no waiting for orders.</span>
+                  <span><strong>Premium Logistics:</strong> We maintain a massive inventory of screens and batteries for all major flagships, meaning residents of {suburbInfo.name} rarely have to wait for parts to be ordered.</span>
                 </li>
                 <li className="flex items-start gap-4">
                   <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center shrink-0 mt-1">
                     <CheckCircle2 className="w-3 h-3 text-blue-600" />
                   </div>
-                  <span><strong>Warranty Peace of Mind:</strong> Our 90-day warranty is comprehensive, covering both part defects and our specialized labor.</span>
+                  <span><strong>Warranty Peace of Mind:</strong> Our 90-day warranty is comprehensive, covering both part defects and our specialized labor. If you’re coming from {suburbInfo.name}, you want a fix that stays fixed.</span>
                 </li>
               </ul>
               <p className="mt-12 italic">
-                If you reside in <strong>{suburbInfo.name}</strong> or nearby areas like {suburbInfo.nearby.join(' and ')}, don't settle for a subpar fix. Visit us at 276 Maitland Rd, Mayfield, and experience why we are consistently rated #1 for phone repair in the Newcastle area.
+                If you reside in <strong>{suburbInfo.name}</strong> or nearby areas like {suburbInfo.nearby.join(' and ')}, don't settle for a subpar fix that might fail in a few weeks. Visit us at 276 Maitland Rd, Mayfield, and experience why we are consistently rated #1 for specialist phone repair in the Newcastle area. We offer free assessments and most repairs are finished in under an hour, so you can get back to your day in {suburbInfo.name} as quickly as possible.
               </p>
             </div>
           </div>
