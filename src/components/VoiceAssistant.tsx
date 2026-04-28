@@ -137,8 +137,8 @@ const VoiceAssistant: React.FC = () => {
             {/* Header */}
             <div className="bg-blue-600 p-4 text-white flex justify-between items-center bg-gradient-to-r from-blue-600 to-indigo-600">
               <div className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4" />
-                <span className="font-bold text-sm tracking-tight uppercase">Mayfield AI Concierge</span>
+                <Mic className="w-4 h-4" />
+                <span className="font-bold text-sm tracking-tight uppercase">Mayfield Voice AI</span>
               </div>
               <button 
                 onClick={() => setIsOpen(false)}
@@ -159,47 +159,67 @@ const VoiceAssistant: React.FC = () => {
                         key={i}
                         animate={{ height: [8, h * 6, 8] }}
                         transition={{ repeat: Infinity, duration: 0.5, delay: i * 0.1 }}
-                        className="w-1 bg-blue-500 rounded-full"
+                        className="w-1.5 bg-blue-500 rounded-full"
                       />
                     ))}
                   </div>
-                  <p className="text-slate-500 text-sm italic">Listening to you...</p>
-                  <p className="text-slate-800 font-medium">{transcript || "Speak now..."}</p>
+                  <p className="text-slate-500 text-sm italic font-medium">Listening to your issue...</p>
+                  <p className="text-slate-900 font-bold text-lg">{transcript || "Speak now..."}</p>
                 </div>
               ) : isProcessing ? (
                 <div className="space-y-4">
-                  <Loader2 className="w-10 h-10 text-blue-600 animate-spin mx-auto" />
-                  <p className="text-slate-500 text-sm">Thinking...</p>
+                  <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto"></div>
+                  <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">Getting Answer...</p>
                 </div>
               ) : aiResponse ? (
-                <div className="space-y-4 animate-in fade-in slide-in-from-bottom-2">
-                  <Volume2 className="w-8 h-8 text-blue-600 mx-auto opacity-50" />
-                  <p className="text-slate-800 text-sm leading-relaxed">{aiResponse}</p>
+                <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                  <div className="flex justify-center gap-1 mb-2">
+                     <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ repeat: Infinity, duration: 1.5 }} className="bg-blue-100 p-2 rounded-full">
+                       <Volume2 className="w-6 h-6 text-blue-600" />
+                     </motion.div>
+                  </div>
+                  <p className="text-slate-800 text-sm leading-relaxed font-medium">{aiResponse}</p>
                 </div>
               ) : (
                 <div className="space-y-4">
-                  <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto">
-                    <Mic className="w-8 h-8 text-blue-600 opacity-20" />
+                  <div className="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mx-auto ring-8 ring-blue-50/50">
+                    <Mic className="w-10 h-10 text-blue-600" />
                   </div>
-                  <p className="text-slate-500 text-xs px-4">Tap the mic and tell me what's wrong with your phone.</p>
+                  <h3 className="text-slate-900 font-bold mb-1">Voice Help</h3>
+                  <p className="text-slate-500 text-xs px-4">"Hey, what time are you open?" or "Can you fix my iPhone 15 screen?"</p>
                 </div>
               )}
             </div>
 
             {/* Controls */}
-            <div className="p-6 bg-slate-50 flex justify-center">
+            <div className="p-6 bg-slate-50 border-t border-slate-100 flex flex-col items-center gap-4">
               <button
                 onClick={toggleListening}
                 disabled={isProcessing}
-                className={`w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg ${
+                className={`w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 shadow-xl relative overflow-hidden ${
                   isListening 
                     ? 'bg-red-500 scale-110 shadow-red-200' 
-                    : 'bg-blue-600 hover:bg-blue-700 shadow-blue-200'
+                    : 'bg-blue-600 hover:bg-blue-700 shadow-blue-200 hover:scale-105'
                 }`}
                 id="voice-mic-button"
               >
-                {isListening ? <MicOff className="w-7 h-7 text-white" /> : <Mic className="w-7 h-7 text-white" />}
+                {isListening ? (
+                  <MicOff className="w-7 h-7 text-white" />
+                ) : (
+                  <Mic className="w-7 h-7 text-white" />
+                )}
+                {isListening && (
+                  <motion.div 
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1.5, opacity: 0 }}
+                    transition={{ repeat: Infinity, duration: 1.5 }}
+                    className="absolute inset-0 bg-white/30 rounded-full"
+                  />
+                )}
               </button>
+              <p className="text-[10px] text-slate-400 font-black uppercase tracking-widest">
+                {isListening ? 'Stop Listening' : 'Tap to Speak'}
+              </p>
             </div>
           </motion.div>
         )}
@@ -208,12 +228,14 @@ const VoiceAssistant: React.FC = () => {
       {/* Trigger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-14 h-14 bg-white rounded-full shadow-xl flex items-center justify-center hover:scale-105 active:scale-95 transition-all text-blue-600 border border-slate-100 pointer-events-auto group relative"
+        className="h-14 flex items-center gap-3 bg-blue-600 pl-4 pr-6 rounded-full shadow-2xl hover:bg-blue-700 active:scale-95 transition-all text-white pointer-events-auto border-4 border-white/20 group overflow-hidden"
         id="toggle-voice-assistant"
       >
-        <div className="absolute inset-0 bg-blue-500/10 rounded-full animate-ping opacity-0 group-hover:opacity-100 transition-opacity"></div>
-        <Sparkles className="w-6 h-6" />
-        <span className="absolute -top-10 right-0 bg-slate-900 text-white text-[10px] font-bold py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">VOICE AI</span>
+        <div className="relative">
+          <Mic className="w-6 h-6 relative z-10" />
+          <div className="absolute inset-0 bg-white/40 rounded-full animate-ping"></div>
+        </div>
+        <span className="font-black text-xs uppercase tracking-widest whitespace-nowrap">Talk to Us</span>
       </button>
     </div>
   );
