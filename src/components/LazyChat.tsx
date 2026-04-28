@@ -6,8 +6,8 @@ export default function LazyChat({ onOpenBooking }: { onOpenBooking: () => void 
   const [shouldLoad, setShouldLoad] = useState(false);
 
   useEffect(() => {
-    // Load after 3 seconds or on user scroll
-    const timer = setTimeout(() => setShouldLoad(true), 3000);
+    // Load after 7 seconds or on user scroll
+    const timer = setTimeout(() => setShouldLoad(true), 7000);
     
     const handleScroll = () => {
       setShouldLoad(true);

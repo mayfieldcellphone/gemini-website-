@@ -36,9 +36,9 @@ export default function ServicePage() {
         <meta property="og:title" content={`${service.title} - Mayfield Cell Phone Repairs`} />
         <meta property="og:description" content={service.heroDescription} />
       </Helmet>
-      {/* Dynamic Header */}
+      {/* Dynamic Header - hidden large icon on mobile for performance */}
       <div className={`bg-gradient-to-br ${service.color} text-white pt-24 pb-40 px-6 md:px-12 relative overflow-hidden`}>
-        <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20 hidden md:block">
           <Icon className="absolute -right-20 -bottom-20 w-[600px] h-[600px] transform rotate-12" />
         </div>
         

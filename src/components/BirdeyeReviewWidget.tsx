@@ -8,8 +8,8 @@ export default function BirdeyeReviewWidget() {
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          // Add a small extra delay to ensure FCP is settled
-          setTimeout(() => setShouldLoad(true), 3000);
+          // High delay for Birdeye to avoid impacting core metrics like Speed Index
+          setTimeout(() => setShouldLoad(true), 6000);
           observer.disconnect();
         }
       },

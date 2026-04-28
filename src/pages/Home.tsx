@@ -15,8 +15,8 @@ const BackgroundDecoration = () => (
   <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10 bg-white">
     {/* Grid removed on mobile to speed up rendering */}
     <div className="absolute top-0 left-0 w-full h-full bg-grid-slate-100 opacity-[0.2] md:opacity-[0.4] hidden md:block" />
-    <div className="absolute top-[10%] left-[5%] w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px] hidden lg:block" />
-    <div className="absolute bottom-[20%] right-[10%] w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[120px] hidden lg:block" />
+    <div className="absolute top-[10%] left-[5%] w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px] hidden md:block lg:block" />
+    <div className="absolute bottom-[20%] right-[10%] w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[120px] hidden md:block lg:block" />
   </div>
 );
 
@@ -176,19 +176,19 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="w-full lg:w-[40%] relative z-10 hidden lg:block"
           >
-            {/* Main Image Container with offset layout */}
-            <div className="relative group">
-              <div className="absolute -inset-4 bg-gradient-to-tr from-blue-600/20 to-indigo-600/20 rounded-[4rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-              <div className="relative aspect-[4/5] rounded-[3.5rem] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.15)] overflow-hidden border-8 border-white">
-                <img 
-                  src="https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?auto=format&fit=crop&q=80&w=800" 
-                  alt="Expert phone repair" 
-                  className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000"
-                  fetchPriority="high"
-                  decoding="async"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
-              </div>
+              {/* Main Image Container with offset layout - hidden on mobile to boost LCP */}
+              <div className="relative group">
+                <div className="absolute -inset-4 bg-gradient-to-tr from-blue-600/20 to-indigo-600/20 rounded-[4rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 hidden md:block"></div>
+                <div className="relative aspect-[4/5] rounded-[3.5rem] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.15)] overflow-hidden border-8 border-white hidden md:block">
+                  <img 
+                    src="https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?auto=format&fit=crop&q=80&w=600" 
+                    alt="Expert phone repair" 
+                    className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000"
+                    fetchPriority="high"
+                    decoding="async"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
+                </div>
 
               {/* Floating Trust Card: Social Proof */}
               <motion.div 

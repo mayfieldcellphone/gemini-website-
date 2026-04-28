@@ -9,7 +9,7 @@ export default function LazyTawk() {
       script.charset = 'UTF-8';
       script.setAttribute('crossorigin', '*');
       document.head.appendChild(script);
-    }, 5000); // Wait 5 seconds to not block FCP/LCP
+    }, 8000); // Heavy delay for Tawk.to to ensure FCP/LCP are finished first
 
     return () => clearTimeout(timer);
   }, []);
