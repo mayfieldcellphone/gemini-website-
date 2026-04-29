@@ -114,11 +114,34 @@ const VoiceAssistant: React.FC = () => {
 
   const speak = async (text: string) => {
     // Attempt high-quality AI voice first
-    const aiVoiceUrl = await getTTSAudio(text);
-    if (aiVoiceUrl) {
-      const audio = new Audio(aiVoiceUrl);
-      audio.play();
-      return;
+    const base64Audio = await getTTSAudio(text);
+    if (base64Audio) {
+      try {
+        const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 24000 });
+        const binaryString = atob(base64Audio);
+        const len = binaryString.length;
+        const bytes = new Int16Array(len / 2);
+        
+        for (let i = 0; i < len; i += 2) {
+          bytes[i / 2] = (binaryString.charCodeAt(i) & 0xFF) | ((binaryString.charCodeAt(i + 1) & 0xFF) << 8);
+        }
+
+        const float32Data = new Float32Array(bytes.length);
+        for (let i = 0; i < bytes.length; i++) {
+          float32Data[i] = bytes[i] / 32768.0;
+        }
+
+        const buffer = audioContext.createBuffer(1, float32Data.length, 24000);
+        buffer.copyToChannel(float32Data, 0);
+
+        const source = audioContext.createBufferSource();
+        source.buffer = buffer;
+        source.connect(audioContext.destination);
+        source.start();
+        return;
+      } catch (e) {
+        console.error("AI Voice Playback failed:", e);
+      }
     }
 
     // Fallback to browser synthesis

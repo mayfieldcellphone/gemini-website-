@@ -59,6 +59,7 @@ export default function BlogPostPage() {
       <Helmet>
         <title>{post.title} | Repair Advice | Mayfield Phone Repair</title>
         <meta name="description" content={post.excerpt} />
+        <link rel="canonical" href={`https://mayfieldphonerepair.com.au/blog/${post.slug}`} />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:image" content={post.imageUrl} />

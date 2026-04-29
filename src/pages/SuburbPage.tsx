@@ -36,6 +36,7 @@ export default function SuburbPage() {
       <Helmet>
         <title>{`${formattedServiceText} in ${suburbInfo.name} | Fast Phone Repairs`}</title>
         <meta name="description" content={`Professional ${formattedServiceText} for residents in ${suburbInfo.name}. Trusted Mayfield technicians, fast turnaround, and 90-day warranty.`} />
+        <link rel="canonical" href={`https://mayfieldphonerepair.com.au/${serviceKeyword}/${suburbId}`} />
         <meta property="og:title" content={`${formattedServiceText} ${suburbInfo.name} - Mayfield Phone Repair`} />
         <meta property="og:description" content={`Get your phone fixed today in ${suburbInfo.name}. Screen repairs, battery replacements, and more with expert diagnostics.`} />
       </Helmet>

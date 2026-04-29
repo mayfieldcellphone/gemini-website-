@@ -33,6 +33,7 @@ export default function ServicePage() {
       <Helmet>
         <title>{`${service.title} Mayfield | Newcastle Device Repair`}</title>
         <meta name="description" content={service.shortDesc} />
+        <link rel="canonical" href={`https://mayfieldphonerepair.com.au/service/${service.id}`} />
         <meta property="og:title" content={`${service.title} - Mayfield Cell Phone Repairs`} />
         <meta property="og:description" content={service.heroDescription} />
       </Helmet>

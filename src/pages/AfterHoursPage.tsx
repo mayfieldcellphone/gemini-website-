@@ -9,6 +9,7 @@ export default function AfterHoursPage() {
       <Helmet>
         <title>After Hours Emergency Phone Repair | Mayfield Phone Repair</title>
         <meta name="description" content="Need an emergency phone repair after hours in Newcastle? Text 0431 618 100 for our strictly via booking emergency service." />
+        <link rel="canonical" href="https://mayfieldphonerepair.com.au/after-hours" />
       </Helmet>
 
       {/* Hero Section */}

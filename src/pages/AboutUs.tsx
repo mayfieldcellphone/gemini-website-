@@ -8,6 +8,7 @@ export default function AboutUs() {
       <Helmet>
         <title>About Us | Mayfield Cell Phone Repairs Newcastle</title>
         <meta name="description" content="Learn about Mayfield Cell Phone Repairs - our history, mission, and our commitment to providing Newcastle's best phone and electronic repair services." />
+        <link rel="canonical" href="https://mayfieldphonerepair.com.au/about-us" />
       </Helmet>
 
       {/* Hero Section */}

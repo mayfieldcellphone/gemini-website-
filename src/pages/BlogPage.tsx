@@ -11,6 +11,7 @@ export default function BlogPage() {
       <Helmet>
         <title>Repair Blog | Mayfield Phone Repair Newcastle</title>
         <meta name="description" content="Expert phone repair tips, troubleshooting guides, and project highlights from the Mayfield Phone Repair team." />
+        <link rel="canonical" href="https://mayfieldphonerepair.com.au/blog" />
       </Helmet>
       
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">

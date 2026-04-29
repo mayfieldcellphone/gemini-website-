@@ -31,6 +31,7 @@ export default function BrandPage() {
       <Helmet>
         <title>{`${brand.name} Repair Mayfield | Professional Newcastle Service`}</title>
         <meta name="description" content={`Expert ${brand.name} repairs in Mayfield. ${brand.description} Same-day screen, battery, and diagnostic services by specialist technicians.`} />
+        <link rel="canonical" href={`https://mayfieldphonerepair.com.au/brand/${brand.id}`} />
         <meta property="og:title" content={`${brand.name} Repair Newcastle - Mayfield Cell Phone Repairs`} />
         <meta property="og:description" content={brand.description} />
       </Helmet>

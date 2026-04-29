@@ -94,6 +94,7 @@ export default function Home() {
       <Helmet>
         <title>iPhone 17 & 16 Repair Mayfield | Samsung S26 Screen Fix Newcastle</title>
         <meta name="description" content="Mayfield's leading repair shop for the newest iPhone 17, 16, and Samsung S26 series. Same-day screen repairs, battery replacements & water damage service in Newcastle. 90-day warranty." />
+        <link rel="canonical" href="https://mayfieldphonerepair.com.au/" />
         <meta property="og:title" content="Expert iPhone 17 & 16 Repair Mayfield | Same Day Service" />
         <meta property="og:description" content="Cracked iPhone 17 screen? Samsung S26 battery issues? Mayfield's trusted experts fix the newest flagships with quality parts and fast turnaround." />
         <script type="application/ld+json">
