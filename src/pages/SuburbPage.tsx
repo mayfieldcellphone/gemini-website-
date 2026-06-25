@@ -1,17 +1,35 @@
 import { useParams, Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { suburbs } from '../data/suburbs';
+import { suburbs, seoServices } from '../data/suburbs';
 import { useUI } from '../contexts/UIContext';
+import NotFound from './NotFound';
 import { Phone, Clock, ShieldCheck, MapPin, Smartphone, BatteryCharging, Droplet, Zap, Wrench, ArrowRight, Truck, Sparkles, HelpCircle, CheckCircle2 } from 'lucide-react';
 
 export default function SuburbPage() {
   const { suburbId, serviceKeyword } = useParams();
   const { openBooking } = useUI();
+  const [isValid, setIsValid] = useState(true);
+
+  // Check if suburb and service exist in data
+  const suburbExists = suburbs.some(s => s.id === suburbId);
+  const serviceExists = seoServices.some(s => s.id === serviceKeyword);
+
+  useEffect(() => {
+    if (!suburbExists || !serviceExists) {
+      setIsValid(false);
+    } else {
+      setIsValid(true);
+    }
+  }, [suburbExists, serviceExists]);
   
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'auto' });
   }, [suburbId, serviceKeyword]);
+
+  if (!isValid) {
+    return <NotFound />;
+  }
 
   // Format dynamic fallbacks
   const fallbackSuburbName = suburbId ? suburbId.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') : 'Your Area';
@@ -39,6 +57,26 @@ export default function SuburbPage() {
         <link rel="canonical" href={`https://mayfieldphonerepair.com.au/${serviceKeyword}/${suburbId}`} />
         <meta property="og:title" content={`${formattedServiceText} ${suburbInfo.name} - Mayfield Phone Repair`} />
         <meta property="og:description" content={`Get your phone fixed today in ${suburbInfo.name}. Screen repairs, battery replacements, and more with expert diagnostics.`} />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://mayfieldphonerepair.com.au"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": suburbInfo.name,
+                "item": `https://mayfieldphonerepair.com.au/${serviceKeyword}/${suburbId}`
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       {/* Background Textures - texture and blurs hidden on mobile for performance */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
@@ -54,8 +92,7 @@ export default function SuburbPage() {
             <span className="text-[10px] font-black text-blue-800 uppercase tracking-[0.3em] font-display">Local Repair Experts</span>
           </div>
           <h1 className="text-5xl md:text-8xl font-bold text-slate-900 tracking-tighter leading-none mb-4 font-display">
-            {formattedServiceText} in <br className="hidden md:block"/>
-            <span className="text-blue-600">{suburbInfo.name}</span>
+            {formattedServiceText} in <span className="text-blue-600">{suburbInfo.name}</span>
           </h1>
           <p className="text-xl md:text-2xl text-slate-500 font-medium leading-relaxed italic max-w-3xl mx-auto">
             Professional phone repairs for residents across {suburbInfo.name}. Quality service delivered in under 60 minutes.
@@ -68,7 +105,7 @@ export default function SuburbPage() {
               Book Repair Online
             </button>
             <Link to="/#contact" className="w-full sm:w-auto px-10 py-6 bg-blue-600 text-white font-black uppercase tracking-[0.2em] text-xs rounded-2xl shadow-2xl hover:bg-blue-700 transition-all hover:-translate-y-1 font-display">
-              Get A Quote
+              Talk to Us
             </Link>
           </div>
         </div>
@@ -289,7 +326,7 @@ export default function SuburbPage() {
               Book My Repair
             </button>
             <Link to="/#contact" className="w-full sm:w-auto px-12 py-8 bg-white text-blue-600 font-black uppercase tracking-[0.3em] text-xs rounded-3xl shadow-2xl hover:bg-slate-900 hover:text-white transition-all hover:scale-105 font-display">
-              Get A Quote
+              Talk to Us
             </Link>
           </div>
         </div>

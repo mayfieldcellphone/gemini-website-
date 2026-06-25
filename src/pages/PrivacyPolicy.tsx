@@ -65,7 +65,7 @@ export default function PrivacyPolicy() {
             <p>Our website may link to other sites. We aren't responsible for their privacy policies, so we recommend reading theirs too.</p>
 
             <h2 className="text-3xl">8. Contact Us</h2>
-            <p>If you have any questions about your privacy, please call us or visit our shop during business hours.</p>
+            <p>If you have any questions about your privacy, please email us at <a href="mailto:support@mayfieldphonerepair.com.au" className="text-blue-600 font-bold hover:underline">support@mayfieldphonerepair.com.au</a> or visit our shop during business hours.</p>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 {
   "name": "Mayfield Phone Repair Newcastle",
-  "description": "Expert phone repair service in Mayfield & Newcastle targeting iPhone, Samsung, and Pixel devices with a 90-day warranty.",
+  "description": "Expert phone repair service in Mayfield & Newcastle featuring an AI-powered booking assistant for fast quotes and same-day service.",
   "requestFramePermissions": ["microphone"],
   "majorCapabilities": []
 }

@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { ArrowLeft, Smartphone, CheckCircle2, ShieldCheck, Wrench, BatteryCharging, Zap, Droplet, Phone, Clock, MapPin, Sparkles } from 'lucide-react';
 import { useEffect } from 'react';
 import { useUI } from '../contexts/UIContext';
+import NotFound from './NotFound';
 
 export default function BrandPage() {
   const { openBooking } = useUI();
@@ -15,15 +16,7 @@ export default function BrandPage() {
   }, [brandId]);
 
   if (!brand) {
-    return (
-      <div className="flex-1 flex flex-col items-center justify-center py-20 px-6 text-center">
-        <h1 className="text-4xl font-extrabold text-slate-900 mb-4">Brand Not Found</h1>
-        <p className="text-slate-600 mb-8">We couldn't find the requested brand.</p>
-        <Link to="/" className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 font-semibold inline-flex items-center gap-2">
-          <ArrowLeft className="w-5 h-5" /> Back to Home
-        </Link>
-      </div>
-    );
+    return <NotFound />;
   }
 
   return (
@@ -34,9 +27,25 @@ export default function BrandPage() {
         <link rel="canonical" href={`https://mayfieldphonerepair.com.au/brand/${brand.id}`} />
         <meta property="og:title" content={`${brand.name} Repair Newcastle - Mayfield Cell Phone Repairs`} />
         <meta property="og:description" content={brand.description} />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": `${brand.name} Repair Services`,
+            "description": `Professional repair services for ${brand.name} devices in Mayfield, Newcastle.`,
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "Mayfield Cell Phone Repairs"
+            },
+            "brand": {
+              "@type": "Brand",
+              "name": brand.name
+            }
+          })}
+        </script>
       </Helmet>
       {/* Dynamic Header */}
-      <div className={`bg-gradient-to-br ${brand.color} text-white pt-24 pb-40 px-6 md:px-12 relative overflow-hidden`}>
+      <div className={`bg-gradient-to-br ${brand.color} text-white pt-12 pb-24 px-6 md:px-12 relative overflow-hidden`}>
         <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
           <Smartphone className="absolute -right-20 -bottom-20 w-[600px] h-[600px] transform rotate-12" />
         </div>
@@ -58,7 +67,7 @@ export default function BrandPage() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 -mt-24 relative z-20 pb-32 grid lg:grid-cols-12 gap-12">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 -mt-12 relative z-20 pb-16 grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-8 space-y-16">
           
           {/* Detailed Brand Content */}
@@ -111,7 +120,7 @@ export default function BrandPage() {
                 </p>
                 <div className="h-px flex-1 bg-white/10 hidden sm:block"></div>
                 <Link to="/#contact" className="bg-white text-blue-600 px-8 py-4 rounded-2xl font-black uppercase tracking-widest text-[10px] hover:bg-slate-900 hover:text-white transition-all font-display shrink-0">
-                  Get Exact Quote
+                  Talk to Us
                 </Link>
               </div>
             </div>
@@ -165,7 +174,7 @@ export default function BrandPage() {
                   Book My Repair
                 </button>
                 <Link to="/#contact" className="inline-flex items-center justify-center gap-4 bg-white/5 text-white border border-white/10 px-10 py-6 rounded-2xl font-black uppercase tracking-[0.2em] text-xs hover:bg-white hover:text-slate-900 transition-all font-display">
-                  Get A Quote
+                  Talk to Us
                 </Link>
                 <a href="tel:0240491735" className="inline-flex items-center justify-center gap-4 text-white/60 hover:text-white transition-all text-[10px] font-black uppercase tracking-widest font-display">
                   <Phone className="w-4 h-4" /> Call 02 4049 1735

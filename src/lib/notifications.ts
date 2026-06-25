@@ -1,4 +1,4 @@
-export async function sendSMSNotification(type: 'booking' | 'quote' | 'corporate', data: any) {
+export async function sendSMSNotification(type: 'booking' | 'quote' | 'corporate' | 'voice_message', data: any) {
   try {
     const response = await fetch('/api/notify', {
       method: 'POST',

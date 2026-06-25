@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { ArrowLeft, CheckCircle2, Phone, MapPin, Calendar } from 'lucide-react';
 import { useEffect } from 'react';
 import { useUI } from '../contexts/UIContext';
+import NotFound from './NotFound';
 
 export default function ServicePage() {
   const { openBooking } = useUI();
@@ -15,15 +16,7 @@ export default function ServicePage() {
   }, [serviceId]);
 
   if (!service) {
-    return (
-      <div className="flex-1 flex flex-col items-center justify-center py-20 px-6 text-center">
-        <h1 className="text-4xl font-extrabold text-slate-900 mb-4">Service Not Found</h1>
-        <p className="text-slate-600 mb-8">We couldn't find the requested service.</p>
-        <Link to="/" className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 font-semibold inline-flex items-center gap-2">
-          <ArrowLeft className="w-5 h-5" /> Back to Home
-        </Link>
-      </div>
-    );
+    return <NotFound />;
   }
 
   const Icon = service.icon;
@@ -36,9 +29,36 @@ export default function ServicePage() {
         <link rel="canonical" href={`https://mayfieldphonerepair.com.au/service/${service.id}`} />
         <meta property="og:title" content={`${service.title} - Mayfield Cell Phone Repairs`} />
         <meta property="og:description" content={service.heroDescription} />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": service.title,
+            "description": service.shortDesc,
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "Mayfield Cell Phone Repairs",
+              "url": "https://mayfieldphonerepair.com.au"
+            },
+            "areaServed": "Newcastle, NSW",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Repair Services",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": service.title
+                  }
+                }
+              ]
+            }
+          })}
+        </script>
       </Helmet>
       {/* Dynamic Header - hidden large icon on mobile for performance */}
-      <div className={`bg-gradient-to-br ${service.color} text-white pt-24 pb-40 px-6 md:px-12 relative overflow-hidden`}>
+      <div className={`bg-gradient-to-br ${service.color} text-white pt-12 pb-24 px-6 md:px-12 relative overflow-hidden`}>
         <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20 hidden md:block">
           <Icon className="absolute -right-20 -bottom-20 w-[600px] h-[600px] transform rotate-12" />
         </div>
@@ -60,7 +80,7 @@ export default function ServicePage() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 -mt-24 relative z-20 pb-32 grid lg:grid-cols-12 gap-12">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 -mt-12 relative z-20 pb-16 grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-8 space-y-12">
           
           {/* Detailed Service Content */}
@@ -69,7 +89,10 @@ export default function ServicePage() {
               <div key={idx} className="space-y-6">
                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900 leading-tight font-display">{section.heading}</h2>
                 {section.text && (
-                  <p className="text-slate-600 leading-relaxed text-xl font-medium">{section.text}</p>
+                  <p 
+                    className="text-slate-600 leading-relaxed text-xl font-medium"
+                    dangerouslySetInnerHTML={{ __html: section.text }}
+                  />
                 )}
                 {section.list && (
                   <ul className="grid sm:grid-cols-2 gap-6 mt-8">
@@ -100,7 +123,7 @@ export default function ServicePage() {
                   Book A Repair
                 </button>
                 <Link to="/#contact" className="inline-flex items-center justify-center gap-4 bg-blue-600 text-white px-10 py-6 rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] hover:bg-blue-700 transition-all shadow-2xl shadow-blue-600/30">
-                  Get A Quote
+                  Talk to Us
                 </Link>
                 <a href="tel:0240491735" className="inline-flex items-center justify-center gap-4 text-white/40 hover:text-white transition-all text-[8px] font-black uppercase tracking-widest">
                   <Phone className="w-3 h-3" /> Call 02 4049 1735

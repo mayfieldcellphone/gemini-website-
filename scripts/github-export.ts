@@ -5,8 +5,8 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const TOKEN = process.env.GITHUB_TOKEN || "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";
-const REPO_FULL_NAME = process.env.GITHUB_REPO || "mayfieldcellphone/gemini-website-";
+const TOKEN = process.env.GITHUB_TOKEN;
+const REPO_FULL_NAME = process.env.GITHUB_REPO;
 
 console.log(`Debug: REPO_FULL_NAME is "${REPO_FULL_NAME}"`);
 

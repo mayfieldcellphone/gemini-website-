@@ -104,12 +104,12 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
         updatedAt: serverTimestamp()
       });
       
-      console.log('Booking saved to Firestore, sending SMS...');
+      console.log('Booking saved to Firestore, sending notifications...');
       setIsSuccess(true);
       
-      // Send SMS in background
+      // Send notifications in background (includes external CRM sync)
       sendSMSNotification('booking', formData).catch(err => {
-        console.warn('SMS notification error:', err);
+        console.warn('Notification error:', err);
       });
     } catch (err) {
       console.error('Submit error:', err);
@@ -154,23 +154,23 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="relative w-full max-w-2xl bg-white rounded-[2.5rem] shadow-2xl overflow-hidden"
+            className="relative w-full max-w-xl bg-white rounded-[2rem] md:rounded-[2.5rem] shadow-2xl overflow-hidden"
           >
             {/* Header */}
-            <div className="px-8 py-6 border-b border-slate-100 flex justify-between items-center bg-slate-50/30">
+            <div className="px-6 md:px-8 py-5 md:py-6 border-b border-slate-100 flex justify-between items-center bg-slate-50/30">
               <div className="space-y-1">
-                <h3 className="text-xl font-bold text-slate-900">Repair Booking</h3>
+                <h3 className="text-lg md:text-xl font-bold text-slate-900">Repair Booking</h3>
                 {renderStepIndicator()}
               </div>
               <button 
                 onClick={handleClose}
-                className="p-2 hover:bg-white rounded-full transition-colors text-slate-400 hover:text-slate-900 shadow-sm"
+                className="p-1.5 md:p-2 hover:bg-white rounded-full transition-colors text-slate-400 hover:text-slate-900 shadow-sm"
               >
-                <X className="w-6 h-6" />
+                <X className="w-5 h-5 md:w-6 md:h-6" />
               </button>
             </div>
 
-            <div className="p-8 max-h-[75vh] overflow-y-auto custom-scrollbar">
+            <div className="p-6 md:p-8 max-h-[70vh] overflow-y-auto custom-scrollbar">
               {isSuccess ? (
                 <div className="py-12 text-center space-y-6">
                   <div className="w-24 h-24 bg-emerald-100 text-emerald-600 rounded-3xl flex items-center justify-center mx-auto mb-6">
@@ -457,7 +457,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                           <input
                             type="text"
                             required
-                            placeholder="John Doe"
+                            placeholder="Your full name"
                             value={formData.customerName}
                             onChange={(e) => setFormData({ ...formData, customerName: e.target.value })}
                             className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-100 transition-all font-bold text-slate-900"

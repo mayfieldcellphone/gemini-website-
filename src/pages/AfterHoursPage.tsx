@@ -13,7 +13,7 @@ export default function AfterHoursPage() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative px-6 md:px-12 py-24 bg-slate-900 text-white overflow-hidden">
+      <section className="relative px-6 md:px-12 py-16 bg-slate-900 text-white overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,_var(--tw-gradient-stops))] from-emerald-900/20 via-transparent to-transparent"></div>
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-emerald-600/5 blur-[120px] rounded-full"></div>
         
@@ -43,7 +43,7 @@ export default function AfterHoursPage() {
       </section>
 
       {/* Service Details */}
-      <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
+      <section className="py-20 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-24 items-start">
           <div className="space-y-12">
             <div className="space-y-6">
@@ -127,7 +127,7 @@ export default function AfterHoursPage() {
       </section>
 
       {/* Safety & Trust */}
-      <section className="py-32 bg-slate-50 relative overflow-hidden">
+      <section className="py-20 bg-slate-50 relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-12">
           <div className="w-20 h-20 bg-emerald-600 rounded-[2rem] flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-emerald-500/30">
             <ShieldCheck className="w-10 h-10 text-white" strokeWidth={2.5} />

@@ -1,13 +1,11 @@
-import { Smartphone, Phone, Menu, X, Facebook, Instagram, Twitter, Linkedin, Youtube, MessageSquare, MapPin, Clock } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Smartphone, Phone, Menu, X, Facebook, Instagram, Twitter, Linkedin, Youtube, MessageSquare, MapPin, Clock, ArrowUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { useState, useEffect } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { suburbs, seoServices } from '../data/suburbs';
-import LazyChat from './LazyChat';
-import LazyTawk from './LazyTawk';
 import BookingModal from './BookingModal';
-import VoiceAssistant from './VoiceAssistant';
+import { OpeningStatus } from './OpeningStatus';
 import { useUI } from '../contexts/UIContext';
 
 const socialLinks = [
@@ -28,11 +26,24 @@ const socialLinks = [
   }
 ];
 
-export default function Layout() {
+export default function Layout({ children }: { children?: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isBookingModalOpen, openBooking, closeBooking } = useUI();
   const [isSeoDirOpen, setIsSeoDirOpen] = useState(false);
   const { pathname, hash } = useLocation();
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   useEffect(() => {
     // Scroll to top on route change if no hash is present
@@ -48,15 +59,32 @@ export default function Layout() {
         }
       });
     }
-  }, [pathname, hash]);
+
+    // Auto-open booking modal if parameters exist
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('booking') === 'true' || params.get('book') === 'true' || params.get('service')) {
+      openBooking();
+    }
+  }, [pathname, hash, openBooking]);
+
+  const getCanonicalUrl = (path: string) => {
+    let clean = path.toLowerCase().trim();
+    if (clean.endsWith('/') && clean !== '/') {
+      clean = clean.slice(0, -1);
+    }
+    if (clean === '/' || clean === '/index.html' || clean === '/index.htm') {
+      return 'https://mayfieldphonerepair.com.au';
+    }
+    return `https://mayfieldphonerepair.com.au${clean}`;
+  };
 
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900 flex flex-col scroll-smooth">
       <Helmet>
-        <link rel="canonical" href={`https://mayfieldphonerepair.com.au${pathname === '/' ? '' : pathname}`} />
-        <meta property="og:url" content="https://mayfieldphonerepair.com.au" />
+        <link rel="canonical" href={getCanonicalUrl(pathname)} />
+        <meta property="og:url" content={getCanonicalUrl(pathname)} />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:domain" content="mayfieldphonerepair.com.au" />
@@ -88,93 +116,192 @@ export default function Layout() {
                 "@type": "OpeningHoursSpecification",
                 "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
                 "opens": "09:00",
-                "closes": "17:30"
+                "closes": "17:00"
               },
               {
                 "@type": "OpeningHoursSpecification",
                 "dayOfWeek": "Saturday",
-                "opens": "09:00",
-                "closes": "15:00"
+                "opens": "10:00",
+                "closes": "16:00"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Sunday",
+                "opens": "10:00",
+                "closes": "14:00"
               }
             ],
             "sameAs": [
               "https://www.facebook.com/mayfieldcellphonerepairs/",
               "https://www.instagram.com/mayfieldcellphonerepairs/",
-              "https://www.pinterest.com/mayfieldcellphonerepairs0496"
+              "https://www.pinterest.com/mayfieldcellphonerepairs0496",
+              "https://twitter.com/Mayfiel32990272",
+              "https://www.linkedin.com/company/mayfield-cell-phone-repairs/",
+              "https://www.youtube.com/@mayfieldcellphonerepairs",
+              "https://www.tiktok.com/@mayfield.cell.pho"
             ]
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Mayfield Cell Phone Repairs",
+            "url": "https://mayfieldphonerepair.com.au",
+            "logo": "https://mayfieldphonerepair.com.au/logo.png",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "02 4049 1735",
+              "contactType": "customer service",
+              "areaServed": "AU",
+              "availableLanguage": "en"
+            }
+          })}
+        </script>
+        {pathname === '/' && (
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "How long does a screen repair take?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Most screen repairs are completed within 30 minutes at our Mayfield shop."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Do you provide a warranty on repairs?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, we provide a 90-day hardware guarantee on all parts and labor."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Do I need an appointment?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Walk-ins are welcome, but booking online ensures the fastest turnaround time."
+                  }
+                }
+              ]
+            })}
+          </script>
+        )}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": pathname.split('/').filter(Boolean).reduce((acc: any[], curr, idx, arr) => {
+              const url = `/${arr.slice(0, idx + 1).join('/')}`;
+              acc.push({
+                "@type": "ListItem",
+                "position": idx + 2,
+                "name": curr.charAt(0).toUpperCase() + curr.slice(1).replace(/-/g, ' '),
+                "item": `https://mayfieldphonerepair.com.au${url}`
+              });
+              return acc;
+            }, [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://mayfieldphonerepair.com.au"
+              }
+            ])
           })}
         </script>
       </Helmet>
       {/* Top Utility Header */}
-      <div className="bg-slate-900 text-slate-300 py-3 px-6 md:px-12 text-sm flex flex-col lg:flex-row justify-between items-center gap-3 relative z-50">
+      <div className="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-slate-200 py-2.5 px-6 md:px-12 text-xs font-medium flex flex-col lg:flex-row justify-between items-center gap-3 relative z-50 border-b border-white/5 transition-all">
         <div className="flex flex-wrap justify-center lg:justify-start items-center gap-x-6 gap-y-2">
           <a 
-            href="https://www.google.com/maps/search/?api=1&query=276+Maitland+Rd+Mayfield+NSW+2304" 
+            href="https://maps.google.com/?q=Mayfield+Cell+Phone+Repairs,+276+Maitland+Rd,+Mayfield+NSW+2304" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="flex items-center gap-2 hover:text-white transition-colors"
+            className="flex items-center gap-2 hover:text-white transition-colors duration-200 group"
           >
-            <MapPin className="w-4 h-4 text-blue-400 shrink-0" />
-            <span>276 Maitland Rd, Mayfield, NSW, 2304</span>
+            <MapPin className="w-3.5 h-3.5 text-blue-400 group-hover:scale-110 transition-transform duration-200 shrink-0" />
+            <span className="tracking-wide">276 Maitland Rd, Mayfield, NSW, 2304</span>
           </a>
-          <div className="hidden sm:block w-px h-4 bg-slate-700"></div>
+          <div className="hidden sm:block w-px h-4 bg-slate-800"></div>
           <div className="flex items-center gap-2">
-            <Clock className="w-4 h-4 text-blue-400 shrink-0" />
-            <span>Mon-Fri: 9am-5pm | Sat: 10am-4pm | Sun: 10am-2pm</span>
+            <OpeningStatus compact />
           </div>
         </div>
         
-        <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 font-semibold">
-          <a href="tel:0240491735" className="flex items-center gap-1.5 hover:text-white transition">
-            <Phone className="w-4 h-4 text-blue-400" />
-            <span>02 4049 1735</span>
+        <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
+          <a href="tel:0240491735" className="flex items-center gap-1.5 hover:text-white transition group">
+            <Phone className="w-3.5 h-3.5 text-blue-400 group-hover:rotate-12 transition-transform duration-200" />
+            <span className="tracking-wide">02 4049 1735</span>
           </a>
-          <div className="w-px h-4 bg-slate-700"></div>
-          <a href="sms:0431618100" className="flex items-center gap-1.5 hover:text-white transition group">
-            <MessageSquare className="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" />
-            <span className="text-emerald-400">Emergency SMS: 0431 618 100</span>
+          <div className="w-px h-4 bg-slate-800"></div>
+          <a href="sms:0431618100" className="flex items-center gap-2 bg-emerald-500/10 border border-emerald-400/20 px-3.5 py-1 rounded-full text-emerald-400 hover:bg-emerald-500/20 transition-all duration-200 group">
+            <span className="relative flex h-1.5 w-1.5 shrink-0">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+            </span>
+            <span className="font-semibold tracking-wide text-xs">Emergency SMS: 0431 618 100</span>
           </a>
-          <div className="hidden xl:flex items-center gap-3 border-l border-slate-700 pl-6 ml-2">
-            {socialLinks.slice(0, 4).map((link, idx) => {
-               // Clone the icon to make it slightly smaller for the top bar
-               const icon = { ...link.icon, props: { ...link.icon.props, className: 'w-4 h-4' } };
-               return (
-                 <a key={idx} href={link.url} target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition" aria-label={link.name}>
-                   {icon}
-                 </a>
-               );
-            })}
+          <div className="hidden xl:flex items-center gap-3.5 border-l border-slate-800 pl-6 ml-2">
+            {socialLinks.slice(0, 4).map((link, idx) => (
+              <a key={idx} href={link.url} target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors duration-200" aria-label={link.name}>
+                {React.cloneElement(link.icon as React.ReactElement<any>, { className: 'w-4 h-4' })}
+              </a>
+            ))}
           </div>
         </div>
       </div>
 
       {/* Main Navigation Header */}
-      <nav className="h-20 bg-white border-b border-slate-200 flex items-center justify-between px-6 md:px-12 sticky top-0 z-40 shadow-sm">
+      <nav id="main-navigation" className="h-20 bg-white/95 backdrop-blur-md border-b border-slate-100 flex items-center justify-between px-6 md:px-12 sticky top-0 z-[60] shadow-[0_2px_15px_-4px_rgba(0,0,0,0.03)] transition-all">
         <Link to="/" className="flex items-center shrink-0 group" onClick={closeMenu}>
-          <span className="text-xl md:text-2xl font-extrabold tracking-tight text-blue-600 flex items-center">
-            Mayfield
-            <div className="flex items-center justify-center mx-1.5 sm:mx-2 w-7 h-7 sm:w-8 sm:h-8 bg-slate-900 text-white rounded-[0.45rem] shadow-md group-hover:-rotate-6 transition-transform">
-              <Smartphone className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={2.5} />
+          <span className="text-xl md:text-2xl font-extrabold tracking-tight text-slate-900 flex items-center font-display">
+            <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 bg-clip-text text-transparent hover:opacity-90 transition-opacity">Mayfield</span>
+            <div className="flex items-center justify-center mx-1.5 sm:mx-2 w-7.5 h-7.5 sm:w-8.5 sm:h-8.5 bg-gradient-to-tr from-blue-600 to-indigo-600 text-white rounded-xl shadow-lg shadow-blue-500/20 group-hover:rotate-6 transition-transform duration-300">
+              <Smartphone className="w-4 h-4 sm:w-5 sm:h-5 animate-pulse" strokeWidth={2.5} />
             </div>
-            Repair
+            <span className="text-slate-900 group-hover:text-blue-600 transition-colors duration-200">Repair</span>
           </span>
         </Link>
         
         {/* Desktop Nav Tabs */}
-        <div className="hidden lg:flex items-center gap-8 text-[11px] font-black uppercase tracking-[0.2em] text-slate-500 flex-1 justify-center ml-8 font-display">
-          <Link to="/" className="hover:text-blue-600 transition-colors">Home</Link>
-          <Link to="/#brands" className="hover:text-blue-600 transition-colors">Brands</Link>
-          <Link to="/#services" className="hover:text-blue-600 transition-colors">Services</Link>
-          <Link to="/blog" className="hover:text-blue-600 transition-colors">Blog</Link>
-          <Link to="/#why-us" className="hover:text-blue-600 transition-colors">Why Choose Us</Link>
-          <Link to="/#contact" className="hover:text-blue-600 transition-colors">Location</Link>
+        <div className="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-600 flex-1 justify-center ml-8 font-sans">
+          <Link to="/" className="relative hover:text-blue-600 transition-colors duration-200 py-1.5 px-0.5 group">
+            Home
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 transition-all duration-300 group-hover:w-full" />
+          </Link>
+          <Link to="/#brands" className="relative hover:text-blue-600 transition-colors duration-200 py-1.5 px-0.5 group">
+            Brands
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 transition-all duration-300 group-hover:w-full" />
+          </Link>
+          <Link to="/#services" className="relative hover:text-blue-600 transition-colors duration-200 py-1.5 px-0.5 group">
+            Services
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 transition-all duration-300 group-hover:w-full" />
+          </Link>
+          <Link to="/blog" className="relative hover:text-blue-600 transition-colors duration-200 py-1.5 px-0.5 group">
+            Blog
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 transition-all duration-300 group-hover:w-full" />
+          </Link>
+          <Link to="/#why-us" className="relative hover:text-blue-600 transition-colors duration-200 py-1.5 px-0.5 group">
+            Why Choose Us
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 transition-all duration-300 group-hover:w-full" />
+          </Link>
+          <Link to="/#contact" className="relative hover:text-blue-600 transition-colors duration-200 py-1.5 px-0.5 group">
+            Location
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 transition-all duration-300 group-hover:w-full" />
+          </Link>
         </div>
 
         {/* Desktop CTA */}
         <div className="hidden lg:flex items-center shrink-0">
           <button 
             onClick={openBooking}
-            className="bg-slate-900 text-white px-8 py-3 rounded-xl hover:bg-blue-600 transition shadow-xl shadow-slate-200 font-black uppercase tracking-widest text-[10px] font-display"
+            className="cursor-pointer relative overflow-hidden bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-700 hover:to-indigo-800 text-white px-7 py-3 rounded-xl font-bold uppercase tracking-wider text-[10px] shadow-lg shadow-blue-500/10 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
           >
             Book a Repair
           </button>
@@ -192,28 +319,28 @@ export default function Layout() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="lg:hidden bg-white border-b border-slate-200 overflow-hidden sticky top-20 z-30 shadow-lg"
+            className="lg:hidden bg-white border-b border-slate-100 overflow-hidden sticky top-20 z-[55] shadow-lg"
           >
-            <div className="flex flex-col px-6 py-4 space-y-4">
-              <Link to="/" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Home</Link>
-              <Link to="/#brands" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Brands</Link>
-              <Link to="/#services" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Services</Link>
-              <Link to="/blog" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Blog</Link>
-              <Link to="/#why-us" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Why Choose Us</Link>
-              <Link to="/#contact" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Location & Contact</Link>
-              <div className="pt-6 mt-2 border-t border-slate-100 flex flex-col space-y-4">
-                <Link to="/second-hand-phones" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Shop Phones</Link>
-                <Link to="/accessories" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Accessories</Link>
-                <Link to="/corporate-repairs" onClick={closeMenu} className="text-slate-800 font-bold hover:text-blue-600 text-lg">Corporate Repairs</Link>
+            <div className="flex flex-col px-6 py-6 space-y-4">
+              <Link to="/" onClick={closeMenu} className="text-slate-700 font-semibold hover:text-blue-600 text-base py-1">Home</Link>
+              <Link to="/#brands" onClick={closeMenu} className="text-slate-700 font-semibold hover:text-blue-600 text-base py-1">Brands</Link>
+              <Link to="/#services" onClick={closeMenu} className="text-slate-700 font-semibold hover:text-blue-600 text-base py-1">Services</Link>
+              <Link to="/blog" onClick={closeMenu} className="text-slate-700 font-semibold hover:text-blue-600 text-base py-1">Blog</Link>
+              <Link to="/#why-us" onClick={closeMenu} className="text-slate-700 font-semibold hover:text-blue-600 text-base py-1">Why Choose Us</Link>
+              <Link to="/#contact" onClick={closeMenu} className="text-slate-700 font-semibold hover:text-blue-600 text-base py-1">Location & Contact</Link>
+              <div className="pt-4 border-t border-slate-100 flex flex-col space-y-3">
+                <Link to="/second-hand-phones" onClick={closeMenu} className="text-slate-600 hover:text-blue-600 text-sm font-medium">Shop Phones</Link>
+                <Link to="/accessories" onClick={closeMenu} className="text-slate-600 hover:text-blue-600 text-sm font-medium">Accessories</Link>
+                <Link to="/corporate-repairs" onClick={closeMenu} className="text-slate-600 hover:text-blue-600 text-sm font-medium">Corporate Repairs</Link>
               </div>
-              <div className="pt-6 mt-2 border-t border-slate-100 flex flex-col space-y-4">
-                <a href="tel:0240491735" className="flex items-center justify-center gap-2 text-blue-600 bg-blue-50 py-3 rounded-xl font-bold">
-                  <Phone className="w-5 h-5" />
+              <div className="pt-4 border-t border-slate-100 flex flex-col gap-3">
+                <a href="tel:0240491735" className="flex items-center justify-center gap-2 text-blue-600 bg-blue-50/50 hover:bg-blue-50 py-3 rounded-xl font-bold text-sm transition-colors border border-blue-100/50">
+                  <Phone className="w-4 h-4" />
                   <span>Call: 02 4049 1735</span>
                 </a>
                 <button 
                   onClick={() => { openBooking(); closeMenu(); }}
-                  className="bg-blue-600 text-white text-center px-5 py-3 rounded-xl font-bold shadow-lg shadow-blue-200"
+                  className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-center py-3.5 rounded-xl font-bold shadow-lg shadow-blue-500/15 text-sm hover:shadow-xl transition-all"
                 >
                   Book Online Now
                 </button>
@@ -224,13 +351,27 @@ export default function Layout() {
       </AnimatePresence>
 
       <main className="flex-1 flex flex-col">
-        <Outlet />
+        {children || <Outlet />}
       </main>
 
-      <LazyChat onOpenBooking={openBooking} />
-      <LazyTawk />
-      <VoiceAssistant />
       <BookingModal isOpen={isBookingModalOpen} onClose={closeBooking} />
+
+      {/* Scroll to Top Button */}
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.5, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.5, y: 20 }}
+            onClick={scrollToTop}
+            className="fixed bottom-52 right-6 z-40 bg-white text-slate-900 w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all border border-slate-200 group"
+            aria-label="Scroll to Top"
+            id="scroll-to-top-button"
+          >
+            <ArrowUp className="w-6 h-6 group-hover:-translate-y-1 transition-transform" strokeWidth={3} />
+          </motion.button>
+        )}
+      </AnimatePresence>
 
       {/* Modern Footer */}
       <footer className="bg-slate-950 pt-32 pb-12 px-6 md:px-12 text-slate-500 overflow-hidden relative">
@@ -292,16 +433,28 @@ export default function Layout() {
                <h4 className="text-white text-xs font-black uppercase tracking-[0.3em] font-display">Quick Links</h4>
                <ul className="space-y-4 text-sm font-medium">
                  <li><Link to="/" className="hover:text-blue-400 transition-colors">Home</Link></li>
+                 <li><Link to="/repair-guides" className="hover:text-blue-400 transition-colors">Repair Guides & FAQ</Link></li>
                  <li><Link to="/blog" className="hover:text-blue-400 transition-colors">Repair Blog</Link></li>
                  <li className="hidden md:block"><Link to="/about-us" className="hover:text-blue-400 transition-colors">About Us</Link></li>
                  <li><Link to="/#contact" className="hover:text-blue-400 transition-colors">Location</Link></li>
                  <li><Link to="/privacy-policy" className="hover:text-blue-400 transition-colors">Privacy</Link></li>
+                  <li>
+                    <a 
+                      href="https://selfrepairkit.com.au" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="hover:text-blue-400 transition-colors"
+                    >
+                      DIY Repair Kits
+                    </a>
+                  </li>
                </ul>
              </div>
              <div className="space-y-8">
                <h4 className="text-white text-xs font-black uppercase tracking-[0.3em] font-display">Contact Us</h4>
                <div className="space-y-4">
-                 <a href="tel:0240491735" className="block text-xl font-bold text-white hover:text-blue-400 transition-colors font-display">02 4049 1735</a>
+                                   <a href="mailto:support@mayfieldphonerepair.com.au" className="block text-lg font-bold text-white hover:text-blue-400 transition-colors font-display italic">support@mayfieldphonerepair.com.au</a>
+                  <a href="tel:0240491735" className="block text-xl font-bold text-white hover:text-blue-400 transition-colors font-display">02 4049 1735</a>
                  <p className="text-xs text-slate-500 leading-relaxed font-medium">Free advice & quotes.</p>
                </div>
              </div>
@@ -353,7 +506,32 @@ export default function Layout() {
            </AnimatePresence>
         </div>
         
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-[10px] font-black uppercase tracking-[0.4em] gap-8 border-t border-white/5 pt-12 opacity-30">
+        <div className="max-w-7xl mx-auto border-t border-white/5 pt-12 text-center md:text-left relative z-10">
+          <div className="flex flex-col gap-2">
+            <div>
+              <a 
+                href="https://repairrange.io" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-xs font-semibold text-slate-500 hover:text-blue-400 hover:underline transition-colors duration-200"
+              >
+                Repair Guides & Cost Calculator
+              </a>
+            </div>
+            <div>
+              <a 
+                href="https://repairrange.io/calculator.html" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-xs text-slate-600 hover:text-blue-400 hover:underline transition-colors duration-200"
+              >
+                Compare repair costs across Australia
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-[10px] font-black uppercase tracking-[0.4em] gap-8 border-t border-white/5 mt-12 pt-12 opacity-30">
           <div>&copy; {new Date().getFullYear()} MAYFIELD PHONE REPAIR.</div>
           <div className="flex gap-8">
             <Link to="/privacy-policy" className="hover:text-blue-400 transition-colors">Privacy</Link>
@@ -369,6 +547,9 @@ export default function Layout() {
             </p>
             <p className="max-w-4xl normal-case tracking-normal font-medium text-slate-700 italic">
               Mayfield Phone Repair is an independent repair service provider and is not affiliated with Apple Inc., Samsung Electronics, or any other original equipment manufacturer (OEM). All trademarks are the property of their respective owners. We use high-quality replacement parts for all repairs.
+            </p>
+            <p style={{ marginTop: '0.5rem', fontSize: '0.85rem', color: '#a1a1a1', textAlign: 'center' }} className="normal-case tracking-normal">
+              Partnered with <a href="https://repairrange.io" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>RepairRange</a> for Australia-wide phone repair price guides.
             </p>
           </div>
         </div>

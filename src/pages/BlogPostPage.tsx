@@ -1,7 +1,8 @@
-import { useParams, Navigate, Link, useLocation } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { blogPosts } from '../data/blogs';
 import { useUI } from '../contexts/UIContext';
+import NotFound from './NotFound';
 import { 
   ChevronRight, 
   Calendar, 
@@ -22,7 +23,8 @@ export default function BlogPostPage() {
   const { slug } = useParams();
   const { openBooking } = useUI();
   const { hash } = useLocation();
-  const post = blogPosts.find(p => p.slug === slug);
+  const today = new Date().toISOString().split('T')[0];
+  const post = blogPosts.find(p => p.slug === slug && p.date <= today);
 
   useEffect(() => {
     if (!hash) {
@@ -47,7 +49,7 @@ export default function BlogPostPage() {
   }, [openBooking]);
 
   if (!post) {
-    return <Navigate to="/blog" replace />;
+    return <NotFound />;
   }
 
   // Calculate read time (approx 200 words per minute)
@@ -65,6 +67,32 @@ export default function BlogPostPage() {
         <meta property="og:image" content={post.imageUrl} />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary_large_image" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://mayfieldphonerepair.com.au"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://mayfieldphonerepair.com.au/blog"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": post.title,
+                "item": `https://mayfieldphonerepair.com.au/blog/${post.slug}`
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       
       {/* Article Header */}
@@ -215,8 +243,8 @@ export default function BlogPostPage() {
                 >
                   Book A Repair
                 </button>
-                <Link to="/#contact" className="flex items-center justify-center gap-3 w-full bg-blue-600 text-white px-8 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/20 font-display">
-                  Get A Quote
+                <Link to="/#contact" className="inline-flex items-center justify-center gap-4 bg-blue-600 text-white px-8 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/20 font-display">
+                  Talk to Us
                 </Link>
                 <a href="tel:0240491735" className="flex items-center justify-center gap-3 w-full bg-slate-50 text-slate-900 border border-slate-200 px-8 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] hover:border-blue-400 transition-all font-display">
                   <Phone className="w-4 h-4" /> Call Shop
@@ -275,7 +303,11 @@ export default function BlogPostPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-12">
-            {blogPosts.filter(p => p.id !== post.id).slice(0, 3).map(related => (
+            {blogPosts
+              .filter(p => p.id !== post.id && p.date <= today)
+              .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+              .slice(0, 3)
+              .map(related => (
               <Link key={related.id} to={`/blog/${related.slug}`} className="group space-y-6">
                 <div className="aspect-[16/10] rounded-[2.5rem] overflow-hidden shadow-xl">
                   <img src={related.imageUrl} alt={related.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
@@ -301,7 +333,7 @@ export default function BlogPostPage() {
           Book Repair
         </button>
         <Link to="/#contact" className="flex-1 flex items-center justify-center gap-4 bg-slate-900 text-white px-6 py-5 rounded-3xl font-black uppercase tracking-[0.1em] text-[10px] shadow-2xl shadow-slate-900/30 font-display">
-          Get Quote
+          Talk to Us
         </Link>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useCallback, useMemo } from 'react';
 
 interface UIContextType {
   isBookingModalOpen: boolean;
@@ -11,11 +11,22 @@ const UIContext = createContext<UIContextType | undefined>(undefined);
 export function UIProvider({ children }: { children: ReactNode }) {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
 
-  const openBooking = () => setIsBookingModalOpen(true);
-  const closeBooking = () => setIsBookingModalOpen(false);
+  const openBooking = useCallback(() => {
+    setIsBookingModalOpen(true);
+  }, []);
+
+  const closeBooking = useCallback(() => {
+    setIsBookingModalOpen(false);
+  }, []);
+
+  const value = useMemo(() => ({
+    isBookingModalOpen,
+    openBooking,
+    closeBooking
+  }), [isBookingModalOpen, openBooking, closeBooking]);
 
   return (
-    <UIContext.Provider value={{ isBookingModalOpen, openBooking, closeBooking }}>
+    <UIContext.Provider value={value}>
       {children}
     </UIContext.Provider>
   );

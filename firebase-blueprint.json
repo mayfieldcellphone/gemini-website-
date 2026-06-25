@@ -76,6 +76,35 @@
         "updatedAt": { "type": "string", "format": "date-time" }
       },
       "required": ["customerName", "phone", "category", "brand", "model", "service", "date", "time", "status", "createdAt", "updatedAt"]
+    },
+    "lead": {
+      "title": "Inbox Lead",
+      "description": "Synchronized lead for the external Inbox app",
+      "type": "object",
+      "properties": {
+        "customerName": { "type": "string" },
+        "customerEmail": { "type": "string" },
+        "customerPhone": { "type": "string" },
+        "message": { "type": "string" },
+        "type": { "type": "string", "enum": ["contact", "quote", "booking"] },
+        "status": { "type": "string", "enum": ["new", "viewed", "archived"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["customerName", "message", "type", "status", "createdAt"]
+    },
+    "voice_message": {
+      "title": "Voice Message",
+      "description": "Recorded voice note from a customer",
+      "type": "object",
+      "properties": {
+        "customerName": { "type": "string" },
+        "customerPhone": { "type": "string" },
+        "audioUrl": { "type": "string", "description": "Base64 encoded audio data" },
+        "duration": { "type": "number", "description": "Duration in seconds" },
+        "status": { "type": "string", "enum": ["new", "listened", "archived"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["customerName", "customerPhone", "audioUrl", "status", "createdAt"]
     }
   },
   "firestore": {
@@ -91,6 +120,10 @@
       "schema": "corporate_inquiry",
       "description": "Collection of corporate leads"
     },
+    "voice_messages": {
+      "schema": "voice_message",
+      "description": "Recorded voice notes from customers"
+    },
     "chats": {
       "schema": "chat_session",
       "description": "Active and archived chat sessions"
@@ -98,6 +131,10 @@
     "chats/{chatId}/messages": {
       "schema": "chat_message",
       "description": "Messages within a specific chat session"
+    },
+    "users/{userId}/leads": {
+      "schema": "lead",
+      "description": "Synchronized leads for specific users in the Inbox app"
     }
   }
 }

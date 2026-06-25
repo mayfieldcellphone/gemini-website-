@@ -1,29 +1,26 @@
-# Security Specification
+# Security Specification - Mayfield Phone Repair
 
 ## Data Invariants
-- A quote request must have a name, phone, and details.
-- Quotes are public to create but private to read (admin only).
-- Corporate leads follow the same pattern.
-- Admins are defined in a restricted `/admins/` collection.
+1. A booking must have a future date and 'pending' status initial value.
+2. A quote must include a valid phone number.
+3. Chat messages must belong to an active session.
+4. Inbox Leads must target a valid user ID and have 'new' status.
+5. Administrative fields (like 'isAdmin' in chats) cannot be set by public users.
 
 ## The Dirty Dozen Payloads
-1. **Quote Creation without Name**: `{ "phone": "0400", "details": "Broken" }` -> Denied.
-2. **Quote Creation with Shadow Field**: `{ "name": "Hack", "phone": "0400", "details": "Broken", "isAdmin": true }` -> Denied (Extra field).
-3. **Admin Escalation**: Try to create a document in `/admins/` -> Denied.
-4. **Unauthorized Read**: Try to list `/quotes/` as a guest or non-admin -> Denied.
-5. **Quote Update (Identity Spoof)**: Try to change `createdAt` of a quote -> Denied.
-6. **Quote Modification (Non-whitelisted)**: Try to update `name` of an existing quote -> Denied (Only `status` and `updatedAt` allowed).
-7. **Resource Poisoning (ID)**: Try to create a document with a 2KB string as ID -> Denied.
-8. **Value Poisoning**: Try to set `status` to "invalid_status" -> Denied.
-9. **Email Spoofing**: Log in as someone else and try to read admins -> Denied.
-10. **Query Scraping**: Try a collection group query on all documents -> Denied.
-11. **Pillars Violation**: Try to write as admin but with malformed data -> Denied.
-12. **Timestamp Fraud**: Send a client-side timestamp for `createdAt` instead of `request.time` -> Denied.
 
-## Test Runner (Draft)
-```ts
-// firestore.rules.test.ts (summary)
-test('Public can create quotes but not read them', async () => { ... });
-test('Only admins can read/update quotes', async () => { ... });
-test('Strict schema validation prevents shadow fields', async () => { ... });
-```
+1. **Identity Spoofing (Inbox):** Attempting to write a lead to a user ID the client doesn't "own" (though for public sync, we allow writes to the specific inbox ID).
+2. **Ghost Field Injection:** Adding `isVerified: true` to a quote.
+3. **Admin Escalation:** Setting `isAdmin: true` in a chat message.
+4. **Status Shortcutting:** Creating a booking with `status: 'confirmed'`.
+5. **Resource Poisoning:** Sending a 1MB string as the `details` field in a booking.
+6. **ID Poisoning:** Using a malicious string like `../system/config` as a custom document ID.
+7. **Temporal Fraud:** Setting `createdAt` to a date in the past instead of `request.time`.
+8. **PII Blanket Read:** Attempting to list all bookings without being an admin.
+9. **Orphaned Write:** Creating a chat message for a non-existent chat session.
+10. **Terminal State Break:** Updating a 'completed' booking to 'pending'.
+11. **Type Mismatch:** Sending a number for the `customerName` field.
+12. **Unauthorized Deletion:** Attempting to delete a quote as a guest.
+
+## Test Strategy
+We will use `firestore.rules` to block all "Dirty Dozen" payloads by enforcing strict schema validation and identity checks.

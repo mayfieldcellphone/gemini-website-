@@ -1,23 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { 
   BarChart3, 
-  MessageSquare,
   Users, 
-  Settings, 
   LogOut, 
   Mail, 
   Phone, 
   Calendar,
   CheckCircle2,
   Clock,
-  Sparkles,
   Search,
   Smartphone,
   ChevronLeft,
   ChevronRight,
-  Send,
-  User,
-  Plus,
   PhoneCall,
   XCircle
 } from 'lucide-react';
@@ -49,14 +43,6 @@ interface CorporateLead {
   createdAt: any;
 }
 
-interface Chat {
-  id: string;
-  customerName: string;
-  lastMessage: string;
-  lastUpdatedAt: any;
-  status: 'active' | 'archived';
-}
-
 interface Booking {
   id: string;
   customerName: string;
@@ -70,25 +56,50 @@ interface Booking {
   createdAt: any;
 }
 
-interface Message {
+interface VoiceMessage {
   id: string;
-  text: string;
-  senderId: string;
-  isAdmin: boolean;
-  timestamp: any;
+  customerName: string;
+  customerPhone: string;
+  audioUrl: string; // Base64 or URL
+  duration: number;
+  status: 'new' | 'listened' | 'archived';
+  createdAt: any;
 }
 
 export default function AdminDashboard() {
   const { user, isAdmin, loading: authLoading, logout: performLogout } = useAuth();
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState<'quotes' | 'corporate' | 'chats' | 'bookings'>('bookings');
+  const [activeTab, setActiveTab ] = useState<'bookings' | 'quotes' | 'corporate' | 'voice_messages'>('bookings');
   const [quotes, setQuotes] = useState<Quote[]>([]);
   const [corporateLeads, setCorporateLeads] = useState<CorporateLead[]>([]);
-  const [chats, setChats] = useState<Chat[]>([]);
   const [bookings, setBookings] = useState<Booking[]>([]);
-  const [activeChatId, setActiveChatId] = useState<string | null>(null);
-  const [messages, setMessages] = useState<Message[]>([]);
-  const [replyText, setReplyText] = useState('');
+  const [voiceMessages, setVoiceMessages] = useState<VoiceMessage[]>([]);
+  const [lastBookingCount, setLastBookingCount] = useState<number | null>(null);
+  const [lastQuoteCount, setLastQuoteCount] = useState<number | null>(null);
+
+  // sound notification
+  const playNotificationSound = () => {
+    try {
+      const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3');
+      audio.play();
+    } catch (e) {
+      console.warn('Audio play failed', e);
+    }
+  };
+
+  useEffect(() => {
+    // Request notification permission
+    if ('Notification' in window && Notification.permission === 'default') {
+      Notification.requestPermission();
+    }
+  }, []);
+
+  const sendLocalNotification = (title: string, body: string) => {
+    if ('Notification' in window && Notification.permission === 'granted') {
+      new Notification(title, { body, icon: '/favicon.ico' });
+    }
+    playNotificationSound();
+  };
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
@@ -104,7 +115,15 @@ export default function AdminDashboard() {
       // Quotes Listener
     const quotesQuery = query(collection(db, 'quotes'), orderBy('createdAt', 'desc'));
     const unsubscribeQuotes = onSnapshot(quotesQuery, (snapshot) => {
-      setQuotes(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Quote)));
+      const updatedQuotes = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Quote));
+      setQuotes(updatedQuotes);
+      
+      // Trigger notification for new quotes
+      if (lastQuoteCount !== null && updatedQuotes.length > lastQuoteCount) {
+        const newQuote = updatedQuotes[0];
+        sendLocalNotification('New Quote Request', `${newQuote.name} requested a quote for a repair.`);
+      }
+      setLastQuoteCount(updatedQuotes.length);
     }, (error) => handleFirestoreError(error, OperationType.GET, 'quotes'));
 
     // Corporate Leads Listener
@@ -113,43 +132,37 @@ export default function AdminDashboard() {
       setCorporateLeads(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as CorporateLead)));
     }, (error) => handleFirestoreError(error, OperationType.GET, 'corporate_leads'));
 
-    // Chats Listener
-    const chatsQuery = query(collection(db, 'chats'), orderBy('lastUpdatedAt', 'desc'));
-    const unsubscribeChats = onSnapshot(chatsQuery, (snapshot) => {
-      setChats(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Chat)));
-    }, (error) => handleFirestoreError(error, OperationType.GET, 'chats'));
-
     // Bookings Listener
     const bookingsQuery = query(collection(db, 'bookings'), orderBy('date', 'desc'), orderBy('time', 'asc'));
     const unsubscribeBookings = onSnapshot(bookingsQuery, (snapshot) => {
-      setBookings(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Booking)));
+      const updatedBookings = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Booking));
+      setBookings(updatedBookings);
+
+      // Trigger notification for new bookings
+      if (lastBookingCount !== null && updatedBookings.length > lastBookingCount) {
+        const newBooking = updatedBookings.find(b => b.status === 'pending');
+        if (newBooking) {
+           sendLocalNotification('New Appointment', `${newBooking.customerName} booked at ${newBooking.time} on ${newBooking.date}`);
+        }
+      }
+      setLastBookingCount(updatedBookings.length);
       setLoading(false);
     }, (error) => handleFirestoreError(error, OperationType.GET, 'bookings'));
+
+    // Voice Messages Listener
+    const voiceQuery = query(collection(db, 'voice_messages'), orderBy('createdAt', 'desc'));
+    const unsubscribeVoice = onSnapshot(voiceQuery, (snapshot) => {
+      setVoiceMessages(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as VoiceMessage)));
+    }, (error) => handleFirestoreError(error, OperationType.GET, 'voice_messages'));
 
       return () => {
         unsubscribeQuotes();
         unsubscribeCorporate();
-        unsubscribeChats();
         unsubscribeBookings();
+        unsubscribeVoice();
       };
     }
   }, [user, isAdmin, authLoading, navigate]);
-
-  useEffect(() => {
-    if (!activeChatId) {
-      setMessages([]);
-      return;
-    }
-
-    const messagesQuery = query(
-      collection(db, `chats/${activeChatId}/messages`),
-      orderBy('timestamp', 'asc')
-    );
-    
-    return onSnapshot(messagesQuery, (snapshot) => {
-      setMessages(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Message)));
-    }, (error) => handleFirestoreError(error, OperationType.GET, `chats/${activeChatId}/messages`));
-  }, [activeChatId]);
 
   const updateQuoteStatus = async (id: string, status: Quote['status']) => {
     try {
@@ -175,27 +188,11 @@ export default function AdminDashboard() {
     }
   };
 
-  const sendReply = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!activeChatId || !replyText.trim()) return;
-
-    const text = replyText.trim();
-    setReplyText('');
-
+  const updateVoiceStatus = async (id: string, status: VoiceMessage['status']) => {
     try {
-      await addDoc(collection(db, `chats/${activeChatId}/messages`), {
-        text,
-        senderId: 'admin',
-        isAdmin: true,
-        timestamp: serverTimestamp()
-      });
-
-      await updateDoc(doc(db, 'chats', activeChatId), {
-        lastMessage: text,
-        lastUpdatedAt: serverTimestamp()
-      });
+      await updateDoc(doc(db, 'voice_messages', id), { status });
     } catch (error) {
-      handleFirestoreError(error, OperationType.CREATE, `chats/${activeChatId}/messages`);
+      handleFirestoreError(error, OperationType.UPDATE, `voice_messages/${id}`);
     }
   };
 
@@ -204,7 +201,7 @@ export default function AdminDashboard() {
     navigate('/');
   };
 
-  const filteredItems = (activeTab === 'bookings' ? bookings : activeTab === 'quotes' ? quotes : activeTab === 'corporate' ? corporateLeads : chats).filter(item => {
+  const filteredItems = (activeTab === 'bookings' ? bookings : activeTab === 'quotes' ? quotes : activeTab === 'corporate' ? corporateLeads : voiceMessages).filter(item => {
     const searchStr = searchTerm.toLowerCase();
     if (activeTab === 'bookings') {
       const b = item as Booking;
@@ -216,8 +213,8 @@ export default function AdminDashboard() {
       const l = item as CorporateLead;
       return l.organization.toLowerCase().includes(searchStr) || l.contactName.toLowerCase().includes(searchStr);
     } else {
-      const c = item as Chat;
-      return c.customerName.toLowerCase().includes(searchStr);
+      const v = item as VoiceMessage;
+      return v.customerName.toLowerCase().includes(searchStr) || v.customerPhone.toLowerCase().includes(searchStr);
     }
   });
 
@@ -253,7 +250,7 @@ export default function AdminDashboard() {
               { id: 'bookings', icon: Calendar, label: 'Appointments' },
               { id: 'quotes', icon: BarChart3, label: 'Repair Quotes' },
               { id: 'corporate', icon: Users, label: 'Corporate Leads' },
-              { id: 'chats', icon: MessageSquare, label: 'Live Chats' }
+              { id: 'voice_messages', icon: PhoneCall, label: 'Voice Messages' }
             ].map(item => (
               <button
                 key={item.id}
@@ -268,6 +265,21 @@ export default function AdminDashboard() {
                 {item.label}
               </button>
             ))}
+            
+            <div className="pt-4 mt-4 border-t border-slate-100">
+              <a 
+                href="https://repairbill-erp-302106920849.asia-southeast1.run.app/" 
+                target="_blank" 
+                rel="noreferrer"
+                className="w-full flex items-center justify-between gap-4 px-6 py-4 rounded-2xl font-bold text-slate-400 hover:bg-blue-50 hover:text-blue-600 transition-all border-2 border-transparent hover:border-blue-100"
+              >
+                <div className="flex items-center gap-4">
+                  <Smartphone className="w-5 h-5 text-blue-500" />
+                  <span>RepairBill Inbox</span>
+                </div>
+                <ChevronRight className="w-4 h-4 opacity-50" />
+              </a>
+            </div>
           </nav>
         </div>
 
@@ -312,7 +324,7 @@ export default function AdminDashboard() {
           <div className="flex justify-between items-end mb-12">
             <div>
               <h2 className="text-4xl font-black text-slate-900 tracking-tight mb-2">
-                {activeTab === 'bookings' ? 'Direct Appointments' : activeTab === 'quotes' ? 'Repair Requests' : activeTab === 'corporate' ? 'Corporate Partners' : 'Live Support'}
+                {activeTab === 'bookings' ? 'Direct Appointments' : activeTab === 'quotes' ? 'Repair Requests' : activeTab === 'corporate' ? 'Corporate Partners' : activeTab === 'voice_messages' ? 'Voice Messages' : 'Live Support'}
               </h2>
               <p className="text-slate-400 font-medium italic">Manage and track your incoming business requests</p>
             </div>
@@ -381,6 +393,53 @@ export default function AdminDashboard() {
                     </div>
                   </div>
                 ))
+              ) : activeTab === 'voice_messages' ? (
+                (currentItems as VoiceMessage[]).map(vm => (
+                  <div key={vm.id} className="bg-white p-8 rounded-[2.5rem] border border-slate-200 shadow-sm hover:border-blue-200 transition-all group">
+                    <div className="flex flex-col lg:flex-row gap-8 justify-between lg:items-center">
+                      <div className="flex items-center gap-6">
+                        <div className="w-16 h-16 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+                          <PhoneCall className="w-8 h-8" />
+                        </div>
+                        <div className="space-y-2">
+                          <div className="flex items-center gap-4">
+                            <h3 className="text-xl font-bold text-slate-900">{vm.customerName || 'Voice Message'}</h3>
+                            <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest ${
+                              vm.status === 'new' ? 'bg-blue-100 text-blue-700' :
+                              vm.status === 'listened' ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-500'
+                            }`}>
+                              {vm.status}
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-6 text-sm font-medium text-slate-400">
+                            <a href={`tel:${vm.customerPhone}`} className="flex items-center gap-2 hover:text-blue-600 transition-colors uppercase tracking-widest font-black text-[10px]">
+                              <Phone className="w-4 h-4" /> {vm.customerPhone}
+                            </a>
+                            <div className="flex items-center gap-2 uppercase tracking-widest font-black text-[10px]">
+                              <Clock className="w-4 h-4" /> 
+                              {vm.createdAt ? format(vm.createdAt.toDate(), 'PPP p') : 'Pending...'}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="flex-1 max-w-xl">
+                        <audio controls src={vm.audioUrl} className="w-full h-10" />
+                      </div>
+
+                      <div className="flex gap-3">
+                        {vm.status === 'new' && (
+                          <button onClick={() => updateVoiceStatus(vm.id, 'listened')} className="p-3 bg-blue-50 text-blue-600 rounded-xl hover:bg-blue-100 transition-colors" title="Mark as Listened">
+                            <CheckCircle2 className="w-5 h-5" />
+                          </button>
+                        )}
+                        <button onClick={() => updateVoiceStatus(vm.id, 'archived')} className="p-3 bg-slate-50 text-slate-400 hover:text-rose-600 rounded-xl hover:bg-rose-50 transition-colors" title="Archive">
+                          <LogOut className="w-5 h-5 rotate-90" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))
               ) : activeTab === 'quotes' ? (
                 (currentItems as Quote[]).map(quote => (
                   <div key={quote.id} className="bg-white p-8 rounded-[2.5rem] border border-slate-200 shadow-sm hover:border-blue-200 transition-all group">
@@ -421,7 +480,7 @@ export default function AdminDashboard() {
                     </div>
                   </div>
                 ))
-              ) : activeTab === 'corporate' ? (
+              ) : (
                 (currentItems as CorporateLead[]).map(lead => (
                   <div key={lead.id} className="bg-white p-8 rounded-[2.5rem] border border-slate-200 shadow-sm hover:border-indigo-200 transition-all group">
                     <div className="flex flex-col lg:flex-row gap-8 justify-between lg:items-center">
@@ -459,103 +518,6 @@ export default function AdminDashboard() {
                     </div>
                   </div>
                 ))
-              ) : (
-                <div className="grid lg:grid-cols-3 gap-8 items-start min-h-[600px]">
-                  <div className="lg:col-span-1 space-y-4">
-                    {(currentItems as Chat[]).map(chat => (
-                      <button
-                        key={chat.id}
-                        onClick={() => setActiveChatId(chat.id)}
-                        className={`w-full text-left p-6 rounded-[2rem] border transition-all ${
-                          activeChatId === chat.id 
-                            ? 'bg-blue-600 border-blue-600 shadow-lg text-white' 
-                            : 'bg-white border-slate-200 text-slate-900 hover:border-blue-200'
-                        }`}
-                      >
-                        <div className="flex justify-between items-start mb-2">
-                          <h4 className="font-bold truncate pr-2">{chat.customerName || 'Anonymous User'}</h4>
-                          <span className={`text-[10px] font-black uppercase tracking-widest ${activeChatId === chat.id ? 'text-blue-100' : 'text-slate-400'}`}>
-                            {chat.lastUpdatedAt ? format(chat.lastUpdatedAt.toDate(), 'HH:mm') : ''}
-                          </span>
-                        </div>
-                        <p className={`text-sm line-clamp-1 italic ${activeChatId === chat.id ? 'text-blue-50' : 'text-slate-500'}`}>
-                          {chat.lastMessage || 'Starting conversation...'}
-                        </p>
-                      </button>
-                    ))}
-                  </div>
-
-                  <div className="lg:col-span-2 bg-white rounded-[3rem] border border-slate-200 shadow-sm overflow-hidden flex flex-col h-[600px]">
-                    {activeChatId ? (
-                      <>
-                        <div className="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
-                          <div className="flex items-center gap-4">
-                            <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center">
-                              <User className="w-5 h-5" />
-                            </div>
-                            <div>
-                               <h4 className="font-bold text-slate-900">
-                                  {chats.find(c => c.id === activeChatId)?.customerName || 'Customer'}
-                               </h4>
-                               <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Live Support Session</p>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="flex-1 overflow-y-auto p-8 space-y-6 flex flex-col scroll-smooth">
-                          {messages.map((msg) => {
-                            const isBot = msg.senderId === 'mayfield_ai';
-                            const isMe = msg.isAdmin;
-                            return (
-                              <div key={msg.id} className={`flex ${isMe || isBot ? 'justify-end' : 'justify-start'}`}>
-                                <div className={`max-w-[80%] space-y-1 ${isMe || isBot ? 'items-end' : 'items-start'} flex flex-col`}>
-                                  <div className={`p-4 rounded-2xl text-sm font-medium ${
-                                    isMe ? 'bg-slate-900 text-white rounded-tr-none' : 
-                                    isBot ? 'bg-blue-600 text-white rounded-tr-none' : 
-                                    'bg-slate-100 text-slate-800 rounded-tl-none'
-                                  }`}>
-                                    {isBot && <p className="text-[9px] font-black uppercase tracking-widest text-blue-200 mb-1 flex items-center gap-1"><Sparkles className="w-2 h-2" /> AI Response</p>}
-                                    {msg.text}
-                                  </div>
-                                  <span className="text-[9px] font-black uppercase tracking-widest text-slate-300">
-                                    {msg.timestamp ? format(msg.timestamp.toDate(), 'HH:mm') : 'Sending...'}
-                                  </span>
-                                </div>
-                              </div>
-                            );
-                          })}
-                        </div>
-
-                        <form onSubmit={sendReply} className="p-6 bg-slate-50 border-t border-slate-100 flex gap-4">
-                          <input
-                            type="text"
-                            placeholder="Type your message..."
-                            value={replyText}
-                            onChange={(e) => setReplyText(e.target.value)}
-                            className="flex-1 px-6 py-4 bg-white rounded-2xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-100 transition-all text-sm font-medium"
-                          />
-                          <button
-                            type="submit"
-                            disabled={!replyText.trim()}
-                            className="p-4 bg-blue-600 text-white rounded-2xl hover:bg-blue-700 transition-all disabled:opacity-50 shadow-lg shadow-blue-100"
-                          >
-                            <Send className="w-5 h-5" />
-                          </button>
-                        </form>
-                      </>
-                    ) : (
-                      <div className="flex-1 flex flex-col items-center justify-center p-20 text-center space-y-6">
-                        <div className="w-20 h-20 bg-slate-50 rounded-[2rem] flex items-center justify-center text-slate-200">
-                          <MessageSquare className="w-10 h-10" />
-                        </div>
-                        <div className="space-y-2">
-                          <h4 className="text-xl font-bold text-slate-900">Select a Conversation</h4>
-                          <p className="text-sm text-slate-400 italic max-w-xs">Click on a chat session from the list to start replying in real-time.</p>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
               )}
             </motion.div>
           </AnimatePresence>

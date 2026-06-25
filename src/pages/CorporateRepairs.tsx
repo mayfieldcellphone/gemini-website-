@@ -34,7 +34,9 @@ export default function CorporateRepairs() {
       await sendSMSNotification('corporate', {
         companyName: formData.organization,
         contactName: formData.contactName,
-        phone: formData.phone
+        email: formData.email,
+        phone: formData.phone,
+        message: formData.message
       });
 
       setSubmitStatus('success');
@@ -75,7 +77,7 @@ export default function CorporateRepairs() {
   ];
 
   return (
-    <div className="pt-20">
+    <div>
       <Helmet>
         <title>Corporate & School Phone Repair Mayfield | Fleet Maintenance Newcastle</title>
         <meta name="description" content="Specialized fleet repair solutions for Mayfield's schools, universities, and businesses. Priority turnaround, B2B invoicing, and bulk volume discounts." />
@@ -83,7 +85,7 @@ export default function CorporateRepairs() {
         <meta property="og:description" content="Need reliable repairs for your staff or student devices? We offer priority service for local organizations and Hunter Valley education providers." />
       </Helmet>
       {/* Hero Section */}
-      <section className="relative px-6 md:px-12 py-32 bg-slate-50 overflow-hidden">
+      <section className="relative px-6 md:px-12 py-16 bg-slate-50 overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-slate-200/50 -skew-x-12 translate-x-1/2"></div>
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-24 items-center">
@@ -117,7 +119,7 @@ export default function CorporateRepairs() {
                <div className="aspect-square rounded-[4rem] overflow-hidden shadow-2xl relative">
                   <img 
                     src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80&w=1200" 
-                    alt="Corporate meeting" 
+                    alt="Newcastle business and school partners collaborating on corporate mobile device fleet repairs with Mayfield Phone Repair" 
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-blue-600/10 mix-blend-multiply"></div>
@@ -135,7 +137,7 @@ export default function CorporateRepairs() {
       </section>
 
       {/* Sector Focus */}
-      <section className="px-6 md:px-12 py-32 bg-white">
+      <section className="px-6 md:px-12 py-16 bg-white">
         <div className="max-w-7xl mx-auto space-y-24">
           <div className="max-w-3xl space-y-6">
              <h2 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em]">Who We Serve</h2>
@@ -166,7 +168,7 @@ export default function CorporateRepairs() {
       </section>
 
       {/* Feature Grid */}
-      <section className="px-6 md:px-12 py-32 bg-slate-900 border-y border-white/5 overflow-hidden relative">
+      <section className="px-6 md:px-12 py-16 bg-slate-900 border-y border-white/5 overflow-hidden relative">
         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-30"></div>
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-32 items-center">
            <div className="space-y-12">
@@ -209,7 +211,7 @@ export default function CorporateRepairs() {
       </section>
 
       {/* Contact / CTA */}
-      <section id="quote" className="px-6 md:px-12 py-32 bg-white">
+      <section id="quote" className="px-6 md:px-12 py-16 bg-white">
         <div className="max-w-7xl mx-auto space-y-20">
           <div className="bg-slate-50 rounded-[5rem] p-12 md:p-24 border border-slate-100 shadow-xl overflow-hidden relative">
             <div className="absolute top-0 right-0 w-2/3 h-full bg-blue-600/5 -skew-x-12 translate-x-1/2"></div>
@@ -297,7 +299,7 @@ export default function CorporateRepairs() {
                    </div>
                    <h4 className="text-2xl font-bold font-display">Email Our Team</h4>
                    <p className="text-slate-500 italic">Send through your device fleet list or insurance repair request.</p>
-                   <a href="mailto:mayfieldcellphonerepairs@gmail.com" className="text-blue-600 font-black uppercase text-xs tracking-widest inline-block pt-4 border-b-2 border-blue-600">mayfield@repair.com.au</a>
+                   <a href="mailto:support@mayfieldphonerepair.com.au" className="text-blue-600 font-black uppercase text-[10px] tracking-widest inline-block pt-4 border-b-2 border-blue-600">support@mayfieldphonerepair.com.au</a>
                 </div>
                 <div className="space-y-6 p-10 bg-white rounded-[3rem] border border-slate-200 shadow-sm hover:shadow-lg transition-all text-center">
                    <div className="w-16 h-16 bg-blue-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-6">

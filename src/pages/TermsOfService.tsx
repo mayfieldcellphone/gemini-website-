@@ -56,6 +56,8 @@ export default function TermsOfService() {
 
             <h2 className="text-3xl">9. Payment</h2>
             <p>Full payment is required when you pick up your device. We accept credit cards, mobile payments, and cash.</p>
+            <h2 className="text-3xl">10. Contact</h2>
+            <p>For any questions regarding these terms, please contact us at <a href="mailto:support@mayfieldphonerepair.com.au" className="text-blue-600 font-bold hover:underline">support@mayfieldphonerepair.com.au</a>.</p>
           </div>
         </div>
       </div>

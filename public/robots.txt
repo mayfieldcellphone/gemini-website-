@@ -1,14 +1,44 @@
+# www.robotstxt.org/
+# For: https://mayfieldphonerepair.com.au
+
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /wp-admin
+Disallow: /wp-includes
+Disallow: /wp-content
 
-# AI Crawler visibility
+# AI Crawlers and LLM Agents - Explicitly Allowed & Checked for Correctness
 User-agent: GPTBot
 Allow: /
 
 User-agent: ChatGPT-User
 Allow: /
 
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
 User-agent: Google-Extended
 Allow: /
 
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Cohere-ai
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Sitemap
 Sitemap: https://mayfieldphonerepair.com.au/sitemap.xml

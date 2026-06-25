@@ -10,13 +10,16 @@ import { sendSMSNotification } from '../lib/notifications';
 import { brands } from '../data/brands';
 import { servicesData } from '../data/services';
 import { blogPosts } from '../data/blogs';
+import { OpeningStatus } from '../components/OpeningStatus';
+import BirdeyeReviewWidget from '../components/BirdeyeReviewWidget';
 
 const BackgroundDecoration = () => (
-  <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10 bg-white">
-    {/* Grid removed on mobile to speed up rendering */}
-    <div className="absolute top-0 left-0 w-full h-full bg-grid-slate-100 opacity-[0.2] md:opacity-[0.4] hidden md:block" />
-    <div className="absolute top-[10%] left-[5%] w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px] hidden md:block lg:block" />
-    <div className="absolute bottom-[20%] right-[10%] w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[120px] hidden md:block lg:block" />
+  <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10 bg-slate-50/50">
+    <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_20%,_rgba(59,130,246,0.08)_0%,_transparent_50%)]" />
+    <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_80%_80%,_rgba(99,102,241,0.08)_0%,_transparent_50%)]" />
+    <div className="absolute top-0 left-0 w-full h-full bg-grid-slate-200/40 opacity-[0.4] [mask-image:radial-gradient(ellipse_at_center,black,transparent)]" />
+    <div className="absolute top-[10%] left-[5%] w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px] hidden md:block" />
+    <div className="absolute bottom-[20%] right-[10%] w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[120px] hidden md:block" />
   </div>
 );
 
@@ -51,6 +54,7 @@ export default function Home() {
     setSubmitStatus('idle');
 
     try {
+      // Original local record
       await addDoc(collection(db, 'quotes'), {
         ...formData,
         status: 'pending',
@@ -58,7 +62,7 @@ export default function Home() {
         updatedAt: serverTimestamp()
       });
 
-      // Send SMS Notification
+      // Send SMS Notification (which also syncs to external CRM/Inbox)
       await sendSMSNotification('quote', formData);
 
       setSubmitStatus('success');
@@ -87,141 +91,201 @@ export default function Home() {
     { q: "How long does a typical repair take?", a: "Most standard repairs like screen replacements and battery swaps are completed in under 45 minutes. More complex issues like water damage or micro-soldering can take 24-48 hours." },
     { q: "Will I lose the data on my device?", a: "For 99% of repairs (screens, batteries, charging ports), your data is completely safe and unaffected. However, we always highly recommend backing up your data before bringing your device in just to be completely safe." },
     { q: "What kind of warranty do you provide?", a: "We stand strictly by the quality of our parts and our labor. All repairs come automatically with our 90-day comprehensive warranty covering any defects in the parts we install." },
+    { q: "How much does an iPhone screen replacement cost?", a: "iPhone screen replacement starts from $89, depending on the model. Newer models like the iPhone 15 Pro Max will be at the higher end, while older models like the iPhone 11 are more affordable. Call us at <a href=\"tel:+61240491735\">(02) 4049 1735</a> for an exact quote for your specific iPhone model. To compare local pricing trends across the country, check out the national <a href=\"https://repairrange.io/repair/phone-repair-costs-australia.html\" target=\"_blank\" rel=\"noopener\">Australia phone repair costs</a> on RepairRange." }
   ];
 
   return (
     <div className="relative">
       <Helmet>
         <title>iPhone 17 & 16 Repair Mayfield | Samsung S26 Screen Fix Newcastle</title>
-        <meta name="description" content="Mayfield's leading repair shop for the newest iPhone 17, 16, and Samsung S26 series. Same-day screen repairs, battery replacements & water damage service in Newcastle. 90-day warranty." />
-        <link rel="canonical" href="https://mayfieldphonerepair.com.au/" />
+        <meta name="description" content="Same-day iPhone 17, 16 & Samsung S26 repairs in Mayfield, Newcastle. Screen fixes, battery replacements & water damage. 90-day warranty guaranteed." />
+        <link rel="canonical" href="https://mayfieldphonerepair.com.au" />
         <meta property="og:title" content="Expert iPhone 17 & 16 Repair Mayfield | Same Day Service" />
         <meta property="og:description" content="Cracked iPhone 17 screen? Samsung S26 battery issues? Mayfield's trusted experts fix the newest flagships with quality parts and fast turnaround." />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqs.map(faq => ({
-              "@type": "Question",
-              "name": faq.q,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": faq.a
+            "@graph": [
+              {
+                "@type": "MobilePhoneRepairShop",
+                "name": "Mayfield Phone Repair",
+                "image": "https://mayfieldphonerepair.com.au/logo.png",
+                "@id": "https://mayfieldphonerepair.com.au#organization",
+                "url": "https://mayfieldphonerepair.com.au",
+                "telephone": "02 4049 1735",
+                "priceRange": "$$",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "276 Maitland Rd",
+                  "addressLocality": "Mayfield",
+                  "addressRegion": "NSW",
+                  "postalCode": "2304",
+                  "addressCountry": "AU"
+                },
+                "geo": {
+                  "@type": "GeoCoordinates",
+                  "latitude": -32.898,
+                  "longitude": 151.738
+                },
+                "openingHoursSpecification": [
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                    "opens": "09:00",
+                    "closes": "17:00"
+                  },
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": "Saturday",
+                    "opens": "10:00",
+                    "closes": "16:00"
+                  },
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": "Sunday",
+                    "opens": "10:00",
+                    "closes": "14:00"
+                  }
+                ],
+                "sameAs": [
+                  "https://www.facebook.com/mayfieldcellphonerepairs/",
+                  "https://www.instagram.com/mayfieldcellphonerepairs/",
+                  "https://twitter.com/Mayfiel32990272",
+                  "https://www.linkedin.com/company/mayfield-cell-phone-repairs/",
+                  "https://www.youtube.com/@mayfieldcellphonerepairs",
+                  "https://www.tiktok.com/@mayfield.cell.pho"
+                ]
+              },
+              {
+                "@type": "FAQPage",
+                "mainEntity": faqs.map(faq => ({
+                  "@type": "Question",
+                  "name": faq.q,
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": faq.a
+                  }
+                }))
               }
-            }))
+            ]
           })}
         </script>
       </Helmet>
       <BackgroundDecoration />
       
       {/* Hero Section */}
-      <section className="relative px-6 md:px-12 py-16 md:py-32 flex flex-col md:flex-row items-center gap-12 lg:gap-16 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,_var(--tw-gradient-stops))] from-blue-100/30 via-transparent to-transparent"></div>
+      <section className="relative px-6 md:px-12 pt-8 pb-16 md:pt-16 md:pb-32 flex flex-col lg:flex-row items-center gap-12 lg:gap-20 max-w-7xl mx-auto overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-1/4 -left-1/4 w-[600px] h-[600px] bg-blue-600/5 rounded-full blur-[120px]" />
+        </div>
         
         <motion.div 
-          initial={typeof window !== 'undefined' && window.innerWidth < 768 ? { opacity: 1 } : { opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-          className="w-full lg:w-[55%] space-y-10 relative z-10 lg:pr-8"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          className="w-full lg:w-[60%] space-y-8 relative z-10"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-full shadow-sm">
-            <span className="flex h-2 w-2 rounded-full bg-blue-600 animate-pulse"></span>
-            <span className="text-technical text-blue-700">PREMIER REPAIR SERVICE // MAYFIELD</span>
-          </div>
-          
-          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-black leading-[0.85] tracking-tighter text-slate-900 font-display text-balance">
-            Phone <br/>
-            Repair <br/>
-            <span className="text-blue-600 font-display">Newcastle & Mayfield.</span>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-tight lg:leading-[0.9] tracking-tighter text-slate-900 font-display italic">
+            Phone Repair <br className="hidden md:block" />
+            <span className="text-blue-600 font-display not-italic">Newcastle <span className="text-blue-600/30 font-sans">&</span> Mayfield.</span>
           </h1>
           
-          <p className="text-lg md:text-2xl text-slate-600 leading-relaxed max-w-xl font-medium border-l-4 border-blue-100 pl-6">
-            Mayfield's highest-rated specialists for high-spec device restoration. We provide Newcastle with precision repairs that other shops turn away. 
+          <p className="text-xl md:text-2xl text-slate-600 leading-relaxed max-w-xl font-medium border-l-4 border-blue-600/20 pl-6 italic">
+            Mayfield's highest-rated specialists for high-spec device restoration. Newcastle's premium choice for repairs that others turn away.
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
+          <div className="flex flex-col sm:flex-row items-center gap-4 pt-6">
             <button 
               onClick={openBooking}
-              className="w-full sm:w-auto text-center px-10 py-5 bg-slate-900 text-white font-black uppercase tracking-[0.2em] text-[10px] rounded-2xl shadow-2xl shadow-slate-900/20 hover:bg-blue-600 hover:-translate-y-1 transition-all"
+              className="w-full sm:w-auto px-10 py-5 bg-slate-950 text-white font-black uppercase tracking-[0.2em] text-[10px] rounded-2xl shadow-2xl shadow-slate-950/20 hover:bg-blue-600 hover:-translate-y-1 transition-all"
             >
               Book A Repair
             </button>
             <Link 
               to="/#contact"
-              className="w-full sm:w-auto text-center px-10 py-5 bg-blue-600 text-white font-black uppercase tracking-[0.2em] text-[10px] rounded-2xl shadow-2xl shadow-blue-600/20 hover:bg-blue-700 transition-all font-display"
+              className="w-full sm:w-auto px-10 py-5 bg-blue-600 text-white font-black uppercase tracking-[0.2em] text-[10px] rounded-2xl shadow-2xl shadow-blue-600/20 hover:bg-blue-700 hover:-translate-y-1 transition-all text-center"
             >
-              Get A Quote
+              Talk to Us
             </Link>
-            <a href="tel:0240491735" className="w-full sm:w-auto flex items-center justify-center gap-4 px-10 py-5 bg-white border-2 border-slate-900 text-slate-900 font-black uppercase tracking-[0.2em] text-[10px] rounded-2xl hover:bg-slate-50 transition-all group font-display">
+            <a href="tel:0240491735" className="w-full sm:w-auto flex items-center justify-center gap-4 px-10 py-5 bg-white border border-slate-200 rounded-2xl hover:bg-slate-50 transition-all font-black uppercase tracking-[0.15em] text-[10px] text-slate-600">
               <Phone className="w-4 h-4 text-blue-600" />
               <span>02 4049 1735</span>
             </a>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 pt-8 border-t border-slate-200">
+          <div className="flex flex-wrap gap-x-12 gap-y-6 pt-10 border-t border-slate-200/60">
             <div className="space-y-1">
-              <span className="text-technical text-slate-400">WARRANTY_TYPE</span>
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">WARRANTY_TYPE</span>
               <p className="text-sm font-bold text-slate-900 font-display uppercase tracking-widest">90-Day Hardware Guarantee</p>
             </div>
             <div className="space-y-1">
-              <span className="text-technical text-slate-400">DIAGNOSTIC_FEE</span>
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">DIAGNOSTIC_FEE</span>
               <p className="text-sm font-bold text-slate-900 font-display uppercase tracking-widest">$0.00 / Free Check-up</p>
             </div>
           </div>
         </motion.div>
         
-        {!isMobile && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="w-full lg:w-[40%] relative z-10 hidden lg:block"
-          >
-              {/* Main Image Container with offset layout - hidden on mobile to boost LCP */}
-              <div className="relative group">
-                <div className="absolute -inset-4 bg-gradient-to-tr from-blue-600/20 to-indigo-600/20 rounded-[4rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 hidden md:block"></div>
-                <div className="relative aspect-[4/5] rounded-[3.5rem] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.15)] overflow-hidden border-8 border-white hidden md:block">
-                  <img 
-                    src="https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?auto=format&fit=crop&q=80&w=600" 
-                    alt="Technician repairing an iPhone screen in Mayfield repair shop" 
-                    className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000"
-                    fetchPriority="high"
-                    decoding="async"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
-                </div>
-
-              {/* Floating Trust Card: Social Proof */}
-              <motion.div 
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute -top-10 -right-4 md:-right-10 bg-white/95 backdrop-blur-md p-6 rounded-3xl shadow-2xl border border-slate-100/50 flex flex-col gap-3 min-w-[200px]"
-              >
-                <div className="flex items-center gap-2">
-                  <div className="flex -space-x-2">
-                    {[1,2,3].map(i => (
-                      <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
-                        <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt={`Mayfield Phone Repair Customer ${i}`} />
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9, rotateY: 20 }}
+          animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="w-full lg:w-[40%] relative z-10 perspective-1000"
+        >
+          <div className="relative group">
+            {/* Visual element that fills the space better */}
+            <div className="absolute -inset-10 bg-gradient-to-tr from-blue-600/20 to-indigo-600/10 rounded-full blur-[100px] opacity-60 group-hover:opacity-100 transition-opacity duration-1000"></div>
+            
+            <div className="relative aspect-[3/4] md:aspect-square bg-slate-900 rounded-[4rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] border-[12px] border-white/5 group-hover:border-blue-500/20 transition-colors duration-700">
+              <img 
+                src="https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?auto=format&fit=crop&q=80&w=800" 
+                alt="Precision phone repair in Mayfield shop" 
+                className="w-full h-full object-cover scale-110 group-hover:scale-105 transition-transform duration-1000 opacity-80" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60"></div>
+              
+              {/* Floating Tech Overlay */}
+              <div className="absolute bottom-12 left-12 right-12 p-8 bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex -space-x-3">
+                    {[1,2,3,4].map(i => (
+                      <div key={i} className="w-10 h-10 rounded-full border-2 border-slate-900 bg-slate-800 overflow-hidden">
+                        <img src={`https://i.pravatar.cc/100?img=${i+20}`} alt="customer" />
                       </div>
                     ))}
                   </div>
-                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">+1,200 Fixed</span>
-                </div>
-                <div className="h-px bg-slate-100 w-full" />
-                <div className="flex items-center justify-between">
-                  <div className="flex text-amber-400 gap-0.5">
-                    {[1,2,3,4,5].map(i => <Sparkles key={i} className="w-3 h-3 fill-current" />)}
+                  <div className="text-right">
+                    <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Performance</p>
+                    <p className="text-sm font-bold text-white">99.8% SUCCESS</p>
                   </div>
-                  <span className="text-xs font-black text-slate-900">5.0 RATING</span>
                 </div>
-              </motion.div>
+                <div className="h-1 bg-white/10 rounded-full overflow-hidden">
+                  <motion.div 
+                    initial={{ width: 0 }}
+                    whileInView={{ width: '99%' }}
+                    transition={{ duration: 1.5, delay: 0.5 }}
+                    className="h-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)]"
+                  />
+                </div>
+              </div>
             </div>
-          </motion.div>
-        )}
+
+            {/* Rating Pill */}
+            <motion.div 
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+              className="absolute -top-6 -right-6 bg-white p-6 rounded-[2.5rem] shadow-2xl border border-slate-100 flex flex-col items-center gap-1"
+            >
+              <div className="flex text-amber-400 gap-0.5">
+                {[1,2,3,4,5].map(i => <Sparkles key={i} className="w-3 h-3 fill-current" />)}
+              </div>
+              <span className="text-[10px] font-black text-slate-900 tracking-tighter">5.0 GOOGLE RATING</span>
+            </motion.div>
+          </div>
+        </motion.div>
       </section>
 
       {/* Brands Section */}
-      <section id="brands" className="relative px-6 md:px-12 py-20 md:py-32 bg-slate-50 border-y border-slate-200">
+      <section id="brands" className="relative px-6 md:px-12 py-12 md:py-20 bg-slate-50 border-y border-slate-200">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-12 gap-12 items-end mb-16">
             <div className="lg:col-span-8 space-y-6">
@@ -254,11 +318,62 @@ export default function Home() {
               </Link>
             ))}
           </div>
+
+          {/* Pricing Transparency Summary Table Module */}
+          <div className="mt-16 bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-slate-200/60 max-w-4xl mx-auto space-y-8">
+            <div className="text-center space-y-3">
+              <span className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em] font-display">PRICING TRANSPARENCY</span>
+              <h3 className="text-2xl md:text-3xl font-bold font-display tracking-tight text-slate-900">Estimated Repair Starting Prices</h3>
+              <p className="text-slate-500 text-sm max-w-2xl mx-auto">
+                No hidden fees or surprises. Below are estimates for popular screens, batteries, and diagnostic assessments across Newcastle and Mayfield.
+              </p>
+            </div>
+
+            <div className="overflow-x-auto rounded-2xl border border-slate-100 bg-slate-50">
+              <table className="w-full text-left border-collapse text-sm">
+                <thead>
+                  <tr className="bg-slate-100 border-b border-slate-200 text-slate-500 uppercase tracking-wider font-extrabold text-[10px] font-display">
+                    <th className="py-4 px-6 md:px-8">Brand Ecosystem</th>
+                    <th className="py-4 px-6 md:px-8">Screen Restoration</th>
+                    <th className="py-4 px-6 md:px-8">Battery Cell Replacement</th>
+                    <th className="py-4 px-6 md:px-8">Diagnostic Assessment</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 text-slate-700 font-medium">
+                  {brands.map((brand) => (
+                    <tr key={brand.id} className="hover:bg-white transition-colors">
+                      <td className="py-4 px-6 md:px-8 font-bold text-slate-900 flex items-center gap-3">
+                        <span className={`w-2.5 h-2.5 rounded-full bg-gradient-to-br ${brand.color}`} />
+                        {brand.name}
+                      </td>
+                      <td className="py-4 px-6 md:px-8 text-blue-600 font-bold">From ${brand.startingPrice.screen}</td>
+                      <td className="py-4 px-6 md:px-8 text-emerald-600 font-bold">From ${brand.startingPrice.battery}</td>
+                      <td className="py-4 px-6 md:px-8 text-slate-400 font-semibold italic">Always $0.00 / Free</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div className="pt-4 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-semibold text-slate-400">
+              <p className="italic text-center md:text-left">* Prices vary by model and grade of components. Standard assessment is always free of cost.</p>
+              <button onClick={openBooking} className="text-blue-600 hover:text-blue-700 whitespace-nowrap flex items-center gap-2 group font-black uppercase tracking-widest text-[10px] cursor-pointer">
+                GET REPAIR QUOTE <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
+
+            {/* RepairRange Verification Note */}
+            <div className="pt-4 border-t border-slate-100 text-center">
+              <p className="text-[11px] text-slate-400 font-medium">
+                Prices verified by <a href="https://repairrange.io" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600 font-semibold hover:underline">RepairRange.io</a> — Australia's independent repair cost database
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section id="services" className="relative px-6 md:px-12 py-20 md:py-32 bg-white">
+      <section id="services" className="relative px-6 md:px-12 py-12 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-20">
             <div className="space-y-4">
@@ -302,11 +417,41 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
+
+          {/* DIY Repair Kits Promo Section */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="bg-slate-50 border border-slate-100 p-8 md:p-12 rounded-[2.5rem] mt-16 flex flex-col md:flex-row items-center justify-between gap-8 hover:border-slate-200 transition-all duration-300 relative overflow-hidden"
+          >
+            <div className="space-y-4 text-left">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#00C2A8]/10 text-teal-600 uppercase tracking-wider">
+                DIY Option
+              </span>
+              <h3 className="text-3xl font-black text-slate-900 font-display tracking-tight">On a Budget? Fix It Yourself</h3>
+              <p className="text-slate-600 max-w-2xl font-medium text-sm md:text-base leading-relaxed">
+                We supply DIY screen and battery replacement kits with all the tools you need. Kits start from $22 with a 90-day warranty and same-day dispatch.
+              </p>
+            </div>
+            <div className="w-full md:w-auto flex-shrink-0">
+              <a 
+                href="https://selfrepairkit.com.au/shop.html" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-flex items-center justify-center gap-2 px-8 py-5 bg-[#00C2A8] text-slate-950 font-black uppercase tracking-[0.2em] text-[10px] rounded-2xl hover:bg-slate-950 hover:text-white transition-all duration-300 shadow-xl shadow-[#00C2A8]/20 w-full md:w-auto text-center"
+              >
+                Browse DIY Kits
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Process / Steps */}
-      <section className="relative px-6 md:px-12 py-20 md:py-32 bg-slate-950 text-white rounded-[3rem_3rem_0_0] overflow-hidden">
+      <section className="relative px-6 md:px-12 py-12 md:py-20 bg-slate-950 text-white rounded-[3rem_3rem_0_0] overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full bg-grid-slate-100 opacity-[0.03]" />
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-600/10 blur-[150px] rounded-full"></div>
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 lg:gap-24 items-center relative z-10">
@@ -332,7 +477,7 @@ export default function Home() {
                 to="/#contact"
                 className="w-full sm:w-auto bg-blue-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] hover:bg-blue-700 transition-all shadow-2xl shadow-blue-600/20 text-center"
               >
-                Get Quote
+                Talk to Us
               </Link>
             </div>
           </div>
@@ -359,7 +504,7 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section id="why-us" className="relative px-6 md:px-12 py-20 md:py-32 bg-slate-950 text-white border-t border-white/5">
+      <section id="why-us" className="relative px-6 md:px-12 py-12 md:py-24 bg-slate-950 text-white border-t border-white/5">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 lg:gap-24 items-center">
           <div className="w-full md:w-1/2 space-y-12">
              <div className="space-y-4">
@@ -410,8 +555,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Birdeye Reviews Widget */}
+      <BirdeyeReviewWidget />
+
       {/* Blog Section */}
-      <section className="relative px-6 md:px-12 py-20 md:py-32 bg-white">
+      <section className="relative px-6 md:px-12 py-12 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-20">
             <div className="space-y-4">
@@ -426,7 +574,11 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {blogPosts.slice(0, 3).map((post) => (
+            {blogPosts
+              .filter(post => post.date <= new Date().toISOString().split('T')[0])
+              .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+              .slice(0, 3)
+              .map((post) => (
               <Link 
                 key={post.id} 
                 to={`/blog/${post.slug}`}
@@ -456,7 +608,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="relative px-6 md:px-12 py-20 md:py-32 bg-slate-50">
+      <section className="relative px-6 md:px-12 py-12 md:py-20 bg-slate-50">
         <div className="max-w-4xl mx-auto">
           <div className="text-center space-y-4 mb-20">
             <span className="text-technical text-blue-600">COMMON QUESTIONS</span>
@@ -483,9 +635,10 @@ export default function Home() {
                 </button>
                 <div className="flex-1 overflow-hidden">
                   {activeFaq === idx && (
-                    <div className="px-10 md:px-20 pb-10 text-slate-500 font-medium text-lg leading-relaxed border-t border-slate-50 pt-8 mx-4">
-                      {faq.a}
-                    </div>
+                    <div 
+                      className="px-10 md:px-20 pb-10 text-slate-500 font-medium text-lg leading-relaxed border-t border-slate-50 pt-8 mx-4"
+                      dangerouslySetInnerHTML={{ __html: faq.a }}
+                    />
                   )}
                 </div>
               </div>
@@ -547,8 +700,74 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Helpful Resources Section */}
+      <section className="relative px-6 md:px-12 py-12 md:py-20 bg-slate-50 border-t border-b border-slate-200">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center space-y-4 mb-16">
+            <span className="text-technical text-blue-600">REPAIR DATABASE & BENCHMARKS</span>
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900 font-display tracking-tighter">Helpful Resources & Guides.</h2>
+            <p className="text-slate-500 font-medium max-w-2xl mx-auto">Get accurate repair intelligence, technical explanations, and cost guidelines beforehand.</p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                title: 'How Much Does Phone Repair Cost?',
+                desc: 'Compare upfront price guidelines and calculate your repair costs across Australia.',
+                url: 'https://repairrange.io/calculator.html',
+                icon: Wrench,
+              },
+              {
+                title: 'INCELL vs OLED vs OEM Screens',
+                desc: 'Understand the core technical display quality differences before buying screens.',
+                url: 'https://selfrepairkit.com.au/blog/incell-vs-oled-vs-oem-screen-replacement-guide.html',
+                icon: Smartphone,
+              },
+              {
+                title: 'Can You Replace Your Own Battery?',
+                desc: 'Learn about local safety coordinates, risk mitigations, and battery installation tips.',
+                url: 'https://selfrepairkit.com.au/blog/can-you-replace-phone-battery-guide.html',
+                icon: Battery,
+              },
+              {
+                title: 'Find Repair Shops Near You',
+                desc: 'Access the country-wide independent quality repair station locator map easily.',
+                url: 'https://repairrange.io/locations.html',
+                icon: MapPin,
+              },
+            ].map((res, i) => {
+              const Icon = res.icon;
+              return (
+                <a
+                  key={i}
+                  href={res.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col justify-between p-8 bg-white border border-slate-100 rounded-[2.2rem] hover:border-blue-500 hover:shadow-2xl hover:shadow-blue-500/5 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+                >
+                  <div className="space-y-4">
+                    <div className="w-12 h-12 rounded-2xl bg-slate-50 text-slate-900 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <h3 className="text-lg md:text-xl font-bold font-display tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">
+                      {res.title}
+                    </h3>
+                    <p className="text-slate-500 text-sm font-medium leading-relaxed">
+                      {res.desc}
+                    </p>
+                  </div>
+                  <div className="pt-6 flex items-center gap-2 text-technical text-blue-600 group-hover:gap-3 transition-all mt-auto">
+                    READ GUIDE <ArrowRight className="w-3 h-3" />
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
-      <section id="contact" className="relative px-6 md:px-12 py-20 md:py-32 bg-white">
+      <section id="contact" className="relative px-6 md:px-12 py-12 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="bg-slate-950 rounded-[3rem] p-10 md:p-20 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-600/10 blur-[120px] rounded-full translate-x-1/2"></div>
@@ -573,7 +792,7 @@ export default function Home() {
                       </div>
                       <div>
                         <p className="text-technical text-slate-500">SHOP LOCATION</p>
-                        <p className="text-white font-bold text-lg font-display">276 Maitland Rd, Mayfield NSW 2304</p>
+                        <p className="text-white font-bold text-lg font-display"><a href="https://maps.google.com/?q=Mayfield+Cell+Phone+Repairs,+276+Maitland+Rd,+Mayfield+NSW+2304" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">276 Maitland Rd, Mayfield NSW 2304</a></p>
                       </div>
                    </div>
 
@@ -589,11 +808,21 @@ export default function Home() {
 
                    <div className="flex items-center gap-6 group">
                       <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group-hover:bg-blue-600 transition-colors shadow-lg">
+                        <Mail className="w-6 h-6 text-blue-400 group-hover:text-white" />
+                      </div>
+                      <div>
+                        <p className="text-technical text-slate-500">SUPPORT EMAIL</p>
+                        <a href="mailto:support@mayfieldphonerepair.com.au" className="text-white font-bold text-lg font-display italic transition-colors hover:text-blue-400">support@mayfieldphonerepair.com.au</a>
+                      </div>
+                   </div>
+
+                   <div className="flex items-center gap-6 group">
+                      <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group-hover:bg-blue-600 transition-colors shadow-lg">
                         <Clock className="w-6 h-6 text-blue-400 group-hover:text-white" />
                       </div>
                       <div>
                         <p className="text-technical text-slate-500">OPENING HOURS</p>
-                        <p className="text-white font-bold text-lg font-display">M-F: 09:00-17:00 | SAT: 10:00-16:00</p>
+                        <OpeningStatus />
                       </div>
                    </div>
                 </div>
@@ -624,7 +853,7 @@ export default function Home() {
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                           className="w-full px-6 py-4 bg-slate-50 rounded-2xl border border-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-base font-medium" 
-                          placeholder="Ex: John Doe" 
+                          placeholder="Your Name" 
                         />
                       </div>
                       <div className="space-y-2">

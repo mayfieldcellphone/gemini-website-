@@ -22,8 +22,8 @@ service cloud.firestore {
     // Schema Validations
     function isValidBooking(data) {
       return data.keys().hasAll(['customerName', 'phone', 'category', 'brand', 'model', 'service', 'date', 'time', 'status', 'createdAt', 'updatedAt'])
-        && data.customerName is string && data.customerName.size() <= 200
-        && data.phone is string && data.phone.size() <= 50
+        && data.customerName is string && data.customerName.size() <= 100
+        && data.phone is string && data.phone.size() <= 20
         && data.status in ['pending', 'confirmed', 'completed', 'cancelled']
         && data.createdAt is timestamp
         && data.updatedAt is timestamp;
@@ -31,38 +31,22 @@ service cloud.firestore {
 
     function isValidQuote(data) {
       return data.keys().hasAll(['name', 'phone', 'details', 'status', 'createdAt', 'updatedAt'])
-        && data.name is string && data.name.size() <= 200
-        && data.phone is string && data.phone.size() <= 50
-        && data.details is string && data.details.size() <= 5000
+        && data.name is string && data.name.size() <= 100
+        && data.phone is string && data.phone.size() <= 20
+        && data.details is string && data.details.size() <= 2000
         && data.status in ['pending', 'contacted', 'completed', 'cancelled'];
     }
 
     function isValidLead(data) {
       return data.keys().hasAll(['customerName', 'message', 'type', 'status', 'createdAt'])
-        && data.customerName is string && data.customerName.size() <= 200
-        && data.message is string && data.message.size() <= 5000
+        && data.customerName is string && data.customerName.size() <= 100
+        && data.message is string && data.message.size() <= 2000
         && data.type in ['contact', 'quote', 'booking']
         && data.status in ['new', 'viewed', 'archived']
-        && data.createdAt is string; 
-    }
-
-    function isValidVoice(data) {
-      return data.keys().hasAll(['customerName', 'customerPhone', 'audioUrl', 'duration', 'status', 'createdAt'])
-        && data.customerName is string && data.customerName.size() <= 200
-        && data.customerPhone is string && data.customerPhone.size() <= 50
-        && data.audioUrl is string && data.audioUrl.size() <= 10485760 // 10MB limit for base64
-        && data.duration is number
-        && data.status in ['new', 'listened', 'archived'];
+        && data.createdAt is string; // The app sends ISO string
     }
 
     // Match Blocks
-    match /voice_messages/{vmId} {
-      allow create: if isValidId(vmId) && isValidVoice(incoming())
-        && incoming().status == 'new'
-        && incoming().createdAt == request.time;
-      allow read, update, delete: if isAdmin();
-    }
-
     match /bookings/{bookingId} {
       allow create: if isValidId(bookingId) && isValidBooking(incoming()) 
         && incoming().status == 'pending' 
@@ -73,15 +57,17 @@ service cloud.firestore {
     match /quotes/{quoteId} {
       allow create: if isValidId(quoteId) && isValidQuote(incoming())
         && incoming().status == 'pending'
-        && (incoming().createdAt == request.time || incoming().createdAt is timestamp);
+        && incoming().createdAt == request.time;
       allow read, update, delete: if isAdmin();
     }
 
     match /users/{userId}/leads/{leadId} {
+      // Allow public creation for the target inbox user
       allow create: if userId == 'BSOiqXCyZ9M25962BnJI7K9Mh8G2' 
         && isValidId(leadId) 
         && isValidLead(incoming())
         && incoming().status == 'new';
+      // Only admin or the owner (if they are signed in as that UID) can read
       allow read, write: if isAdmin() || (isSignedIn() && request.auth.uid == userId);
     }
 
@@ -91,7 +77,7 @@ service cloud.firestore {
 
     match /chats/{chatId} {
       allow create: if isValidId(chatId);
-      allow read, update: if true;
+      allow read, update: if true; // Public chat access
       
       match /messages/{messageId} {
         allow create: if isValidId(messageId) && incoming().isAdmin == false;

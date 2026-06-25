@@ -12,7 +12,7 @@ export default function AboutUs() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative py-24 bg-slate-900 overflow-hidden">
+      <section className="relative py-16 bg-slate-900 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_30%,#3b82f6_0%,transparent_50%)]" />
         </div>
@@ -47,7 +47,7 @@ export default function AboutUs() {
       </section>
 
       {/* History & Mission */}
-      <section className="py-24 border-b border-slate-100">
+      <section className="py-16 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div className="space-y-8">
@@ -101,7 +101,7 @@ export default function AboutUs() {
       </section>
 
       {/* Expertise Section */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-3xl md:text-5xl font-display font-bold text-slate-900 tracking-tight">The Technician Advantage</h2>
@@ -146,14 +146,17 @@ export default function AboutUs() {
       </section>
 
       {/* CTA */}
-      <section className="py-24">
+      <section className="py-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="bg-slate-900 rounded-[3rem] p-12 md:p-20 relative overflow-hidden">
             <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
             <div className="relative z-10 space-y-8">
               <h2 className="text-3xl md:text-5xl font-display font-bold text-white tracking-tight">Experience our commitment first-hand.</h2>
-              <p className="text-slate-400 text-lg">Visit us at 276 Maitland Rd, Mayfield NSW</p>
+              <p className="text-slate-400 text-lg"><a href="https://maps.google.com/?q=Mayfield+Cell+Phone+Repairs,+276+Maitland+Rd,+Mayfield+NSW+2304" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">Visit us at 276 Maitland Rd, Mayfield NSW</a></p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="mailto:support@mayfieldphonerepair.com.au" className="bg-white/10 text-white border border-white/20 px-10 py-6 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-white/20 transition-all font-display italic">
+                  Email Support
+                </a>
                 <a href="tel:0240491735" className="bg-blue-600 text-white px-10 py-6 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/30">
                   Call 02 4049 1735
                 </a>

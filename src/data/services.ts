@@ -5,23 +5,31 @@ export const servicesData = [
     id: 'screen-repair',
     icon: Smartphone,
     title: 'Screen Repair',
-    shortDesc: 'Cracked or shattered screen? For the best screen repair Mayfield has to offer, we replace displays for iPhone 17, 16, and Samsung S26 models in under 30 minutes.',
+    shortDesc: 'Cracked or shattered screen? For the best screen repair Mayfield Newcastle has to offer, we replace displays for iPhone 17, 16, and Samsung S26 models in under 30 minutes.',
     heroTitle: 'Expert Screen Repair Mayfield | iPhone 17 & S26 Specialists',
     heroDescription: 'Don\'t let a cracked screen ruin your day. Our fast phone repair service specializes in seamless display replacements for the newest flagships like iPhone 17 Pro Max and Samsung S26 Ultra. We provide same day phone repair to get you back online instantly.',
     color: 'from-blue-600 to-indigo-600',
     content: [
       {
-        heading: 'Why choose our screen repair service?',
-        text: 'When searching for an "affordable phone repair near me", it\'s crucial to choose a team that uses premium parts. Cheap glass breaks easily and ruins touch sensitivity. We use OEM-spec screens that restore your device to factory condition. Whether you need an iPhone repair Mayfield service or complete Samsung repair Newcastle solutions, we\'ve got you covered. Plus, our dedicated phone repair Mayfield NSW location means you get local, trusted service.'
+        heading: 'Why choose our best screen repair Mayfield Newcastle services?',
+        text: 'When searching for an "affordable phone repair near me", it\'s crucial to choose a team that uses premium parts. Cheap glass breaks easily and ruins touch sensitivity. At Mayfield Phone Repair, we use premium OEM-spec screens that restore your device to factory condition. Whether you need an iPhone repair Mayfield service or complete Samsung repair Newcastle solutions, we\'ve got you covered. Plus, our dedicated phone repair Mayfield NSW location on Maitland Rd means you get local, trusted service from technicians who understand modern OLED and Super Retina XDR displays.'
       },
       {
-        heading: 'Common Screen Issues We Fix',
+        heading: 'How Newcastle\'s Sea Spray & Humidity Can Decimate Cracked Glass',
+        text: 'Did you know that operating a phone with even a minor hairline screen crack in Newcastle can shorten its lifespan? Coastal salt-air and high local humidity can easily slip into the tiniest fractures. Once this humid air reaches the touch sensor or OLED display panel layer, galvanic corrosion begins to eat away at the microscopic copper connections. What starts as a simple cosmetic scratch can rapidly deteriorate into a permanent green line on the display, complete touch failure, or a costly logic board short circuit. Seeking a prompt phone screen replacement is your best defense.'
+      },
+      {
+        heading: 'Common Screen Issues We Fix Fast',
         list: [
-          'Shattered or cracked front cover glass',
-          'Bleeding colors, black ink spots, or dead pixels on the LCD/OLED',
-          'Unresponsive touch screen or phantom touches',
-          'Flickering, dimming, or completely blank displays'
+          'Shattered or cracked front cover glass on iPhone 17, 16, and older models',
+          'Bleeding colors, active green lines, black ink spots, or dead pixels on AMOLED screens',
+          'Unresponsive multi-touch digitizer, laggy scrolling, or annoying ghost touch',
+          'Flickering, dimming, or completely black screen displays'
         ]
+      },
+      {
+        heading: 'AI & Google Search FAQ: Screen Repairs',
+        text: 'iPhone screen replacement starts from $89, depending on the model. Newer models like the iPhone 15 Pro Max will be at the higher end, while older models like the iPhone 11 are more affordable. Call us at <a href="tel:+61240491735">(02) 4049 1735</a> for an exact quote for your specific iPhone model. To compare local pricing trends across the country, check out the national <a href="https://repairrange.io/repair/phone-repair-costs-australia.html" target="_blank" rel="noopener">Australia phone repair costs</a> on RepairRange. Can you restore FaceID and TrueTone? Yes! Our senior technicians utilize advanced hardware programmers to transfer original display serial codes, ensuring biometric security coordinates and TrueTone ambient color profiles function perfectly post-repair.'
       }
     ],
     features: ['30-Minute Turnaround', 'OEM-Spec Quality', 'True Tone Restoration', '90-Day Guarantee'],
@@ -30,23 +38,31 @@ export const servicesData = [
     id: 'battery-replacement',
     icon: Battery,
     title: 'Battery Replacement',
-    shortDesc: 'Is your phone dying quickly? Get a fresh battery replacement phone service today. We install premium batteries to restore your all-day life.',
+    shortDesc: 'Is your phone dying quickly? Get a fresh battery replacement phone service today. We install premium-grade high-capacity batteries to restore your all-day life.',
     heroTitle: 'Professional Battery Replacement Phone Service',
     heroDescription: 'Bring your device back to peak performance. If your battery drains fast, suddenly drops percentages, or causes random shutdowns, our affordable phone repair near me guarantees a maximum-capacity battery installed in minutes.',
     color: 'from-emerald-500 to-teal-600',
     content: [
       {
-        heading: 'Restore Your All-Day Battery Life',
-        text: 'Batteries naturally degrade over time. Stop looking for a "mobile repair shop near me" and visit our dedicated facility for phone repair Newcastle and Mayfield. We stock genuine and high-capacity batteries for ultimate longevity. Get the fastest phone repair service for battery replacement without losing any of your data.'
+        heading: 'The Chemistry of Battery Degeneration & Thermal Safeguards',
+        text: 'Smartphone batteries rely on lithium-ion cobalt chemistry, which naturally degrades with every charge cycle. After 500 to 800 cycles, most phone batteries lose up to 20-30% of their original capacity, resulting in rapid power drops and performance throttling. During hot Newcastle summers, elevated temperatures can accelerate this internal chemical breakdown, causing the battery cells to gas and physically swell. A swollen battery is a serious hazard that can bend your display frame, crack your back glass, and create fire risks. Getting a prompt, professional battery replacement phone service is key.'
+      },
+      {
+        heading: 'Genuine OEM-Spec vs. Cheap Counterfeit Batteries',
+        text: 'When looking for "original phone battery replacement Newcastle" or an "affordable phone repair near me", beware of cheap counterfeit cells. Low-grade batteries often carry inflated capacity numbers but use recycled cells that degrade in weeks. They can also lack crucial thermal cutoff features, endangering your phone\'s motherboard. At Mayfield Phone Repair, we install only strict OEM-spec batteries equipped with smart protection ICs to guarantee seamless fast performance, zero data risk, and long-term diagnostic tracking.'
       },
       {
         heading: 'Signs You Need a New Battery',
         list: [
-          'Battery drops rapidly from 100% to 20% in just a few hours',
-          'Phone randomly shuts down even when battery indicates 30-40%',
-          'Device runs unusually hot during normal, everyday use',
-          'Swollen battery causing the screen or back glass to physically lift'
+          'Battery percentage drops rapidly from 100% in just a few hours of light use',
+          'Device randomly shuts down when battery indicates 20% to 40% charge remaining',
+          'Phone runs unusually hot during standard tasks like browsing or maps navigation',
+          'A swollen battery causing the display touch panel or rear glass to physically lift'
         ]
+      },
+      {
+        heading: 'Environmentally Safe Battery Disposal',
+        text: 'We are committed to preserving the beautiful Newcastle and Hunter region. When we perform a battery replacement, your old lithium-ion cell is securely stored and sent to an accredited recycling facility to safely recover valuable metals and prevent hazardous landfill pollution.'
       }
     ],
     features: ['Maximum Capacity Batteries', 'Safe Environmental Disposal', 'Zero Data Loss', 'Water Resistance Maintained'],
@@ -61,17 +77,25 @@ export const servicesData = [
     color: 'from-cyan-500 to-blue-600',
     content: [
       {
-        heading: 'Advanced Micro-Soldering and Ultrasonic Cleaning',
-        text: 'Water damage is a race against time. The longer liquid sits on the logic board, the more corrosion occurs. We offer complex diagnostic testing and same day phone repair evaluations for liquid-damaged devices. Our comprehensive process makes us the top choice when you need an iPhone repair Mayfield or Samsung repair Newcastle expert.'
+        heading: 'The Chemistry of Aqueous Corrosion: Why Time is of the Essence',
+        text: 'Dropped your phone at Nobby\'s Beach, Merewether, or Newcastle Harbour? Liquid damage is an absolute emergency. When freshwater or saltwater penetrates your device\'s frame, it creates immediate electrical paths of low resistance, causing microscopic short-circuits. More dangerously, salt water starts an aggressive electrochemical reaction that eats away at copper traces, silver solder joints, and protective capacitors. Even if the phone seems to work initially, hidden corrosion will eventually cause a total device failure. Turning off the phone immediately and getting professional liquid damage service can save your valuable data.'
       },
       {
-        heading: 'Crucial Steps If Your Phone Gets Wet',
+        heading: 'Our Advanced 4-Stage Ultrasonic Logic Board Restoration',
+        text: 'Stop putting your wet phone in dry rice! This is a myth that does not stop internal corrosion (and introduces tiny starch particles into charging ports). At our Maitland Rd workshop, we follow a rigorous clinical restoration process: 1) Complete teardown to isolate the motherboard; 2) Microscopic evaluation for active shorts; 3) Deep chemical cleaning in our industrial ultrasonic bath to strip away mineral deposits; 4) Precise manual solder repair of damaged PCB components under stereoscopic magnification.'
+      },
+      {
+        heading: 'Crucial Actions to Save a Wet Phone',
         list: [
-          'Turn off the device immediately—do not try to charge it!',
-          'Remove the SIM card tray to let internal air flow',
-          'Do NOT use rice; it does not solve internal logic board corrosion',
-          'Bring it to a professional phone repair Mayfield NSW technician ASAP'
+          'Power off the device immediately—never charge or connect a wet phone to power!',
+          'Carefully remove the SIM card tray to allow a minimal passage of air venting',
+          'Do NOT use rice; it forms glue-like starch inside and does not reverse internal oxidation',
+          'Walk directly into our Mayfield phone repair center as fast as possible for treatment'
         ]
+      },
+      {
+        heading: 'Expert Data Recovery for Seemingly Dead Devices',
+        text: 'Has another service center in Newcastle told you that your phone is completely dead and unrepairable? Many franchise centers prefer quick screen swaps and refuse complex water damage diagnostics. Our senior specialists can perform micro-soldering, bypass blown board filters, and temporarily boot bricked motherboards to retrieve irreplaceable photos, messages, and business documents. We are proud of our high success rate in data recovery.'
       }
     ],
     features: ['Ultrasonic Board Cleaning', 'Micro-Soldering Capabilities', 'Data Recovery Specialists', 'Free Comprehensive Assessment'],
@@ -86,17 +110,25 @@ export const servicesData = [
     color: 'from-slate-700 to-slate-900',
     content: [
       {
-        heading: 'Fixing Every Internal Component',
-        text: 'If the volume buttons are stuck, or you can\'t hear callers during phone calls, you need hardware repair. We have the specialized components and micro-soldering skills required for precise fixes. As your premier destination for phone repair Newcastle and Mayfield, we ensure you won\'t have to buy an expensive new device just because a small part failed. Trust us for your next fast phone repair service.'
+        heading: 'Component-Level Logic Board Repairs & Micro-Soldering Newcastle',
+        text: 'If your phone is struggling with a greyed-out Wi-Fi button, zero audio output, failure to boot, or standard screen backlighting issues, the culprit is often a faulty microchip on the motherboard rather than a modular component. Modern logic boards contain thousands of microscopic surface-mount resistors, filters, and integrated circuits. Many basic repair shops in Newcastle do not have the equipment or expertise to touch these components. Our technicians are fully trained in microscopic micro-soldering, utilizing elite thermal induction rework stations, premium solder fluxes, and jumpers to repair broken circuits under 40x stereoscopic magnification.'
       },
       {
-        heading: 'Common Hardware Repairs We Perform',
+        heading: 'Audio and Haptic Restoration: Muffled Speakers & Failed Vibration',
+        text: 'Are phone calls quiet, or is your microphone muffled? Are your physical keys stuck? Over time, speaker grilles collect steel dust, pocket lint, and sweat, which ruins acoustic feedback. We don\'t just sell you new parts; we perform intensive ultrasonic cleaning of internal grilles and replace damaged audio modules. We also calibrate and realign delicate physical keys and taptic motors to ensure a satisfying response every time you touch your screen.'
+      },
+      {
+        heading: 'Common Hardware Repairs We Perform Daily',
         list: [
-          'Power button, volume rocker, and silent switch physical fixes',
-          'Earpiece speaker, microphone, and loud speaker replacement',
-          'Logic board micro-soldering and IC chip replacement',
-          'Vibration motor and taptic engine restoration'
+          'Motherboard micro-soldering, capacitor bypass, and power IC replacement',
+          'Earpiece speaker, primary microphone, and loud speaker module swaps',
+          'Volume buttons, power keys, and physical silent switch realignment and replacements',
+          'Taptic engine, vibration motor, and face biometric sensor rebuilds'
         ]
+      },
+      {
+        heading: 'Australian Right-to-Repair Standards & Trust',
+        text: 'Under ACL (Australian Consumer Law), consumers have the absolute right to choose independent repair stations without voiding statutory warranties. At Mayfield Phone Repair, we uphold the highest industry standards by utilizing certified components and providing upfront pricing, transparent diagnostics, and honest advice.'
       }
     ],
     features: ['Precision Micro-Soldering', 'Original Quality Modules', 'Full Diagnostic Testing', 'Fast Turnaround Times'],
@@ -111,17 +143,25 @@ export const servicesData = [
     color: 'from-fuchsia-600 to-pink-600',
     content: [
       {
-        heading: 'Laser-Guided Glass Removal',
-        text: 'Ignoring shattered back glass can lead to camera failure or wireless charging issues. If you require expert iPhone repair Mayfield, our technicians handle the delicate removal process using state-of-the-art laser machinery. This prevents logic board damage and ensures a flawless fit. We deliver the same day phone repair service you expect right here in our Mayfield store.'
+        heading: 'Precision Laser Technology: The Safest Method to Swap Back Glass',
+        text: 'Replacing a shattered rear glass on a modern iPhone is highly delicate. Traditional hand-prying with high-heat guns can easily puncture the lithium-ion battery, overheat sensitive camera matrices, or crack the display underneath. At our Mayfield repair facility, we utilize a state-of-the-art cold laser machine. This high-precision system is programmed with exact structural CAD overlays for your specific iPhone model. The laser selectively vaporizes the heavy industrial adhesive holding the glass in place, allowing for a clean, secure glass removal with zero damage to wireless charging coils or motherboard components.'
+      },
+      {
+        heading: 'Why Ignoring Cracked Rear Glass is Risky',
+        text: 'Many users view a cracked back plate as a minor cosmetic issue and delay repair. However, the rear glass panel is a structural shear plate that provides rigidity to your entire phone chassis. Once cracked, the phone becomes flexible, absorbing external stress which can fracture internal solder joints on the logic board. Furthermore, cracked glass acts as a sieve for moisture, pocket lint, and iron dust from local job sites in Mayfield and Newcastle, which can destroy cameras and cause short-circuits. Repairing your back glass preserves both safety and resale value.'
       },
       {
         heading: 'The Back Glass Repair Process',
         list: [
-          'Laser-precise removal of shattered glass and hardened industrial adhesives',
-          'Deep cleaning of the exposed chassis to prevent loose glass rattling',
-          'Professional installation of OEM-grade rear glass panels',
-          'Final industrial curing process for a permanent, water-resistant hold'
+          'High-precision CAD laser scan to target and weaken original factory adhesives',
+          'Meticulous manual vacuum extraction of shattered fragments and residue',
+          'Deep clean of the frame surface to ensure a flat, stable glass alignment',
+          'Installation of a premium-fit glass panel using cold-cure resins under pneumatic clamps'
         ]
+      },
+      {
+        heading: 'Preserving Wireless Charging (MagSafe/Qi) and NFC Support',
+        text: 'Our laser separation is carefully calibrated to completely bypass the internal copper MagSafe charging coils and NFC antenna array. We ensure that your phone charges at peak speeds and Apple/Google Pay transit cards work seamlessly. Your phone is restored to its pristine premium look.'
       }
     ],
     features: ['Precision Laser Removal', 'OEM-Grade Glass', 'Maintains Wireless Charging', 'Flawless Finish'],
@@ -136,17 +176,25 @@ export const servicesData = [
     color: 'from-violet-500 to-purple-600',
     content: [
       {
-        heading: 'Restoring Factory Optical Clarity',
-        text: 'Modern smartphone cameras are incredibly complex, utilizing macro lenses and optical image stabilization. We source high-quality replacement modules for all leading brands. When locals search for an affordable phone repair near me, they choose us because our Samsung repair Newcastle and general camera services ensure factory-level performance.'
+        heading: 'Precision Camera Repair Guide Newcastle: Restoring Shutter Stability',
+        text: 'Phone camera modules are among the most sensitive mechanical systems in your device, containing microscopic voice-coil actuators (VCAs) and electromagnetic suspension grids that control Optical Image Stabilization (OIS) and auto-focus lens elements. Heavy vibrations, such as those from mounting your device on a motorbike handlebar, can cause these miniature components to fail, leading to buzzing, screen shaking, or blurry images. We replace damaged camera modules with premium components to restore instant laser-sharp focus and smooth video recording.'
       },
       {
-        heading: 'Camera Issues We Resolve Fast',
+        heading: 'Scratched Exterior Lenses vs. Internal Sensor Specks',
+        text: 'Often, blurry photos are caused by deep scratches in the external sapphire glass cover, which can be replaced without swapping the entire expensive camera module. However, if dirt or moisture has breached your cracked lens, microscopic dust specks can settle directly onto the CMOS focal sensor, showing up as permanent black spots on your photos. Working inside a customized cleanroom hood, our technicians extract dust or fit complete matching replacement camera modules to restore absolute crystal-clear quality.'
+      },
+      {
+        heading: 'Camera Diagnostics and Spares We Fix',
         list: [
-          'Cracked, scratched, or completely shattered exterior camera glass lenses',
-          'Optical Image Stabilization (OIS) shaking, buzzing, or failing to focus',
-          'Dust specks, dark spots, or blemishes permanently appearing on your photos',
-          'Front-facing "selfie" cameras disabled, blurry, or failing to open'
+          'Shattered exterior sapphire glass camera lens cover replacements',
+          'Intermittent focus, constant lens vibration, and noisy OIS stabilizer issues',
+          'Permanent dark spots, vertical lines, or complete black camera screens',
+          'Front-facing selfie cameras and FaceID sensor array realignment'
         ]
+      },
+      {
+        heading: 'AI Google Search FAQ: Why is my smartphone camera shaking or buzzing?',
+        text: 'What causes smartphone camera buzzing? Buzzing or shaking is usually a symptom of a damaged Optical Image Stabilization (OIS) system. This is frequently triggered by heavy repetitive mechanical vibrations (such as motorcycle engines) or drop impacts. The only reliable solution is a professional replacement of the primary back camera lens sensor block.'
       }
     ],
     features: ['OIS Calibration', 'Dust-Free Installation', 'OEM-Spec Lens Glass', 'Same-Day Service'],
@@ -161,17 +209,25 @@ export const servicesData = [
     color: 'from-amber-500 to-orange-600',
     content: [
       {
-        heading: 'Don\'t Buy a New Phone—Fix the Port',
-        text: 'Often, a failing charge port is just packed tightly with pocket lint or needs a minor micro-soldering fix. Before assuming you need a completely new device, let our experts professionally assess it. As the trusted leaders in phone repair Mayfield NSW, we secure loose components so your lightning or USB-C port holds a stable charge.'
+        heading: 'Charging Port Repair Newcastle: Diagnostic Cleaning vs. Port Swaps',
+        text: 'Is your phone refusing to charge, or is the charging cable constantly slipping out of the port? Before you search for "expensive phone repair Mayfield NSW" or prepare to buy a new device, let our team diagnose it. Over months of use, charging ports act as miniature vacuums, accumulating high-density pocket lint, dirt, and industrial grit (especially common for trade workers around Mayfield and Port of Newcastle). In about 80% of situations, the port doesn\'t require replacement; a specialized extraction and chemical pin clean under magnification is all it needs to restore normal high-speed power.'
       },
       {
-        heading: 'Signs of a Failing Charging Port',
+        heading: 'Fast Charging Protocols, Copper Pins, & Safety Risks',
+        text: 'Modern hardware (like USB-C on the iPhone 17 or Galaxy S26) uses up to 24 microscopic copper pins that handle fast-charging currents up to 45W. If moisture, sweat, or cheap generic cords corrode or bend these pins, it can create a localized short circuit. This triggers "liquid detected" warnings, melts charging pins, or burns out your phone\'s internal power management IC (PMIC). If cleaning doesn\'t work, we perform complete charging port port-flex replacements, soldering original-grade ports to guarantee safety, full USB-PD fast-charge rates, and data syncing capabilities.'
+      },
+      {
+        heading: 'Signs Your Charging Port Needs Urgent Professional Help',
         list: [
-          'The charging cable falls out easily or feels extremely loose when plugged in',
-          'You must wiggle or bend the cord at an angle to get the battery icon to show',
-          'The device charges very slowly or constantly reports moisture detected errors',
-          'The internal port pins look visibly damaged, corroded, or bent'
+          'The charging cord lies extremely loose and easily drops out of the port',
+          'You must wiggle, wedge, or support the charging cord at a specific tilt angle to charge',
+          'The device reports "Moisture Detected" or "Liquid in USB Port" constantly despite being dry',
+          'Internal copper pins look bent, blackened, or missing under close inspection'
         ]
+      },
+      {
+        heading: 'Free Local Assessment and Speed Testing',
+        text: 'We never charge for standard diagnostics. Walk directly into our store on Maitland Rd; we will inspect your charging port under our stereo microscope, clean out any packed debris, and test current draw with usb-multimeters. If a replacement is needed, we will provide a precise, transparent quote.'
       }
     ],
     features: ['Safe Debris Extraction', 'USB-C & Lightning Repair', 'Micro-Soldering Support', 'Free Diagnosis'],
@@ -180,23 +236,31 @@ export const servicesData = [
     id: 'laptop-repair',
     icon: Laptop,
     title: 'Laptop & MacBook Repair',
-    shortDesc: 'Expert laptop repair service for screen, battery, charging, or software issues on Macbooks and all major brands.',
+    shortDesc: 'Expert laptop repair service for screen, battery, charging, or software issues on Macbooks and all major brands in Newcastle.',
     heroTitle: 'Professional Laptop & MacBook Repair',
     heroDescription: 'From shattered screens and dead batteries to charging failures and software crashes, we provide comprehensive repair services for all laptops including Apple MacBooks. Fast, reliable, and specialized service.',
     color: 'from-blue-700 to-slate-800',
     content: [
       {
-        heading: 'Comprehensive Laptop Hardware & Software Solutions',
-        text: 'Laptops and MacBooks are essential for work, study, and daily life. When they break down, you need a prompt and professional solution. Our technicians are highly trained in diagnosing and fixing a wide range of laptop issues including screen replacements, battery swaps, charging port repairs, and resolving persistent software glitches.'
+        heading: 'MacBook Logic Board & Liquid Spill Restoration Newcastle',
+        text: 'An accidental coffee or water spill on your premium laptop keyboard doesn\'t have to mean your device is ruined. Most manufacturers or repair franchises will default to quoting a flat-rate motherboard replacement that can cost almost as much as buying a brand-new laptop. At Mayfield Phone Repair, we solve MacBook logic board issues on a component level. We locate the precise micro-components that shorted out (such as charging ICs, display backlighting chips, or SMD resistors) and replace them using high-precision micro-soldering. This saves your laptop, preserves your crucial data, and saves you hundreds of dollars.'
       },
       {
-        heading: 'Common Laptop Repair Issues We Fix',
+        heading: 'Mac & PC Thermal Restoration: Overheating & Fan Noise',
+        text: 'Laptops draw in significant dust, hair, and grit through their active internal fan intake vents. Within 12-18 months of intensive study or work use, this forms a thick blanket over cooling fins, causing high-performance processors to run extremely hot and throttle speed. We perform deep thermal maintenance: we completely dismantle the housing, clean out all fans or vents, and scrape off old dry thermal grease to apply professional high-conductivity carbon-based thermal compound. We restore cold, quiet, and fast operation.'
+      },
+      {
+        heading: 'Comprehensive MacBook and Laptop Services',
         list: [
-          'Screen repair for cracked displays or severe dead pixel clusters',
-          'Battery replacement for devices that won\'t hold a charge',
-          'Charging port repair or logic board power delivery fixes',
-          'Software issues, boot loops, virus removal, and OS reinstalls'
+          'High-resolution LCD panel replacements for cracked, flickering, or line-streaked screens',
+          'Long-life high-capacity internal battery swaps for reliable unplugged operation',
+          'USB-C, MagSafe, and standard power delivery port repairs and logic board soldering',
+          'Fast SSD upgrades, data rescue, virus removal, boot loops, and OS restores'
         ]
+      },
+      {
+        heading: 'Securing Your Sensitive Data',
+        text: 'We understand that your laptop contains extremely private school files, tax records, or corporate software. We prioritize data preservation. Unlike big-box service providers who wipe your system storage as a default practice, we treat your hard drive with the highest standard of confidentiality and safety.'
       }
     ],
     features: ['MacBook Specialist', 'Screen & Battery Fixes', 'No Fix, No Fee', 'Fast Turnaround'],

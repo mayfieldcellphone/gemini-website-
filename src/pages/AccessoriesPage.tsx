@@ -18,7 +18,7 @@ export default function AccessoriesPage() {
   ];
 
   return (
-    <div className="pt-20">
+    <div>
       <Helmet>
         <title>iPhone 17 & 16 Accessories Mayfield | Samsung S26 Cases Newcastle</title>
         <meta name="description" content="Shop the latest iPhone 17, 16, and Samsung S26 accessories in Mayfield. Fast chargers, tempered glass, and premium cases for all Newcastle device owners." />
@@ -26,7 +26,7 @@ export default function AccessoriesPage() {
         <meta property="og:description" content="Protect your new iPhone 17 or Galaxy S26 with our premium range of cases and glass. Visit us in Mayfield." />
       </Helmet>
       {/* Hero Section */}
-      <section className="relative px-6 md:px-12 py-32 bg-white overflow-hidden">
+      <section className="relative px-6 md:px-12 py-16 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <motion.div 
@@ -71,7 +71,7 @@ export default function AccessoriesPage() {
       </section>
 
       {/* Device Support Matrix */}
-      <section id="matrix" className="px-6 md:px-12 py-32 bg-white relative overflow-hidden">
+      <section id="matrix" className="px-6 md:px-12 py-16 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto space-y-16">
           <div className="text-center space-y-4">
             <h2 className="text-sm font-black text-blue-600 uppercase tracking-[0.4em] font-display">Compatibility Search</h2>
@@ -117,7 +117,7 @@ export default function AccessoriesPage() {
       </section>
 
       {/* Categories Grid */}
-      <section id="categories" className="px-6 md:px-12 py-32 bg-slate-50 border-t border-slate-200">
+      <section id="categories" className="px-6 md:px-12 py-16 bg-slate-50 border-t border-slate-200">
         <div className="max-w-7xl mx-auto space-y-20">
           <div className="text-center space-y-6">
              <h2 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em]">Hardware Catalog</h2>
@@ -148,7 +148,7 @@ export default function AccessoriesPage() {
       </section>
 
       {/* Brand Support */}
-      <section className="px-6 md:px-12 py-32 bg-white">
+      <section className="px-6 md:px-12 py-16 bg-white">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-24 items-center">
           <div className="space-y-10 order-2 lg:order-1">
              <div className="aspect-[4/3] rounded-[4rem] overflow-hidden shadow-2xl flex items-center justify-center bg-slate-900">
@@ -196,7 +196,7 @@ export default function AccessoriesPage() {
       </section>
 
       {/* Why Shop In-Person? */}
-      <section className="px-6 md:px-12 py-32 bg-slate-900 overflow-hidden relative">
+      <section className="px-6 md:px-12 py-16 bg-slate-900 overflow-hidden relative">
         <div className="absolute top-0 right-0 w-full h-full bg-blue-600 translate-y-1/2 opacity-10 rounded-full blur-[200px]"></div>
         <div className="max-w-7xl mx-auto relative z-10 text-center space-y-16">
            <div className="space-y-6">

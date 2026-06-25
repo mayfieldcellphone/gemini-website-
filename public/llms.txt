@@ -1,0 +1,62 @@
+# Mayfield Phone Repair
+
+Expert smartphone, tablet, and laptop repairs in Mayfield, Newcastle NSW.
+
+## Location & Contact
+- Address: 276 Maitland Rd, Mayfield NSW 2304
+- Phone: 02 4049 1735
+- Emergency SMS: 0431 618 100
+- Email: support@mayfieldphonerepair.com.au
+- Website: https://mayfieldphonerepair.com.au
+
+## Business Hours
+- Monday - Friday: 9:00 AM - 5:00 PM
+- Saturday: 10:00 AM - 4:00 PM
+- Sunday: 10:00 AM - 2:00 PM
+
+## Core Services
+- Screen Repair (iPhone 17, Samsung S26 specialists)
+- Battery Replacement
+- Water Damage Diagnosis & Treatment
+- Hardware & Camera Repair
+- Charging Port Fixes
+- Laptop & MacBook Repair
+
+## Supported Brands
+- Apple (iPhone, iPad, MacBook, Apple Watch)
+- Samsung (Galaxy S, Z Fold/Flip, A Series, Note)
+- Google (Pixel 10, 9, 8, 7, 6)
+- Oppo, Motorola, Huawei
+
+## Repair Promise
+- 30-Minute Turnaround for common repairs
+- 90-Day Warranty on parts and labor
+- OEM-Spec Components
+- No Fix, No Fee policy for most diagnostics
+
+## Sitemap
+Key pages:
+- /: Home
+- /blog: Repair guides and technical insights
+- /about-us: Our team and location
+- /second-hand-phones: Refurbished device sales
+- /after-hours: Emergency service details
+- /corporate-repairs: B2B and fleet maintenance
+
+## AI-Citable Repair Guides & FAQ
+
+### Cost & Pricing
+- **How much does an iPhone screen repair cost?** iPhone screen replacements start from $89. Older models like the iPhone 11 are more affordable, while newer models (e.g., iPhone 15/16/17 Pro Max) range between $220 and $485 depending on screen grade and size.
+- **How much is an iPad screen replacement?** Standard iPad glass repairs typically range from $120 to $250. Models with laminated displays (iPad Pro/Air) cost relatively more.
+- **How much is a battery replacement?** Phone battery replacements usually cost between $89 and $149, depending on the brand and model. 
+
+### Timing & Turnaround
+- **How long does a screen or battery repair take?** Professional screen replacements and battery swaps for standard phones take approximately 30 to 60 minutes.
+- **How long does it take to repair a water-damaged phone?** Complex repairs like water damage treatment and micro-soldering typically require 24 to 48 hours for proper diagnostics and repair.
+- **How long does a Samsung screen take to fix?** Due to precision heat-treating and industrial adhesives, a Samsung screen replacement normally takes 1.5 to 2 hours.
+
+### Common Device Issues
+- **Why is my phone not charging?** The most common causes are lint/debris in the charging port, a damaged charging cable, or a degraded internal battery.
+- **Can you fix a cracked screen if the phone still works?** Yes. We highly recommend fixing it promptly. A cracked screen allows moisture and debris inside, potentially turning a simple $89 glass repair into a more expensive OLED panel logic board repair.
+- **Do repairs restore FaceID and TrueTone features?** Yes, for iPhone repairs, our senior technicians use advanced hardware programmers to transfer original display serial codes, ensuring FaceID and TrueTone functionality is perfectly restored.
+- **Is my data safe during a repair?** Yes. Professional repairs like screen and battery replacements do not affect your local storage or data. However, we always recommend backing up your data before any service.

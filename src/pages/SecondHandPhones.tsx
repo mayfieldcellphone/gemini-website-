@@ -28,7 +28,7 @@ export default function SecondHandPhones() {
   ];
 
   return (
-    <div className="pt-20">
+    <div>
       <Helmet>
         <title>Buy Refurbished iPhones & Samsung Mayfield | Newcastle Quality Used Phones</title>
         <meta name="description" content="Premium refurbished iPhones and Samsung Galaxy phones in Mayfield. All devices include a warranty, new batteries, and original parts. Trade-ins welcome." />
@@ -36,11 +36,11 @@ export default function SecondHandPhones() {
         <meta property="og:description" content="Looking for a reliable used phone? We stock high-quality refurbished devices with verified original components." />
       </Helmet>
       {/* Hero Section */}
-      <section className="relative px-6 md:px-12 py-24 bg-slate-900 overflow-hidden">
+      <section className="relative px-6 md:px-12 py-16 bg-slate-900 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <img 
             src="https://images.unsplash.com/photo-1556656793-062ff9878258?auto=format&fit=crop&q=80&w=2000" 
-            alt="Refurbished phones" 
+            alt="Quality refurbished used iPhones and Samsung Galaxy smartphones on display at Mayfield Phone Repair Newcastle" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent"></div>
@@ -76,7 +76,7 @@ export default function SecondHandPhones() {
       </section>
 
       {/* Why Choose Our Phones */}
-      <section className="px-6 md:px-12 py-32 bg-white">
+      <section className="px-6 md:px-12 py-20 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-24 items-center">
             <div className="space-y-12">
@@ -115,7 +115,7 @@ export default function SecondHandPhones() {
               <div className="aspect-[4/5] rounded-[4rem] overflow-hidden shadow-2xl">
                 <img 
                   src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=1200" 
-                  alt="Quality check" 
+                  alt="Senior hardware technician performing diagnostic quality control checks on refurbished phone at Mayfield Phone Repair" 
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -128,7 +128,7 @@ export default function SecondHandPhones() {
       </section>
 
       {/* Brands We Carry */}
-      <section id="inventory" className="px-6 md:px-12 py-32 bg-slate-50">
+      <section id="inventory" className="px-6 md:px-12 py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto space-y-20">
           <div className="text-center space-y-6">
             <h2 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em]">Current Inventory</h2>
@@ -191,7 +191,7 @@ export default function SecondHandPhones() {
       </section>
 
       {/* Trade-In Section */}
-      <section className="px-6 md:px-12 py-32 bg-slate-900 border-y border-white/5 relative overflow-hidden">
+      <section className="px-6 md:px-12 py-20 bg-slate-900 border-y border-white/5 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-600 skew-x-12 translate-x-1/2 opacity-20"></div>
         <div className="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-20 items-center">
           <div className="space-y-10 text-white">
