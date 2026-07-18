@@ -133,7 +133,8 @@ export default function SecondHandPhones() {
           <div className="text-center space-y-6">
             <h2 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em]">Current Inventory</h2>
             <h3 className="text-4xl md:text-7xl font-bold text-slate-900 font-display">Popular <span className="text-blue-600">Models.</span></h3>
-            <p className="text-slate-500 text-xl max-w-2xl mx-auto italic">Stock changes daily. Visit us in-store at Mayfield for the latest deals.</p>
+            <p className="text-slate-500 text-xl max-w-2xl mx-auto italic">Stock changes daily. Visit us in-store at Mayfield for the latest deals.
+            <a href="https://mayfieldgadgets.com.au" target="_blank" className="btn btn-primary mt-6">View Live Inventory at Mayfield Gadgets →</a></p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
