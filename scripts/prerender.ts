@@ -921,7 +921,7 @@ async function runPrerender() {
             <li><strong>30-Minute Turnaround</strong> on most screen, charging port, and battery swaps</li>
             <li><strong>Premium OEM-Spec Components</strong> that preserve touch response and brightness</li>
             <li><strong>Zero Diagnostic Surcharges</strong> - assessments are 100% free with no obligation</li>
-            <li><strong>90-Day Satisfaction Warranty</strong> on all installed screen assemblies and parts</li>
+            <li><strong>90-Day Satisfaction Warranty</strong> on all installed screen assecond-hand-phonessemblies and parts</li>
           </ul>
           <h2>Getting Here from ${suburb.name}</h2>
           <p>We are conveniently located directly on Maitland Rd, making us easily accessible via vehicle or public transport from ${suburb.name} and neighboring areas like ${suburb.nearby.join(' and ')}.</p>
