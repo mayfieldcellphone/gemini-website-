@@ -139,7 +139,7 @@ export default function SecondHandPhones() {
 
           <div className="grid md:grid-cols-2 gap-12">
             {/* Apple iPhone Card */}
-            <a href="https://mayfieldgadgets.com.au/collections/apple-iphone" target="_blank" className="block">
+            <a href="https://mayfieldgadgets.com.au/collections/iphone" target="_blank" className="block">
               <div className="bg-white rounded-[4rem] p-12 border border-slate-200 shadow-xl space-y-8 group hover:-translate-y-2 transition-all duration-500">
                 <div className="flex justify-between items-start">
                   <div className="w-20 h-20 bg-slate-900 rounded-3xl flex items-center justify-center text-white">
