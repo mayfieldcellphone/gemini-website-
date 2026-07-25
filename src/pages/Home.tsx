@@ -97,10 +97,10 @@ export default function Home() {
   return (
     <div className="relative">
       <Helmet>
-        <title>iPhone 17 & 16 Repair Mayfield | Samsung S26 Screen Fix Newcastle</title>
+        <title>iPhone 17 & 16 Repair Mayfield | Samsung S26 Screen Fix</title>
         <meta name="description" content="Same-day iPhone 17, 16 & Samsung S26 repairs in Mayfield, Newcastle. Screen fixes, battery replacements & water damage. 90-day warranty guaranteed." />
         <link rel="canonical" href="https://mayfieldphonerepair.com.au" />
-        <meta property="og:title" content="Expert iPhone 17 & 16 Repair Mayfield | Same Day Service" />
+        <meta property="og:title" content="iPhone 17 & 16 Repair Mayfield | Same Day Service" />
         <meta property="og:description" content="Cracked iPhone 17 screen? Samsung S26 battery issues? Mayfield's trusted experts fix the newest flagships with quality parts and fast turnaround." />
         <script type="application/ld+json">
           {JSON.stringify({

@@ -1,5 +1,6 @@
 import express from "express";
 import { createServer as createViteServer } from "vite";
+import compression from "compression";
 import path from "path";
 import nodemailer from "nodemailer";
 import { GoogleGenAI } from "@google/genai";
@@ -35,7 +36,7 @@ const syncLeadToCRM = async (type: string, data: any) => {
   const charlaApiKey = process.env.CHARLA_API_KEY;
   const repairBillApiKey = process.env.REPAIRBILL_API_KEY;
   const repairBillEndpoint = process.env.REPAIRBILL_API_ENDPOINT;
-  const repairBillConnectionId = process.env.REPAIRBILL_CONNECTION_ID || "rb_pnmbf4k93gnxlr3501rw9";
+  const repairBillConnectionId = process.env.REPAIRBILL_CONNECTION_ID;
   const webhookUrl = process.env.WEBHOOK_URL;
   
   const apiKey = repairBillApiKey || charlaApiKey;
@@ -114,7 +115,28 @@ const syncLeadToCRM = async (type: string, data: any) => {
 
 async function startServer() {
   const app = express();
-  const PORT = 3000;
+  const PORT = process.env.PORT ? parseInt(process.env.PORT) : 3000;
+
+  app.use(compression());
+
+  // Security, caching & performance headers for SEO
+  app.use((req, res, next) => {
+    res.setHeader("X-Frame-Options", "SAMEORIGIN");
+    res.setHeader("X-XSS-Protection", "1; mode=block");
+    res.setHeader("X-Content-Type-Options", "nosniff");
+    res.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains; preload");
+    res.setHeader("Content-Security-Policy", "upgrade-insecure-requests;");
+
+    // Cache-Control header tuning
+    if (req.url.match(/\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|otf)$/)) {
+      res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
+    } else if (req.url.startsWith("/api/")) {
+      res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
+    } else {
+      res.setHeader("Cache-Control", "public, max-age=3600");
+    }
+    next();
+  });
 
   app.use(express.json());
   
@@ -122,14 +144,7 @@ async function startServer() {
   app.post("/api/notify", async (req, res) => {
     try {
       const { type, data } = req.body;
-      const adminEmail = process.env.ADMIN_NOTIFICATION_EMAIL || "support@mayfieldphonerepair.com.au";
-      const ragAdviseEmail = process.env.RAGADVISE_EMAIL;
-      
-      // Combine recipients
-      const recipients = [adminEmail];
-      if (ragAdviseEmail) recipients.push(ragAdviseEmail);
-      
-      const to = recipients.join(", ");
+      const to = process.env.ADMIN_NOTIFICATION_EMAIL || "support@mayfieldphonerepair.com.au";
       
       let adminNumber = process.env.ADMIN_PHONE_NUMBER || "0431618100";
 
@@ -195,7 +210,7 @@ async function startServer() {
             <p><strong>Phone:</strong> ${data.phone}</p>
             <p><strong>Duration:</strong> ${data.duration} seconds</p>
             <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-            <p>You can listen to this recording in your <strong>RepairBill Pro Dashboard</strong>.</p>
+            <p>You can listen to this recording in your <strong>Admin Dashboard</strong>.</p>
           </div>
         `;
       }
@@ -232,9 +247,7 @@ async function startServer() {
   app.post("/api/ai-leads", async (req, res) => {
     const { name, contact, device, issue, message } = req.body;
 
-    const adminEmail = process.env.ADMIN_NOTIFICATION_EMAIL || "mayfieldcellphonerepairs@gmail.com";
-    const ragAdviseEmail = process.env.RAGADVISE_EMAIL;
-    const to = ragAdviseEmail ? `${adminEmail}, ${ragAdviseEmail}` : adminEmail;
+    const to = process.env.ADMIN_NOTIFICATION_EMAIL || "mayfieldcellphonerepairs@gmail.com";
 
     try {
       const transporter = createTransporter();
@@ -271,9 +284,7 @@ async function startServer() {
   app.post("/api/voice-lead", async (req, res) => {
     const { name, phone, email, brand, model, issue, dateTime } = req.body;
 
-    const adminEmail = process.env.ADMIN_NOTIFICATION_EMAIL || "mayfieldcellphonerepairs@gmail.com";
-    const ragAdviseEmail = process.env.RAGADVISE_EMAIL;
-    const to = ragAdviseEmail ? `${adminEmail}, ${ragAdviseEmail}` : adminEmail;
+    const to = process.env.ADMIN_NOTIFICATION_EMAIL || "mayfieldcellphonerepairs@gmail.com";
 
     try {
       const transporter = createTransporter();

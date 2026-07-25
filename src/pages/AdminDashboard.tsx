@@ -92,6 +92,15 @@ export default function AdminDashboard() {
     if ('Notification' in window && Notification.permission === 'default') {
       Notification.requestPermission();
     }
+    
+    // Dynamically insert robots noindex, nofollow to prevent indexing of Admin pages
+    let meta = document.querySelector('meta[name="robots"]');
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.setAttribute('name', 'robots');
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute('content', 'noindex, nofollow');
   }, []);
 
   const sendLocalNotification = (title: string, body: string) => {
@@ -266,20 +275,6 @@ export default function AdminDashboard() {
               </button>
             ))}
             
-            <div className="pt-4 mt-4 border-t border-slate-100">
-              <a 
-                href="https://repairbill-erp-302106920849.asia-southeast1.run.app/" 
-                target="_blank" 
-                rel="noreferrer"
-                className="w-full flex items-center justify-between gap-4 px-6 py-4 rounded-2xl font-bold text-slate-400 hover:bg-blue-50 hover:text-blue-600 transition-all border-2 border-transparent hover:border-blue-100"
-              >
-                <div className="flex items-center gap-4">
-                  <Smartphone className="w-5 h-5 text-blue-500" />
-                  <span>RepairBill Inbox</span>
-                </div>
-                <ChevronRight className="w-4 h-4 opacity-50" />
-              </a>
-            </div>
           </nav>
         </div>
 

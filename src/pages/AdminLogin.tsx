@@ -8,6 +8,17 @@ export default function AdminLogin() {
   const { user, isAdmin, loading, login, loginWithRedirect } = useAuth();
   const location = useLocation();
 
+  React.useEffect(() => {
+    // Dynamically insert robots noindex, nofollow to prevent indexing of Admin Login page
+    let meta = document.querySelector('meta[name="robots"]');
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.setAttribute('name', 'robots');
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute('content', 'noindex, nofollow');
+  }, []);
+
   if (loading) {
     return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center">

@@ -133,61 +133,74 @@ export default function SecondHandPhones() {
           <div className="text-center space-y-6">
             <h2 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em]">Current Inventory</h2>
             <h3 className="text-4xl md:text-7xl font-bold text-slate-900 font-display">Popular <span className="text-blue-600">Models.</span></h3>
-            <p className="text-slate-500 text-xl max-w-2xl mx-auto italic">Stock changes daily. Visit us in-store at Mayfield for the latest deals.
-            <a href="https://mayfieldgadgets.com.au" target="_blank" rel="noopener noreferrer" className="inline-block mt-4 px-8 py-4 bg-blue-600 text-white rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-700 transition-all shadow-lg not-italic">View Live Inventory at Mayfield Gadgets →</a></p>
+            <p className="text-slate-500 text-xl max-w-2xl mx-auto italic">Stock changes daily. Visit us in-store at Mayfield for the latest deals.</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
             {/* Apple iPhone Card */}
-            <a href="https://mayfieldgadgets.com.au/collections/iphone" target="_blank" className="block">
-              <div className="bg-white rounded-[4rem] p-12 border border-slate-200 shadow-xl space-y-8 group hover:-translate-y-2 transition-all duration-500">
-                <div className="flex justify-between items-start">
-                  <div className="w-20 h-20 bg-slate-900 rounded-3xl flex items-center justify-center text-white">
-                    <Smartphone className="w-10 h-10" />
-                  </div>
-                  <span className="px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-[10px] font-black uppercase tracking-widest">Most Popular</span>
+            <a 
+              href="https://mayfieldgadgets.com.au/collections/iphone" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="block bg-white rounded-[4rem] p-12 border border-slate-200 shadow-xl space-y-8 group hover:-translate-y-2 hover:border-blue-300 transition-all duration-500"
+            >
+              <div className="flex justify-between items-start">
+                <div className="w-20 h-20 bg-slate-900 rounded-3xl flex items-center justify-center text-white">
+                  <Smartphone className="w-10 h-10" />
                 </div>
-                <div className="space-y-4">
-                  <h4 className="text-4xl font-bold font-display">Refurbished <br/>Apple iPhone</h4>
-                  <p className="text-slate-500 text-lg">We stock iPhone 11 through to iPhone 15 Pro Max. All unlocked and ready for any carrier.</p>
-                  <ul className="space-y-3 pt-4">
-                    <li className="flex items-center gap-3 text-slate-700 font-medium">
-                      <CheckCircle2 className="w-5 h-5 text-emerald-500" /> New Battery Installed
-                    </li>
-                    <li className="flex items-center gap-3 text-slate-700 font-medium">
-                      <CheckCircle2 className="w-5 h-5 text-emerald-500" /> Original Display & Parts
-                    </li>
-                    <li className="flex items-center gap-3 text-slate-700 font-medium">
-                      <CheckCircle2 className="w-5 h-5 text-emerald-500" /> 100% Fully Functional
-                    </li>
-                  </ul>
+                <span className="px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-[10px] font-black uppercase tracking-widest">Most Popular</span>
+              </div>
+              <div className="space-y-4">
+                <h4 className="text-4xl font-bold font-display">Refurbished <br/>Apple iPhone</h4>
+                <p className="text-slate-500 text-lg">We stock iPhone 11 through to iPhone 15 Pro Max. All unlocked and ready for any carrier.</p>
+                <ul className="space-y-3 pt-4">
+                  <li className="flex items-center gap-3 text-slate-700 font-medium">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-500" /> New Battery Installed
+                  </li>
+                  <li className="flex items-center gap-3 text-slate-700 font-medium">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-500" /> Original Display & Parts
+                  </li>
+                  <li className="flex items-center gap-3 text-slate-700 font-medium">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-500" /> 100% Fully Functional
+                  </li>
+                </ul>
+                <div className="pt-6 flex items-center gap-2 text-blue-600 font-black uppercase tracking-widest text-xs group-hover:text-blue-700">
+                  <span>Browse Online Store</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </div>
               </div>
             </a>
 
             {/* Samsung Card */}
-            <a href="https://mayfieldgadgets.com.au/collections/samsung-galaxy" target="_blank" className="block">
-              <div className="bg-white rounded-[4rem] p-12 border border-slate-200 shadow-xl space-y-8 group hover:-translate-y-2 transition-all duration-500">
-                <div className="flex justify-between items-start">
-                  <div className="w-20 h-20 bg-blue-600 rounded-3xl flex items-center justify-center text-white">
-                    <Smartphone className="w-10 h-10" />
-                  </div>
-                  <span className="px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-[10px] font-black uppercase tracking-widest">Special Offers</span>
+            <a 
+              href="https://mayfieldgadgets.com.au/collections/samsung-galaxy" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="block bg-white rounded-[4rem] p-12 border border-slate-200 shadow-xl space-y-8 group hover:-translate-y-2 hover:border-blue-300 transition-all duration-500"
+            >
+              <div className="flex justify-between items-start">
+                <div className="w-20 h-20 bg-blue-600 rounded-3xl flex items-center justify-center text-white">
+                  <Smartphone className="w-10 h-10" />
                 </div>
-                <div className="space-y-4">
-                  <h4 className="text-4xl font-bold font-display">Premium Used <br/>Samsung Galaxy</h4>
-                  <p className="text-slate-500 text-lg">From S20 series to Latest S24 Ultra and Z Flip/Fold models. Professional rigorous testing on all units.</p>
-                  <ul className="space-y-3 pt-4">
-                    <li className="flex items-center gap-3 text-slate-700 font-medium">
-                      <CheckCircle2 className="w-5 h-5 text-emerald-500" /> OLED Screen Verification
-                    </li>
-                    <li className="flex items-center gap-3 text-slate-700 font-medium">
-                      <CheckCircle2 className="w-5 h-5 text-emerald-500" /> Network Unlocked
-                    </li>
-                    <li className="flex items-center gap-3 text-slate-700 font-medium">
-                      <CheckCircle2 className="w-5 h-5 text-emerald-500" /> Data Wiped & Sanitized
-                    </li>
-                  </ul>
+                <span className="px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-[10px] font-black uppercase tracking-widest">Special Offers</span>
+              </div>
+              <div className="space-y-4">
+                <h4 className="text-4xl font-bold font-display">Premium Used <br/>Samsung Galaxy</h4>
+                <p className="text-slate-500 text-lg">From S20 series to Latest S24 Ultra and Z Flip/Fold models. Professional rigorous testing on all units.</p>
+                <ul className="space-y-3 pt-4">
+                  <li className="flex items-center gap-3 text-slate-700 font-medium">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-500" /> OLED Screen Verification
+                  </li>
+                  <li className="flex items-center gap-3 text-slate-700 font-medium">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-500" /> Network Unlocked
+                  </li>
+                  <li className="flex items-center gap-3 text-slate-700 font-medium">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-500" /> Data Wiped & Sanitized
+                  </li>
+                </ul>
+                <div className="pt-6 flex items-center gap-2 text-blue-600 font-black uppercase tracking-widest text-xs group-hover:text-blue-700">
+                  <span>Browse Online Store</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </div>
               </div>
             </a>

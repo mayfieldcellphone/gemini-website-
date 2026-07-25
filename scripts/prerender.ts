@@ -76,18 +76,24 @@ async function runPrerender() {
   ) {
     // Generate head overrides tag block
     const headBlock = `
-    <title>${title}</title>
-    <meta name="description" content="${description}" />
     <link rel="canonical" href="${canonicalUrl}" />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_AU" />
+    <meta property="og:site_name" content="Mayfield Phone Repair" />
     <meta property="og:title" content="${title}" />
     <meta property="og:description" content="${description}" />
     <meta property="og:url" content="${canonicalUrl}" />
     <meta property="og:image" content="${BASE_URL}/logo.png" />
+    <meta property="og:image:alt" content="Mayfield Phone Repair Logo" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:domain" content="mayfieldphonerepair.com.au" />
+    <meta name="twitter:url" content="${canonicalUrl}" />
     <meta name="twitter:title" content="${title}" />
     <meta name="twitter:description" content="${description}" />
     <meta name="twitter:image" content="${BASE_URL}/logo.png" />
+    <meta name="twitter:image:alt" content="Mayfield Phone Repair Logo" />
     <script type="application/ld+json">
       ${JSON.stringify(schemaMarkup, null, 2)}
     </script>
@@ -97,8 +103,8 @@ async function runPrerender() {
     let content = indexTemplate;
 
     // Replace default index.html <title> and <meta name="description"> completely
-    content = content.replace(/<title>[\s\S]*?<\/title>/, `<title>${title}</title>`);
-    content = content.replace(/<meta name="description"[\s\S]*?\/>/, `<meta name="description" content="${description}" />`);
+    content = content.replace(/<title[\s\S]*?>[\s\S]*?<\/title>/, `<title data-rh="true">${title}</title>`);
+    content = content.replace(/<meta[\s\S]*?name="description"[\s\S]*?\/>/, `<meta data-rh="true" name="description" content="${description}" />`);
     content = content.replace(/<link rel="canonical"[\s\S]*?\/>/g, '');
     
     // Inject rest of meta tags inside <head>
@@ -119,11 +125,11 @@ async function runPrerender() {
   }
 
   // 1. Pre-render Home Page (Overwrites dist/index.html optimized)
-  const homeTitle = 'Phone Repair Newcastle & Mayfield | Expert Screen & Battery Fix';
+  const homeTitle = 'Phone Repair Newcastle & Mayfield | Screen & Battery Fix';
   const homeDesc = 'Same-day iPhone 17, 16 & Samsung S26 repairs in Mayfield, Newcastle. Screen fixes, battery replacements & water damage. 90-day warranty guaranteed.';
   let homeBody = `
     <header>
-      <h1>Mayfield Phone Repair - Fast, Local and Specialized Device Diagnostic Centre</h1>
+      <h1>Mayfield Phone Repair | Local & Expert Device Diagnostics</h1>
       <p>Located at 276 Maitland Rd, Mayfield NSW 2304. Direct Phone: 02 4049 1735.</p>
       <p>Emergency / After Hours textline: 0431 618 100.</p>
     </header>
@@ -921,7 +927,7 @@ async function runPrerender() {
             <li><strong>30-Minute Turnaround</strong> on most screen, charging port, and battery swaps</li>
             <li><strong>Premium OEM-Spec Components</strong> that preserve touch response and brightness</li>
             <li><strong>Zero Diagnostic Surcharges</strong> - assessments are 100% free with no obligation</li>
-            <li><strong>90-Day Satisfaction Warranty</strong> on all installed screen assecond-hand-phonessemblies and parts</li>
+            <li><strong>90-Day Satisfaction Warranty</strong> on all installed screen assemblies and parts</li>
           </ul>
           <h2>Getting Here from ${suburb.name}</h2>
           <p>We are conveniently located directly on Maitland Rd, making us easily accessible via vehicle or public transport from ${suburb.name} and neighboring areas like ${suburb.nearby.join(' and ')}.</p>

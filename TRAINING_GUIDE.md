@@ -26,11 +26,3 @@ The voice assistant is trained via its **System Prompt** and **Tools**.
 3. **Voice Selection:** You can choose a different voice or adjust the "Alex" persona stability.
 
 ---
-
-## 🛠️ 3. RepairBill Pro Integration
-If your leads are still going to the old admin dashboard, please ensure you have configured the following in your **AI Studio Settings (Secrets)**:
-
-1. `REPAIRBILL_API_KEY`: Your API key from RepairBill Pro.
-2. `ADMIN_NOTIFICATION_EMAIL`: Set this to `leads@repairbill.app` (or your specific RepairBill lead email).
-
-Once these are set, the new website will automatically start POSTing leads to the RepairBill Pro dashboard instead of just sending them to your old admin email.

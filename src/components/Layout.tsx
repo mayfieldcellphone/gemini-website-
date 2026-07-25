@@ -86,8 +86,19 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
         <link rel="canonical" href={getCanonicalUrl(pathname)} />
         <meta property="og:url" content={getCanonicalUrl(pathname)} />
         <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_AU" />
+        <meta property="og:site_name" content="Mayfield Phone Repair" />
+        <meta property="og:image" content="https://mayfieldphonerepair.com.au/logo.png" />
+        <meta property="og:image:alt" content="Mayfield Phone Repair Logo" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:domain" content="mayfieldphonerepair.com.au" />
+        <meta name="twitter:url" content={getCanonicalUrl(pathname)} />
+        <meta name="twitter:site" content="@Mayfiel32990272" />
+        <meta name="twitter:creator" content="@Mayfiel32990272" />
+        <meta name="twitter:image" content="https://mayfieldphonerepair.com.au/logo.png" />
+        <meta name="twitter:image:alt" content="Mayfield Phone Repair Logo" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -536,7 +547,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
           <div className="flex gap-8">
             <Link to="/privacy-policy" className="hover:text-blue-400 transition-colors">Privacy</Link>
             <Link to="/terms-of-service" className="hover:text-blue-400 transition-colors">Terms</Link>
-            <Link to="/admin" className="text-slate-500 hover:text-blue-500 transition-colors border-l border-white/5 pl-8">Staff Portal</Link>
+            <Link to="/admin" rel="nofollow" className="text-slate-500 hover:text-blue-500 transition-colors border-l border-white/5 pl-8">Staff Portal</Link>
           </div>
         </div>
 
