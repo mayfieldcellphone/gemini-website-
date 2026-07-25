@@ -10,6 +10,7 @@ const TODAY = new Date().toISOString().split('T')[0];
 
 const staticPages = [
   '',
+  '/quote',
   '/blog',
   '/about-us',
   '/privacy-policy',

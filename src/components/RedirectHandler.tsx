@@ -62,8 +62,7 @@ export default function RedirectHandler() {
       '/events': '/',
       '/a-new-start': '/blog',
       
-      // 7. Sitemap XML mappings (Redirect XML crawls dynamically to sitemap route)
-      '/sitemap.xml': '/sitemap',
+      // 7. Sitemap XML mappings (Redirect secondary sitemaps to main HTML sitemap)
       '/sitemap-categories.xml': '/sitemap',
       '/sitemap-posts.xml': '/sitemap',
       '/sitemap-home.xml': '/sitemap',
