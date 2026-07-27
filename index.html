@@ -75,7 +75,7 @@
           if (shouldFilter(arguments)) return;
           originalWarn.apply(console, arguments);
         };
-        
+
         // Also catch global unhandled promise rejections which SignalR often triggers
         window.addEventListener('unhandledrejection', function(event) {
           const reason = event.reason || '';
@@ -133,6 +133,22 @@
       }
     </style>
 
+    <!-- RepairBill Website Widget - offset bottom-left so it doesn't collide with Birdeye (bottom-right) -->
+    <script
+      src="https://repairbill.shop/repairbill-widget.js"
+      data-api-key="b31f622f0ff4c36274a9c0ba0eefdbcf653b9ed8b3714c38"
+      data-company="Mayfield Phone Repair"
+      data-color="#2563eb">
+    </script>
+    <style>
+      #rb-widget-bubble, #rb-widget-panel {
+        right: auto !important;
+        left: 20px !important;
+      }
+      #rb-widget-panel {
+        transform-origin: left bottom !important;
+      }
+    </style>
+
   </body>
 </html>
-
