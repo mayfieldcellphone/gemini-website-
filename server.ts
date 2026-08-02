@@ -3,17 +3,21 @@ import { createServer as createViteServer } from "vite";
 import compression from "compression";
 import path from "path";
 import fs from "fs";
+import { fileURLToPath } from "url";
 import nodemailer from "nodemailer";
 import { GoogleGenAI } from "@google/genai";
 import dotenv from "dotenv";
 import { brands } from "./src/data/brands";
 import { servicesData } from "./src/data/services";
 
+const currentFilename = typeof __filename !== "undefined" ? __filename : fileURLToPath(import.meta.url);
+const currentDirname = typeof __dirname !== "undefined" ? __dirname : path.dirname(currentFilename);
+
 // Multi-fallback dotenv loading to survive process cwd mismatches on VPS / PM2 / systemd
 const envCandidates = [
   path.resolve(process.cwd(), ".env"),
-  path.resolve(__dirname, ".env"),
-  path.resolve(__dirname, "../.env"),
+  path.resolve(currentDirname, ".env"),
+  path.resolve(currentDirname, "../.env"),
   "/var/www/mayfieldphonerepair.com.au/.env"
 ];
 
