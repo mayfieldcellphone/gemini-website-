@@ -118,7 +118,7 @@ async function deploy() {
     // Sort paths by depth/length to prevent nested folder creation order issues
     const sortedDirs = Array.from(uniqueDirs).sort((a, b) => a.length - b.length);
     console.log(`📁 Ensuring ${sortedDirs.length} remote subdirectories exist in parallel batches...`);
-    const DIR_CONCURRENCY = 40;
+    const DIR_CONCURRENCY = 10;
     for (let i = 0; i < sortedDirs.length; i += DIR_CONCURRENCY) {
       const batch = sortedDirs.slice(i, i + DIR_CONCURRENCY);
       await Promise.all(batch.map(async (dir) => {
@@ -131,9 +131,9 @@ async function deploy() {
       }));
     }
 
-    // Bulk transfer files with high concurrency
-    console.log(`🚀 Starting high-speed parallel file upload (${localFiles.length} files total)...`);
-    const CONCURRENCY_LIMIT = 45;
+    // Bulk transfer files with reasonable concurrency for Hostinger SFTP
+    console.log(`🚀 Starting parallel file upload (${localFiles.length} files total)...`);
+    const CONCURRENCY_LIMIT = 8;
     let completedCount = 0;
 
     for (let i = 0; i < localFiles.length; i += CONCURRENCY_LIMIT) {
