@@ -6,6 +6,11 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      HOSTINGER_SFTP_HOST: ${{ secrets.HOSTINGER_SFTP_HOST }}
+      HOSTINGER_SFTP_USER: ${{ secrets.HOSTINGER_SFTP_USER }}
+      HOSTINGER_SFTP_PASSWORD: ${{ secrets.HOSTINGER_SFTP_PASSWORD }}
+      HOSTINGER_SFTP_PORT: ${{ secrets.HOSTINGER_SFTP_PORT }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -18,10 +23,5 @@ jobs:
       - name: Install dependencies
         run: npm install
       
-      - name: Deploy to Hostinger (Optimized SFTP)
-        env:
-          HOSTINGER_SFTP_HOST: ${{ secrets.HOSTINGER_SFTP_HOST }}
-          HOSTINGER_SFTP_USER: ${{ secrets.HOSTINGER_SFTP_USER }}
-          HOSTINGER_SFTP_PASSWORD: ${{ secrets.HOSTINGER_SFTP_PASSWORD }}
-          HOSTINGER_SFTP_PORT: ${{ secrets.HOSTINGER_SFTP_PORT }}
-        run: npm run deploy:hostinger
+      - name: Build and Deploy (Optimized SFTP)
+        run: npx tsx scripts/deploy-hostinger.ts
