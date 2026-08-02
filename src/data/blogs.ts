@@ -3097,6 +3097,510 @@ export const blogPosts: BlogPost[] = [
         </div>
       </section>
     `
+  },
+  {
+    id: '45-what-to-do-before-taking-phone-to-repair',
+    title: 'What to Do Before Taking Your Phone to Repair: The 15-Minute Pre-Repair Checklist (2026)',
+    slug: 'what-to-do-before-taking-your-phone-to-repair-checklist-2026',
+    author: 'Head Technician, Mayfield Phone Repair',
+    date: '2026-07-28',
+    excerpt: 'Do you need to wipe your phone before taking it in for repair? Learn how to backup your iPhone or Android in 15 minutes, protect sensitive data, and prepare your phone for fast service.',
+    imageUrl: 'https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&q=80&w=800',
+    tags: ['Phone Prep', 'Data Protection', 'iPhone Backup', 'Repair Tips'],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-blue-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-blue-100">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-blue-200 text-[10px] font-black uppercase tracking-widest">Do I need to wipe my phone before repair?</span>
+              <p class="text-xl font-bold">No, you do not need to factory reset or wipe your phone for standard screen, battery, or charging port repairs. However, you should always complete a cloud or computer backup first. For privacy, you can enable Repair Mode (Android) or Lockdown/Passcode protection.</p>
+            </div>
+            <div class="flex flex-col gap-2">
+              <span class="text-blue-200 text-[10px] font-black uppercase tracking-widest">What should I do before handing my phone to a repair shop?</span>
+              <p class="text-xl font-bold">1. Back up all data (iCloud, Google Drive, or PC). 2. Turn off Find My iPhone / Activation Lock. 3. Remove your SIM card and phone case. 4. Note down your IMEI/Serial number for records.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">Taking your smartphone to a local repair shop can feel daunting if you have private personal photos, banking apps, or important work documents saved on it. Luckily, preparing your phone for service takes less than 15 minutes. Following this quick pre-repair checklist ensures your personal data remains 100% safe and helps our Newcastle technicians complete your repair as quickly as possible.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">1. Back Up Your Phone Data (15-Minute Process)</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">While reputable repair shops like Mayfield Phone Repair do not delete user data during hardware repairs (such as screen or battery replacements), creating a fresh backup protects you against unforeseen motherboard glitches or water-damage complications.</p>
+
+        <div class="grid md:grid-cols-2 gap-6 my-6">
+          <div class="p-6 bg-slate-50 border border-slate-200 rounded-3xl">
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Backing Up Apple iPhone</h3>
+            <ol class="list-decimal pl-5 space-y-2 text-sm text-slate-600">
+              <li>Connect your iPhone to Wi-Fi and plug into a charger.</li>
+              <li>Go to <strong>Settings > [Your Name] > iCloud > iCloud Backup</strong>.</li>
+              <li>Tap <strong>Back Up Now</strong> and wait until the progress bar completes.</li>
+              <li>Alternatively, plug your iPhone into a Mac or PC running iTunes/Finder for a full encrypted computer backup.</li>
+            </ol>
+          </div>
+
+          <div class="p-6 bg-slate-50 border border-slate-200 rounded-3xl">
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Backing Up Android (Samsung & Pixel)</h3>
+            <ol class="list-decimal pl-5 space-y-2 text-sm text-slate-600">
+              <li>Open <strong>Settings > Accounts and Backup > Google Drive / Samsung Cloud</strong>.</li>
+              <li>Tap <strong>Back Up Data</strong> for contacts, photos, and messages.</li>
+              <li>For WhatsApp, open WhatsApp > Settings > Chats > Chat Backup > Back Up.</li>
+              <li>On Samsung devices, consider turning on <strong>Maintenance Mode</strong> (Settings > Device Care > Maintenance Mode).</li>
+            </ol>
+          </div>
+        </div>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">2. Turn Off Find My iPhone / Activation Lock</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">If you are sending your iPhone for official Apple warranty service or full display replacement, disabling <strong>Find My iPhone</strong> is mandatory. If active, security protocols prevent hardware diagnostics and screen calibration from running.</p>
+        <div class="p-4 bg-amber-50 border border-amber-200 rounded-2xl text-amber-900 text-sm font-medium">
+          <strong>How to turn off Find My:</strong> Settings > [Your Name] > Find My > Find My iPhone > Toggle OFF > Enter Apple ID Password.
+        </div>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">3. Remove Accessories, SIM Card & Memory Cards</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">Before handing your device across the counter at 276 Maitland Rd, Mayfield:</p>
+        <ul class="list-disc pl-6 space-y-2 text-slate-700">
+          <li><strong>Remove phone cases and wallet attachments:</strong> Technicians need direct access to side housing screws and heating pads.</li>
+          <li><strong>Pop out your physical SIM card:</strong> Keep your SIM in a safe wallet pocket so you can put it in a spare phone if needed.</li>
+          <li><strong>Remove MicroSD storage cards:</strong> Ensures external media files aren't misplaced during disassembly.</li>
+        </ul>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">4. What About Passcodes & Privacy?</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">To test Touch ID, Face ID, multi-touch responsiveness, front cameras, speaker, and microphone after installing a new screen, technicians need to unlock the lock screen. You have three options:</p>
+        <div class="space-y-4 my-4">
+          <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+            <h4 class="font-bold text-slate-900">Option A: Enable Android Maintenance Mode / Repair Mode</h4>
+            <p class="text-sm text-slate-600">Samsung and Google Pixel allow you to reboot into a isolated sandbox user account where repair techs can test hardware without seeing your personal photos or apps.</p>
+          </div>
+          <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+            <h4 class="font-bold text-slate-900">Option B: Temporarily Change Your Passcode</h4>
+            <p class="text-sm text-slate-600">Change your lock code to a simple string (e.g. 1-2-3-4-5-6) before drop-off, then change it back once you pick up your phone.</p>
+          </div>
+          <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+            <h4 class="font-bold text-slate-900">Option C: On-Site In-Person Testing</h4>
+            <p class="text-sm text-slate-600">If you prefer not to share your passcode, you can unlock the phone in front of the technician when you collect the device so they can verify all repairs in front of you.</p>
+          </div>
+        </div>
+
+        <div class="mt-12 bg-slate-900 text-white p-12 rounded-[3.5rem] shadow-2xl relative overflow-hidden text-center">
+          <h3 class="text-3xl font-bold mb-4 font-display text-white">Ready to Get Your Phone Fixed in Newcastle?</h3>
+          <p class="mb-8 font-medium text-slate-300">Fast 30-minute repairs for iPhone, Samsung, Google Pixel, and iPads with a 6-month warranty.</p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="tel:0240491735" class="bg-blue-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display">Call (02) 4049 1735</a>
+            <a href="/quote" class="bg-white text-slate-900 px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display">Get Instant Repair Quote</a>
+          </div>
+        </div>
+      </section>
+    `
+  },
+  {
+    id: '46-is-it-cheaper-to-fix-or-replace-phone-guide',
+    title: 'Is It Cheaper to Fix a Phone or Replace It? 2026 Repair vs. Buy New Decision Guide',
+    slug: 'is-it-cheaper-to-fix-a-phone-or-replace-it-2026-guide',
+    author: 'Senior Repair Analyst',
+    date: '2026-07-29',
+    excerpt: 'Should you fix your broken smartphone or buy a new one? Compare repair costs vs replacement prices for iPhones and Androids, plus the top 9 phones most worth repairing in 2026.',
+    imageUrl: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=800',
+    tags: ['Repair vs Replace', 'Phone Buying Guide', 'Screen Repair', 'Smart Savings'],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-slate-900 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-slate-400">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-slate-500 text-[10px] font-black uppercase tracking-widest">Is it cheaper to fix a phone or buy a new one in 2026?</span>
+              <p class="text-xl font-bold">In 85% of cases, fixing your phone is significantly cheaper than replacing it. Replacing a screen or battery costs $89 to $249, whereas upgrading to a comparable new flagship costs $1,100 to $2,100. If the repair quote is under 50% of the phone's current market value, repair is the smartest financial choice.</p>
+            </div>
+            <div class="flex flex-col gap-2">
+              <span class="text-slate-500 text-[10px] font-black uppercase tracking-widest">What is the average lifespan of a smartphone?</span>
+              <p class="text-xl font-bold">The average smartphone lifespan is 3 to 5 years. A simple $79 battery replacement or screen swap after 2 years typically extends your phone's lifespan by an extra 24 months, saving you hundreds of dollars.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">When your phone screen shatters or the battery drains in two hours, your first instinct might be to rush to a phone store and sign up for a new $1,500 contract. But is buying a new device actually necessary? In 2026, smartphone innovation has plateaued, meaning a 2-year-old or 3-year-old iPhone or Samsung performs almost identically to the latest release once equipped with a fresh battery and display.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">The "50% Rule" for Phone Repairs</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">Repair technicians and financial advisors recommend applying the simple <strong>50% Rule</strong> when deciding whether to repair or replace:</p>
+        <div class="p-6 bg-blue-50 border border-blue-200 rounded-3xl my-4 text-slate-800">
+          <p class="text-lg font-bold mb-2">The 50% Formula:</p>
+          <p class="text-base text-slate-700">If the cost of repairing your phone is <strong>less than 50%</strong> of what it would cost to buy a comparable refurbished or new phone, <strong>FIX IT</strong>. If the repair exceeds 60-70% of the phone's resale value (or the phone no longer receives security software updates), consider replacing it.</p>
+        </div>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">9 Best Phones Worth Repairing in 2026</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">Based on part availability, trade-in value retention, and ongoing iOS/Android software update support, here are the top 9 smartphones most worth repairing right now:</p>
+
+        <div class="overflow-x-auto my-6">
+          <table class="w-full text-left border-collapse bg-slate-50 rounded-2xl border border-slate-200 text-sm">
+            <thead>
+              <tr class="bg-slate-900 text-white font-display">
+                <th class="p-4 rounded-tl-2xl">Smartphone Model</th>
+                <th class="p-4">Average Repair Cost</th>
+                <th class="p-4">New Phone Cost</th>
+                <th class="p-4 rounded-tr-2xl">Verdict</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200 text-slate-700">
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Apple iPhone 14 / 14 Pro</td>
+                <td class="p-4 font-bold text-green-600">$169 - $249</td>
+                <td class="p-4">$1,399+</td>
+                <td class="p-4 font-bold text-green-700">100% Worth Repairing (Save $1,150)</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Apple iPhone 13 / 13 Mini</td>
+                <td class="p-4 font-bold text-green-600">$139 - $189</td>
+                <td class="p-4">$1,199+</td>
+                <td class="p-4 font-bold text-green-700">100% Worth Repairing</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Apple iPhone 12 / 12 Pro</td>
+                <td class="p-4 font-bold text-green-600">$119 - $169</td>
+                <td class="p-4">$999+</td>
+                <td class="p-4 font-bold text-green-700">Highly Recommended</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Samsung Galaxy S23 / S23 Ultra</td>
+                <td class="p-4 font-bold text-green-600">$189 - $299</td>
+                <td class="p-4">$1,649+</td>
+                <td class="p-4 font-bold text-green-700">Definitely Repair</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Samsung Galaxy S22 / S21 Ultra</td>
+                <td class="p-4 font-bold text-green-600">$159 - $239</td>
+                <td class="p-4">$1,299+</td>
+                <td class="p-4 font-bold text-green-700">Worth Repairing</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Google Pixel 8 / 8 Pro</td>
+                <td class="p-4 font-bold text-green-600">$149 - $229</td>
+                <td class="p-4">$1,199+</td>
+                <td class="p-4 font-bold text-green-700">7 Years Support — Repair!</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Google Pixel 7 / 7a</td>
+                <td class="p-4 font-bold text-green-600">$129 - $179</td>
+                <td class="p-4">$749+</td>
+                <td class="p-4 font-bold text-green-700">Worth Repairing</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Apple iPhone SE (2nd & 3rd Gen)</td>
+                <td class="p-4 font-bold text-green-600">$89 - $119</td>
+                <td class="p-4">$719+</td>
+                <td class="p-4 font-bold text-green-700">Extremely Cheap Repair</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Samsung Galaxy A53 / A54 5G</td>
+                <td class="p-4 font-bold text-green-600">$119 - $159</td>
+                <td class="p-4">$699+</td>
+                <td class="p-4 font-bold text-green-700">Fix Screen or Battery</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Hidden Costs of Replacing a Smartphone</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">Buying a new phone carries hidden expenses that many people forget to budget for:</p>
+        <ul class="list-disc pl-6 space-y-2 text-slate-700">
+          <li><strong>Telco lock-in contracts:</strong> Being tied to $80-$120 monthly plans for 36 months.</li>
+          <li><strong>New charger blocks & accessories:</strong> Newer phones no longer include power adapters or headphones ($50-$100 extra).</li>
+          <li><strong>New protective cases & glass films:</strong> Old phone cases rarely fit newer phone camera bumps ($60+).</li>
+          <li><strong>Data migration hassle & app logins:</strong> Re-authenticating banking apps, multi-factor tokens, and password managers takes hours.</li>
+        </ul>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">When Should You ACTUALLY Replace Your Phone?</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">It is only time to upgrade if:</p>
+        <ol class="list-decimal pl-6 space-y-2 text-slate-700">
+          <li>Your phone is over 5-6 years old and no longer receives critical security updates from Apple or Google.</li>
+          <li>The motherboard has severe liquid corrosion damage affecting multiple IC chips.</li>
+          <li>The repair quote exceeds 70% of a brand-new replacement device.</li>
+        </ol>
+
+        <div class="mt-12 bg-blue-600 text-white p-12 rounded-[3.5rem] shadow-2xl relative overflow-hidden text-center">
+          <h3 class="text-3xl font-bold mb-4 font-display text-white">Get an Honest Repair vs Replace Advice</h3>
+          <p class="mb-8 font-medium text-blue-100">Bring your device to Mayfield Phone Repair at 276 Maitland Rd for a free 5-minute evaluation. We will give you a transparent price comparison before you decide.</p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="tel:0240491735" class="bg-slate-900 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display">Call 02 4049 1735</a>
+            <a href="/quote" class="bg-white text-slate-900 px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display">Get Free Price Check</a>
+          </div>
+        </div>
+      </section>
+    `
+  },
+  {
+    id: '47-geek-squad-vs-local-newcastle-phone-repair-shops',
+    title: 'Geek Squad Phone Repair Prices vs. Local Newcastle Repair Shops: 2026 Price & Speed Comparison',
+    slug: 'geek-squad-phone-repair-prices-vs-local-newcastle-shops-2026',
+    author: 'Consumer Tech Journalist',
+    date: '2026-07-30',
+    excerpt: 'Comparing Geek Squad phone repair prices to independent Newcastle repair shops. Compare screen replacement costs, battery replacement fees, repair turnarounds, and warranty terms.',
+    imageUrl: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=800',
+    tags: ['Price Comparison', 'Local vs Retail', 'Geek Squad', 'Newcastle Repairs'],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-blue-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-blue-100">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-blue-200 text-[10px] font-black uppercase tracking-widest">How much does Geek Squad charge for phone repairs compared to local shops?</span>
+              <p class="text-xl font-bold">Geek Squad screen repairs range from $199 to $379 with typical turnaround times of 3 to 7 business days if mail-in service is required. Local independent repair shops in Newcastle like Mayfield Phone Repair charge $119 to $249 for the same screen repairs and complete the work in 30 to 60 minutes on the spot.</p>
+            </div>
+            <div class="flex flex-col gap-2">
+              <span class="text-blue-200 text-[10px] font-black uppercase tracking-widest">Where is the best place to get your phone screen fixed in Newcastle?</span>
+              <p class="text-xl font-bold">For speed, lower price, and direct walk-in customer service, local specialty shops like Mayfield Phone Repair (276 Maitland Rd) offer same-day express service, clear upfront pricing, and local Newcastle warranty coverage.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">When your phone breaks, deciding where to take it is as important as deciding whether to fix it. Many consumers wonder if big-box retail repair services like Geek Squad offer better deals than local independent repair specialists. We analyzed pricing, turnaround times, part options, and warranty coverage across big retailers and local Newcastle repair centers to help you choose the best option.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Direct Price & Speed Comparison (2026 Data)</h2>
+
+        <div class="overflow-x-auto my-6">
+          <table class="w-full text-left border-collapse bg-slate-50 rounded-2xl border border-slate-200 text-sm">
+            <thead>
+              <tr class="bg-slate-900 text-white font-display">
+                <th class="p-4 rounded-tl-2xl">Service Type</th>
+                <th class="p-4">Geek Squad / Big Box</th>
+                <th class="p-4">Mayfield Phone Repair (Local)</th>
+                <th class="p-4 rounded-tr-2xl">Your Savings</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200 text-slate-700">
+              <tr>
+                <td class="p-4 font-bold text-slate-900">iPhone Screen Repair (11-14 Series)</td>
+                <td class="p-4 font-bold text-slate-600">$229 - $349</td>
+                <td class="p-4 font-bold text-blue-600">$129 - $229</td>
+                <td class="p-4 font-bold text-green-600">Save $80 - $120</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">iPhone Battery Replacement</td>
+                <td class="p-4 font-bold text-slate-600">$129 - $149</td>
+                <td class="p-4 font-bold text-blue-600">$79 - $99</td>
+                <td class="p-4 font-bold text-green-600">Save $50 - $70</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Samsung Screen Repair (S21-S23)</td>
+                <td class="p-4 font-bold text-slate-600">$289 - $399</td>
+                <td class="p-4 font-bold text-blue-600">$189 - $279</td>
+                <td class="p-4 font-bold text-green-600">Save $100 - $120</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Turnaround Time</td>
+                <td class="p-4 text-amber-700 font-bold">2 to 7 Days (If sent off)</td>
+                <td class="p-4 text-green-700 font-bold">30 to 60 Minutes Walk-In</td>
+                <td class="p-4 font-bold text-green-600">Same-Day Express</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Data wiping requirement</td>
+                <td class="p-4 text-red-600">Often required for off-site shipping</td>
+                <td class="p-4 text-green-600">Data preserved in-store</td>
+                <td class="p-4 font-bold text-green-600">Zero Data Loss</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Key Differences: Big Retailer vs Local Specialty Shop</h2>
+
+        <div class="grid md:grid-cols-2 gap-6 my-6">
+          <div class="p-6 bg-slate-50 border border-slate-200 rounded-3xl">
+            <h3 class="text-xl font-bold text-slate-900 mb-3">Big Retailers (Geek Squad, Dept Stores)</h3>
+            <ul class="list-disc pl-5 space-y-2 text-sm text-slate-600">
+              <li><strong>Rigid Flat Rates:</strong> Fixed service tiers regardless of whether the fix is a simple minor loose connector or full screen replacement.</li>
+              <li><strong>Longer Waiting Times:</strong> Stores frequently queue devices or ship them to regional hubs, leaving you without a phone for days.</li>
+              <li><strong>Mandatory Factory Wipes:</strong> Corporate liability policies often require wiping user data before opening the device.</li>
+            </ul>
+          </div>
+
+          <div class="p-6 bg-blue-50 border border-blue-200 rounded-3xl">
+            <h3 class="text-xl font-bold text-slate-900 mb-3">Mayfield Phone Repair (Local Specialist)</h3>
+            <ul class="list-disc pl-5 space-y-2 text-sm text-slate-600">
+              <li><strong>Express Same-Day Turnaround:</strong> 80% of screen and battery repairs take 30 to 45 minutes while you wait or shop nearby.</li>
+              <li><strong>Surgical Component Repairs:</strong> We fix micro-charging port pins, camera glass lenses, and batteries without replacing entire logic boards.</li>
+              <li><strong>Local Newcastle Warranty:</strong> Direct 6-month hassle-free warranty backed by local technicians who care about repeat local business.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Where to Get Your Phone Screen Fixed in Newcastle?</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">If you live in Newcastle, Mayfield, Hamilton, Cardiff, Waratah, Kotara, or Charlestown, visiting a dedicated local store like **Mayfield Phone Repair at 276 Maitland Rd** gives you direct face-to-face service with experienced repair technicians.</p>
+
+        <div class="mt-12 bg-slate-900 text-white p-12 rounded-[3.5rem] shadow-2xl relative overflow-hidden text-center">
+          <h3 class="text-3xl font-bold mb-4 font-display text-white">Compare Our Repair Rates Today</h3>
+          <p class="mb-8 font-medium text-slate-400">Save up to $120 on screen and battery service. Free walk-in diagnostic checks at 276 Maitland Rd, Mayfield.</p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="tel:0240491735" class="bg-blue-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display">Call (02) 4049 1735</a>
+            <a href="/quote" class="bg-white text-slate-900 px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display">Get Free Quote</a>
+          </div>
+        </div>
+      </section>
+    `
+  },
+  {
+    id: '48-phone-screen-repair-cost-guide-newcastle-2026',
+    title: 'Phone Screen Repair Cost Guide 2026: Prices for iPhone, Samsung & Pixel in Newcastle',
+    slug: 'phone-screen-repair-cost-guide-newcastle-2026',
+    author: 'Mayfield Repair Pricing Desk',
+    date: '2026-07-31',
+    excerpt: 'How much does it cost to replace a screen on a phone in 2026? View complete screen repair price tables for iPhone, Samsung Galaxy, and Google Pixel in Newcastle NSW.',
+    imageUrl: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&q=80&w=800',
+    tags: ['Screen Repair', 'Pricing Guide', 'iPhone Screen Cost', 'Newcastle'],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-slate-900 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-slate-400">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-slate-500 text-[10px] font-black uppercase tracking-widest">How much does it usually cost to replace a screen on a phone?</span>
+              <p class="text-xl font-bold">On average, replacing a phone screen costs between $89 and $249 for standard models (iPhone 11-14, Samsung A-series) and $229 to $379 for premium curved OLED models (iPhone 15/16 Pro Max, Samsung S23/S24 Ultra). Call (02) 4049 1735 for exact pricing on your phone model.</p>
+            </div>
+            <div class="flex flex-col gap-2">
+              <span class="text-slate-500 text-[10px] font-black uppercase tracking-widest">What is the most common phone repair?</span>
+              <p class="text-xl font-bold">Screen replacement is the #1 most common phone repair, accounting for approximately 65% of all repair center visits worldwide, followed by battery replacements (20%) and charging port repairs (10%).</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">A cracked screen is the single most common smartphone accident. Whether your phone slipped out of your pocket onto concrete or got crushed in a bag, a broken display can make touching the screen impossible or leak black OLED ink across your display. Here is the comprehensive 2026 screen repair cost guide for Newcastle residents.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">2026 Screen Replacement Price Tables by Model</h2>
+
+        <h3 class="text-2xl font-bold text-slate-800 mt-6 mb-2">1. Apple iPhone Screen Repair Prices</h3>
+        <div class="overflow-x-auto my-4">
+          <table class="w-full text-left border-collapse bg-slate-50 rounded-2xl border border-slate-200 text-sm">
+            <thead>
+              <tr class="bg-slate-900 text-white font-display">
+                <th class="p-4 rounded-tl-2xl">iPhone Model</th>
+                <th class="p-4">Standard Display Replacement</th>
+                <th class="p-4 rounded-tr-2xl">Repair Time</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200 text-slate-700">
+              <tr>
+                <td class="p-4 font-bold text-slate-900">iPhone 15 Pro / 15 Pro Max / 16 Series</td>
+                <td class="p-4 font-bold text-blue-600">$279 - $379</td>
+                <td class="p-4">30 - 45 Minutes</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">iPhone 14 / 14 Plus / 14 Pro</td>
+                <td class="p-4 font-bold text-blue-600">$189 - $269</td>
+                <td class="p-4">30 Minutes</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">iPhone 13 / 13 Pro / 13 Mini</td>
+                <td class="p-4 font-bold text-blue-600">$139 - $219</td>
+                <td class="p-4">30 Minutes</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">iPhone 12 / 12 Pro / 12 Mini</td>
+                <td class="p-4 font-bold text-blue-600">$119 - $179</td>
+                <td class="p-4">30 Minutes</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">iPhone 11 / 11 Pro / XR / SE 2022</td>
+                <td class="p-4 font-bold text-blue-600">$89 - $129</td>
+                <td class="p-4">20 - 30 Minutes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-2xl font-bold text-slate-800 mt-8 mb-2">2. Samsung Galaxy Screen Repair Prices</h3>
+        <div class="overflow-x-auto my-4">
+          <table class="w-full text-left border-collapse bg-slate-50 rounded-2xl border border-slate-200 text-sm">
+            <thead>
+              <tr class="bg-slate-900 text-white font-display">
+                <th class="p-4 rounded-tl-2xl">Samsung Model</th>
+                <th class="p-4">Display Replacement Price</th>
+                <th class="p-4 rounded-tr-2xl">Repair Time</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200 text-slate-700">
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Galaxy S24 / S24 Ultra / S23 Ultra</td>
+                <td class="p-4 font-bold text-blue-600">$279 - $389</td>
+                <td class="p-4">45 - 60 Minutes</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Galaxy S22 / S22+ / S21 Ultra</td>
+                <td class="p-4 font-bold text-blue-600">$199 - $289</td>
+                <td class="p-4">45 Minutes</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Galaxy S20 / S20 FE / S21 FE</td>
+                <td class="p-4 font-bold text-blue-600">$149 - $199</td>
+                <td class="p-4">30 - 45 Minutes</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Galaxy A Series (A14, A34, A54 5G)</td>
+                <td class="p-4 font-bold text-blue-600">$119 - $169</td>
+                <td class="p-4">30 Minutes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-2xl font-bold text-slate-800 mt-8 mb-2">3. Google Pixel Screen Repair Prices</h3>
+        <div class="overflow-x-auto my-4">
+          <table class="w-full text-left border-collapse bg-slate-50 rounded-2xl border border-slate-200 text-sm">
+            <thead>
+              <tr class="bg-slate-900 text-white font-display">
+                <th class="p-4 rounded-tl-2xl">Google Pixel Model</th>
+                <th class="p-4">Display Replacement Price</th>
+                <th class="p-4 rounded-tr-2xl">Repair Time</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200 text-slate-700">
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Pixel 8 / 8 Pro / 9 Pro</td>
+                <td class="p-4 font-bold text-blue-600">$199 - $289</td>
+                <td class="p-4">30 - 45 Minutes</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Pixel 7 / 7 Pro / 7a</td>
+                <td class="p-4 font-bold text-blue-600">$149 - $219</td>
+                <td class="p-4">30 Minutes</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Pixel 6 / 6 Pro / 6a</td>
+                <td class="p-4 font-bold text-blue-600">$129 - $179</td>
+                <td class="p-4">30 Minutes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">What Determines Phone Screen Repair Cost?</h2>
+        <div class="grid sm:grid-cols-2 gap-4 my-4">
+          <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+            <h4 class="font-bold text-slate-900">1. Display Panel Technology (OLED vs LCD)</h4>
+            <p class="text-sm text-slate-600">Flexible Super Retina OLED displays with 120Hz refresh rates cost more to manufacture than flat LCD screens on budget phones.</p>
+          </div>
+          <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+            <h4 class="font-bold text-slate-900">2. Glass Only vs Full Touch Digitizer</h4>
+            <p class="text-sm text-slate-600">If your display still shows a perfect image without black lines or flicker, glass-only repair can reduce costs significantly.</p>
+          </div>
+          <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+            <h4 class="font-bold text-slate-900">3. Sensor Recalibration (Face ID / Fingerprint)</h4>
+            <p class="text-sm text-slate-600">Modern screens require delicate transfer of ambient light sensors, proximity sensors, and biometric scanners.</p>
+          </div>
+          <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+            <h4 class="font-bold text-slate-900">4. Frame Assembly & Water Seals</h4>
+            <p class="text-sm text-slate-600">Quality repair shops re-apply water-resistant perimeter seals around the frame to protect against future moisture exposure.</p>
+          </div>
+        </div>
+
+        <div class="mt-12 bg-blue-600 text-white p-12 rounded-[3.5rem] shadow-2xl relative overflow-hidden text-center">
+          <h3 class="text-3xl font-bold mb-4 font-display text-white">Get Your Screen Fixed Today in Mayfield</h3>
+          <p class="mb-8 font-medium text-blue-100">Walk-in service at 276 Maitland Rd, Mayfield NSW 2304. Most screens replaced in 30 minutes with a 6-month warranty.</p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="tel:0240491735" class="bg-slate-900 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display">Call 02 4049 1735</a>
+            <a href="/quote" class="bg-white text-slate-900 px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display">Get Free Quote</a>
+          </div>
+        </div>
+      </section>
+    `
   }
 ];
+
 
