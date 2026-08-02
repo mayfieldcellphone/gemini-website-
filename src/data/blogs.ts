@@ -3600,6 +3600,37 @@ export const blogPosts: BlogPost[] = [
         </div>
       </section>
     `
+  },
+  {
+    id: "49",
+    title: "VPS Deployment Sync Verification Test 2026",
+    slug: "vps-deployment-sync-test-2026",
+    date: "2026-08-02",
+    author: "Mayfield Phone Repair Team",
+    excerpt: "Official live server deployment verification post to confirm automated GitHub sync and VPS build updates for Mayfield Phone Repair.",
+    imageUrl: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=1200",
+    tags: ["News & Updates", "VPS Verification", "Mayfield"],
+    content: `
+      <section class="space-y-6">
+        <div class="bg-emerald-50 border border-emerald-200 p-6 rounded-3xl">
+          <h2 class="text-2xl font-bold text-emerald-900 mb-2">✅ VPS Deployment Verification Active</h2>
+          <p class="text-emerald-800 text-sm">
+            This verification post was created on <strong>August 2, 2026</strong> to confirm that code updates from GitHub are properly compiled, pre-rendered, and deployed to the live VPS server at <strong>mayfieldphonerepair.com.au</strong>.
+          </p>
+        </div>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Deployment Check Details</h2>
+        <p class="text-slate-600 leading-relaxed">
+          If you are seeing this page live at <code class="bg-slate-100 text-blue-600 px-2 py-1 rounded">/blog/vps-deployment-sync-test-2026</code>, your VPS server build pipeline and static pre-rendering are working as expected.
+        </p>
+
+        <div class="mt-8 bg-blue-600 text-white p-8 rounded-3xl text-center">
+          <h3 class="text-2xl font-bold mb-2 font-display text-white">Need Phone Repairs in Mayfield?</h3>
+          <p class="mb-6 font-medium text-blue-100 text-sm">Walk-in service at 276 Maitland Rd, Mayfield NSW 2304.</p>
+          <a href="tel:0240491735" class="inline-block bg-slate-900 text-white px-8 py-4 rounded-xl font-bold text-xs font-display uppercase tracking-wider">Call 02 4049 1735</a>
+        </div>
+      </section>
+    `
   }
 ];
 
