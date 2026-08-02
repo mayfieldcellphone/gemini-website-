@@ -4,7 +4,7 @@ import fs from 'fs';
 import { execSync } from 'child_process';
 import dotenv from 'dotenv';
 
-dotenv.config(); // Fallback for local dev, but don't override Actions env
+dotenv.config({ path: path.resolve(process.cwd(), '.env'), override: true });
 
 function getAllFiles(dirPath: string, arrayOfFiles: string[] = []): string[] {
   const files = fs.readdirSync(dirPath);
@@ -28,7 +28,7 @@ const config = {
   port: parseInt((process.env.HOSTINGER_SFTP_PORT || '22').trim()),
 };
 
-const remoteDir = '/home/u479262663/domains/mayfieldphonerepair.com.au/public_html'; console.log(`🔗 Attempting connection to Host: ${config.host?.substring(0, 5)}...`);
+const remoteDir = '/home/u479262663/domains/mayfieldphonerepair.com.au/public_html';
 
 async function deploy() {
   if (!config.host || !config.username || !config.password) {

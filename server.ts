@@ -2,13 +2,28 @@ import express from "express";
 import { createServer as createViteServer } from "vite";
 import compression from "compression";
 import path from "path";
+import fs from "fs";
 import nodemailer from "nodemailer";
 import { GoogleGenAI } from "@google/genai";
 import dotenv from "dotenv";
 import { brands } from "./src/data/brands";
 import { servicesData } from "./src/data/services";
 
-dotenv.config();
+// Multi-fallback dotenv loading to survive process cwd mismatches on VPS / PM2 / systemd
+const envCandidates = [
+  path.resolve(process.cwd(), ".env"),
+  path.resolve(__dirname, ".env"),
+  path.resolve(__dirname, "../.env"),
+  "/var/www/mayfieldphonerepair.com.au/.env"
+];
+
+for (const envPath of envCandidates) {
+  if (fs.existsSync(envPath)) {
+    dotenv.config({ path: envPath });
+    console.log(`✅ Loaded environment variables from: ${envPath}`);
+    break;
+  }
+}
 
 // Email transporter (configured by user in .env)
 const createTransporter = () => {
