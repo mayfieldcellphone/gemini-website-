@@ -43,7 +43,7 @@ function escapeXml(unsafe: string) {
   });
 }
 
-function generateSitemap() {
+export function generateSitemap() {
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
   xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
 
@@ -95,11 +95,19 @@ function generateSitemap() {
 
   const publicPath = path.join(process.cwd(), 'public');
   if (!fs.existsSync(publicPath)) {
-    fs.mkdirSync(publicPath);
+    fs.mkdirSync(publicPath, { recursive: true });
   }
   
   fs.writeFileSync(path.join(publicPath, 'sitemap.xml'), xml);
-  console.log(`Sitemap generated successfully.`);
+
+  const distPath = path.join(process.cwd(), 'dist');
+  if (!fs.existsSync(distPath)) {
+    fs.mkdirSync(distPath, { recursive: true });
+  }
+  fs.writeFileSync(path.join(distPath, 'sitemap.xml'), xml);
+
+  const totalUrls = staticPages.length + pillarGuides.length + modelRepairData.length + suburbHubList.length + brands.length + servicesData.length + blogPosts.length + (suburbs.length * seoServices.length);
+  console.log(`Sitemap generated successfully (${totalUrls} URLs).`);
 }
 
 generateSitemap();

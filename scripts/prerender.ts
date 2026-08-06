@@ -4,6 +4,7 @@ import { brands } from '../src/data/brands';
 import { servicesData } from '../src/data/services';
 import { blogPosts } from '../src/data/blogs';
 import { suburbs, seoServices } from '../src/data/suburbs';
+import { generateSitemap } from './generate-sitemap';
 
 const BASE_URL = 'https://mayfieldphonerepair.com.au';
 const TODAY = new Date().toISOString().split('T')[0];
@@ -122,6 +123,14 @@ async function runPrerender() {
     }
 
     fs.writeFileSync(targetFile, content, 'utf-8');
+
+    // Also write flat file (e.g. dist/service/data-recovery.html) for direct .html requests and static checks
+    if (route !== '') {
+      const flatFilePath = path.join(DIST_DIR, `${route}.html`);
+      const flatDir = path.dirname(flatFilePath);
+      fs.mkdirSync(flatDir, { recursive: true });
+      fs.writeFileSync(flatFilePath, content, 'utf-8');
+    }
   }
 
   // 1. Pre-render Home Page (Overwrites dist/index.html optimized)
@@ -1067,6 +1076,9 @@ async function runPrerender() {
   });
   console.log(`✅ Pre-rendered ${suburbCount} suburb area landing pages (/*/*).`);
   console.log(`🎉 Web Pre-Render successfully completed. Total ${1 + staticConfig.length + brands.length + servicesData.length + blogPosts.length + suburbCount} pre-rendered pages generated inside /dist.`);
+  
+  // Ensure sitemap in dist/ is updated with all URLs
+  generateSitemap();
 }
 
 runPrerender().catch(err => {
