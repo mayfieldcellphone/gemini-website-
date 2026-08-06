@@ -22,6 +22,13 @@ const AboutUs = lazy(() => import('./pages/AboutUs'));
 const SitemapPage = lazy(() => import('./pages/SitemapPage'));
 const FreeQuotePage = lazy(() => import('./pages/FreeQuotePage'));
 const RepairGuides = lazy(() => import('./pages/RepairGuides'));
+const PillarPage = lazy(() => import('./pages/PillarPage'));
+const ModelRepairPage = lazy(() => import('./pages/ModelRepairPage'));
+const SuburbHubPage = lazy(() => import('./pages/SuburbHubPage'));
+const WarrantyGuidePage = lazy(() => import('./pages/WarrantyGuidePage'));
+const InsuranceClaimPage = lazy(() => import('./pages/InsuranceClaimPage'));
+const PaymentOptionsPage = lazy(() => import('./pages/PaymentOptionsPage'));
+const TradeInPage = lazy(() => import('./pages/TradeInPage'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 export default function App() {
@@ -39,6 +46,24 @@ export default function App() {
           <Route path="brand/:brandId" element={<BrandPage />} />
           <Route path="service/:serviceId" element={<ServicePage />} />
           <Route path="repair-guides" element={<RepairGuides />} />
+          <Route path="repair-guides/:slug" element={<PillarPage />} />
+          
+          {/* Model Specific Routes */}
+          <Route path="iphone/:modelSlug" element={<ModelRepairPage />} />
+          <Route path="samsung/:modelSlug" element={<ModelRepairPage />} />
+          <Route path="google/:modelSlug" element={<ModelRepairPage />} />
+
+          {/* Suburb Hub Routes */}
+          <Route path="phone-repair/:suburbSlug" element={<SuburbHubPage />} />
+          <Route path="phone-repair/:suburbSlug/:serviceKeyword" element={<SuburbHubPage />} />
+          <Route path="location/:suburbSlug" element={<SuburbHubPage />} />
+
+          {/* Warranty & Insurance & Financing & Trade-In Guides */}
+          <Route path="phone-repair-warranty-australia-guide" element={<WarrantyGuidePage />} />
+          <Route path="insurance-claim-repairs" element={<InsuranceClaimPage />} />
+          <Route path="payment-options" element={<PaymentOptionsPage />} />
+          <Route path="trade-in" element={<TradeInPage />} />
+
           <Route path="blog" element={<BlogPage />} />
           <Route path="blog/:slug" element={<BlogPostPage />} />
           <Route path="about-us" element={<AboutUs />} />

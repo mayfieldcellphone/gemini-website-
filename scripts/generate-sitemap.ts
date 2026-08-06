@@ -4,6 +4,9 @@ import { brands } from '../src/data/brands';
 import { servicesData } from '../src/data/services';
 import { blogPosts } from '../src/data/blogs';
 import { suburbs, seoServices } from '../src/data/suburbs';
+import { pillarGuides } from '../src/data/pillarData';
+import { modelRepairData } from '../src/data/modelData';
+import { suburbHubList } from '../src/data/suburbHubData';
 
 const BASE_URL = 'https://mayfieldphonerepair.com.au';
 const TODAY = new Date().toISOString().split('T')[0];
@@ -21,6 +24,10 @@ const staticPages = [
   '/corporate-repairs',
   '/sitemap',
   '/repair-guides',
+  '/phone-repair-warranty-australia-guide',
+  '/insurance-claim-repairs',
+  '/payment-options',
+  '/trade-in',
 ];
 
 function escapeXml(unsafe: string) {
@@ -45,6 +52,22 @@ function generateSitemap() {
     xml += `  <url>\n    <loc>${BASE_URL}${route}</loc>\n    <lastmod>${TODAY}</lastmod>\n    <priority>${route === '' ? '1.0' : '0.8'}</priority>\n  </url>\n`;
   });
 
+  // Pillar Guides
+  pillarGuides.forEach(pillar => {
+    xml += `  <url>\n    <loc>${BASE_URL}/repair-guides/${escapeXml(pillar.slug)}</loc>\n    <lastmod>${TODAY}</lastmod>\n    <priority>0.9</priority>\n  </url>\n`;
+  });
+
+  // Model Pages
+  modelRepairData.forEach(model => {
+    const brandPath = model.brand === 'apple' ? 'iphone' : model.brand;
+    xml += `  <url>\n    <loc>${BASE_URL}/${brandPath}/${escapeXml(model.slug)}</loc>\n    <lastmod>${TODAY}</lastmod>\n    <priority>0.8</priority>\n  </url>\n`;
+  });
+
+  // Suburb Hub Pages
+  suburbHubList.forEach(hub => {
+    xml += `  <url>\n    <loc>${BASE_URL}/phone-repair/${escapeXml(hub.id)}</loc>\n    <lastmod>${TODAY}</lastmod>\n    <priority>0.8</priority>\n  </url>\n`;
+  });
+
   // Brands
   brands.forEach(brand => {
     xml += `  <url>\n    <loc>${BASE_URL}/brand/${escapeXml(brand.id)}</loc>\n    <lastmod>${TODAY}</lastmod>\n    <priority>0.8</priority>\n  </url>\n`;
@@ -60,7 +83,7 @@ function generateSitemap() {
     xml += `  <url>\n    <loc>${BASE_URL}/blog/${escapeXml(post.slug)}</loc>\n    <lastmod>${post.date}</lastmod>\n    <priority>0.6</priority>\n  </url>\n`;
   });
 
-  // Suburb Pages
+  // Suburb Service Pages
   suburbs.forEach(suburb => {
     seoServices.forEach(service => {
       const loc = `${BASE_URL}/${escapeXml(service.id)}/${escapeXml(suburb.id)}`;
@@ -76,7 +99,7 @@ function generateSitemap() {
   }
   
   fs.writeFileSync(path.join(publicPath, 'sitemap.xml'), xml);
-  console.log(`Sitemap generated with ${staticPages.length + brands.length + servicesData.length + blogPosts.length + (suburbs.length * seoServices.length)} URLs.`);
+  console.log(`Sitemap generated successfully.`);
 }
 
 generateSitemap();

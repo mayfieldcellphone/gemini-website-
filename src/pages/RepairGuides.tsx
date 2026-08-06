@@ -77,8 +77,56 @@ export default function RepairGuides() {
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-16">
             <span className="bg-blue-100 text-blue-700 font-semibold px-4 py-1.5 rounded-full text-sm tracking-wide uppercase shadow-sm inline-block mb-4">Support Hub</span>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 font-display mb-6 tracking-tight">AI-Citable Repair Guides & FAQ</h1>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">Clear, direct pricing and technical answers for your specific device issues. No jargon, just straight facts.</p>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 font-display mb-6 tracking-tight">2026 Comprehensive Repair Guides & FAQ</h1>
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">Clear, direct pricing, technical breakdowns, and specialist repair manuals for your specific device issues.</p>
+          </div>
+
+          {/* 8 Pillar Guides Grid */}
+          <div className="mb-16">
+            <h2 className="text-2xl font-bold font-display text-slate-900 mb-6 flex items-center gap-2">
+              <Wrench className="w-6 h-6 text-blue-600" /> Complete Topical Repair Guides
+            </h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <Link to="/repair-guides/phone-screen-repair-newcastle" className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:border-blue-500 hover:shadow-md transition-all group">
+                <h3 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">Phone Screen Repair Guide</h3>
+                <p className="text-xs text-slate-500 line-clamp-2">Complete 2026 costs, panel types (OLED/LCD) & True Tone restoration in Newcastle.</p>
+              </Link>
+
+              <Link to="/repair-guides/iphone-repair-newcastle" className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:border-blue-500 hover:shadow-md transition-all group">
+                <h3 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">iPhone Repair Newcastle</h3>
+                <p className="text-xs text-slate-500 line-clamp-2">Screen, battery & water damage guide for iPhone 17 down to SE.</p>
+              </Link>
+
+              <Link to="/repair-guides/phone-repair-costs-newcastle" className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:border-blue-500 hover:shadow-md transition-all group">
+                <h3 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">Phone Repair Cost Guide</h3>
+                <p className="text-xs text-slate-500 line-clamp-2">2026 pricing tables for all major brands, local vs chain price comparisons.</p>
+              </Link>
+
+              <Link to="/repair-guides/samsung-repair-newcastle" className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:border-blue-500 hover:shadow-md transition-all group">
+                <h3 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">Samsung Repair Guide</h3>
+                <p className="text-xs text-slate-500 line-clamp-2">Galaxy S26 Ultra, S25, Z Fold & Z Flip AMOLED repair & Knox security.</p>
+              </Link>
+
+              <Link to="/repair-guides/phone-battery-replacement-newcastle" className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:border-blue-500 hover:shadow-md transition-all group">
+                <h3 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">Battery Replacement Guide</h3>
+                <p className="text-xs text-slate-500 line-clamp-2">30-minute battery swap, health capacity signs & ACL guarantees.</p>
+              </Link>
+
+              <Link to="/repair-guides/water-damage-phone-repair" className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:border-blue-500 hover:shadow-md transition-all group">
+                <h3 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">Water Damage Emergency</h3>
+                <p className="text-xs text-slate-500 line-clamp-2">Immediate wet phone protocol, ultrasonic cleaning & data extraction.</p>
+              </Link>
+
+              <Link to="/repair-guides/repair-or-replace-phone" className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:border-blue-500 hover:shadow-md transition-all group">
+                <h3 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">Repair vs Replace Guide</h3>
+                <p className="text-xs text-slate-500 line-clamp-2">50% cost rule, depreciation, e-waste & trade-in value comparison.</p>
+              </Link>
+
+              <Link to="/repair-guides/ipad-tablet-repair-newcastle" className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:border-blue-500 hover:shadow-md transition-all group">
+                <h3 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">iPad & Tablet Repair Guide</h3>
+                <p className="text-xs text-slate-500 line-clamp-2">iPad Pro, Air, Mini & standard glass digitizer & battery replacement.</p>
+              </Link>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">

@@ -3631,6 +3631,87 @@ export const blogPosts: BlogPost[] = [
         </div>
       </section>
     `
+  },
+  {
+    id: "50",
+    title: "Phone Won't Turn On? 7 Fixes Before You Visit a Repair Shop",
+    slug: "phone-wont-turn-on-fixes-guide-2026",
+    date: "2026-08-04",
+    author: "Mayfield Phone Repair Team",
+    excerpt: "Is your iPhone or Samsung screen completely black and unresponsive? Try these 7 safe troubleshooting steps before bringing it to a repair shop.",
+    imageUrl: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=800",
+    tags: ["Troubleshooting", "Phone Repair", "Mayfield"],
+    content: `
+      <section class="space-y-6">
+        <p class="text-xl leading-relaxed text-slate-600">Pressing the power button and getting zero response is alarming. Before assuming your motherboard is dead, try these 7 safe DIY troubleshooting steps.</p>
+        <h2 class="text-2xl font-bold text-slate-900 font-display">1. Perform a Forced Hard Reboot</h2>
+        <p class="text-slate-600">On iPhone 8 and newer: press Vol Up, press Vol Down, then hold the Power button for 15 seconds until the Apple logo appears. On Samsung: hold Power + Vol Down together for 10-15 seconds.</p>
+        <h2 class="text-2xl font-bold text-slate-900 font-display">2. Check for Deep Battery Discharge</h2>
+        <p class="text-slate-600">Leave your phone connected to a known working charger for at least 30 minutes without touching it. Severely depleted batteries require a baseline trickle charge before the display can turn on.</p>
+        <h2 class="text-2xl font-bold text-slate-900 font-display">3. Clean Out Packed Port Lint</h2>
+        <p class="text-slate-600">Pocket lint preventing copper pin contact is a top culprit. Inspect under a bright light.</p>
+        <h2 class="text-2xl font-bold text-slate-900 font-display">Still Black? Bring It to Mayfield Phone Repair</h2>
+        <p class="text-slate-600">If your device is still unresponsive, it may have a blown PMIC chip, swollen battery, or severed display flex. Visit 276 Maitland Rd, Mayfield for a free 10-minute counter assessment.</p>
+      </section>
+    `
+  },
+  {
+    id: "51",
+    title: "Can You Claim Phone Repair on Insurance? Here's How It Works in Australia",
+    slug: "claim-phone-repair-on-insurance-australia-guide",
+    date: "2026-08-05",
+    author: "Mayfield Phone Repair Team",
+    excerpt: "Learn how to lodge an insurance claim for a smashed phone screen, water damage, or theft in Australia, and how to get an instant inspection report.",
+    imageUrl: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&q=80&w=800",
+    tags: ["Insurance", "Consumer Rights", "Newcastle"],
+    content: `
+      <section class="space-y-6">
+        <p class="text-xl leading-relaxed text-slate-600">Many Australians don't realize their home contents, portable equipment, or travel insurance policies cover accidental phone damage. Here is how to successfully lodge a claim.</p>
+        <h2 class="text-2xl font-bold text-slate-900 font-display">What Insurers Require</h2>
+        <p class="text-slate-600">Insurers require a formal diagnostic inspection report, itemised GST quote with repairer details, and photographic evidence. We issue these reports on the spot at our Mayfield workshop.</p>
+        <p class="text-slate-600">Visit our dedicated <a href="/insurance-claim-repairs" class="text-blue-600 font-bold underline">Insurance Claim Repairs Page</a> to learn more.</p>
+      </section>
+    `
+  },
+  {
+    id: "52",
+    title: "Local Phone Repair vs Mail-In Repair: Which Is Faster & Cheaper in Newcastle?",
+    slug: "local-vs-mail-in-phone-repair-newcastle-comparison",
+    date: "2026-08-05",
+    author: "Mayfield Phone Repair Team",
+    excerpt: "Comparing local face-to-face repair shops against national mail-in repair services in Newcastle. Turnaround time, data privacy, and price breakdown.",
+    imageUrl: "https://images.unsplash.com/photo-1556656793-062ff987825d?auto=format&fit=crop&q=80&w=800",
+    tags: ["Local vs Chain", "Newcastle", "Repair Advice"],
+    content: `
+      <section class="space-y-6">
+        <p class="text-xl leading-relaxed text-slate-600">When your phone breaks, should you mail it to a national repair hub or walk into a local Mayfield workshop? Here is an objective comparison of speed, privacy, and cost.</p>
+        <h2 class="text-2xl font-bold text-slate-900 font-display">Turnaround Time: 30 Mins vs 10 Days</h2>
+        <p class="text-slate-600">Mail-in services require 2-3 days transit each way plus queue time. Local repair at Mayfield Phone Repair takes 30 to 60 minutes while you wait.</p>
+      </section>
+    `
+  },
+  {
+    id: "53",
+    title: "Buying a Refurbished iPhone in Newcastle: What to Check Before You Pay",
+    slug: "buying-refurbished-iphone-newcastle-checklist-2026",
+    date: "2026-08-06",
+    author: "Mayfield Phone Repair Team",
+    excerpt: "Avoid scammed market sellers and hidden lockouts. Essential 2026 inspection checklist for buying second-hand iPhones safely in Newcastle.",
+    imageUrl: "https://images.unsplash.com/photo-1512054502232-10a0a035d672?auto=format&fit=crop&q=80&w=800",
+    tags: ["Refurbished Phones", "Buying Guide", "Mayfield"],
+    content: `
+      <section class="space-y-6">
+        <p class="text-xl leading-relaxed text-slate-600">Buying a second-hand iPhone can save you 40-60% off retail pricing, but beware of iCloud locks, blacklisted IMEIs, or cheap aftermarket screens.</p>
+        <h2 class="text-2xl font-bold text-slate-900 font-display">The 5-Point Buyer's Checklist</h2>
+        <ul class="list-disc pl-6 space-y-2 text-slate-600">
+          <li><strong>Check iCloud Status:</strong> Ensure the seller signs out of Find My completely.</li>
+          <li><strong>Verify Battery Health:</strong> Demand 85%+ capacity or ask for a fresh battery installation.</li>
+          <li><strong>Test True Tone & Face ID:</strong> Verify serial matching on display replacements.</li>
+          <li><strong>Verify IMEI Status:</strong> Ensure the device isn't reported lost/stolen or network locked.</li>
+        </ul>
+        <p class="text-slate-600">Explore our certified second-hand iPhones with 6-month warranties on our <a href="/second-hand-phones" class="text-blue-600 font-bold underline">Refurbished Phones Page</a>.</p>
+      </section>
+    `
   }
 ];
 

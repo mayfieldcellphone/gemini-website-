@@ -1,4 +1,4 @@
-import { Smartphone, Battery, Droplet, Settings, Layers, Camera, Zap, Laptop } from 'lucide-react';
+import { Smartphone, Battery, Droplet, Settings, Layers, Camera, Zap, Laptop, HardDrive, Volume2, Cpu, Gamepad2, Watch, Tablet, ShieldCheck, CreditCard, RefreshCw, Monitor } from 'lucide-react';
 
 export const servicesData = [
   {
@@ -264,5 +264,334 @@ export const servicesData = [
       }
     ],
     features: ['MacBook Specialist', 'Screen & Battery Fixes', 'No Fix, No Fee', 'Fast Turnaround'],
+  },
+  {
+    id: 'data-recovery',
+    icon: HardDrive,
+    title: 'Phone Data Recovery',
+    shortDesc: 'Dropped your phone in water or won\'t turn on? Local phone data recovery in Mayfield & Newcastle. We recover photos, contacts & messages from damaged phones. Call now.',
+    heroTitle: 'Phone Data Recovery in Mayfield & Newcastle — Get Your Photos, Contacts & Messages Back',
+    heroDescription: 'Has your phone stopped turning on after water exposure or a severe drop? Don\'t panic. Our Newcastle data recovery specialists recover photos, contacts, WhatsApp messages, and documents from dead, locked, or water-damaged phones with a No Data, No Fee guarantee.',
+    color: 'from-purple-600 to-indigo-700',
+    content: [
+      {
+        heading: 'What We Can Recover (and From What)',
+        text: 'We retrieve irreplaceable personal photos, 4K family videos, contact lists, text messages, WhatsApp databases, voice memos, notes, and business files. Whether your device has a completely shattered black screen, severe salt-water corrosion, a swollen battery, or a blown power IC chip on the motherboard, our hardware micro-soldering team can extract your data safely.'
+      },
+      {
+        heading: 'How Local Data Recovery Works — Step by Step',
+        text: '1) Free diagnostic assessment in our Mayfield workshop (10 minutes in-store); 2) Fixed-price quote provided up front before any work starts; 3) Component-level logic board recovery and data transfer directly to a USB drive or your new phone; 4) Verification in front of you at our counter. You test your files before paying a single cent.'
+      },
+      {
+        heading: 'Data Recovery Prices — Fixed Quote, No Surprises',
+        text: 'Software & touch-disabled screen extraction starts from $89. Complex board-level micro-soldering and water damage circuit rebuilds range from $149 to $299. Unlike national mail-in labs that charge expensive "non-refundable inspection fees" before hitting you with a four-figure bill, our prices are capped and transparent.'
+      },
+      {
+        heading: 'Water-Damaged Phone? Do These 3 Things Before Anything Else',
+        list: [
+          'Power off the device immediately—never plug in a charger or connect to a power bank!',
+          'Do NOT put your phone in dry rice (rice starch clogs ports and does NOT stop internal circuit corrosion)',
+          'Bring your wet phone directly into our Mayfield store on Maitland Rd for immediate component stabilization'
+        ]
+      },
+      {
+        heading: 'We Recover Data From All Brands',
+        text: 'We provide specialized recovery solutions for Apple iPhone (all series including iPhone 17/16/15), Samsung Galaxy (S-series, Note, A-series, Z Fold/Flip), Google Pixel, OPPO, Motorola, Huawei, and iPad tablets.'
+      },
+      {
+        heading: 'Local vs Mail-In Data Recovery — Why Speed and Privacy Matter',
+        text: 'Sending your device to an interstate mail-in facility puts your highly private photos and banking apps on a courier truck for weeks. At Mayfield Phone Repair, your data stays strictly inside our secure local workshop under your oversight, with same-day to 48-hour turnarounds.'
+      },
+      {
+        heading: 'Book a Free Data Recovery Assessment',
+        text: 'Visit 276 Maitland Rd, Mayfield NSW 2304 or call <a href="tel:+61240491735">(02) 4049 1735</a> for an immediate consultation. Remember: if we cannot recover your critical files, you pay nothing.'
+      }
+    ],
+    features: ['No Data No Fee', 'Micro-Soldering Rescue', 'Strict Local Privacy', 'Same-Day Assessment'],
+  },
+  {
+    id: 'speaker-repair',
+    icon: Volume2,
+    title: 'Speaker & Audio Repair',
+    shortDesc: 'Fix muffled earpiece audio, crackling loudspeakers, quiet calls, or non-working microphones for iPhone, Samsung, and Pixel phones in Newcastle.',
+    heroTitle: 'Phone Speaker & Microphone Repair Newcastle',
+    heroDescription: 'Can\'t hear callers during phone calls or experiencing distorted crackling sound? Our audio repair specialists fix earpiece speakers, loud speakers, and primary microphone arrays for all phone models in 30-45 minutes.',
+    color: 'from-amber-600 to-red-600',
+    content: [
+      {
+        heading: 'Restoring Crystal-Clear Call Quality & Media Audio',
+        text: 'Smartphones rely on multiple specialized acoustic components: a top earpiece speaker for private calls, a bottom loudspeaker for speakerphone and media, and multi-microphone arrays for noise cancellation and voice pick-up. Over time, metal dust from job sites, pocket lint, skin oils, and liquid splashes block speaker grilles or tear speaker diaphragms, causing muffled or static audio.'
+      },
+      {
+        heading: 'Ultrasonic Grille Cleaning vs Acoustic Module Replacement',
+        text: 'Before replacing parts, we test your phone\'s sound output. In many cases, a deep microscopic cleaning of the fine acoustic mesh with specialized solvent removes trapped debris and restores 100% volume. If the internal voice coil or speaker membrane is physically damaged, we install original-spec replacement audio modules.'
+      },
+      {
+        heading: 'Audio Issues We Repair',
+        list: [
+          'Extremely quiet or muffled earpiece audio during standard phone calls',
+          'Distorted, buzzing, or crackling sound from bottom media speakers',
+          'Callers reporting they cannot hear you (failed primary microphone flex)',
+          'Grayed-out speaker buttons or audio IC chip failures on logic boards'
+        ]
+      },
+      {
+        heading: 'Fast Same-Day Service in Mayfield',
+        text: 'Don\'t struggle through muffled phone calls. Drop by our Mayfield repair shop for a quick 30-minute speaker clean or replacement with 90-day hardware warranty.'
+      }
+    ],
+    features: ['30-Min Audio Repair', 'OEM Speaker Modules', 'Microscope Mesh Clean', '90-Day Warranty'],
+  },
+  {
+    id: 'software-repair',
+    icon: Cpu,
+    title: 'Software & OS Repair',
+    shortDesc: 'Fix boot loops, stuck Apple logo, Android recovery crashes, frozen screens, failed updates, and malware issues for iOS & Android in Newcastle.',
+    heroTitle: 'Phone Software & Firmware Repair Newcastle',
+    heroDescription: 'Is your iPhone stuck on the Apple logo or Android caught in an infinite boot loop? We provide professional iOS and Android operating system restoration, firmware reflashing, and system diagnostic fixes in Mayfield.',
+    color: 'from-blue-600 to-cyan-600',
+    content: [
+      {
+        heading: 'Comprehensive Operating System Diagnostics & Firmware Reflashing',
+        text: 'Software glitches can render a high-end smartphone completely unusable. Interruptions during over-the-air system updates, full internal storage corruptions, or malicious software can trigger continuous rebooting (boot loops), frozen touchscreens, or emergency recovery screens. Our software technicians use official firmware binaries to repair corrupt system files without losing your personal data whenever possible.'
+      },
+      {
+        heading: 'iOS & Android Troubleshooting Solutions',
+        text: 'We handle iTunes/Finder error codes (e.g. Error 9, 11, 4013), DFU mode restores, Samsung Odin firmware flashes, Google Pixel Android flash utility setups, and storage optimization to free up clogged system space.'
+      },
+      {
+        heading: 'Common Software Faults Solved',
+        list: [
+          'iPhone stuck on Apple logo or recovery mode (black screen with computer icon)',
+          'Android device repeating boot loops or showing "No Command" errors',
+          'System storage 100% full causing device freeze and inability to boot',
+          'App crashing, unresponsive system UI, or failed system updates'
+        ]
+      },
+      {
+        heading: 'Pre-Repair Data Protection Advice',
+        text: 'We prioritize keeping your personal files intact during software repairs. Visit our Mayfield location on Maitland Rd for immediate software diagnostic support.'
+      }
+    ],
+    features: ['iOS & Android Experts', 'Firmware Reflashing', 'Data Preservation', 'Same-Day Diagnostics'],
+  },
+  {
+    id: 'gaming-console-repair',
+    icon: Gamepad2,
+    title: 'Gaming Console Repair',
+    shortDesc: 'Expert PlayStation PS5, Xbox Series X/S, and Nintendo Switch repairs in Newcastle. Fix HDMI ports, stick drift, overheating & disc drive errors.',
+    heroTitle: 'Gaming Console Repair Newcastle | PS5, Xbox & Switch',
+    heroDescription: 'Has your PS5 HDMI port broken or is your Nintendo Switch suffering from controller stick drift or charging issues? We provide expert repair services for PlayStation, Xbox, and Nintendo Switch consoles in Mayfield.',
+    color: 'from-indigo-600 to-purple-800',
+    content: [
+      {
+        heading: 'Expert Console Hardware Repair & Micro-Soldering Newcastle',
+        text: 'Gaming consoles are high-performance computers subject to thermal stress and mechanical port wear. Pushing HDMI cables in forcefully or accidental drops can snap delicate internal HDMI pins, leaving you with a blank screen. At Mayfield Phone Repair, we replace damaged HDMI ports using precision micro-soldering rework stations to ensure pristine 4K 120Hz display output.'
+      },
+      {
+        heading: 'Nintendo Switch & Joy-Con Repairs',
+        text: 'We fix Nintendo Switch charging port failures (USB-C), cracked LCD screens, swelling batteries, non-responsive game card slots, and Joy-Con joystick drift with high-durability hall-effect magnetic sensors that eliminate drift forever.'
+      },
+      {
+        heading: 'Console Issues We Fix',
+        list: [
+          'PS5 & Xbox Series X damaged HDMI port replacement (no signal / black screen)',
+          'PS5 liquid metal thermal repasting and loud cooling fan overheating fixes',
+          'Nintendo Switch USB-C port repair, screen replacement & hall-effect stick drift fix',
+          'Disc drive read errors, power supply failures, and controller repairs'
+        ]
+      },
+      {
+        heading: 'Fast Turnaround & Warranty',
+        text: 'All console repairs are performed locally in Newcastle with a 90-day parts and labor warranty so you can get back to gaming quickly.'
+      }
+    ],
+    features: ['PS5 & Xbox HDMI Ports', 'Nintendo Switch Specialists', 'Hall-Effect Stick Fix', '90-Day Warranty'],
+  },
+  {
+    id: 'smartwatch-repair',
+    icon: Watch,
+    title: 'Smartwatch & Apple Watch Repair',
+    shortDesc: 'Cracked Apple Watch screen or degraded Galaxy Watch battery? We repair Apple Watch Series & Ultra, Samsung Galaxy Watch & Garmin devices in Newcastle.',
+    heroTitle: 'Apple Watch & Smartwatch Repair Newcastle',
+    heroDescription: 'Don\'t wear a shattered Apple Watch screen or struggle with a dead smartwatch battery. We provide expert OLED screen replacements, fresh high-capacity batteries, and water seal restorations for Apple Watch and Samsung Galaxy Watch in Mayfield.',
+    color: 'from-rose-500 to-pink-600',
+    content: [
+      {
+        heading: 'Precision Apple Watch & Galaxy Watch Display & Battery Swaps',
+        text: 'Smartwatches feature compact, tightly sealed curved OLED displays and miniature lithium-ion batteries. Due to their small size, repairing an Apple Watch or Galaxy Watch requires high-precision tools and specialized adhesives. Our technicians carefully separate cracked glass digitizers, install premium OEM-grade displays, and reapply water-resistant seals.'
+      },
+      {
+        heading: 'Apple Watch Models Covered',
+        text: 'We repair Apple Watch Series 4, 5, 6, 7, 8, 9, 10, Apple Watch SE, and Apple Watch Ultra / Ultra 2, as well as Samsung Galaxy Watch 4, 5, 6, 7 & Classic series.'
+      },
+      {
+        heading: 'Smartwatch Repair Services',
+        list: [
+          'Cracked front glass and shattered OLED touch screen replacements',
+          'Rapid battery drain swaps and swollen watch battery removal',
+          'Digital Crown, side button, and haptic engine repair',
+          'Water resistance seal restoration and sensor clean'
+        ]
+      },
+      {
+        heading: 'Local Repair Workshop in Mayfield',
+        text: 'Bring your smartwatch to 276 Maitland Rd, Mayfield for fast turnaround and expert care.'
+      }
+    ],
+    features: ['Apple Watch Specialists', 'OLED Screen Replacement', 'Fresh High-Cap Battery', 'Water Seal Reapplied'],
+  },
+  {
+    id: 'iphone-17-screen-repair',
+    icon: Smartphone,
+    title: 'iPhone 17 Screen Repair',
+    shortDesc: 'Cracked iPhone 17 screen? Same-day iPhone 17 screen replacement in Mayfield & Newcastle by trusted local techs. 90-day warranty, quality parts. Walk in or call now.',
+    heroTitle: 'iPhone 17 Screen Repair in Mayfield & Newcastle — Fixed Today, 90-Day Warranty',
+    heroDescription: 'Shattered your new iPhone 17 or 17 Pro Max display? Don\'t wait weeks for an Apple store appointment. Mayfield Phone Repair delivers 30-45 minute express screen replacements with True Tone calibration and 90-day guarantee.',
+    color: 'from-blue-600 to-indigo-600',
+    content: [
+      {
+        heading: 'iPhone 17 Screen Repair Prices — What You\'ll Actually Pay',
+        text: 'Transparent pricing for iPhone 17, 17 Pro, and 17 Pro Max screen repairs. We offer high-grade OLED panels starting from $249, compared to Apple\'s $489+ out-of-warranty fee and 5-day booking delays. All prices include labor, dust seal re-application, and 90-day warranty.'
+      },
+      {
+        heading: 'How We Compare to Apple\'s Official Repair and Other Local Shops',
+        text: 'Apple Store: 3-5 day wait time, mandatory factory reset risk, $489+ cost. Big Chain Mail-In: 7-10 business days, no face-to-face service. Mayfield Phone Repair: 30-minute walk-in turnaround, zero data loss guarantee, original True Tone & Face ID preservation, 90-day warranty.'
+      },
+      {
+        heading: 'What\'s Included in Every iPhone 17 Screen Repair',
+        list: [
+          'OEM-specification OLED panel with 100% color accuracy and 120Hz ProMotion support',
+          'Biometric Face ID array and ambient light sensor preservation',
+          'Hardware serialization programmer transfer to prevent popup display warnings',
+          'New perimeter dust and water resistance adhesive seal',
+          '90-day comprehensive parts and labor warranty'
+        ]
+      },
+      {
+        heading: 'How Long Does an iPhone 17 Screen Repair Take?',
+        text: 'Most iPhone 17 screens are completed in 30–45 minutes while you wait. Walk into our Maitland Rd store between 10am–6pm Mon–Sat, or call <a href="tel:+61240491735">(02) 4049 1735</a> for priority booking.'
+      },
+      {
+        heading: 'Signs Your iPhone 17 Needs More Than a Screen',
+        text: 'Cracks radiating from heavy drop impact points can cause subtle internal chassis bends, touch dead zones, ghost tapping, or Face ID projector misalignment. Our technicians conduct a free 10-point inspection before starting.'
+      },
+      {
+        heading: 'What to Do Before You Bring Your iPhone 17 In',
+        text: 'Back up your device to iCloud or a computer if possible, know your screen passcode, and remove bulky protective cases. Rest assured: your personal data stays safe on your device—we never wipe your phone.'
+      },
+      {
+        heading: 'FAQ — iPhone 17 Screen Repair Questions We Get Every Day',
+        text: 'Will a third-party repair void my statutory rights? No. Under Australian Consumer Law (ACL), you have the right to select independent repair centers without losing legal guarantees. Does Face ID still work? Yes! We carefully transfer your original Face ID sensor block.'
+      },
+      {
+        heading: 'Find Us in Mayfield — or We\'ll See You Tonight',
+        text: 'Visit 276 Maitland Rd, Mayfield NSW 2304. Parking right outside. Call <a href="tel:+61240491735">(02) 4049 1735</a> or use our emergency after-hours text service.'
+      }
+    ],
+    features: ['30-Min Turnaround', 'True Tone & Face ID', '90-Day Guarantee', 'No Data Loss'],
+  },
+  {
+    id: 'ipad-repair',
+    icon: Tablet,
+    title: 'iPad Repair',
+    shortDesc: 'iPad Screen & Battery Repair in Mayfield & Newcastle. Fast repair for iPad Pro, Air, Mini, and 10th/9th Gen models.',
+    heroTitle: 'iPad Repair Mayfield & Newcastle | Screen & Battery Specialists',
+    heroDescription: 'Shattered iPad screen or battery draining fast? We provide fast, reliable screen digitizer and battery replacements for students, families, and businesses across Newcastle.',
+    color: 'from-indigo-600 to-blue-700',
+    content: [
+      {
+        heading: 'Expert iPad Glass & Display Replacement in Newcastle',
+        text: 'iPads are essential tools for Newcastle school students, university academics, and local businesses. A broken iPad screen digitizer or cracked Retina display doesn\'t mean buying a new $800+ tablet. We replace outer glass digitizers and fused LCD assemblies for all iPad models.'
+      },
+      {
+        heading: 'iPad Models We Service Daily',
+        list: [
+          'iPad Pro 12.9", 11" (M1, M2, M4 & earlier generations)',
+          'iPad Air 5th, 4th & 3rd Gen (10.9" & 11" displays)',
+          'iPad 10th, 9th, 8th & 7th Gen standard education tablets',
+          'iPad Mini 6 & Mini 5 compact tablets'
+        ]
+      },
+      {
+        heading: 'Fast 2-Hour Turnaround & Warranty',
+        text: 'iPad repairs require specialized heating and high-bonding industrial frame adhesives to prevent corner lifting. Visit 276 Maitland Rd, Mayfield or call <a href="tel:+61240491735">(02) 4049 1735</a>.'
+      }
+    ],
+    features: ['Digitizer & LCD Fix', 'High-Bond Adhesives', 'Student Discounts', '90-Day Warranty'],
+  },
+  {
+    id: 'macbook-repair',
+    icon: Laptop,
+    title: 'MacBook Repair',
+    shortDesc: 'MacBook Screen & Battery Repair Mayfield & Newcastle. Logic board micro-soldering, battery swaps & flexgate repairs.',
+    heroTitle: 'MacBook Repair Mayfield & Newcastle | Screen, Battery & Logic Board',
+    heroDescription: 'Cracked MacBook screen, swollen battery, or liquid spill? Save up to 50% compared to official store swaps with our local component-level MacBook repair in Mayfield.',
+    color: 'from-slate-800 to-blue-900',
+    content: [
+      {
+        heading: 'Component-Level MacBook Repair Newcastle',
+        text: 'When Apple quotes $1,000+ for a full logic board or top-case replacement, our Mayfield micro-soldering technicians repair the exact failed chips or flex cables, saving you hundreds of dollars.'
+      },
+      {
+        heading: 'Common MacBook Fixes',
+        list: [
+          'Retina display screen assembly swaps (MacBook Air M1/M2/M3 & MacBook Pro 14"/16")',
+          'Swollen or degraded high-capacity battery replacements (2-3 hour service)',
+          'Liquid damage chemical cleaning and logic board power IC micro-soldering',
+          'Flexgate backlight fixes and USB-C MagSafe port replacements'
+        ]
+      }
+    ],
+    features: ['Save up to 50%', 'M1/M2/M3 Specialists', 'Board Micro-Soldering', '90-Day Warranty'],
+  },
+  {
+    id: 'apple-watch-repair',
+    icon: Watch,
+    title: 'Apple Watch Repair',
+    shortDesc: 'Apple Watch Screen & Battery Repair in Mayfield. Series 4 to 10 & Ultra OLED screen replacements.',
+    heroTitle: 'Apple Watch Repair Mayfield & Newcastle',
+    heroDescription: 'Shattered Apple Watch glass or dead battery? We provide precision OLED display replacements and battery swaps for Apple Watch Series 4-10, SE & Ultra.',
+    color: 'from-pink-600 to-rose-600',
+    content: [
+      {
+        heading: 'Precision Apple Watch Screen & Battery Swaps',
+        text: 'Apple Watches feature curved OLED screens and tight water-resistant gaskets. We replace cracked screens, install fresh batteries, and restore water resistance seals in Mayfield.'
+      }
+    ],
+    features: ['OLED Screen Fix', 'Fresh Battery', 'Water Seal Restored', 'Series 4-10 & Ultra'],
+  },
+  {
+    id: 'foldable-phone-repair',
+    icon: Smartphone,
+    title: 'Foldable Phone Repair',
+    shortDesc: 'Galaxy Z Fold & Z Flip Repair — Specialised Flex Screen Service. Screen hinge, crease screen & battery repair in Newcastle.',
+    heroTitle: 'Galaxy Z Fold & Z Flip Repair Newcastle | Foldable Screen Specialists',
+    heroDescription: 'Is your Samsung Galaxy Z Fold or Z Flip screen lifting at the hinge or showing black lines? We specialize in flexible inner screen replacement, outer glass repair, and hinge mechanism alignment.',
+    color: 'from-violet-600 to-purple-800',
+    content: [
+      {
+        heading: 'Specialized Samsung Foldable Screen & Hinge Service',
+        text: 'Foldable devices (Galaxy Z Fold 6/5/4, Z Flip 6/5/4) feature ultra-thin glass (UTG) and complex gear hinges. We replace damaged flexible inner displays and calibrate hinge alignment for smooth folding.'
+      }
+    ],
+    features: ['UTG Screen Specialists', 'Hinge Realignment', 'Z Fold & Z Flip', '90-Day Warranty'],
+  },
+  {
+    id: 'surface-repair',
+    icon: Monitor,
+    title: 'Microsoft Surface Repair',
+    shortDesc: 'Microsoft Surface Screen & Battery Repair Newcastle. Surface Pro, Laptop & Book display replacements in Mayfield.',
+    heroTitle: 'Microsoft Surface Repair Newcastle & Mayfield',
+    heroDescription: 'Flickering Surface Pro screen or expanding battery? We provide expert display assembly swaps and battery replacements for Microsoft Surface devices.',
+    color: 'from-blue-600 to-cyan-700',
+    content: [
+      {
+        heading: 'Microsoft Surface Screen & Battery Restoration',
+        text: 'Surface devices are notoriously difficult to dismantle. Our technicians use thermal separation tools to safely replace cracked digitizers and swollen batteries on Surface Pro 7/8/9/10 and Surface Laptops.'
+      }
+    ],
+    features: ['Surface Pro & Laptop', 'Screen & Battery Swaps', 'Thermal Safe Removal', '90-Day Warranty'],
   }
 ];
+

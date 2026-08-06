@@ -743,6 +743,57 @@ async function runPrerender() {
         "name": "Repair Guides",
         "url": `${BASE_URL}/repair-guides`
       }
+    },
+    {
+      route: 'insurance-claim-repairs',
+      title: 'Insurance Claim Phone Repairs Newcastle — We Handle the Paperwork',
+      desc: 'Need a phone repair covered by insurance? Insurance claim repairs in Mayfield & Newcastle — inspection reports, quotes & approved repairs for all major insurers. Start today.',
+      body: `
+        <article>
+          <h1>Insurance Claim Phone Repairs in Newcastle — We Handle the Paperwork</h1>
+          <p>Official inspection reports, itemised quotes, and approved repairs for all major Australian insurers in Mayfield & Newcastle.</p>
+        </article>
+      `,
+      schema: {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Insurance Claim Phone Repairs Newcastle",
+        "url": `${BASE_URL}/insurance-claim-repairs`
+      }
+    },
+    {
+      route: 'payment-options',
+      title: 'Afterpay & Zip — Split Your Phone Repair into 4 Payments | Mayfield',
+      desc: 'Split your phone repair cost into 4 interest-free payments with Afterpay or Zip in Mayfield & Newcastle. Instant approval at counter. Fix your phone today.',
+      body: `
+        <article>
+          <h1>Afterpay & Zip — Split Your Phone Repair into 4 Payments</h1>
+          <p>Split your iPhone, Samsung, or laptop repair bill into 4 interest-free fortnightly payments with Afterpay or Zip in Mayfield.</p>
+        </article>
+      `,
+      schema: {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Payment Options & Financing",
+        "url": `${BASE_URL}/payment-options`
+      }
+    },
+    {
+      route: 'trade-in',
+      title: 'Trade In Your Old Phone — Cash or Credit Towards Refurbished Devices | Mayfield',
+      desc: 'Trade in your old, broken, or unused iPhone, Samsung, or Pixel in Mayfield & Newcastle. Get instant cash or store credit towards a refurbished phone.',
+      body: `
+        <article>
+          <h1>Trade In Your Old Phone — Cash or Credit Towards Refurbished Devices</h1>
+          <p>Trade in your old or broken smartphone for instant cash or store credit towards certified second-hand iPhones and Samsungs.</p>
+        </article>
+      `,
+      schema: {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Phone Trade-In Newcastle",
+        "url": `${BASE_URL}/trade-in`
+      }
     }
   ];
 
@@ -879,7 +930,82 @@ async function runPrerender() {
   });
   console.log(`✅ Pre-rendered blog articles (/blog/*).`);
 
-  // 6. Pre-render Suburb Pages (/:serviceId/:suburbId)
+  // 6. Pre-render Pillar Guides (/repair-guides/*)
+  const { pillarGuides } = await import('../src/data/pillarData');
+  pillarGuides.forEach(pillar => {
+    const routeStr = `repair-guides/${pillar.slug}`;
+    const pTitle = pillar.title;
+    const pDesc = pillar.metaDescription;
+    const pSchema = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": pillar.title,
+      "description": pillar.metaDescription,
+      "author": { "@type": "Organization", "name": "Mayfield Cell Phone Repairs" }
+    };
+    const pBody = `
+      <article>
+        <h1>${pillar.heroHeadline}</h1>
+        <p>${pillar.heroSubdeck}</p>
+        ${pillar.sections.map(s => `<h2>${s.heading}</h2><p>${s.content}</p>`).join('')}
+      </article>
+    `;
+    writePage(routeStr, pTitle, pDesc, `${BASE_URL}/${routeStr}`, pSchema, pBody);
+  });
+  console.log(`✅ Pre-rendered ${pillarGuides.length} pillar guide pages (/repair-guides/*).`);
+
+  // 7. Pre-render Model Repair Pages
+  const { modelRepairData } = await import('../src/data/modelData');
+  modelRepairData.forEach(model => {
+    const brandPath = model.brand === 'apple' ? 'iphone' : model.brand;
+    const routeStr = `${brandPath}/${model.slug}`;
+    const mSchema = {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": model.title,
+      "description": model.metaDescription
+    };
+    const mBody = `
+      <article>
+        <h1>${model.heroHeadline}</h1>
+        <p>${model.heroSubdeck}</p>
+      </article>
+    `;
+    writePage(routeStr, model.title, model.metaDescription, `${BASE_URL}/${routeStr}`, mSchema, mBody);
+  });
+  console.log(`✅ Pre-rendered ${modelRepairData.length} model repair pages.`);
+
+  // 8. Pre-render Suburb Hub Pages (/phone-repair/*)
+  const { suburbHubList } = await import('../src/data/suburbHubData');
+  suburbHubList.forEach(hub => {
+    const routeStr = `phone-repair/${hub.id}`;
+    const hSchema = {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": `Mayfield Cell Phone Repairs - ${hub.name}`,
+      "areaServed": hub.name
+    };
+    const hBody = `
+      <article>
+        <h1>${hub.heroHeadline}</h1>
+        <p>${hub.suburbIntro}</p>
+      </article>
+    `;
+    writePage(routeStr, `Phone Repair ${hub.name} | Express Screen & Battery Service Mayfield`, hub.metaDescription, `${BASE_URL}/${routeStr}`, hSchema, hBody);
+  });
+  console.log(`✅ Pre-rendered ${suburbHubList.length} consolidated suburb hub pages (/phone-repair/*).`);
+
+  // 9. Pre-render Warranty Guide
+  writePage(
+    'phone-repair-warranty-australia-guide',
+    'Phone Repair Warranty Australia Guide | Australian Consumer Law Rights',
+    'Phone repair warranty rights in Australia under Australian Consumer Law (ACL). 90-day Mayfield guarantee & statutory rights explained.',
+    `${BASE_URL}/phone-repair-warranty-australia-guide`,
+    { "@context": "https://schema.org", "@type": "Article", "headline": "Phone Repair Warranty Australia" },
+    '<article><h1>Phone Repair Warranty Australia: Your Rights Under Australian Consumer Law</h1></article>'
+  );
+
+  // 10. Pre-render Suburb Service Pages (/:serviceId/:suburbId)
   let suburbCount = 0;
   suburbs.forEach(suburb => {
     seoServices.forEach(srv => {
