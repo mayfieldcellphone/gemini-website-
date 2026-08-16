@@ -105,7 +105,7 @@ async function runPrerender() {
 
     // Replace default index.html <title> and <meta name="description"> completely
     content = content.replace(/<title[\s\S]*?>[\s\S]*?<\/title>/, `<title data-rh="true">${title}</title>`);
-    content = content.replace(/<meta[\s\S]*?name="description"[\s\S]*?\/>/, `<meta data-rh="true" name="description" content="${description}" />`);
+    content = content.replace(/<meta[^>]*name="description"[^>]*\/>/, `<meta data-rh="true" name="description" content="${description}" />`);
     content = content.replace(/<link rel="canonical"[\s\S]*?\/>/g, '');
     
     // Inject rest of meta tags inside <head>
