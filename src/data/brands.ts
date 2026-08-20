@@ -108,4 +108,148 @@ export const brands: Brand[] = [
     features: ['XMAGE Lens Glass Repair', 'Waterfall Display Specialists', 'Micro-solder Component Fixes', 'Import Model Support'],
     seoModelDump: 'Huawei Pura 70 Ultra, Huawei Pura 70 Pro, Huawei Pura 70, Huawei P60 Pro, Huawei P60, Huawei P50 Pro, Huawei P50 Pocket, Huawei P40 Pro+, Huawei P40 Pro, Huawei P40, Huawei P30 Pro, Huawei P30, Huawei Mate 60 Pro+, Huawei Mate 60 Pro, Huawei Mate 60, Huawei Mate 50 Pro, Huawei Mate 50, Huawei Mate 40 Pro, Huawei Mate 30 Pro, Huawei Mate X5, Huawei Mate X3, Huawei Mate Xs 2, Huawei Nova 12 Pro, Huawei Nova 12, Huawei Nova 11 Pro, Huawei Nova 11, Huawei Nova 10 Pro, Huawei Nova 10, Huawei Y9 Prime, Huawei Y7, Huawei Watch GT 4, Huawei Watch Ultimate.'
   },
+  {
+    id: 'nokia',
+    name: 'Nokia',
+    description: 'Complete screen, battery, charging port, and software repairs for Nokia smartphones and classic devices.',
+    longDescription: 'Nokia smartphones (HMD Global) are built for endurance, but accidental drops, worn-out charging ports, battery degradation, and liquid spills happen. At Mayfield Phone Repair, we specialize in repairing all Nokia G-series, X-series, C-series, and classic devices. Whether you need a fresh LCD display for your Nokia G60 5G, a high-capacity battery for your G42 or C32, USB-C port soldering, or virus/software removal, our Newcastle technicians have you covered with OEM-spec components and express turnaround times.',
+    color: 'from-blue-700 to-cyan-900',
+    startingPrice: { screen: '89', battery: '69' },
+    deviceCategories: [
+      { name: 'G-Series (Durable)', models: ['Nokia G60 5G', 'Nokia G42 5G', 'Nokia G22', 'Nokia G21', 'Nokia G50 5G', 'Nokia G11 Plus', 'Nokia G10'] },
+      { name: 'X-Series & Rugged', models: ['Nokia XR21', 'Nokia XR20', 'Nokia X30 5G', 'Nokia X20 5G', 'Nokia X10 5G', 'Nokia 8.3 5G'] },
+      { name: 'C-Series & Classics', models: ['Nokia C32', 'Nokia C31', 'Nokia C30', 'Nokia C22', 'Nokia C20', 'Nokia 7.2', 'Nokia 6.2', 'Nokia 5.4'] }
+    ],
+    features: ['Express LCD & OLED Fixes', 'Heavy-Duty Battery Replacements', 'Precision USB-C Port Repairs', 'Virus & Firmware Restoration'],
+    seoModelDump: 'Nokia G60 5G, Nokia G42 5G, Nokia G22, Nokia G21, Nokia G50 5G, Nokia G20, Nokia G11 Plus, Nokia G10, Nokia XR21, Nokia XR20, Nokia X30 5G, Nokia X20, Nokia X10, Nokia 8.3 5G, Nokia 8.1, Nokia 7.2, Nokia 6.2, Nokia 5.4, Nokia 4.2, Nokia 3.4, Nokia 2.4, Nokia C32, Nokia C31, Nokia C30, Nokia C22, Nokia C20, Nokia C12, Nokia C10, Nokia 3310 4G, Nokia 8110 4G, Nokia 2780 Flip.'
+  },
+  {
+    id: 'xiaomi',
+    name: 'Xiaomi / Redmi',
+    description: 'Expert repair services for Xiaomi flagship, Redmi Note, and POCO smartphones.',
+    longDescription: 'Xiaomi, Redmi, and POCO handsets offer high-end performance at competitive pricing, but finding local repair parts in Newcastle can be challenging. Mayfield Phone Repair stocks premium displays, original battery assemblies, and fast-charging USB ports for Xiaomi 14 Ultra, 13T Pro, Redmi Note 13 Pro+, POCO X6 Pro, and legacy models. We restore high refresh rate AMOLED screens, repair liquid damage, and remove malicious pop-ups or software bugs fast.',
+    color: 'from-orange-500 to-amber-700',
+    startingPrice: { screen: '99', battery: '69' },
+    deviceCategories: [
+      { name: 'Xiaomi Flagships', models: ['Xiaomi 14 Ultra', 'Xiaomi 14 Pro', 'Xiaomi 14', 'Xiaomi 13T Pro', 'Xiaomi 13 Ultra', 'Xiaomi 12 Pro'] },
+      { name: 'Redmi Note Series', models: ['Redmi Note 13 Pro+ 5G', 'Redmi Note 13 Pro', 'Redmi Note 13 5G', 'Redmi Note 12 Pro', 'Redmi Note 11'] },
+      { name: 'POCO Series', models: ['POCO X6 Pro 5G', 'POCO F6 Pro', 'POCO F5', 'POCO M6 Pro', 'POCO X5 Pro'] }
+    ],
+    features: ['120Hz AMOLED Screen Swaps', 'Fast-Charge Port Repairs', 'Battery Health Calibration', 'MIUI System Optimization'],
+    seoModelDump: 'Xiaomi 14 Ultra, Xiaomi 14 Pro, Xiaomi 14, Xiaomi 13T Pro, Xiaomi 13T, Xiaomi 13 Ultra, Xiaomi 13 Pro, Xiaomi 13, Xiaomi 12T Pro, Xiaomi 12 Pro, Xiaomi 12, Redmi Note 13 Pro+, Redmi Note 13 Pro, Redmi Note 13 5G, Redmi Note 12 Pro 5G, Redmi Note 12, Redmi Note 11 Pro, Redmi Note 10, Redmi 13C, Redmi 12 5G, POCO X6 Pro, POCO X6, POCO F6 Pro, POCO F6, POCO F5 Pro, POCO F5, POCO X5 Pro 5G, POCO M6 Pro, Xiaomi Pad 6.'
+  },
+  {
+    id: 'realme',
+    name: 'Realme',
+    description: 'Fast screen, battery, camera, and charging repairs for all Realme devices.',
+    longDescription: 'Realme devices feature ultra-fast Dart/SuperVOOC charging speeds and vibrant displays. When your Realme screen cracks or the battery degrades, trust Mayfield Phone Repair. Our technicians service the Realme GT series, Numbered series (12 Pro+, 11 Pro), and budget C-series. We preserve fast charging circuits, restore multi-touch sensitivity, and repair physical drop damage using genuine-spec parts.',
+    color: 'from-yellow-500 to-amber-600',
+    startingPrice: { screen: '89', battery: '69' },
+    deviceCategories: [
+      { name: 'GT Performance Series', models: ['Realme GT 6', 'Realme GT 5 Pro', 'Realme GT Neo 5', 'Realme GT 2 Pro', 'Realme GT Master'] },
+      { name: 'Pro & Number Series', models: ['Realme 12 Pro+ 5G', 'Realme 12 Pro', 'Realme 11 Pro+', 'Realme 10 Pro+', 'Realme 9 Pro+'] },
+      { name: 'C-Series Budget', models: ['Realme C67 5G', 'Realme C55', 'Realme C53', 'Realme C35', 'Realme C33'] }
+    ],
+    features: ['SuperVOOC Port Care', 'Curved Display Fixes', 'Genuine Battery Swaps', 'Same-Day Service'],
+    seoModelDump: 'Realme GT 6, Realme GT 5 Pro, Realme GT Neo 5, Realme GT Neo 3, Realme GT 2 Pro, Realme 12 Pro+ 5G, Realme 12 Pro 5G, Realme 12 5G, Realme 11 Pro+, Realme 11 Pro, Realme 11 5G, Realme 10 Pro+, Realme 10 Pro, Realme 9 Pro+, Realme 8 Pro, Realme C67, Realme C55, Realme C53, Realme C35, Realme C33, Realme C31, Realme C21Y, Realme Pad 2.'
+  },
+  {
+    id: 'vivo',
+    name: 'Vivo',
+    description: 'Professional Vivo X-series, V-series, and Y-series phone repairs in Newcastle.',
+    longDescription: 'Vivo smartphones stand out with Zeiss camera optics and slim designs. Sourcing quality replacement parts for Vivo requires established industry connections. At Mayfield Phone Repair, we repair shattered front glass, camera lens assemblies, swelling batteries, and faulty charging ports across Vivo X100 Pro, V30 Pro, V29, Y200, and Y78 models.',
+    color: 'from-blue-500 to-indigo-800',
+    startingPrice: { screen: '99', battery: '69' },
+    deviceCategories: [
+      { name: 'X Flagships', models: ['Vivo X100 Pro', 'Vivo X100', 'Vivo X90 Pro', 'Vivo X90', 'Vivo X80 Pro'] },
+      { name: 'V-Series Style', models: ['Vivo V30 Pro', 'Vivo V30', 'Vivo V29 5G', 'Vivo V27 Pro', 'Vivo V25 5G'] },
+      { name: 'Y-Series Value', models: ['Vivo Y200 5G', 'Vivo Y100 5G', 'Vivo Y78 5G', 'Vivo Y36', 'Vivo Y27'] }
+    ],
+    features: ['Zeiss Lens Glass Replacement', 'Aura Light Camera Repairs', 'Fast Charge Port Fixes', '90-Day Warranty'],
+    seoModelDump: 'Vivo X100 Pro, Vivo X100, Vivo X90 Pro, Vivo X90, Vivo X80 Pro, Vivo X70 Pro+, Vivo V30 Pro, Vivo V30, Vivo V29 5G, Vivo V29e, Vivo V27 Pro, Vivo V25 5G, Vivo V23 5G, Vivo Y200 5G, Vivo Y100, Vivo Y78 5G, Vivo Y36, Vivo Y27 5G, Vivo Y20s, Vivo Y12s, Vivo T2 Pro.'
+  },
+  {
+    id: 'oneplus',
+    name: 'OnePlus',
+    description: 'Specialized OnePlus flagship and Nord series screen and battery restoration.',
+    longDescription: 'OnePlus devices are built for speed with Fluid AMOLED displays and Warp/SUPERVOOC charging. When you face a shattered screen, battery swelling, or camera blur on your OnePlus 12, 12R, OnePlus Open foldable, or Nord series, bring it to Mayfield Phone Repair. We preserve high refresh rates, in-display fingerprint sensors, and fast charging circuits with precision care.',
+    color: 'from-red-600 to-slate-900',
+    startingPrice: { screen: '129', battery: '79' },
+    deviceCategories: [
+      { name: 'Flagships & Foldables', models: ['OnePlus 12', 'OnePlus 12R', 'OnePlus Open (Fold)', 'OnePlus 11 5G', 'OnePlus 10 Pro'] },
+      { name: 'Nord Series', models: ['OnePlus Nord 4', 'OnePlus Nord CE 4', 'OnePlus Nord 3 5G', 'OnePlus Nord N30 5G', 'OnePlus Nord 2T'] }
+    ],
+    features: ['Fluid AMOLED Specialists', 'Alert Slider & Haptic Repairs', 'Fast Charging Port Maintenance', 'Clean OxygenOS Diagnostics'],
+    seoModelDump: 'OnePlus 12, OnePlus 12R, OnePlus Open, OnePlus 11 5G, OnePlus 10 Pro, OnePlus 10T, OnePlus 9 Pro, OnePlus 9, OnePlus 8T, OnePlus 8 Pro, OnePlus Nord 4, OnePlus Nord CE 4, OnePlus Nord 3 5G, OnePlus Nord CE 3 Lite, OnePlus Nord N30 5G, OnePlus Nord 2T, OnePlus Nord CE 2, OnePlus Pad.'
+  },
+  {
+    id: 'sony',
+    name: 'Sony Xperia',
+    description: 'Precision Sony Xperia screen, camera, and battery repairs for creators and tech enthusiasts.',
+    longDescription: 'Sony Xperia phones feature unique 21:9 OLED displays, dedicated shutter buttons, and professional Alpha camera sensors. Sourcing original Xperia displays and water-resistant seals requires expert hands. Mayfield Phone Repair fixes Sony Xperia 1 VI, 5 V, 10 VI, and legacy models with total precision, preserving camera shutter keys and audio jack components.',
+    color: 'from-slate-900 to-violet-950',
+    startingPrice: { screen: '139', battery: '89' },
+    deviceCategories: [
+      { name: 'Xperia 1 Pro Series', models: ['Sony Xperia 1 VI', 'Sony Xperia 1 V', 'Sony Xperia 1 IV', 'Sony Xperia PRO-I'] },
+      { name: 'Xperia 5 & 10 Series', models: ['Sony Xperia 5 V', 'Sony Xperia 5 IV', 'Sony Xperia 10 VI', 'Sony Xperia 10 V'] }
+    ],
+    features: ['21:9 4K OLED Screen Restoration', 'Alpha Camera Sensor Cleaning', '3.5mm Headphone Jack Fixes', 'Water-Resistant Resealing'],
+    seoModelDump: 'Sony Xperia 1 VI, Sony Xperia 1 V, Sony Xperia 1 IV, Sony Xperia 1 III, Sony Xperia 1 II, Sony Xperia PRO-I, Sony Xperia 5 V, Sony Xperia 5 IV, Sony Xperia 5 III, Sony Xperia 10 VI, Sony Xperia 10 V, Sony Xperia 10 IV, Sony Xperia L4, Sony Xperia XZ3, Sony Xperia XZ2.'
+  },
+  {
+    id: 'asus',
+    name: 'Asus & ROG Phone',
+    description: 'Dedicated ROG Phone gaming handheld and ZenFone compact repair specialists.',
+    longDescription: 'Asus ROG Phones and ZenFones pack advanced cooling systems, side-mounted charging ports, AirTriggers, and ultra-high refresh rate displays. If your ROG Phone 8 Pro, ROG Phone 7, or ZenFone 11 Ultra suffers from cracked glass, thermal throttling, or broken shoulder triggers, Mayfield Phone Repair provides expert micro-soldering and modular component swaps.',
+    color: 'from-red-700 to-gray-900',
+    startingPrice: { screen: '149', battery: '89' },
+    deviceCategories: [
+      { name: 'ROG Gaming Phones', models: ['Asus ROG Phone 8 Pro', 'Asus ROG Phone 8', 'Asus ROG Phone 7 Ultimate', 'Asus ROG Phone 6'] },
+      { name: 'ZenFone Series', models: ['Asus ZenFone 11 Ultra', 'Asus ZenFone 10', 'Asus ZenFone 9', 'Asus ZenFone 8'] }
+    ],
+    features: ['165Hz AMOLED Screen Fixes', 'Dual USB-C Port Repairs', 'Cooling System Maintenance', 'AirTrigger Sensor Care'],
+    seoModelDump: 'Asus ROG Phone 8 Pro, Asus ROG Phone 8, Asus ROG Phone 7 Ultimate, Asus ROG Phone 7, Asus ROG Phone 6 Pro, Asus ROG Phone 6, Asus ROG Phone 5s, Asus ROG Phone 5, Asus ZenFone 11 Ultra, Asus ZenFone 10, Asus ZenFone 9, Asus ZenFone 8, Asus ZenFone 7 Pro.'
+  },
+  {
+    id: 'tcl',
+    name: 'TCL',
+    description: 'Affordable TCL smartphone and NXTPAPER display screen and hardware repairs.',
+    longDescription: 'TCL phones feature NXTPAPER matte eye-care screens and high-value hardware. When a TCL 50 SE, 40 NXTPAPER, or 30 SE gets dropped or refuses to charge, Mayfield Phone Repair offers budget-friendly screen replacements, battery swaps, and port fixes to keep your device working smoothly without breaking the bank.',
+    color: 'from-rose-600 to-red-800',
+    startingPrice: { screen: '89', battery: '69' },
+    deviceCategories: [
+      { name: 'NXTPAPER Eye Care', models: ['TCL 50 NXTPAPER 5G', 'TCL 40 NXTPAPER', 'TCL 40 NXTPAPER 5G'] },
+      { name: '50 & 40 Series', models: ['TCL 50 SE', 'TCL 505', 'TCL 40 SE', 'TCL 403', 'TCL 408'] },
+      { name: '30 & 20 Series', models: ['TCL 30 SE', 'TCL 30+', 'TCL 20 Pro 5G', 'TCL 20 SE', 'TCL 10 Pro'] }
+    ],
+    features: ['NXTPAPER Matte Screen Care', 'Budget-Friendly Part Swaps', 'Fast USB-C Port Soldering', 'Same-Day Diagnostics'],
+    seoModelDump: 'TCL 50 NXTPAPER 5G, TCL 40 NXTPAPER, TCL 50 SE, TCL 505, TCL 40 SE, TCL 403, TCL 408, TCL 30 SE, TCL 30+, TCL 30 5G, TCL 20 Pro 5G, TCL 20 SE, TCL 20 5G, TCL 10 Pro, TCL 10L, TCL TAB 10 Gen 2.'
+  },
+  {
+    id: 'nothing',
+    name: 'Nothing Phone',
+    description: 'Specialized Nothing Phone (1, 2, 2a) Glyph interface and OLED display repair.',
+    longDescription: 'Nothing Phones stand out with transparent back covers, LED Glyph interfaces, and clean Nothing OS. Repairing a Nothing Phone requires careful disassembly so the delicate rear LED light strips and wireless charging coils remain undamaged. Mayfield Phone Repair provides exact screen replacements, back glass restoration, and battery swaps for Nothing Phone (2a), Phone (2), and Phone (1).',
+    color: 'from-slate-900 to-zinc-950',
+    startingPrice: { screen: '129', battery: '79' },
+    deviceCategories: [
+      { name: 'Nothing Handsets', models: ['Nothing Phone (2a) Plus', 'Nothing Phone (2a)', 'Nothing Phone (2)', 'Nothing Phone (1)', 'CMF Phone 1'] }
+    ],
+    features: ['Glyph LED Strip Protection', 'Transparent Back Glass Care', '120Hz Flexible OLED Fixes', 'Nothing OS Diagnostics'],
+    seoModelDump: 'Nothing Phone (2a) Plus, Nothing Phone (2a), Nothing Phone (2), Nothing Phone (1), CMF Phone 1 by Nothing, Nothing Ear, Nothing Ear (a).'
+  },
+  {
+    id: 'zte',
+    name: 'ZTE & RedMagic',
+    description: 'Expert ZTE Blade and RedMagic gaming phone hardware and display repairs.',
+    longDescription: 'ZTE and RedMagic offer extreme gaming performance with under-display selfie cameras and active internal cooling fans. When your RedMagic 9 Pro, Nubia Z60 Ultra, or ZTE Blade screen snaps or stops charging, trust Mayfield Phone Repair for precision teardown, screen replacements, and cooling fan repairs.',
+    color: 'from-red-800 to-stone-900',
+    startingPrice: { screen: '99', battery: '69' },
+    deviceCategories: [
+      { name: 'RedMagic Gaming', models: ['RedMagic 9 Pro', 'RedMagic 8S Pro', 'RedMagic 7 Pro', 'Nubia Z60 Ultra'] },
+      { name: 'ZTE Blade Value', models: ['ZTE Blade V50 Design', 'ZTE Blade A73 5G', 'ZTE Blade A53 Pro', 'ZTE Blade V40'] }
+    ],
+    features: ['Under-Display Camera Protection', 'Internal Fan Maintenance', 'Heavy Duty Battery Swaps', 'Gamer Trigger Fixes'],
+    seoModelDump: 'RedMagic 9 Pro, RedMagic 8S Pro, RedMagic 8 Pro, RedMagic 7 Pro, Nubia Z60 Ultra, Nubia Z50 Ultra, ZTE Blade V50, ZTE Blade A73 5G, ZTE Blade A53 Pro, ZTE Blade V40, ZTE Axon 40 Ultra.'
+  }
 ];
