@@ -1,4 +1,4 @@
-import { Smartphone, Battery, Droplet, Settings, ShieldCheck, Clock, CheckCircle2, ChevronRight, Phone, MapPin, Mail, ArrowRight, Truck, Wrench, Sparkles, HelpCircle } from 'lucide-react';
+import { Smartphone, Battery, Droplet, Settings, ShieldCheck, Clock, CheckCircle2, ChevronRight, Phone, MapPin, Mail, ArrowRight, Truck, Wrench, Sparkles, HelpCircle, Search } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
 import { useState, useEffect, FormEvent } from 'react';
@@ -30,6 +30,7 @@ export default function Home() {
   const [formData, setFormData] = useState({ name: '', phone: '', details: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [brandSearch, setBrandSearch] = useState('');
 
   const [isMobile, setIsMobile] = useState(false);
 
@@ -287,37 +288,77 @@ export default function Home() {
       {/* Brands Section */}
       <section id="brands" className="relative px-6 md:px-12 py-12 md:py-20 bg-slate-50 border-y border-slate-200">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-12 gap-12 items-end mb-16">
-            <div className="lg:col-span-8 space-y-6">
-              <span className="text-technical text-blue-600">SUPPORTED MODELS</span>
+          <div className="grid lg:grid-cols-12 gap-12 items-end mb-12">
+            <div className="lg:col-span-7 space-y-6">
+              <span className="text-technical text-blue-600">ALL BRANDS & MODELS SUPPORTED</span>
               <h2 className="text-4xl md:text-7xl font-black text-slate-900 font-display leading-[0.85] tracking-tighter">
                 Devices <br/> We Fix.
               </h2>
             </div>
-            <div className="lg:col-span-4">
-              <p className="text-slate-500 text-sm font-medium leading-relaxed mb-6">
-                Comprehensive support for all major flagship phones. Select your brand below for specific repair details and pricing.
+            <div className="lg:col-span-5 space-y-4">
+              <p className="text-slate-500 text-sm font-medium leading-relaxed">
+                We repair <strong>all phone brands and models</strong> — from Apple, Samsung, and Google to <strong>Nokia, Xiaomi, Realme, Vivo, OnePlus, Sony, Motorola, Huawei, Asus, TCL, Nothing, ZTE</strong> and more! Select your brand below or search your model.
               </p>
+              
+              {/* Instant Search Bar */}
+              <div className="relative">
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+                <input
+                  type="text"
+                  value={brandSearch}
+                  onChange={(e) => setBrandSearch(e.target.value)}
+                  placeholder="Search brand or model (e.g. Nokia, G60, S26, Pixel, virus)..."
+                  className="w-full pl-12 pr-4 py-3.5 bg-white border border-slate-200 rounded-2xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all placeholder:text-slate-400"
+                />
+                {brandSearch && (
+                  <button 
+                    onClick={() => setBrandSearch('')}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400 hover:text-slate-600 uppercase"
+                  >
+                    Clear
+                  </button>
+                )}
+              </div>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-6 gap-px bg-slate-200 border border-slate-200 overflow-hidden rounded-3xl">
-            {brands.map((brand, idx) => (
-              <Link 
-                key={brand.id}
-                to={`/brand/${brand.id}`}
-                className="group relative flex flex-col items-center p-8 bg-white hover:bg-slate-50 transition-all"
-              >
-                <div className={`w-16 h-16 rounded-2xl mb-6 flex items-center justify-center bg-gradient-to-br ${brand.color} shadow-lg shadow-blue-500/10 group-hover:-translate-y-1 transition-all duration-300`}>
-                  <Smartphone className="w-8 h-8 text-white" />
-                </div>
-                <h4 className="font-bold text-slate-900 text-sm font-display tracking-wider uppercase">{brand.name}</h4>
-                <div className="mt-4 text-[9px] font-black uppercase tracking-[0.2em] text-blue-600 opacity-0 group-hover:opacity-100 transition-all">
-                  Explore Repairs
-                </div>
-              </Link>
+          {/* Brands Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-px bg-slate-200 border border-slate-200 overflow-hidden rounded-3xl shadow-sm">
+            {brands
+              .filter(brand => 
+                brand.name.toLowerCase().includes(brandSearch.toLowerCase()) ||
+                brand.description.toLowerCase().includes(brandSearch.toLowerCase()) ||
+                brand.seoModelDump.toLowerCase().includes(brandSearch.toLowerCase())
+              )
+              .map((brand) => (
+                <Link 
+                  key={brand.id}
+                  to={`/brand/${brand.id}`}
+                  className="group relative flex flex-col items-center p-6 bg-white hover:bg-slate-50 transition-all text-center"
+                >
+                  <div className={`w-12 h-12 rounded-2xl mb-4 flex items-center justify-center bg-gradient-to-br ${brand.color} shadow-md group-hover:-translate-y-1 transition-all duration-300`}>
+                    <Smartphone className="w-6 h-6 text-white" />
+                  </div>
+                  <h4 className="font-bold text-slate-900 text-xs font-display tracking-wider uppercase">{brand.name}</h4>
+                  <div className="mt-2 text-[8px] font-black uppercase tracking-[0.15em] text-blue-600 opacity-0 group-hover:opacity-100 transition-all">
+                    Explore
+                  </div>
+                </Link>
             ))}
           </div>
+
+          {brandSearch && brands.filter(b => b.name.toLowerCase().includes(brandSearch.toLowerCase()) || b.description.toLowerCase().includes(brandSearch.toLowerCase()) || b.seoModelDump.toLowerCase().includes(brandSearch.toLowerCase())).length === 0 && (
+            <div className="mt-6 p-8 bg-white rounded-3xl border border-slate-200 text-center space-y-3">
+              <p className="text-slate-600 font-medium">Looking for a specific model not listed in the filter?</p>
+              <p className="text-sm font-bold text-slate-900">We repair ALL brands and custom models! Contact us directly for an instant quote.</p>
+              <button 
+                onClick={openBooking}
+                className="mt-2 px-8 py-3 bg-blue-600 text-white font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-blue-700 transition-colors"
+              >
+                Get Custom Repair Quote
+              </button>
+            </div>
+          )}
 
           {/* Pricing Transparency Summary Table Module */}
           <div className="mt-16 bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-slate-200/60 max-w-4xl mx-auto space-y-8">
