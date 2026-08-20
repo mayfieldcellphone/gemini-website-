@@ -3712,7 +3712,645 @@ export const blogPosts: BlogPost[] = [
         <p class="text-slate-600">Explore our certified second-hand iPhones with 6-month warranties on our <a href="/second-hand-phones" class="text-blue-600 font-bold underline">Refurbished Phones Page</a>.</p>
       </section>
     `
+  },
+  // --- 8-WEEK SCHEDULED BLOG CAMPAIGN (2 BLOGS / WEEK) ---
+  {
+    id: "54",
+    title: "Google Pixel Screen & Battery Repair Newcastle: Same-Day Fixes in Mayfield",
+    slug: "google-pixel-screen-repair-mayfield-newcastle-guide",
+    date: "2026-08-25",
+    author: "Mayfield Phone Repair Team",
+    excerpt: "Looking for fast Google Pixel 8, 8 Pro, or Pixel 9 repair in Newcastle? Discover local stock availability, OLED screen replacement costs, and same-day service in Mayfield.",
+    imageUrl: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&q=80&w=800",
+    tags: ["Google Pixel", "Screen Repair", "Mayfield"],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-blue-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-blue-100">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-blue-200 text-[10px] font-black uppercase tracking-widest">Can Google Pixel screens be repaired same-day in Newcastle?</span>
+              <p class="text-xl font-bold">Yes! Mayfield Phone Repair stocks genuine-spec OLED screens for Google Pixel 6, 7, 8, and 9 series. Turnaround time is usually 45-60 minutes at 276 Maitland Rd, Mayfield.</p>
+            </div>
+            <div class="flex flex-col gap-2">
+              <span class="text-blue-200 text-[10px] font-black uppercase tracking-widest">Will the under-display fingerprint sensor work after Pixel screen repair?</span>
+              <p class="text-xl font-bold">Yes. We calibrate the optical fingerprint scanner post-installation to ensure 100% biometric unlock accuracy.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">Google Pixel phones are renowned for their camera capabilities, but finding local repair parts in shopping center kiosks can be frustrating. Most local repairers only carry iPhone and Samsung parts. At <strong>Mayfield Phone Repair</strong>, we maintain dedicated inventory for the entire Google Pixel lineup.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Pixel Repair Services Available in Mayfield</h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="p-6 bg-slate-50 border border-slate-100 rounded-3xl">
+            <h4 class="font-bold text-slate-900 mb-2">Pixel OLED Screen Assembly</h4>
+            <p class="text-sm text-slate-500 italic">Full display replacement for Pixel 6a through Pixel 9 Pro with smooth 120Hz refresh rate support.</p>
+          </div>
+          <div class="p-6 bg-slate-50 border border-slate-100 rounded-3xl">
+            <h4 class="font-bold text-slate-900 mb-2">High-Capacity Battery Swaps</h4>
+            <p class="text-sm text-slate-500 italic">Restore full-day usage for Pixel devices experiencing rapid discharge or swollen back covers.</p>
+          </div>
+        </div>
+
+        <div class="mt-12 bg-slate-900 text-white p-12 rounded-[3.5rem] shadow-2xl relative overflow-hidden">
+          <h3 class="text-3xl font-bold mb-4 font-display">Need Pixel Repair Today?</h3>
+          <p class="mb-8 font-medium text-slate-400">Call (02) 4049 1735 or visit us at 276 Maitland Rd, Mayfield for immediate Pixel diagnostics.</p>
+          <a href="tel:0240491735" class="inline-block bg-blue-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display text-center shadow-lg shadow-blue-600/30">Call 02 4049 1735</a>
+        </div>
+      </section>
+    `
+  },
+  {
+    id: "55",
+    title: "iPhone 16 Pro Max Screen & Camera Repair Guide 2026: Newcastle Price Breakdown",
+    slug: "iphone-16-pro-max-screen-camera-repair-cost-newcastle",
+    date: "2026-08-28",
+    author: "Mayfield Phone Repair Team",
+    excerpt: "Cracked your iPhone 16, 16 Plus, or 16 Pro Max? Compare official Apple Store replacement prices against local Mayfield repair options for screen, back glass, and camera lens fixes.",
+    imageUrl: "https://images.unsplash.com/photo-1512054502232-10a0a035d672?auto=format&fit=crop&q=80&w=800",
+    tags: ["iPhone 16", "Screen Repair", "Newcastle Pricing"],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-blue-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-blue-100">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-blue-200 text-[10px] font-black uppercase tracking-widest">How much does iPhone 16 Pro Max screen repair cost in Newcastle?</span>
+              <p class="text-xl font-bold">Local independent screen repairs for the iPhone 16 series start from $240–$390 depending on display tier, saving up to $180 compared to non-warranty factory swaps.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">The iPhone 16 generation features Ceramic Shield front covers and titanium frames, but hard impacts on concrete can still fracture the display or shatter the camera lenses. Here is how Mayfield Phone Repair gets your flagship back to 100% without long delays.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Key iPhone 16 Repairs Handled</h2>
+        <ul class="list-disc pl-6 space-y-3 text-slate-600 text-lg">
+          <li><strong>Super Retina XDR Display Replacement:</strong> Preserves ProMotion 120Hz and Dynamic Island touch accuracy.</li>
+          <li><strong>48MP Sapphire Camera Glass Replacement:</strong> Individual lens glass replacement without needing an expensive triple-camera module swap.</li>
+          <li><strong>USB-C Charging Port Cleaning & Replacement:</strong> Fast fix for slow charging or loose cable latching.</li>
+        </ul>
+
+        <div class="mt-12 bg-slate-900 text-white p-12 rounded-[3.5rem] shadow-2xl text-center">
+          <h3 class="text-3xl font-bold mb-4 font-display">Get a Fixed Quote in 2 Minutes</h3>
+          <p class="mb-8 text-slate-400">Visit 276 Maitland Rd, Mayfield or call (02) 4049 1735 now.</p>
+          <a href="tel:0240491735" class="inline-block bg-blue-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display">Call 02 4049 1735</a>
+        </div>
+      </section>
+    `
+  },
+  {
+    id: "56",
+    title: "Laser Back Glass Replacement Mayfield: Why It Costs $200 Less Than Full Housing Swaps",
+    slug: "laser-back-glass-repair-mayfield-newcastle-cost",
+    date: "2026-09-01",
+    author: "Mayfield Phone Repair Team",
+    excerpt: "Shattered the back glass on your iPhone 12 through 15 Pro? Learn how specialized laser removal technology in Mayfield fixes rear glass safely without stripping your phone's internal electronics.",
+    imageUrl: "https://images.unsplash.com/photo-1556656793-062ff987825d?auto=format&fit=crop&q=80&w=800",
+    tags: ["Back Glass", "Laser Repair", "Mayfield"],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-indigo-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-indigo-100">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-indigo-200 text-[10px] font-black uppercase tracking-widest">How does laser back glass removal work?</span>
+              <p class="text-xl font-bold">A precision optical laser vaporizes the tough factory epoxy beneath the shattered rear glass without exposing the delicate wireless charging coil or motherboard to excess heat.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">Traditional back glass repairs required either manually prying broken glass with dangerous heat guns or paying over $500 for an entire rear housing replacement. With our specialized laser machine at <strong>Mayfield Phone Repair</strong>, back glass replacement is now clean, safe, and half the price.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Advantages of Laser Back Glass Repair</h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="p-6 bg-slate-50 border border-slate-100 rounded-3xl">
+            <h4 class="font-bold text-slate-900 mb-2">Preserves Original Chassis</h4>
+            <p class="text-sm text-slate-500 italic">Your phone retains its original serial numbers and factory side housing.</p>
+          </div>
+          <div class="p-6 bg-slate-50 border border-slate-100 rounded-3xl">
+            <h4 class="font-bold text-slate-900 mb-2">MagSafe & Wireless Charging Safe</h4>
+            <p class="text-sm text-slate-500 italic">Laser frequency avoids damaging the internal magnetic ring or NFC coil.</p>
+          </div>
+        </div>
+
+        <div class="mt-12 bg-slate-900 text-white p-12 rounded-[3.5rem] shadow-2xl text-center">
+          <h3 class="text-3xl font-bold mb-4 font-display">Fix Your Back Glass Today</h3>
+          <p class="mb-8 text-slate-400">Bring your phone to 276 Maitland Rd, Mayfield for a same-day laser back glass swap.</p>
+          <a href="tel:0240491735" class="inline-block bg-indigo-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display">Call 02 4049 1735</a>
+        </div>
+      </section>
+    `
+  },
+  {
+    id: "57",
+    title: "Phone Won't Charge? Lint Cleaning vs Port Replacement in Newcastle",
+    slug: "phone-not-charging-port-repair-vs-lint-cleaning-newcastle",
+    date: "2026-09-04",
+    author: "Mayfield Phone Repair Team",
+    excerpt: "Is your charging cable falling out or refusing to connect? Don't pay for a new charging port until you check for compressed pocket lint. Here is our honest repair protocol in Mayfield.",
+    imageUrl: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800",
+    tags: ["Charging Port", "Troubleshooting", "Mayfield"],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-emerald-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-emerald-100">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-emerald-200 text-[10px] font-black uppercase tracking-widest">Why does my phone charger feel loose?</span>
+              <p class="text-xl font-bold">Over 70% of charging port issues are caused by tightly packed denim or pocket lint preventing the Lightning or USB-C plug from clicking into place. A 5-minute microscopic cleaning fixes it instantly.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">Before assuming your phone needs an expensive charging port replacement, walk into <strong>Mayfield Phone Repair</strong> at 276 Maitland Rd. Our technicians perform a microscopic port inspection free of charge.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Symptoms: Lint vs Broken Hardware</h2>
+        <div class="space-y-4">
+          <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100">
+            <p class="font-bold text-slate-900">Lint Build-up:</p>
+            <p class="text-slate-600 text-sm">Plug leaves a gap, doesn't seat flush against the phone frame, or only charges when held at an awkward angle.</p>
+          </div>
+          <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100">
+            <p class="font-bold text-slate-900">Physical Hardware Failure:</p>
+            <p class="text-slate-600 text-sm">Bent internal gold pins, moisture corrosion error on screen, or burn marks inside the port cavity.</p>
+          </div>
+        </div>
+
+        <div class="mt-12 bg-slate-900 text-white p-12 rounded-[3.5rem] shadow-2xl text-center">
+          <h3 class="text-3xl font-bold mb-4 font-display">Free 5-Minute Port Inspection</h3>
+          <p class="mb-8 text-slate-400">Pop into 276 Maitland Rd, Mayfield. No appointment needed!</p>
+          <a href="tel:0240491735" class="inline-block bg-emerald-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display">Call 02 4049 1735</a>
+        </div>
+      </section>
+    `
+  },
+  {
+    id: "58",
+    title: "Dead Phone Data Recovery Newcastle: Rescuing Water-Damaged Logic Boards",
+    slug: "dead-phone-data-recovery-water-damage-board-repair-newcastle",
+    date: "2026-09-08",
+    author: "Mayfield Phone Repair Team",
+    excerpt: "Has Apple or your carrier told you your liquid-damaged or unbootable phone cannot be saved? Learn how board-level micro-soldering in Mayfield recovers lost family photos and business files.",
+    imageUrl: "https://images.unsplash.com/photo-1547014762-3a94fb4df70a?auto=format&fit=crop&q=80&w=800",
+    tags: ["Data Recovery", "Micro-Soldering", "Newcastle"],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-blue-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-blue-100">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-blue-200 text-[10px] font-black uppercase tracking-widest">Can data be recovered from a completely dead iPhone or Samsung?</span>
+              <p class="text-xl font-bold">Yes! Even if a phone will not power on, board-level micro-soldering can repair shorted power capacitors (PMIC) and temporarily restore board power to extract 100% of internal storage.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">Official retail stores often offer device replacement instead of data rescue. When precious memories, contacts, or business documents are locked on a dead phone, <strong>Mayfield Phone Repair</strong> uses advanced ultrasonic cleaning and micro-soldering diagnostics to recover your data.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Our Data Extraction Process</h2>
+        <ol class="list-decimal pl-6 space-y-3 text-slate-600 text-lg">
+          <li><strong>Ultrasonic Isopropyl Bath:</strong> Strips mineral deposits and salt corrosion off motherboard traces.</li>
+          <li><strong>Thermal Imaging Diagnostics:</strong> Pinpoints shorted capacitors drawing excessive current.</li>
+          <li><strong>Component Micro-Replacement:</strong> Replaces damaged power ICs so the board can boot up for backup.</li>
+        </ol>
+
+        <div class="mt-12 bg-slate-900 text-white p-12 rounded-[3.5rem] shadow-2xl text-center">
+          <h3 class="text-3xl font-bold mb-4 font-display">Don't Lose Your Memories</h3>
+          <p class="mb-8 text-slate-400">Bring your unbootable device to 276 Maitland Rd, Mayfield for specialized data recovery assessment.</p>
+          <a href="tel:0240491735" class="inline-block bg-blue-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display">Call 02 4049 1735</a>
+        </div>
+      </section>
+    `
+  },
+  {
+    id: "59",
+    title: "University of Newcastle Student Phone Repair Guide: Fast Fixes near Callaghan & City Campus",
+    slug: "uon-student-phone-repair-discounts-callaghan-newcastle",
+    date: "2026-09-11",
+    author: "Mayfield Phone Repair Team",
+    excerpt: "Cracked screen during exam block? Located just 5 minutes from UON Callaghan campus, Mayfield Phone Repair offers express 30-minute student repairs and student card discounts.",
+    imageUrl: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800",
+    tags: ["Student Discount", "UON Newcastle", "Callaghan"],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-indigo-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-indigo-100">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-indigo-200 text-[10px] font-black uppercase tracking-widest">Where is the closest phone repair shop to UON Callaghan campus?</span>
+              <p class="text-xl font-bold">Mayfield Phone Repair at 276 Maitland Rd is just a 5-minute drive or direct bus ride from Callaghan Campus and Waratah Station.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">Students rely on their phones for multi-factor authentication (MFA) to access Canvas, emails, and lecture schedules. A broken phone screen or dead battery can derail your study week. We offer budget-conscious repair options designed for University of Newcastle students.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Popular Student Repairs</h2>
+        <ul class="list-disc pl-6 space-y-2 text-slate-600 text-lg">
+          <li><strong>Same-Day iPhone Screen Swaps:</strong> Back to class in 30 minutes.</li>
+          <li><strong>MacBook & iPad Battery Replacements:</strong> All-day battery life for long lectures.</li>
+          <li><strong>Charging Port Cleanout:</strong> Fast fix so you never miss an assignment deadline.</li>
+        </ul>
+
+        <div class="mt-12 bg-slate-900 text-white p-12 rounded-[3.5rem] shadow-2xl text-center">
+          <h3 class="text-3xl font-bold mb-4 font-display">Show Student ID for Priority Turnaround</h3>
+          <p class="mb-8 text-slate-400">Visit 276 Maitland Rd, Mayfield or call us today.</p>
+          <a href="tel:0240491735" class="inline-block bg-indigo-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display">Call 02 4049 1735</a>
+        </div>
+      </section>
+    `
+  },
+  {
+    id: "60",
+    title: "Apple Watch Screen & Battery Repair Newcastle: Same-Day Fixes in Mayfield",
+    slug: "apple-watch-screen-battery-replacement-mayfield-newcastle",
+    date: "2026-09-15",
+    author: "Mayfield Phone Repair Team",
+    excerpt: "Shattered your Apple Watch glass or dealing with a swollen battery? Discover local Apple Watch Series 4 through Ultra repair solutions in Newcastle without long mail-in wait times.",
+    imageUrl: "https://images.unsplash.com/photo-1510017803434-a899398421b3?auto=format&fit=crop&q=80&w=800",
+    tags: ["Apple Watch", "Smartwatch Repair", "Mayfield"],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-blue-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-blue-100">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-blue-200 text-[10px] font-black uppercase tracking-widest">Can Apple Watch screens be replaced in Mayfield?</span>
+              <p class="text-xl font-bold">Yes! We replace cracked OLED glass assemblies and swollen batteries on Apple Watch Series 4, 5, 6, 7, 8, 9, SE, and Ultra models.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">Smartwatches take a beating during workouts, surfing, and work duties. A cracked screen compromises water resistance, while a swollen battery can lift the display completely off the aluminum frame. At <strong>Mayfield Phone Repair</strong>, we provide precision smartwatch restoration.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Signs Your Apple Watch Needs Immediate Service</h2>
+        <div class="space-y-3 text-slate-600 text-lg">
+          <p>• <strong>Display Popping Off:</strong> High risk of fire/damage caused by a expanding Lithium-ion battery.</p>
+          <p>• <strong>Unresponsive Touch Grid:</strong> Broken digitizer grid after a hard knock.</p>
+          <p>• <strong>Rapid Battery Drain:</strong> Watch dying in under 6 hours of passive wear.</p>
+        </div>
+
+        <div class="mt-12 bg-slate-900 text-white p-12 rounded-[3.5rem] shadow-2xl text-center">
+          <h3 class="text-3xl font-bold mb-4 font-display">Smartwatch Care in Mayfield</h3>
+          <p class="mb-8 text-slate-400">Bring your Apple Watch to 276 Maitland Rd for expert care.</p>
+          <a href="tel:0240491735" class="inline-block bg-blue-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display">Call 02 4049 1735</a>
+        </div>
+      </section>
+    `
+  },
+  {
+    id: "61",
+    title: "Samsung Z Flip & Z Fold Screen Repair Newcastle: Hinge & Flexible OLED Fixes",
+    slug: "samsung-z-flip-fold-hinge-screen-repair-newcastle",
+    date: "2026-09-18",
+    author: "Mayfield Phone Repair Team",
+    excerpt: "Is your Samsung Galaxy Z Flip or Z Fold screen protector peeling, creasing, or turning black near the hinge? Learn about local foldable screen replacement options in Mayfield.",
+    imageUrl: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&q=80&w=800",
+    tags: ["Samsung Z Flip", "Foldable Repair", "Newcastle"],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-blue-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-blue-100">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-blue-200 text-[10px] font-black uppercase tracking-widest">Can the middle crease line on Samsung Z Flip be fixed?</span>
+              <p class="text-xl font-bold">If the bubble is just the factory PET screen protector lifting, replacing the ultra-thin film fixes it. If black ink bleeding occurs, a full Ultra Thin Glass (UTG) inner OLED module replacement is needed.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">Samsung's foldable devices are engineering marvels, but the flexible inner screens require delicate handling. At <strong>Mayfield Phone Repair</strong>, we assist Newcastle Z Flip and Z Fold owners with screen protector replacements and full display assembly repairs.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Services for Galaxy Foldables</h2>
+        <ul class="list-disc pl-6 space-y-2 text-slate-600 text-lg">
+          <li><strong>Factory-Grade Inner Film Application:</strong> Eliminates center crease lifting and bubbling.</li>
+          <li><strong>Outer Cover Display Replacement:</strong> Quick fix for cracked front glass.</li>
+          <li><strong>Hinge Cleaning & Debris Removal:</strong> Solves grinding sounds or incomplete 180-degree flat opening.</li>
+        </ul>
+
+        <div class="mt-12 bg-slate-900 text-white p-12 rounded-[3.5rem] shadow-2xl text-center">
+          <h3 class="text-3xl font-bold mb-4 font-display">Specialized Samsung Foldable Care</h3>
+          <p class="mb-8 text-slate-400">Visit 276 Maitland Rd, Mayfield or call (02) 4049 1735.</p>
+          <a href="tel:0240491735" class="inline-block bg-blue-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display">Call 02 4049 1735</a>
+        </div>
+      </section>
+    `
+  },
+  {
+    id: "62",
+    title: "Locked Out of Your Phone? Passcode Reset & Security Policies in Mayfield",
+    slug: "forgotten-phone-passcode-icloud-lock-privacy-policy-mayfield",
+    date: "2026-09-22",
+    author: "Mayfield Phone Repair Team",
+    excerpt: "Forgotten your passcode or locked out after too many incorrect attempts? Understand what local repair shops can legally do, proof of ownership requirements, and data recovery options.",
+    imageUrl: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800",
+    tags: ["Passcode Lock", "Security Policy", "Mayfield"],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-slate-900 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-slate-400">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-slate-500 text-[10px] font-black uppercase tracking-widest">Can a repair shop unlock an iPhone with forgotten passcode without deleting data?</span>
+              <p class="text-xl font-bold">No. Modern iOS and Android hardware encryption protects data strictly behind the passcode. If forgotten, a factory restore via Recovery Mode is required, unless a cloud backup exists.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">At <strong>Mayfield Phone Repair</strong>, customer security and compliance with Australian law are paramount. We assist customers who are locked out of disabled devices while ensuring strict identity verification to prevent unauthorized access.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Our Security Protocol</h2>
+        <ul class="list-disc pl-6 space-y-2 text-slate-600 text-lg">
+          <li><strong>Proof of Ownership Required:</strong> Original receipt, photo ID, or matching carrier bill required for device reset assistance.</li>
+          <li><strong>No Activation Lock Bypass:</strong> We do NOT bypass stolen iCloud or Google FRP locks under any circumstances.</li>
+          <li><strong>System Restore Assistance:</strong> Reinstalling official firmware for phones stuck in "iPhone Unavailable" or boot loops.</li>
+        </ul>
+
+        <div class="mt-12 bg-blue-600 text-white p-12 rounded-[3.5rem] shadow-2xl text-center">
+          <h3 class="text-3xl font-bold mb-4 font-display">Need Help Restoring Your Device?</h3>
+          <p class="mb-8 text-blue-100">Visit 276 Maitland Rd, Mayfield with your photo ID and proof of purchase.</p>
+          <a href="tel:0240491735" class="inline-block bg-slate-900 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display">Call 02 4049 1735</a>
+        </div>
+      </section>
+    `
+  },
+  {
+    id: "63",
+    title: "Buying Refurbished Phones in Newcastle: Why 90-Day Local Warranties Beat Facebook Marketplace",
+    slug: "refurbished-phones-mayfield-vs-facebook-marketplace-scams",
+    date: "2026-09-25",
+    author: "Mayfield Phone Repair Team",
+    excerpt: "Thinking of buying a second-hand phone on Gumtree or Facebook Marketplace in Newcastle? Beware of delayed network IMEI blacklisting, fake OLED screens, and dead batteries.",
+    imageUrl: "https://images.unsplash.com/photo-1556656793-062ff987825d?auto=format&fit=crop&q=80&w=800",
+    tags: ["Refurbished Phones", "Second Hand", "Mayfield"],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-emerald-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-emerald-100">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-emerald-200 text-[10px] font-black uppercase tracking-widest">What is the biggest risk of buying phones on Facebook Marketplace?</span>
+              <p class="text-xl font-bold">Unscrupulous sellers report the phone lost or stolen to their insurer 2 weeks AFTER selling it to you, causing Telstra/Optus to permanently block the IMEI on all Australian networks.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">Buying pre-owned smartphones from a local storefront guarantees peace of mind. Every certified second-hand phone at <strong>Mayfield Phone Repair</strong> undergoes a rigorous 30-point hardware diagnostic test and comes with a written warranty.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Our 30-Point Inspection Standards</h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="p-6 bg-slate-50 border border-slate-100 rounded-3xl">
+            <h4 class="font-bold text-slate-900 mb-2">Battery Health Guaranteed 85%+</h4>
+            <p class="text-sm text-slate-500 italic">Fresh batteries installed if original health drops below standard baseline.</p>
+          </div>
+          <div class="p-6 bg-slate-50 border border-slate-100 rounded-3xl">
+            <h4 class="font-bold text-slate-900 mb-2">Clear IMEI & Carrier Status</h4>
+            <p class="text-sm text-slate-500 italic">Fully unlocked for all Australian SIM cards with tax invoice proof of sale.</p>
+          </div>
+        </div>
+
+        <div class="mt-12 bg-slate-900 text-white p-12 rounded-[3.5rem] shadow-2xl text-center">
+          <h3 class="text-3xl font-bold mb-4 font-display">View Our Refurbished Phone Stock</h3>
+          <p class="mb-8 text-slate-400">Visit 276 Maitland Rd, Mayfield or check our second-hand stock online.</p>
+          <a href="/second-hand-phones" class="inline-block bg-emerald-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display">Browse Available Phones</a>
+        </div>
+      </section>
+    `
+  },
+  {
+    id: "64",
+    title: "Corporate & Fleet Device Repair Newcastle: On-Site Pickup & Invoice Billing for Local Business",
+    slug: "corporate-fleet-phone-laptop-repair-newcastle-businesses",
+    date: "2026-09-29",
+    author: "Mayfield Phone Repair Team",
+    excerpt: "Manage a fleet of company iPhones, iPads, or Toughbooks for trades, real estate, or sales in Newcastle? Simplify mobile IT maintenance with bulk pricing and 30-day invoice terms.",
+    imageUrl: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&q=80&w=800",
+    tags: ["Corporate Repair", "B2B Newcastle", "Fleet Management"],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-blue-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-blue-100">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-blue-200 text-[10px] font-black uppercase tracking-widest">Does Mayfield Phone Repair offer corporate accounts for Newcastle businesses?</span>
+              <p class="text-xl font-bold">Yes! We provide dedicated account management, priority same-day turnaround, monthly consolidated invoicing, and local courier pickup for local business accounts.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">Downtime costs money. When a site manager's iPad or a sales rep's iPhone breaks on the job, sending it away for weeks is not an option. <strong>Mayfield Phone Repair</strong> partners with local Newcastle companies to provide fast, reliable commercial repairs.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Key Corporate Benefits</h2>
+        <ul class="list-disc pl-6 space-y-2 text-slate-600 text-lg">
+          <li><strong>Priority Repair Queue:</strong> Commercial devices fixed in under 60 minutes.</li>
+          <li><strong>Itemized GST Invoicing:</strong> Tax receipts and 30-day account terms available.</li>
+          <li><strong>Rugged Screen & Case Upgrades:</strong> Heavy-duty protection installation for field teams.</li>
+        </ul>
+
+        <div class="mt-12 bg-slate-900 text-white p-12 rounded-[3.5rem] shadow-2xl text-center">
+          <h3 class="text-3xl font-bold mb-4 font-display">Set Up a Business Account</h3>
+          <p class="mb-8 text-slate-400">Call (02) 4049 1735 or visit our corporate page to get started.</p>
+          <a href="/corporate-repairs" class="inline-block bg-blue-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display">Corporate Portal</a>
+        </div>
+      </section>
+    `
+  },
+  {
+    id: "65",
+    title: "Nintendo Switch & Console Repair Mayfield: Joy-Con Drift, Charging Ports & Screens",
+    slug: "nintendo-switch-console-repair-mayfield-newcastle",
+    date: "2026-10-02",
+    author: "Mayfield Phone Repair Team",
+    excerpt: "Experiencing Joy-Con drift, a broken USB-C charging port, or a cracked screen on your Nintendo Switch or Switch OLED in Newcastle? Get fast local repairs in Mayfield.",
+    imageUrl: "https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?auto=format&fit=crop&q=80&w=800",
+    tags: ["Nintendo Switch", "Console Repair", "Mayfield"],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-indigo-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-indigo-100">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-indigo-200 text-[10px] font-black uppercase tracking-widest">Can a Nintendo Switch USB-C port be replaced in Newcastle?</span>
+              <p class="text-xl font-bold">Yes! Nintendo Switch charging ports feature dual-row micro pins soldered directly to the mainboard. We perform micro-soldering USB-C port replacements at our Mayfield shop.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">Don't ship your gaming console to Sydney and wait 3 weeks. At <strong>Mayfield Phone Repair</strong>, we fix common handheld gaming console issues locally in Mayfield.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Handheld Console Services</h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="p-6 bg-slate-50 border border-slate-100 rounded-3xl">
+            <h4 class="font-bold text-slate-900 mb-2">Hall-Effect Joy-Con Upgrades</h4>
+            <p class="text-sm text-slate-500 italic">Replace drifting joysticks with magnetic Hall-Effect sticks that never wear out.</p>
+          </div>
+          <div class="p-6 bg-slate-50 border border-slate-100 rounded-3xl">
+            <h4 class="font-bold text-slate-900 mb-2">M92T36 Power IC Fixes</h4>
+            <p class="text-sm text-slate-500 italic">Fixing dead Switch consoles that won't charge or turn on after using third-party docks.</p>
+          </div>
+        </div>
+
+        <div class="mt-12 bg-slate-900 text-white p-12 rounded-[3.5rem] shadow-2xl text-center">
+          <h3 class="text-3xl font-bold mb-4 font-display">Back to Gaming Same-Day</h3>
+          <p class="mb-8 text-slate-400">Bring your Nintendo Switch to 276 Maitland Rd, Mayfield.</p>
+          <a href="tel:0240491735" class="inline-block bg-indigo-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display">Call 02 4049 1735</a>
+        </div>
+      </section>
+    `
+  },
+  {
+    id: "66",
+    title: "iPad Screen & Digitizer Replacement for Newcastle Schools & Families",
+    slug: "ipad-screen-repair-newcastle-schools-families-guide",
+    date: "2026-10-06",
+    author: "Mayfield Phone Repair Team",
+    excerpt: "Shattered outer glass on your iPad 9th/10th Gen or iPad Air? Learn the difference between digitizer glass repair and full LCD assembly replacement in Mayfield.",
+    imageUrl: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&q=80&w=800",
+    tags: ["iPad Repair", "Newcastle Schools", "Digitizer"],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-blue-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-blue-100">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-blue-200 text-[10px] font-black uppercase tracking-widest">Is iPad glass repair cheaper than replacing the whole screen?</span>
+              <p class="text-xl font-bold">On standard iPads (7th–10th Gen), the top glass digitizer is separate from the LCD panel underneath. If your display image is still clear, replacing just the outer glass saves up to $150.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">iPads are essential learning tools for Newcastle students. When dropped on hard schoolyard concrete, glass shards can be dangerous for kids' fingers. At <strong>Mayfield Phone Repair</strong>, we restore iPad glass quickly and safely.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">iPad Repairs We Perform</h2>
+        <ul class="list-disc pl-6 space-y-2 text-slate-600 text-lg">
+          <li><strong>Front Glass Digitizer Swaps:</strong> High-bonding adhesive seal preventing touch ghosting.</li>
+          <li><strong>Bent Frame Straightening:</strong> Corner reshaping so new glass sits flush.</li>
+          <li><strong>iPad Battery Replacements:</strong> Eliminating unexpected shut-offs during homework.</li>
+        </ul>
+
+        <div class="mt-12 bg-slate-900 text-white p-12 rounded-[3.5rem] shadow-2xl text-center">
+          <h3 class="text-3xl font-bold mb-4 font-display">Fast iPad Rescue in Mayfield</h3>
+          <p class="mb-8 text-slate-400">Bring your iPad to 276 Maitland Rd, Mayfield today.</p>
+          <a href="tel:0240491735" class="inline-block bg-blue-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display">Call 02 4049 1735</a>
+        </div>
+      </section>
+    `
+  },
+  {
+    id: "67",
+    title: "Car Key Remote Fob Battery & Shell Replacement in Mayfield: Quick Micro-Fixes",
+    slug: "car-key-remote-fob-battery-shell-replacement-mayfield",
+    date: "2026-10-09",
+    author: "Mayfield Phone Repair Team",
+    excerpt: "Car key remote not locking or unlocking from a distance? Don't pay $300+ at a dealership. Get quick car key fob battery and button shell replacements in Mayfield.",
+    imageUrl: "https://images.unsplash.com/photo-1556656793-062ff987825d?auto=format&fit=crop&q=80&w=800",
+    tags: ["Car Key Fob", "Micro Repair", "Mayfield"],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-emerald-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-emerald-100">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-emerald-200 text-[10px] font-black uppercase tracking-widest">How long does a car key fob battery replacement take in Mayfield?</span>
+              <p class="text-xl font-bold">It takes less than 3 minutes! We stock Japanese Maxell & Panasonic CR2032, CR2025, and CR2016 coin cells for Toyota, Holden, Ford, Hyundai, Mazda, and Nissan remotes.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">While getting your phone screen fixed at <strong>Mayfield Phone Repair</strong>, pop your key remote on the counter. Broken rubber buttons or flat batteries can be fixed on the spot for a fraction of dealership costs.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Key Fob Services</h2>
+        <ul class="list-disc pl-6 space-y-2 text-slate-600 text-lg">
+          <li><strong>Coin Cell Battery Replacement:</strong> Fresh high-grade Lithium cells.</li>
+          <li><strong>Remote Shell & Pad Swap:</strong> Transferring your original circuit board into a crisp new key casing.</li>
+        </ul>
+
+        <div class="mt-12 bg-slate-900 text-white p-12 rounded-[3.5rem] shadow-2xl text-center">
+          <h3 class="text-3xl font-bold mb-4 font-display">Visit Us at 276 Maitland Rd</h3>
+          <p class="mb-8 text-slate-400">Quick 2-minute service in Mayfield store.</p>
+          <a href="tel:0240491735" class="inline-block bg-emerald-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display">Call 02 4049 1735</a>
+        </div>
+      </section>
+    `
+  },
+  {
+    id: "68",
+    title: "Phone Insurance Claim Reports Newcastle: Itemized Damage Diagnostics for NRMA & Allianz",
+    slug: "phone-insurance-claim-inspection-reports-newcastle-nrma-allianz",
+    date: "2026-10-13",
+    author: "Mayfield Phone Repair Team",
+    excerpt: "Need an official repair quote or assessment report for an insurance claim with NRMA, RACV, or Allianz? We issue official GST itemized diagnostic reports in Mayfield.",
+    imageUrl: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&q=80&w=800",
+    tags: ["Insurance Reports", "Claims", "Newcastle"],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-blue-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-blue-100">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-blue-200 text-[10px] font-black uppercase tracking-widest">How do I get a phone repair quote accepted by insurance?</span>
+              <p class="text-xl font-bold">Insurance companies require a formal written report stating repairability, parts breakdown, GST invoice, and repairer ABN. Mayfield Phone Repair provides compliant reports on the spot.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">Accidental drops and liquid spills happen. If your home contents policy or travel insurance covers phone damage, bring your device into <strong>Mayfield Phone Repair</strong> at 276 Maitland Rd for a comprehensive inspection report.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">What Our Insurance Package Includes</h2>
+        <ul class="list-disc pl-6 space-y-2 text-slate-600 text-lg">
+          <li><strong>Formal Written Diagnostic Assessment</strong> with technician signature and ABN.</li>
+          <li><strong>Itemized Cost Estimate (Parts + Labor + GST)</strong>.</li>
+          <li><strong>Beyond Economical Repair (BER) Certificate</strong> if the device is unfixable.</li>
+        </ul>
+
+        <div class="mt-12 bg-slate-900 text-white p-12 rounded-[3.5rem] shadow-2xl text-center">
+          <h3 class="text-3xl font-bold mb-4 font-display">Get Your Insurance Quote Today</h3>
+          <p class="mb-8 text-slate-400">Visit 276 Maitland Rd, Mayfield or learn more on our insurance page.</p>
+          <a href="/insurance-claim-repairs" class="inline-block bg-blue-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display">Insurance Portal</a>
+        </div>
+      </section>
+    `
+  },
+  {
+    id: "69",
+    title: "Emergency & After-Hours Phone Repair Mayfield: 24/7 SMS Diagnostic Triage",
+    slug: "emergency-after-hours-phone-repair-triage-mayfield-newcastle",
+    date: "2026-10-16",
+    author: "Mayfield Phone Repair Team",
+    excerpt: "Shattered your phone on a Friday night or before an early shift? Learn how our 24/7 emergency SMS triage service helps shift workers and emergency personnel in Newcastle.",
+    imageUrl: "https://images.unsplash.com/photo-1512054502232-10a0a035d672?auto=format&fit=crop&q=80&w=800",
+    tags: ["Emergency Repair", "After Hours", "Mayfield"],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-indigo-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-indigo-100">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-indigo-200 text-[10px] font-black uppercase tracking-widest">How do I request emergency after-hours phone repair in Mayfield?</span>
+              <p class="text-xl font-bold">Send an SMS to 0431 618 100 with your phone model and issue. Our technician will respond with immediate advice and priority drop-off scheduling.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">Phones don't break on a schedule. Whether you're a nurse at John Hunter Hospital, a shift worker, or a small business owner, losing phone access after business hours is stressful. <strong>Mayfield Phone Repair</strong> offers emergency support via SMS.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">How Emergency Triage Works</h2>
+        <ol class="list-decimal pl-6 space-y-2 text-slate-600 text-lg">
+          <li><strong>Text 0431 618 100:</strong> Include phone model and description of failure.</li>
+          <li><strong>Instant First-Aid Advice:</strong> What to do immediately (e.g. water damage power-down).</li>
+          <li><strong>Priority Early Morning Drop-Off:</strong> First in queue when the workshop opens.</li>
+        </ol>
+
+        <div class="mt-12 bg-slate-900 text-white p-12 rounded-[3.5rem] shadow-2xl text-center">
+          <h3 class="text-3xl font-bold mb-4 font-display">Need After-Hours Help?</h3>
+          <p class="mb-8 text-slate-400">SMS 0431 618 100 or visit our After Hours page.</p>
+          <a href="/after-hours" class="inline-block bg-indigo-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display">After Hours SMS Info</a>
+        </div>
+      </section>
+    `
   }
 ];
+
 
 
