@@ -1,10 +1,10 @@
-name: Deploy to Hostinger VPS
+name: Deploy to FTP
 
 on:
   push:
     branches:
       - main
-
+  workflow_dispatch:
 jobs:
   deploy:
     runs-on: ubuntu-latest
