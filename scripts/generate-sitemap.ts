@@ -78,8 +78,8 @@ export function generateSitemap() {
     xml += `  <url>\n    <loc>${BASE_URL}/service/${escapeXml(service.id)}</loc>\n    <lastmod>${TODAY}</lastmod>\n    <priority>0.8</priority>\n  </url>\n`;
   });
 
-  // Blog Posts
-  blogPosts.forEach(post => {
+  // Blog Posts (Published only)
+  blogPosts.filter(post => post.date <= TODAY).forEach(post => {
     xml += `  <url>\n    <loc>${BASE_URL}/blog/${escapeXml(post.slug)}</loc>\n    <lastmod>${post.date}</lastmod>\n    <priority>0.6</priority>\n  </url>\n`;
   });
 
