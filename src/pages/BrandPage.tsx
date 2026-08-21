@@ -1,8 +1,8 @@
 import { useParams, Link } from 'react-router-dom';
 import { brands } from '../data/brands';
 import { Helmet } from 'react-helmet-async';
-import { ArrowLeft, Smartphone, CheckCircle2, ShieldCheck, Wrench, BatteryCharging, Zap, Droplet, Phone, Clock, MapPin, Sparkles } from 'lucide-react';
-import { useEffect } from 'react';
+import { ArrowLeft, Smartphone, CheckCircle2, ShieldCheck, Wrench, BatteryCharging, Zap, Droplet, Phone, Clock, MapPin, Sparkles, Search } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { useUI } from '../contexts/UIContext';
 import NotFound from './NotFound';
 
@@ -10,9 +10,11 @@ export default function BrandPage() {
   const { openBooking } = useUI();
   const { brandId } = useParams();
   const brand = brands.find(b => b.id === brandId);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
+    setSearchQuery('');
   }, [brandId]);
 
   if (!brand) {
@@ -128,27 +130,51 @@ export default function BrandPage() {
 
           {/* Categorized Models */}
           <div className="space-y-12">
-            <div className="space-y-4">
-              <h2 className="text-3xl md:text-5xl font-bold text-slate-900 font-display tracking-tight">Models We Fix</h2>
-              <p className="text-slate-500 text-xl font-medium max-w-2xl">Professional repair services available for the following {brand.name} models.</p>
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+              <div className="space-y-4">
+                <h2 className="text-3xl md:text-5xl font-bold text-slate-900 font-display tracking-tight">Models We Fix</h2>
+                <p className="text-slate-500 text-xl font-medium max-w-2xl">Professional repair services available for the following {brand.name} models.</p>
+              </div>
+
+              {/* Model Search Box */}
+              <div className="relative w-full md:w-80">
+                <Search className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+                <input
+                  type="text"
+                  placeholder={`Search ${brand.name} model (e.g. iPad 9, A54)...`}
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-12 pr-4 py-3.5 bg-white rounded-2xl border border-slate-200 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all shadow-sm font-medium"
+                />
+              </div>
             </div>
             
             <div className="space-y-10">
-              {brand.deviceCategories.map((category, idx) => (
-                <div key={idx} className="bg-white/60 backdrop-blur-xl rounded-[3rem] p-10 shadow-2xl shadow-slate-200/30 border border-white">
-                  <h3 className="text-xl font-black text-blue-600 mb-8 flex items-center gap-3 uppercase tracking-[0.2em] font-display border-b border-blue-50 pb-6">
-                    <Smartphone className="w-6 h-6" strokeWidth={3} /> {category.name}
-                  </h3>
-                  <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-                    {category.models.map(model => (
-                      <button key={model} onClick={openBooking} className="bg-slate-50/50 p-5 rounded-2xl border border-slate-100 hover:border-blue-400 hover:bg-white hover:shadow-xl hover:shadow-blue-600/5 transition-all cursor-pointer flex justify-between items-center group">
-                        <span className="font-bold text-slate-700 group-hover:text-blue-900 tracking-tight">{model}</span>
-                        <ArrowLeft className="w-4 h-4 text-blue-600 rotate-180 transform group-hover:translate-x-1 transition-transform opacity-0 group-hover:opacity-100" strokeWidth={3} />
-                      </button>
-                    ))}
+              {brand.deviceCategories.map((category, idx) => {
+                const filteredModels = category.models.filter(m => 
+                  m.toLowerCase().includes(searchQuery.toLowerCase().trim())
+                );
+
+                if (searchQuery.trim() !== '' && filteredModels.length === 0) {
+                  return null;
+                }
+
+                return (
+                  <div key={idx} className="bg-white/60 backdrop-blur-xl rounded-[3rem] p-10 shadow-2xl shadow-slate-200/30 border border-white">
+                    <h3 className="text-xl font-black text-blue-600 mb-8 flex items-center gap-3 uppercase tracking-[0.2em] font-display border-b border-blue-50 pb-6">
+                      <Smartphone className="w-6 h-6" strokeWidth={3} /> {category.name}
+                    </h3>
+                    <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                      {filteredModels.map(model => (
+                        <button key={model} onClick={openBooking} className="bg-slate-50/50 p-5 rounded-2xl border border-slate-100 hover:border-blue-400 hover:bg-white hover:shadow-xl hover:shadow-blue-600/5 transition-all cursor-pointer flex justify-between items-center group">
+                          <span className="font-bold text-slate-700 group-hover:text-blue-900 tracking-tight text-left">{model}</span>
+                          <ArrowLeft className="w-4 h-4 text-blue-600 rotate-180 transform group-hover:translate-x-1 transition-transform opacity-0 group-hover:opacity-100 shrink-0 ml-2" strokeWidth={3} />
+                        </button>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
             
             <div className="p-10 bg-slate-50 rounded-[2rem] border border-slate-100">
