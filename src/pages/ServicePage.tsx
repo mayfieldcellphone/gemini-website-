@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { servicesData } from '../data/services';
 import { Helmet } from 'react-helmet-async';
-import { ArrowLeft, CheckCircle2, Phone, MapPin, Calendar } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, Phone, MapPin, Calendar, ArrowRight, Wrench } from 'lucide-react';
 import { useEffect } from 'react';
 import { useUI } from '../contexts/UIContext';
 import NotFound from './NotFound';
@@ -129,6 +129,31 @@ export default function ServicePage() {
                   <Phone className="w-3 h-3" /> Call 02 4049 1735
                 </a>
               </div>
+            </div>
+          </div>
+
+          {/* DIY Repair Option Callout */}
+          <div className="bg-white border border-slate-100 p-8 md:p-12 rounded-[3rem] flex flex-col md:flex-row items-center justify-between gap-8 hover:border-slate-200 transition-all duration-300 shadow-xl shadow-slate-200/50">
+            <div className="space-y-4 text-left">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#00C2A8]/10 text-teal-600 uppercase tracking-wider">
+                <Wrench className="w-3.5 h-3.5" />
+                DIY Option
+              </span>
+              <h3 className="text-2xl md:text-3xl font-black text-slate-900 font-display tracking-tight">Prefer to fix it yourself?</h3>
+              <p className="text-slate-600 max-w-2xl font-medium text-sm md:text-base leading-relaxed">
+                Order genuine-grade DIY screen and battery replacement kits complete with magnetic tools, adhesive seals, and full video instructions from SelfRepairKit.
+              </p>
+            </div>
+            <div className="w-full md:w-auto flex-shrink-0">
+              <a 
+                href="https://selfrepairkit.com.au" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-flex items-center justify-center gap-2 px-8 py-5 bg-[#00C2A8] text-slate-950 font-black uppercase tracking-[0.2em] text-[10px] rounded-2xl hover:bg-slate-950 hover:text-white transition-all duration-300 shadow-xl shadow-[#00C2A8]/20 w-full md:w-auto text-center"
+              >
+                Browse DIY Kits
+                <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
           </div>
         </div>
