@@ -13,12 +13,12 @@ const DIST_DIR = path.join(process.cwd(), 'dist');
 // Define general business config for schemas
 const businessLocalSchema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": ["LocalBusiness", "MobilePhoneRepairStore"],
   "name": "Mayfield Cell Phone Repairs",
   "image": `${BASE_URL}/logo.png`,
-  "@id": `${BASE_URL}`,
+  "@id": `${BASE_URL}/#organization`,
   "url": `${BASE_URL}`,
-  "telephone": "02 4049 1735",
+  "telephone": "+61 2 4049 1735",
   "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
@@ -33,6 +33,23 @@ const businessLocalSchema = {
     "latitude": -32.8988,
     "longitude": 151.7345
   },
+  "hasMap": "https://maps.google.com/?q=276+Maitland+Rd+Mayfield+NSW+2304",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.7",
+    "reviewCount": "363",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "sameAs": [
+    "https://www.facebook.com/mayfieldcellphonerepairs",
+    "https://www.instagram.com/mayfieldcellphonerepairs/",
+    "https://twitter.com/Mayfiel32990272",
+    "https://www.linkedin.com/company/mayfield-cell-phone-repairs/",
+    "https://www.youtube.com/@mayfieldcellphonerepairs",
+    "https://www.pinterest.com/mayfieldcellphonerepairs0496",
+    "https://www.tiktok.com/@mayfield.cell.pho"
+  ],
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
@@ -105,7 +122,7 @@ async function runPrerender() {
 
     // Replace default index.html <title> and <meta name="description"> completely
     content = content.replace(/<title[\s\S]*?>[\s\S]*?<\/title>/, `<title data-rh="true">${title}</title>`);
-    content = content.replace(/<meta[^>]*name="description"[^>]*\/>/, `<meta data-rh="true" name="description" content="${description}" />`);
+    content = content.replace(/<meta[\s\S]*?name="description"[\s\S]*?\/>/, `<meta data-rh="true" name="description" content="${description}" />`);
     content = content.replace(/<link rel="canonical"[\s\S]*?\/>/g, '');
     
     // Inject rest of meta tags inside <head>
