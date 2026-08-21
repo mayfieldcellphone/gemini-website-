@@ -1,30 +1,79 @@
-# SPA Routing: Redirect all requests to index.html if the file/dir doesn't exist
+# Mayfield Phone Repair - Server-Side SEO & Redirect Configuration
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
 
-  # Force HTTPS and Non-WWW (Domain Canonicalization)
+  # 1. Force HTTPS and Non-WWW (Domain Canonicalization)
   RewriteCond %{HTTPS} off [OR]
   RewriteCond %{HTTP_HOST} ^www\. [NC]
   RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
-  RewriteRule ^(.*)$ https://%1/$1 [L,R=301]
+  RewriteRule ^(.*)$ https://mayfieldphonerepair.com.au/$1 [L,R=301]
 
+  # 2. Redirect index.html / index.php to Root URL
+  RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.(html|php|htm)\ HTTP/ [NC]
+  RewriteRule ^index\.(html|php|htm)$ https://mayfieldphonerepair.com.au/ [R=301,L]
+
+  # 3. Strip Trailing Slash for Non-Directory Canonicalization
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} ^(.+)/$
+  RewriteRule ^ %1 [R=301,L]
+
+  # 4. Legacy 301 Redirects (Prevent Soft 404s & Duplicate Content in GSC)
+  RewriteRule ^screen-repair/?$ /service/screen-repair [R=301,L]
+  RewriteRule ^charging-port-repair/?$ /service/charging-port-repair [R=301,L]
+  RewriteRule ^battery-replacement/?$ /service/battery-replacement [R=301,L]
+  RewriteRule ^back-glass-replacement/?$ /service/back-glass-repair [R=301,L]
+  RewriteRule ^laptop-macbook-repair/?$ /service/laptop-repair [R=301,L]
+  RewriteRule ^laptop-repair/?$ /service/laptop-repair [R=301,L]
+  RewriteRule ^tablet-repair/?$ /service/laptop-repair [R=301,L]
+  
+  RewriteRule ^services/charging-port-repair-mayfield/?$ /service/charging-port-repair [R=301,L]
+  RewriteRule ^services/phone-battery-replacement-mayfield/?$ /service/battery-replacement [R=301,L]
+  RewriteRule ^services/water-damage-repair-mayfield/?$ /service/water-damage [R=301,L]
+  RewriteRule ^services/samsung-screen-repair-mayfield/?$ /service/screen-repair [R=301,L]
+  RewriteRule ^services/?$ / [R=301,L]
+
+  RewriteRule ^apple-repair/?$ /brand/apple [R=301,L]
+  RewriteRule ^samsung-repair/?$ /brand/samsung [R=301,L]
+  RewriteRule ^realme-repair/?$ /brand/realme [R=301,L]
+  RewriteRule ^huawei-repair/?$ /brand/huawei [R=301,L]
+  RewriteRule ^oppo-repair/?$ /brand/oppo [R=301,L]
+  RewriteRule ^xiaomi-repair/?$ /brand/xiaomi [R=301,L]
+  RewriteRule ^nokia-repair/?$ /brand/nokia [R=301,L]
+  RewriteRule ^vivo-repair/?$ /brand/vivo [R=301,L]
+
+  RewriteRule ^hamilton-north-phone-repair/?$ /phone-repair/hamilton [R=301,L]
+  RewriteRule ^tighes-hill-phone-repair/?$ /phone-repair/tighes-hill [R=301,L]
+  RewriteRule ^broadmeadow-phone-repair/?$ /phone-repair/broadmeadow [R=301,L]
+  RewriteRule ^new-lambton-phone-repair/?$ /phone-repair/new-lambton [R=301,L]
+  RewriteRule ^georgetown-phone-repair/?$ /phone-repair/georgetown [R=301,L]
+
+  RewriteRule ^contact-us/?$ /quote [R=301,L]
+  RewriteRule ^contact/?$ /quote [R=301,L]
+  RewriteRule ^free-quote/?$ /quote [R=301,L]
+  RewriteRule ^shop-accessories/?$ /accessories [R=301,L]
+
+  RewriteRule ^sitemap-(categories|posts|home|tags|pages)\.xml$ /sitemap.xml [R=301,L]
+
+  # 5. Serve Pre-rendered Static HTML Pages if available
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.*)$ /$1.html [L]
+
+  # 6. Fallback SPA Routing
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . /index.html [L]
 </IfModule>
 
-# Cache Control
+# Cache Control Guidelines
 <FilesMatch "\.(html|htm)$">
   Header set Cache-Control "no-cache, no-store, must-revalidate, max-age=0"
   Header set Pragma "no-cache"
   Header set Expires "0"
 </FilesMatch>
 
-<FilesMatch "\.(js|css)$">
+<FilesMatch "\.(js|css|webp|jpg|png|svg)$">
   Header set Cache-Control "public, max-age=31536000, immutable"
 </FilesMatch>
 
-# Example Redirects for old URLs (Uncomment and update as needed)
-# Redirect 301 /old-page-url https://mayfieldphonerepair.com.au/new-page-url
