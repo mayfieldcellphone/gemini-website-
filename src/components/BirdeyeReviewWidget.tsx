@@ -42,12 +42,7 @@ export default function BirdeyeReviewWidget() {
         
         {/* We always render the container immediately so that the Birdeye script can find it inside the DOM on load */}
         <div className="bg-white rounded-[2.5rem] p-4 md:p-8 shadow-sm border border-slate-100 overflow-hidden min-h-[350px]">
-                    <div id="bf-revz-widget-123456789301015183969661">
-            <div className="flex flex-col items-center justify-center h-64 text-slate-400">
-              <div className="w-8 h-8 border-4 border-slate-200 border-t-blue-600 rounded-full animate-spin mb-4"></div>
-              <p className="font-medium text-sm">Loading community reviews...</p>
-            </div>
-          </div>
+                    <div id="bf-revz-widget-123456789301015183969661"></div>
         </div>
       </div>
     </section>
