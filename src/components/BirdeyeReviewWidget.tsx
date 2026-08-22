@@ -18,7 +18,7 @@ export default function BirdeyeReviewWidget() {
     script.id = scriptId;
     script.type = 'text/javascript';
     // Append a timestamp so the browser forces fresh script execution on mount
-    script.src = `https://birdeye.com/embed/v6/110315/1/1202065629/89b0ec9ad7b6e3429a216196386d88f1c2f4a2be91fe1a62?t=${Date.now()}`;
+    script.src = `https://birdeye.com/embed/v7/166433098189597/10/123456789301015183969661?t=${Date.now()}`;
     script.async = true;
     document.body.appendChild(script);
 
@@ -37,29 +37,12 @@ export default function BirdeyeReviewWidget() {
           <h2 className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-600 mb-2">Real Customer Reviews</h2>
           <h3 className="text-3xl md:text-5xl font-black text-slate-900 leading-tight font-display tracking-tight">What our community says</h3>
           
-          {/* Centered Word of Mouth Reviews Link Badge */}
-          <div className="pt-2 flex justify-center">
-            <a 
-              rel="nofollow" 
-              href="https://wordofmouth.com.au/reviews/mayfield-cell-phone-repairs" 
-              title="Customer Reviews for Mayfield Cell Phone Repairs, Mayfield on Word of Mouth"
-              target="_blank"
-              className="inline-block transition-transform hover:scale-105 duration-200"
-            >
-              <img 
-                src="https://www.wordofmouth.com.au/assets/word of mouth-cropped-9bcce12e4f6f82b2a8a68feb868a610b14507974c6348134a2537cfed4bbd9af.svg" 
-                alt="Word of Mouth" 
-                width="200" 
-                className="mx-auto"
-                referrerPolicy="no-referrer"
-              />
-            </a>
-          </div>
+          
         </div>
         
         {/* We always render the container immediately so that the Birdeye script can find it inside the DOM on load */}
         <div className="bg-white rounded-[2.5rem] p-4 md:p-8 shadow-sm border border-slate-100 overflow-hidden min-h-[350px]">
-                    <div id="bf-revz-widget-1202065629">
+                    <div id="bf-revz-widget-123456789301015183969661">
             <div className="flex flex-col items-center justify-center h-64 text-slate-400">
               <div className="w-8 h-8 border-4 border-slate-200 border-t-blue-600 rounded-full animate-spin mb-4"></div>
               <p className="font-medium text-sm">Loading community reviews...</p>
