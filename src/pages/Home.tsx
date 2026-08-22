@@ -339,7 +339,7 @@ export default function Home() {
                   <div className={`w-12 h-12 rounded-2xl mb-4 flex items-center justify-center bg-gradient-to-br ${brand.color} shadow-md group-hover:-translate-y-1 transition-all duration-300`}>
                     <Smartphone className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="font-bold text-slate-900 text-xs font-display tracking-wider uppercase">
+                  <h3 className="font-bold text-slate-900 text-sm font-display tracking-wide">{brand.name}</h3>
                   <div className="mt-2 text-[8px] font-black uppercase tracking-[0.15em] text-blue-600 opacity-0 group-hover:opacity-100 transition-all">
                     Explore
                   </div>
