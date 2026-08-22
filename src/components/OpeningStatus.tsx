@@ -125,10 +125,10 @@ export const OpeningStatus: React.FC<{ className?: string; compact?: boolean }> 
     <div className={`flex items-center gap-2.5 ${className}`}>
       <div className={`w-2 h-2 rounded-full ${status.isOpen ? 'bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.5)]' : 'bg-slate-400'}`}></div>
       <div className={`flex ${compact ? 'flex-row items-center gap-2' : 'flex-col sm:flex-row sm:items-center sm:gap-2'}`}>
-        <span className={`font-black text-[10px] uppercase tracking-[0.2em] ${status.isOpen ? (compact ? 'text-blue-400' : 'text-white') : 'text-slate-400'}`}>
+        <span className={`font-black text-xs uppercase tracking-[0.2em] ${status.isOpen ? (compact ? 'text-blue-400' : 'text-white') : 'text-slate-400'}`}>
           {status.message}
         </span>
-        <span className={`text-[10px] text-slate-500 font-medium italic ${compact ? 'hidden md:inline' : ''}`}>
+        <span className={`text-xs text-slate-500 font-medium italic ${compact ? 'hidden md:inline' : ''}`}>
           {status.subMessage}
         </span>
       </div>
