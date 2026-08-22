@@ -33,6 +33,7 @@ export default function Home() {
   const [brandSearch, setBrandSearch] = useState('');
 
   const [isMobile, setIsMobile] = useState(false);
+  const [showAllServices, setShowAllServices] = useState(false);
 
   // Speed optimization: Detect mobile and simplify DOM
   useEffect(() => {
@@ -383,12 +384,12 @@ export default function Home() {
                 </thead>
                 <tbody className="divide-y divide-slate-100 text-slate-700 font-medium">
                   {brands.map((brand) => (
-                    <tr key={brand.id} className="hover:bg-white transition-colors">
+                    <tr key={brand.id} className="hover:bg-slate-50 transition-colors border-b border-slate-100 last:border-0">
                       <td className="py-4 px-6 md:px-8 font-bold text-slate-900 flex items-center gap-3">
                         <span className={`w-2.5 h-2.5 rounded-full bg-gradient-to-br ${brand.color}`} />
                         {brand.name}
                       </td>
-                      <td className="py-4 px-6 md:px-8 text-blue-600 font-bold">From ${brand.startingPrice.screen}</td>
+                      <td className="py-4 px-6 md:px-8 text-slate-900 font-bold">From ${brand.startingPrice.screen}</td>
                       <td className="py-4 px-6 md:px-8 text-emerald-600 font-bold">From ${brand.startingPrice.battery}</td>
                       
                     </tr>
@@ -430,7 +431,7 @@ export default function Home() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {servicesData.map((service, idx) => (
+            {(showAllServices ? servicesData : servicesData.slice(0, 8)).map((service, idx) => (
               <motion.div 
                 key={service.id}
                 initial={{ opacity: 0, y: 20 }}
