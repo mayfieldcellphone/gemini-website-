@@ -30,6 +30,26 @@ export const suburbs: Suburb[] = [
   { id: 'mayfield-west', name: 'Mayfield West', distance: 'just a 2-minute drive down the road', nearby: ['Mayfield', 'Waratah'] },
   { id: 'wickham', name: 'Wickham', distance: 'an 8-minute drive via Hannell St', nearby: ['Maryville', 'Newcastle'] },
   { id: 'mayfield', name: 'Mayfield', distance: 'right here in our shop', nearby: ['Waratah', 'Islington'] },
+
+  { id: 'warners-bay', name: 'Warners Bay', distance: 'about a 25-minute drive', nearby: ['Belmont', 'Cardiff'] },
+  { id: 'belmont', name: 'Belmont', distance: 'a 30-minute drive down the highway', nearby: ['Warners Bay', 'Gateshead'] },
+  { id: 'raymond-terrace', name: 'Raymond Terrace', distance: 'a 20-minute drive up the Pacific Highway', nearby: ['Heatherbrae', 'Hexham'] },
+  { id: 'maitland', name: 'Maitland', distance: 'a 35-minute drive via the New England Hwy', nearby: ['Rutherford', 'Thornton'] },
+  { id: 'edgeworth', name: 'Edgeworth', distance: 'a 25-minute trip', nearby: ['Glendale', 'Cameron Park'] },
+  { id: 'cameron-park', name: 'Cameron Park', distance: 'about 25 minutes via the link road', nearby: ['Edgeworth', 'Fletcher'] },
+  { id: 'fletcher', name: 'Fletcher', distance: 'a 20-minute drive', nearby: ['Maryland', 'Minmi'] },
+  { id: 'maryland', name: 'Maryland', distance: 'a 15-minute trip', nearby: ['Fletcher', 'Wallsend'] },
+  { id: 'sandgate', name: 'Sandgate', distance: 'just 5 minutes up Maitland Road', nearby: ['Shortland', 'Hexham'] },
+  { id: 'shortland', name: 'Shortland', distance: 'an easy 10-minute drive', nearby: ['Sandgate', 'Callaghan'] },
+  { id: 'hexham', name: 'Hexham', distance: 'a 12-minute drive up the highway', nearby: ['Sandgate', 'Beresfield'] },
+  { id: 'beresfield', name: 'Beresfield', distance: 'about 15 minutes away', nearby: ['Hexham', 'Thornton'] },
+  { id: 'thornton', name: 'Thornton', distance: 'a 20-minute drive', nearby: ['Beresfield', 'Maitland'] },
+  { id: 'rutherford', name: 'Rutherford', distance: 'a 40-minute trip', nearby: ['Maitland', 'Aberglasslyn'] },
+  { id: 'gateshead', name: 'Gateshead', distance: 'about 25 minutes away', nearby: ['Charlestown', 'Belmont'] },
+  { id: 'mount-hutton', name: 'Mount Hutton', distance: 'a 25-minute drive', nearby: ['Gateshead', 'Warners Bay'] },
+  { id: 'swansea', name: 'Swansea', distance: 'a 40-minute drive south', nearby: ['Belmont', 'Caves Beach'] },
+  { id: 'kurri-kurri', name: 'Kurri Kurri', distance: 'a 35-minute drive via the Hunter Expressway', nearby: ['Weston', 'Cessnock'] },
+  { id: 'cessnock', name: 'Cessnock', distance: 'a 45-minute drive into the Hunter', nearby: ['Kurri Kurri', 'Bellbird'] },
 ];
 
 export const seoServices = [
