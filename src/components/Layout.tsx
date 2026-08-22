@@ -444,19 +444,17 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
                <h4 className="text-white text-xs font-black uppercase tracking-[0.3em] font-display">Quick Links</h4>
                <ul className="space-y-4 text-sm font-medium">
                  <li><Link to="/" className="hover:text-blue-400 transition-colors">Home</Link></li>
-                                  <li><Link to="/repair-guides" className="hover:text-blue-400 transition-colors">Repair Guides & FAQ</Link></li>
+                 <li><Link to="/repair-guides" className="hover:text-blue-400 transition-colors">Repair Guides & FAQ</Link></li>
+                 <li><a href="https://repairrange.io" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">Cost Calculator</a></li>
+                 <li><Link to="/blog" className="hover:text-blue-400 transition-colors">Repair Blog</Link></li>
+                 <li className="hidden md:block"><Link to="/about-us" className="hover:text-blue-400 transition-colors">About Us</Link></li>
+                 <li><Link to="/#contact" className="hover:text-blue-400 transition-colors">Location</Link></li>
+                 <li><Link to="/privacy-policy" className="hover:text-blue-400 transition-colors">Privacy</Link></li>
                  <li>
-            </div>
-            <div>
-              <a 
-                href="https://repairrange.io/calculator.html" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-xs text-slate-600 hover:text-blue-400 hover:underline transition-colors duration-200"
-              >
-                Compare repair costs across Australia
-              </a>
-            </div>
+                    <a href="https://selfrepairkit.com.au" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-400 transition-colors">Buy DIY Parts</a>
+                 </li>
+               </ul>
+             </div>
           </div>
         </div>
 
