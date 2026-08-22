@@ -345,35 +345,41 @@ export const servicesData = [
   {
     id: 'software-repair',
     icon: Cpu,
-    title: 'Software & OS Repair',
-    shortDesc: 'Fix boot loops, stuck Apple logo, Android recovery crashes, frozen screens, failed updates, and malware issues for iOS & Android in Newcastle.',
-    heroTitle: 'Phone Software & Firmware Repair Newcastle',
-    heroDescription: 'Is your iPhone stuck on the Apple logo or Android caught in an infinite boot loop? We provide professional iOS and Android operating system restoration, firmware reflashing, and system diagnostic fixes in Mayfield.',
+    title: 'Software, Virus & Malware Repair',
+    shortDesc: 'Fix virus infections, pop-up malware, spyware, boot loops, stuck Apple logo, Android crashes, frozen screens, and system bugs for all brands.',
+    heroTitle: 'Phone Virus Removal, Software & OS Repair Newcastle',
+    heroDescription: 'Is your phone infected with pop-up ads, malware, or spyware? Or is your iPhone stuck on the Apple logo or Nokia/Samsung caught in a boot loop? We provide express virus removal, adware cleanup, iOS and Android OS restoration, and firmware reflashing in Mayfield.',
     color: 'from-blue-600 to-cyan-600',
     content: [
       {
+        heading: 'Virus, Malware & Pop-Up Adware Removal Services',
+        text: 'Malicious apps, phishing pop-ups, browser hijacks, and hidden spyware can slow down your phone, drain your battery, hijack notifications, and compromise your personal banking or password security. At Mayfield Phone Repair, we perform deep security diagnostics across iPhone, Samsung, Nokia, Google Pixel, Xiaomi, Oppo, and all Android models. We eliminate persistent pop-ups, remove malicious background certificates, clean infected browser caches, and restore your device to total security without risking your personal photos or contacts whenever possible.'
+      },
+      {
         heading: 'Comprehensive Operating System Diagnostics & Firmware Reflashing',
-        text: 'Software glitches can render a high-end smartphone completely unusable. Interruptions during over-the-air system updates, full internal storage corruptions, or malicious software can trigger continuous rebooting (boot loops), frozen touchscreens, or emergency recovery screens. Our software technicians use official firmware binaries to repair corrupt system files without losing your personal data whenever possible.'
+        text: 'Software glitches can render a high-end smartphone completely unusable. Interruptions during over-the-air system updates, full internal storage corruptions, or corrupted OS updates can trigger continuous rebooting (boot loops), frozen touchscreens, or emergency recovery screens. Our software technicians use official firmware binaries to repair corrupt system files fast.'
       },
       {
         heading: 'iOS & Android Troubleshooting Solutions',
-        text: 'We handle iTunes/Finder error codes (e.g. Error 9, 11, 4013), DFU mode restores, Samsung Odin firmware flashes, Google Pixel Android flash utility setups, and storage optimization to free up clogged system space.'
+        text: 'We handle iTunes/Finder error codes (e.g. Error 9, 11, 4013), DFU mode restores, Samsung Odin firmware flashes, Google Pixel & Nokia Android flash utility setups, FRP unlock assistance, and storage optimization to free up clogged system space.'
       },
       {
-        heading: 'Common Software Faults Solved',
+        heading: 'Common Software & Malware Faults Solved',
         list: [
+          'Constant pop-up advertisements, fake virus warnings, and calendar spam',
+          'Hidden malware or spyware causing extreme battery drain and overheating',
           'iPhone stuck on Apple logo or recovery mode (black screen with computer icon)',
-          'Android device repeating boot loops or showing "No Command" errors',
+          'Nokia, Samsung, or Pixel device repeating boot loops or showing "No Command" errors',
           'System storage 100% full causing device freeze and inability to boot',
-          'App crashing, unresponsive system UI, or failed system updates'
+          'Unresponsive touchscreen UI, app crashing loops, or failed firmware updates'
         ]
       },
       {
-        heading: 'Pre-Repair Data Protection Advice',
-        text: 'We prioritize keeping your personal files intact during software repairs. Visit our Mayfield location on Maitland Rd for immediate software diagnostic support.'
+        heading: 'Pre-Repair Data Protection & Security Guarantee',
+        text: 'We prioritize keeping your personal files intact during virus removal and software updates. Visit our Mayfield location on Maitland Rd for immediate software and malware diagnostic support.'
       }
     ],
-    features: ['iOS & Android Experts', 'Firmware Reflashing', 'Data Preservation', 'Same-Day Diagnostics'],
+    features: ['Virus & Spyware Clean', 'Pop-Up Adware Fix', 'iOS & Android Experts', 'Data Preservation Guarantee'],
   },
   {
     id: 'gaming-console-repair',
