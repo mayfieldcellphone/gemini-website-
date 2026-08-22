@@ -312,7 +312,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
         <div className="hidden lg:flex items-center shrink-0">
           <button 
             onClick={openBooking}
-            className="cursor-pointer relative overflow-hidden bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-700 hover:to-indigo-800 text-white px-7 py-3 rounded-xl font-bold uppercase tracking-wider text-[10px] shadow-lg shadow-blue-500/10 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
+            className="cursor-pointer relative overflow-hidden bg-slate-950 text-white px-7 py-3 rounded hover:bg-slate-800 font-bold uppercase tracking-wider text-[10px] shadow-lg shadow-blue-500/10 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
           >
             Book a Repair
           </button>
@@ -476,10 +476,10 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
         <div className="max-w-7xl mx-auto border-t border-white/5 pt-12 mb-12 hidden md:block relative z-10">
            <button 
              onClick={() => setIsSeoDirOpen(!isSeoDirOpen)}
-             className="flex items-center text-[10px] text-slate-600 uppercase tracking-[0.5em] font-black hover:text-blue-400 transition-colors w-full text-left focus:outline-none"
+             className="flex items-center font-bold text-slate-900 text-lg flex items-center justify-between w-full hover:text-blue-600 transition-colors focus:outline-none"
              aria-expanded={isSeoDirOpen}
            >
-             Local Areas We Serve
+             Local Areas We Serve <ChevronDown className={`w-5 h-5 transition-transform ${isAreasOpen ? "rotate-180" : ""}`} />
              <svg 
                className={`w-4 h-4 ml-3 transform transition-transform duration-500 ${isSeoDirOpen ? 'rotate-180 text-blue-500' : ''}`} 
                fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -552,7 +552,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
         </div>
 
         <div className="max-w-7xl mx-auto mt-12 pt-12 border-t border-white/5 opacity-40">
-          <div className="flex flex-col gap-6 text-[9px] leading-relaxed text-slate-600 font-display font-black uppercase tracking-[0.2em] text-center md:text-left">
+          <div className="flex flex-col gap-6 text-xs leading-relaxed text-slate-600 font-display font-black uppercase tracking-[0.2em] text-center md:text-left">
             <p>
               Aussibk with ABN 11433439336 trading as Mayfield Phone Repair.
             </p>
