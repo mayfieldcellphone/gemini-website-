@@ -21,9 +21,90 @@ import {
   Layers,
   Wrench
 } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import { db, handleFirestoreError, OperationType } from '../lib/firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { sendSMSNotification } from '../lib/notifications';
+
+const PRICING_TIERS = [
+  { brand: 'Apple iPhone', screen: 129, battery: 89 },
+  { brand: 'Samsung Galaxy', screen: 149, battery: 99 },
+  { brand: 'Google Pixel', screen: 139, battery: 89 },
+  { brand: 'Oppo Series', screen: 119, battery: 79 },
+  { brand: 'Motorola Devices', screen: 99, battery: 69 },
+  { brand: 'Huawei Series', screen: 129, battery: 79 },
+];
+
+const QUOTE_CANONICAL_URL = 'https://mayfieldphonerepair.com.au/quote';
+
+const quotePageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'LocalBusiness',
+      '@id': 'https://mayfieldphonerepair.com.au/#business',
+      'name': 'Mayfield Phone Repair',
+      'alternateName': 'Mayfield Cell Phone Repairs',
+      'image': 'https://mayfieldphonerepair.com.au/logo.png',
+      'url': 'https://mayfieldphonerepair.com.au',
+      'telephone': '+61240491735',
+      'priceRange': '$',
+      'address': {
+        '@type': 'PostalAddress',
+        'streetAddress': '276 Maitland Rd',
+        'addressLocality': 'Mayfield',
+        'addressRegion': 'NSW',
+        'postalCode': '2304',
+        'addressCountry': 'AU'
+      },
+      'aggregateRating': {
+        '@type': 'AggregateRating',
+        'ratingValue': '4.7',
+        'reviewCount': '363'
+      },
+      'openingHoursSpecification': [
+        { '@type': 'OpeningHoursSpecification', 'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], 'opens': '09:00', 'closes': '17:00' },
+        { '@type': 'OpeningHoursSpecification', 'dayOfWeek': 'Saturday', 'opens': '10:00', 'closes': '15:00' },
+        { '@type': 'OpeningHoursSpecification', 'dayOfWeek': 'Sunday', 'opens': '10:00', 'closes': '14:00' }
+      ],
+      'hasOfferCatalog': {
+        '@type': 'OfferCatalog',
+        'name': 'Repair Pricing',
+        'itemListElement': PRICING_TIERS.flatMap((tier, idx) => ([
+          {
+            '@type': 'Offer',
+            'position': idx * 2 + 1,
+            'itemOffered': { '@type': 'Service', 'name': `${tier.brand} Screen Repair` },
+            'priceCurrency': 'AUD',
+            'price': tier.screen
+          },
+          {
+            '@type': 'Offer',
+            'position': idx * 2 + 2,
+            'itemOffered': { '@type': 'Service', 'name': `${tier.brand} Battery Replacement` },
+            'priceCurrency': 'AUD',
+            'price': tier.battery
+          }
+        ]))
+      }
+    },
+    {
+      '@type': 'WebPage',
+      '@id': `${QUOTE_CANONICAL_URL}#webpage`,
+      'url': QUOTE_CANONICAL_URL,
+      'name': 'Get a Free Phone Repair Quote | Mayfield Phone Repair',
+      'description': 'Get an instant, fixed-price quote for iPhone, Samsung, Google Pixel and more. Same-day repairs at 276 Maitland Rd, Mayfield NSW.',
+      'isPartOf': { '@id': 'https://mayfieldphonerepair.com.au/#business' }
+    },
+    {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://mayfieldphonerepair.com.au' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Free Quote', 'item': QUOTE_CANONICAL_URL }
+      ]
+    }
+  ]
+};
 
 // Meta Pixel tracking utility
 const fireMetaPixelEvent = (eventName: string, pixelId?: string) => {
@@ -155,6 +236,12 @@ export default function FreeQuotePage() {
 
   return (
     <div className="min-h-screen bg-[#f6f7fb] text-[#0d1b2a] font-sans antialiased selection:bg-blue-600 selection:text-white">
+      <Helmet>
+        <title>Get a Free Phone Repair Quote | Mayfield Phone Repair</title>
+        <meta name="description" content="Get an instant, fixed-price quote for iPhone, Samsung, Google Pixel and more. Same-day repairs at 276 Maitland Rd, Mayfield NSW. Rated 4.7/5 from 363+ reviews." />
+        <link rel="canonical" href={QUOTE_CANONICAL_URL} />
+        <script type="application/ld+json">{JSON.stringify(quotePageSchema)}</script>
+      </Helmet>
       {/* Top Banner */}
       <div className="bg-[#0d1b2a] text-[#cdd6e8] text-xs py-2 px-4 font-semibold text-center overflow-x-auto whitespace-nowrap">
         <div className="max-w-7xl mx-auto flex gap-4 items-center justify-center">
@@ -416,24 +503,17 @@ export default function FreeQuotePage() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {[
-            { brand: 'Apple iPhone', screen: '$129', battery: '$89' },
-            { brand: 'Samsung Galaxy', screen: '$149', battery: '$99' },
-            { brand: 'Google Pixel', screen: '$139', battery: '$89' },
-            { brand: 'Oppo Series', screen: '$119', battery: '$79' },
-            { brand: 'Motorola Devices', screen: '$99', battery: '$69' },
-            { brand: 'Huawei Series', screen: '$129', battery: '$79' },
-          ].map((item, idx) => (
+          {PRICING_TIERS.map((item, idx) => (
             <div key={idx} className="bg-white border border-slate-200/50 rounded-2xl p-5 text-center hover:shadow-lg hover:border-blue-300 transition-all">
               <span className="font-extrabold text-[#0d1b2a] text-sm block font-display tracking-tight mb-3">{item.brand}</span>
               <div className="space-y-2">
                 <div>
                   <div className="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-none">Screen From</div>
-                  <div className="text-lg font-black text-blue-600 font-display">{item.screen}</div>
+                  <div className="text-lg font-black text-blue-600 font-display">${item.screen}</div>
                 </div>
                 <div className="pt-2 border-t border-slate-50">
                   <div className="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-none">Battery From</div>
-                  <div className="text-lg font-black text-[#ff7a18] font-display">{item.battery}</div>
+                  <div className="text-lg font-black text-[#ff7a18] font-display">${item.battery}</div>
                 </div>
               </div>
             </div>
