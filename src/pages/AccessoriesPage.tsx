@@ -22,8 +22,28 @@ export default function AccessoriesPage() {
       <Helmet>
         <title>iPhone 17 & 16 Accessories Mayfield | Samsung S26 Cases Newcastle</title>
         <meta name="description" content="Shop the latest iPhone 17, 16, and Samsung S26 accessories in Mayfield. Fast chargers, tempered glass, and premium cases for all Newcastle device owners." />
-        <meta property="og:title" content="Latest iPhone 17 & Samsung Accessories - Mayfield Cell Phone Repairs" />
+        <meta property="og:title" content="Latest iPhone 17 & Samsung Accessories - Mayfield Phone Repair" />
         <meta property="og:description" content="Protect your new iPhone 17 or Galaxy S26 with our premium range of cases and glass. Visit us in Mayfield." />
+        <link rel="canonical" href="https://mayfieldphonerepair.com.au/accessories" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'CollectionPage',
+            'url': 'https://mayfieldphonerepair.com.au/accessories',
+            'name': 'iPhone 17 & 16 Accessories Mayfield | Samsung S26 Cases Newcastle',
+            'isPartOf': { '@id': 'https://mayfieldphonerepair.com.au/#business' }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            'itemListElement': [
+              { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://mayfieldphonerepair.com.au' },
+              { '@type': 'ListItem', 'position': 2, 'name': 'Accessories', 'item': 'https://mayfieldphonerepair.com.au/accessories' }
+            ]
+          })}
+        </script>
       </Helmet>
       {/* Hero Section */}
       <section className="relative px-6 md:px-12 py-16 bg-white overflow-hidden">
