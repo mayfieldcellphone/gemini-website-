@@ -81,8 +81,30 @@ export default function CorporateRepairs() {
       <Helmet>
         <title>Corporate & School Phone Repair Mayfield | Fleet Maintenance Newcastle</title>
         <meta name="description" content="Specialized fleet repair solutions for Mayfield's schools, universities, and businesses. Priority turnaround, B2B invoicing, and bulk volume discounts." />
-        <meta property="og:title" content="Corporate Phone Repair Solutions - Mayfield Cell Phone Repairs" />
+        <meta property="og:title" content="Corporate Phone Repair Solutions - Mayfield Phone Repair" />
         <meta property="og:description" content="Need reliable repairs for your staff or student devices? We offer priority service for local organizations and Hunter Valley education providers." />
+        <link rel="canonical" href="https://mayfieldphonerepair.com.au/corporate-repairs" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Service',
+            'serviceType': 'Corporate & Education Device Repair',
+            'name': 'Corporate & School Phone Repair Mayfield',
+            'provider': { '@id': 'https://mayfieldphonerepair.com.au/#business' },
+            'areaServed': 'Newcastle, NSW',
+            'url': 'https://mayfieldphonerepair.com.au/corporate-repairs'
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            'itemListElement': [
+              { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://mayfieldphonerepair.com.au' },
+              { '@type': 'ListItem', 'position': 2, 'name': 'Corporate Repairs', 'item': 'https://mayfieldphonerepair.com.au/corporate-repairs' }
+            ]
+          })}
+        </script>
       </Helmet>
       {/* Hero Section */}
       <section className="relative px-6 md:px-12 py-16 bg-slate-50 overflow-hidden">
