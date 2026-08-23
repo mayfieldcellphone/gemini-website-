@@ -10,6 +10,26 @@ export default function TermsOfService() {
       <Helmet>
         <title>Terms & Conditions | Mayfield Phone Repair</title>
         <meta name="description" content="Review the Terms and Conditions of service for Mayfield Phone Repair. Covering device repairs, warranties, liabilities, and policies." />
+        <link rel="canonical" href="https://mayfieldphonerepair.com.au/terms-of-service" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebPage',
+            'url': 'https://mayfieldphonerepair.com.au/terms-of-service',
+            'name': 'Terms & Conditions | Mayfield Phone Repair',
+            'isPartOf': { '@id': 'https://mayfieldphonerepair.com.au/#business' }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            'itemListElement': [
+              { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://mayfieldphonerepair.com.au' },
+              { '@type': 'ListItem', 'position': 2, 'name': 'Terms of Service', 'item': 'https://mayfieldphonerepair.com.au/terms-of-service' }
+            ]
+          })}
+        </script>
       </Helmet>
       
       <div className="max-w-4xl mx-auto px-6 md:px-12 relative z-10">
