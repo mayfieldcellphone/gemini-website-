@@ -93,7 +93,7 @@ export default function Home() {
     { q: "How long does a typical repair take?", a: "Most standard repairs like screen replacements and battery swaps are completed in under 45 minutes. More complex issues like water damage or micro-soldering can take 24-48 hours." },
     { q: "Will I lose the data on my device?", a: "For 99% of repairs (screens, batteries, charging ports), your data is completely safe and unaffected. However, we always highly recommend backing up your data before bringing your device in just to be completely safe." },
     { q: "What kind of warranty do you provide?", a: "We stand strictly by the quality of our parts and our labor. All repairs come automatically with our 90-day comprehensive warranty covering any defects in the parts we install." },
-    { q: "How much does an iPhone screen replacement cost?", a: "iPhone screen replacement starts from $89, depending on the model. Newer models like the iPhone 15 Pro Max will be at the higher end, while older models like the iPhone 11 are more affordable. Call us at <a href=\"tel:+61240491735\">(02) 4049 1735</a> for an exact quote for your specific iPhone model. To compare local pricing trends across the country, check out the national <a href=\"https://repairrange.io/repair/phone-repair-costs-australia.html\" target=\"_blank\" rel=\"noopener\">Australia phone repair costs</a> on RepairRange." }
+    { q: "How much does an iPhone screen replacement cost?", a: "iPhone screen replacement starts from $129, depending on the model. Newer models like the iPhone 17 Pro Max will be at the higher end, while older models like the iPhone 11 are more affordable. Call us at <a href=\"tel:+61240491735\">(02) 4049 1735</a> for an exact quote for your specific iPhone model. To compare local pricing trends across the country, check out the national <a href=\"https://repairrange.io/repair/phone-repair-costs-australia.html\" target=\"_blank\" rel=\"noopener\">Australia phone repair costs</a> on RepairRange." }
   ];
 
   return (
@@ -107,69 +107,15 @@ export default function Home() {
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@graph": [
-              {
-                "@type": "MobilePhoneRepairShop",
-                "name": "Mayfield Phone Repair",
-                "image": "https://mayfieldphonerepair.com.au/logo.png",
-                "@id": "https://mayfieldphonerepair.com.au#organization",
-                "url": "https://mayfieldphonerepair.com.au",
-                "telephone": "02 4049 1735",
-                "priceRange": "$$",
-                "address": {
-                  "@type": "PostalAddress",
-                  "streetAddress": "276 Maitland Rd",
-                  "addressLocality": "Mayfield",
-                  "addressRegion": "NSW",
-                  "postalCode": "2304",
-                  "addressCountry": "AU"
-                },
-                "geo": {
-                  "@type": "GeoCoordinates",
-                  "latitude": -32.898,
-                  "longitude": 151.738
-                },
-                "openingHoursSpecification": [
-                  {
-                    "@type": "OpeningHoursSpecification",
-                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                    "opens": "09:00",
-                    "closes": "17:00"
-                  },
-                  {
-                    "@type": "OpeningHoursSpecification",
-                    "dayOfWeek": "Saturday",
-                    "opens": "10:00",
-                    "closes": "16:00"
-                  },
-                  {
-                    "@type": "OpeningHoursSpecification",
-                    "dayOfWeek": "Sunday",
-                    "opens": "10:00",
-                    "closes": "14:00"
-                  }
-                ],
-                "sameAs": [
-                  "https://www.facebook.com/mayfieldcellphonerepairs/",
-                  "https://www.instagram.com/mayfieldcellphonerepairs/",
-                  "https://twitter.com/Mayfiel32990272",
-                  "https://www.linkedin.com/company/mayfield-cell-phone-repairs/",
-                  "https://www.youtube.com/@mayfieldcellphonerepairs",
-                  "https://www.tiktok.com/@mayfield.cell.pho"
-                ]
-              },
-              {
-                "@type": "FAQPage",
-                "mainEntity": faqs.map(faq => ({
-                  "@type": "Question",
-                  "name": faq.q,
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": faq.a
-                  }
-                }))
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+              "@type": "Question",
+              "name": faq.q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.a
               }
-            ]
+            }))
           })}
         </script>
       </Helmet>
