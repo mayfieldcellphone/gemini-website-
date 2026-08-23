@@ -11,7 +11,7 @@ export default function RepairGuides() {
       category: "Cost & Pricing",
       icon: <DollarSign className="w-6 h-6 text-emerald-500" />,
       questions: [
-        { q: "How much does an iPhone screen repair cost?", a: "iPhone screen replacement starts from $89. Older models like the iPhone 11 are more affordable, while newer models (e.g., iPhone 15/16/17 Pro Max) range between $220 and $485 depending on screen grade and size." },
+        { q: "How much does an iPhone screen repair cost?", a: "iPhone screen replacement starts from $129. Older models like the iPhone 11 are more affordable, while newer models (e.g., iPhone 17 Pro Max) range between $220 and $485 depending on screen grade and size." },
         { q: "How much is an iPad screen replacement?", a: "Standard iPad glass repairs typically range from $120 to $250. Models with laminated displays (iPad Pro/Air) cost relatively more." },
         { q: "How much is a battery replacement?", a: "Phone battery replacements usually cost between $89 and $149, depending on the brand and model." },
         { q: "Is it cheaper to repair a phone or buy a new one?", a: "Unless your phone has catastrophic logic board and water damage combined, repairing is almost always 60-80% cheaper than buying a new flagship. For example, a $149 battery swap gives an older phone 2-3 more years of life." }
@@ -32,7 +32,7 @@ export default function RepairGuides() {
       icon: <Wrench className="w-6 h-6 text-amber-500" />,
       questions: [
         { q: "Why is my phone not charging?", a: "The most common causes are lint/debris in the charging port, a damaged charging cable, or a degraded internal battery. A free in-store clean often solves it." },
-        { q: "Can you fix a cracked screen if the phone still works?", a: "Yes. We highly recommend fixing it promptly. A cracked screen allows moisture and debris inside, potentially turning a simple $89 glass repair into a more expensive OLED panel logic board repair." },
+        { q: "Can you fix a cracked screen if the phone still works?", a: "Yes. We highly recommend fixing it promptly. A cracked screen allows moisture and debris inside, potentially turning a simple $129 glass repair into a more expensive OLED panel logic board repair." },
         { q: "My screen is black but the phone rings. What's wrong?", a: "Your LCD/OLED panel is internally broken, even if the outer glass isn't shattered. This requires a full screen assembly replacement, which we can complete in under an hour." },
         { q: "Will my phone lose its water resistance after a repair?", a: "We reapply factory-grade water resistant adhesive seals on all screen and battery replacements. While we restore it as close to original as possible, no repaired device (nor a new one) should be submerged deliberately." }
       ]
