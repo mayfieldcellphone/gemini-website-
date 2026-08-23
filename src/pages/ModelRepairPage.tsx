@@ -23,9 +23,11 @@ export default function ModelRepairPage() {
   // Build JSON-LD Product & Service Schema
   const productSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Product',
+    '@type': 'Service',
+    'serviceType': 'Phone Screen and Battery Repair',
     'name': modelInfo.title,
     'description': modelInfo.metaDescription,
+    'provider': { '@id': 'https://mayfieldphonerepair.com.au/#business' },
     'brand': {
       '@type': 'Brand',
       'name': modelInfo.brand.toUpperCase()
@@ -153,7 +155,7 @@ export default function ModelRepairPage() {
                   </div>
                   <div>
                     <h2 className="text-2xl font-bold font-display text-slate-900">{modelInfo.modelName} Repair Pricing</h2>
-                    <p className="text-sm text-slate-500">Upfront transparent pricing at Mayfield Cell Phone Repairs</p>
+                    <p className="text-sm text-slate-500">Upfront transparent pricing at Mayfield Phone Repair</p>
                   </div>
                 </div>
 
