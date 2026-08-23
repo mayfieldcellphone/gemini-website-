@@ -34,7 +34,7 @@ export const suburbHubList: SuburbHubInfo[] = [
     faqs: [
       { question: 'How far is Mayfield Phone Repair from Newcastle CBD?', answer: 'We are located just 6.5 km away—a quick 10-minute drive down Maitland Rd (A43).' },
       { question: 'Do you offer same-day phone repairs for Newcastle CBD workers?', answer: 'Yes! Drop your device off during your morning coffee or lunch break, and we will have it repaired in 30 to 60 minutes.' },
-      { question: 'Are repair prices the same for Newcastle CBD customers?', answer: 'Yes, we provide transparent flat-rate pricing with no city surcharges. iPhone screens start at $89 and batteries from $89.' }
+      { question: 'Are repair prices the same for Newcastle CBD customers?', answer: 'Yes, we provide transparent flat-rate pricing with no city surcharges. iPhone screens start at $129 and batteries from $89.' }
     ]
   },
   {
@@ -89,7 +89,7 @@ export const suburbHubList: SuburbHubInfo[] = [
     localConvenienceNote: 'Head north down Beaumont St onto Maitland Rd—our shop is on the left at 276 Maitland Rd.',
     faqs: [
       { question: 'How fast can I get to Mayfield Phone Repair from Hamilton?', answer: 'It is a quick 6-minute drive up Beaumont St and Maitland Rd.' },
-      { question: 'How much does iPhone screen repair cost for Hamilton residents?', answer: 'Our prices are completely flat-rate: iPhone screen repairs start at $89 and batteries at $89.' }
+      { question: 'How much does iPhone screen repair cost for Hamilton residents?', answer: 'Our prices are completely flat-rate: iPhone screen repairs start at $129 and batteries at $89.' }
     ]
   },
   {
