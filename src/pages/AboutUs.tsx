@@ -6,9 +6,28 @@ export default function AboutUs() {
   return (
     <div className="flex-1 bg-white">
       <Helmet>
-        <title>About Us | Mayfield Cell Phone Repairs Newcastle</title>
-        <meta name="description" content="Learn about Mayfield Cell Phone Repairs - our history, mission, and our commitment to providing Newcastle's best phone and electronic repair services." />
+        <title>About Us | Mayfield Phone Repair Newcastle</title>
+        <meta name="description" content="Learn about Mayfield Phone Repair - our history, mission, and our commitment to providing Newcastle's best phone and electronic repair services." />
         <link rel="canonical" href="https://mayfieldphonerepair.com.au/about-us" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'AboutPage',
+            'url': 'https://mayfieldphonerepair.com.au/about-us',
+            'name': 'About Us | Mayfield Phone Repair Newcastle',
+            'mainEntity': { '@id': 'https://mayfieldphonerepair.com.au/#business' }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            'itemListElement': [
+              { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://mayfieldphonerepair.com.au' },
+              { '@type': 'ListItem', 'position': 2, 'name': 'About Us', 'item': 'https://mayfieldphonerepair.com.au/about-us' }
+            ]
+          })}
+        </script>
       </Helmet>
 
       {/* Hero Section */}
