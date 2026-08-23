@@ -10,6 +10,26 @@ export default function PrivacyPolicy() {
       <Helmet>
         <title>Privacy Policy | Mayfield Phone Repair</title>
         <meta name="description" content="Read the privacy policy for Mayfield Phone Repair to understand how we collect, use, and protect your personal information." />
+        <link rel="canonical" href="https://mayfieldphonerepair.com.au/privacy-policy" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebPage',
+            'url': 'https://mayfieldphonerepair.com.au/privacy-policy',
+            'name': 'Privacy Policy | Mayfield Phone Repair',
+            'isPartOf': { '@id': 'https://mayfieldphonerepair.com.au/#business' }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            'itemListElement': [
+              { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://mayfieldphonerepair.com.au' },
+              { '@type': 'ListItem', 'position': 2, 'name': 'Privacy Policy', 'item': 'https://mayfieldphonerepair.com.au/privacy-policy' }
+            ]
+          })}
+        </script>
       </Helmet>
       
       <div className="max-w-4xl mx-auto px-6 md:px-12 relative z-10">
