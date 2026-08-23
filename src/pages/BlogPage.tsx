@@ -42,7 +42,7 @@ export default function BlogPage() {
 
   // Core high-intent keyword definitions for local SEO matching blogs
   const keywordLinks = [
-    { label: 'iPhone Screen Repair', desc: 'Starting from $89 with TrueTone alignment', serviceId: 'screen-repair' },
+    { label: 'iPhone Screen Repair', desc: 'Starting from $129 with TrueTone alignment', serviceId: 'screen-repair' },
     { label: 'Battery Replacement', desc: 'Premium, original-spec battery cells', serviceId: 'battery-replacement' },
     { label: 'Water Damage Rescue', desc: 'Ultrasonic board chemical neutralization', serviceId: 'water-damage' },
     { label: 'MacBook & Laptop Repair', desc: 'Overheated boards & physical repairs', serviceId: 'laptop-repair' },
