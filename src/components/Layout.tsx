@@ -103,9 +103,10 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "Mayfield Cell Phone Repairs",
+            "name": "Mayfield Phone Repair",
+            "alternateName": "Mayfield Cell Phone Repairs",
             "image": "https://mayfieldphonerepair.com.au/logo.png",
-            "@id": "https://mayfieldphonerepair.com.au",
+            "@id": "https://mayfieldphonerepair.com.au/#business",
             "url": "https://mayfieldphonerepair.com.au",
             "telephone": "02 4049 1735",
             "priceRange": "$$",
@@ -157,52 +158,29 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "Mayfield Cell Phone Repairs",
+            "name": "Mayfield Phone Repair",
+            "alternateName": "Mayfield Cell Phone Repairs",
             "url": "https://mayfieldphonerepair.com.au",
             "logo": "https://mayfieldphonerepair.com.au/logo.png",
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "telephone": "02 4049 1735",
-              "contactType": "customer service",
-              "areaServed": "AU",
-              "availableLanguage": "en"
-            }
+            "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "telephone": "02 4049 1735",
+                "contactType": "customer service",
+                "areaServed": "AU",
+                "availableLanguage": "en"
+              },
+              {
+                "@type": "ContactPoint",
+                "telephone": "+61431618100",
+                "contactType": "emergency",
+                "areaServed": "AU",
+                "availableLanguage": "en"
+              }
+            ]
           })}
         </script>
-        {pathname === '/' && (
-          <script type="application/ld+json">
-            {JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "How long does a screen repair take?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Most screen repairs are completed within 30 minutes at our Mayfield shop."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Do you provide a warranty on repairs?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes, we provide a 90-day hardware guarantee on all parts and labor."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Do I need an appointment?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Walk-ins are welcome, but booking online ensures the fastest turnaround time."
-                  }
-                }
-              ]
-            })}
-          </script>
-        )}
+        
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
