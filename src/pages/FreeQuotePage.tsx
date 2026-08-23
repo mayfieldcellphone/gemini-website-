@@ -64,7 +64,7 @@ const quotePageSchema = {
       },
       'openingHoursSpecification': [
         { '@type': 'OpeningHoursSpecification', 'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], 'opens': '09:00', 'closes': '17:00' },
-        { '@type': 'OpeningHoursSpecification', 'dayOfWeek': 'Saturday', 'opens': '10:00', 'closes': '15:00' },
+        { '@type': 'OpeningHoursSpecification', 'dayOfWeek': 'Saturday', 'opens': '10:00', 'closes': '16:00' },
         { '@type': 'OpeningHoursSpecification', 'dayOfWeek': 'Sunday', 'opens': '10:00', 'closes': '14:00' }
       ],
       'hasOfferCatalog': {
@@ -606,7 +606,7 @@ export default function FreeQuotePage() {
               </div>
               <div className="flex justify-between border-b border-white/5 pb-2 text-slate-300">
                 <span>Saturday</span>
-                <span className="text-white font-bold">10:00 AM – 3:00 PM</span>
+                <span className="text-white font-bold">10:00 AM – 4:00 PM</span>
               </div>
               <div className="flex justify-between pb-1 text-slate-300">
                 <span>Sunday</span>
