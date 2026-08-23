@@ -34,6 +34,26 @@ export default function SecondHandPhones() {
         <meta name="description" content="Premium refurbished iPhones and Samsung Galaxy phones in Mayfield. All devices include a warranty, new batteries, and original parts. Trade-ins welcome." />
         <meta property="og:title" content="Quality Used & Refurbished Phones - Mayfield Phone Repair" />
         <meta property="og:description" content="Looking for a reliable used phone? We stock high-quality refurbished devices with verified original components." />
+        <link rel="canonical" href="https://mayfieldphonerepair.com.au/second-hand-phones" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'CollectionPage',
+            'url': 'https://mayfieldphonerepair.com.au/second-hand-phones',
+            'name': 'Buy Refurbished iPhones & Samsung Mayfield | Newcastle Quality Used Phones',
+            'isPartOf': { '@id': 'https://mayfieldphonerepair.com.au/#business' }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            'itemListElement': [
+              { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://mayfieldphonerepair.com.au' },
+              { '@type': 'ListItem', 'position': 2, 'name': 'Second-Hand Phones', 'item': 'https://mayfieldphonerepair.com.au/second-hand-phones' }
+            ]
+          })}
+        </script>
       </Helmet>
       {/* Hero Section */}
       <section className="relative px-6 md:px-12 py-16 bg-slate-900 overflow-hidden">
