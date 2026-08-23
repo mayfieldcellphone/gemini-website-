@@ -273,7 +273,7 @@ export default function SuburbHubPage() {
             {/* Sidebar */}
             <aside className="lg:col-span-4 space-y-6">
               <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-6 sticky top-24">
-                <h3 className="font-bold text-lg font-display text-slate-900">Mayfield Cell Phone Repairs</h3>
+                <h3 className="font-bold text-lg font-display text-slate-900">Mayfield Phone Repair</h3>
                 
                 <div className="space-y-3 text-sm text-slate-600">
                   <div className="flex items-start gap-3">
@@ -286,7 +286,7 @@ export default function SuburbHubPage() {
                   </div>
                   <div className="flex items-center gap-3">
                     <Clock className="w-4 h-4 text-blue-600 shrink-0" />
-                    <span>Mon-Fri 9AM-5:30PM, Sat 9AM-2PM</span>
+                    <span>Mon-Fri 9AM-5PM, Sat 10AM-4PM, Sun 10AM-2PM</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
