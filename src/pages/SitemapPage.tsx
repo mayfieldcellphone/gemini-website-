@@ -12,8 +12,18 @@ const HTMLSitemap = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Sitemap | Mayfield Cell Phone Repairs Newcastle</title>
-        <meta name="description" content="A complete directory of all repair services, brands, and local area pages for Mayfield Cell Phone Repairs." />
+        <title>Sitemap | Mayfield Phone Repair Newcastle</title>
+        <meta name="description" content="A complete directory of all repair services, brands, and local area pages for Mayfield Phone Repair." />
+        <link rel="canonical" href="https://mayfieldphonerepair.com.au/sitemap" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'CollectionPage',
+            'url': 'https://mayfieldphonerepair.com.au/sitemap',
+            'name': 'Sitemap | Mayfield Phone Repair Newcastle',
+            'isPartOf': { '@id': 'https://mayfieldphonerepair.com.au/#business' }
+          })}
+        </script>
       </Helmet>
 
       <div className="pt-32 pb-20 px-4">
