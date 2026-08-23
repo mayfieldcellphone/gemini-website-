@@ -10,6 +10,27 @@ export default function AfterHoursPage() {
         <title>After Hours Emergency Phone Repair | Mayfield Phone Repair</title>
         <meta name="description" content="Need an emergency phone repair after hours in Newcastle? Text 0431 618 100 for our strictly via booking emergency service." />
         <link rel="canonical" href="https://mayfieldphonerepair.com.au/after-hours" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Service',
+            'serviceType': 'Emergency Phone Repair',
+            'name': 'After Hours Emergency Phone Repair',
+            'provider': { '@id': 'https://mayfieldphonerepair.com.au/#business' },
+            'areaServed': 'Newcastle, NSW',
+            'url': 'https://mayfieldphonerepair.com.au/after-hours'
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            'itemListElement': [
+              { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://mayfieldphonerepair.com.au' },
+              { '@type': 'ListItem', 'position': 2, 'name': 'After Hours', 'item': 'https://mayfieldphonerepair.com.au/after-hours' }
+            ]
+          })}
+        </script>
       </Helmet>
 
       {/* Hero Section */}
