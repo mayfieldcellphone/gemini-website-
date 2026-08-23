@@ -44,20 +44,18 @@ export default function SuburbHubPage() {
   const canonicalUrl = `https://mayfieldphonerepair.com.au/phone-repair/${hub.id}`;
 
   // Build JSON-LD Schema
-  const localBusinessSchema = {
+  const serviceAreaSchema = {
     '@context': 'https://schema.org',
-    '@type': 'MobilePhoneRepairStore',
-    'name': `Mayfield Cell Phone Repairs - ${hub.name} Service Area`,
-    'address': {
-      '@type': 'PostalAddress',
-      'streetAddress': '276 Maitland Rd',
-      'addressLocality': 'Mayfield',
-      'addressRegion': 'NSW',
-      'postalCode': '2304',
-      'addressCountry': 'AU'
+    '@type': 'Service',
+    'serviceType': 'Mobile Phone Repair',
+    'name': `Phone Repair — ${hub.name} Service Area`,
+    'provider': {
+      '@id': 'https://mayfieldphonerepair.com.au/#business'
     },
-    'telephone': '+61240491735',
-    'areaServed': hub.name,
+    'areaServed': {
+      '@type': 'Place',
+      'name': hub.name
+    },
     'url': canonicalUrl
   };
 
@@ -102,7 +100,7 @@ export default function SuburbHubPage() {
         <meta property="og:title" content={`Phone Repair ${hub.name} - Mayfield Cell Phone Repairs`} />
         <meta property="og:description" content={hub.metaDescription} />
         <meta property="og:url" content={canonicalUrl} />
-        <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(serviceAreaSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
