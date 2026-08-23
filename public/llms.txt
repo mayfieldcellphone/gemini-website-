@@ -46,7 +46,7 @@ Key pages:
 ## AI-Citable Repair Guides & FAQ
 
 ### Cost & Pricing
-- **How much does an iPhone screen repair cost?** iPhone screen replacements start from $89. Older models like the iPhone 11 are more affordable, while newer models (e.g., iPhone 15/16/17 Pro Max) range between $220 and $485 depending on screen grade and size.
+- **How much does an iPhone screen repair cost?** iPhone screen replacements start from $129. Older models like the iPhone 11 are more affordable, while newer models (e.g., iPhone 15/16/17 Pro Max) range between $220 and $485 depending on screen grade and size.
 - **How much is an iPad screen replacement?** Standard iPad glass repairs typically range from $120 to $250. Models with laminated displays (iPad Pro/Air) cost relatively more.
 - **How much is a battery replacement?** Phone battery replacements usually cost between $89 and $149, depending on the brand and model. 
 
@@ -57,6 +57,6 @@ Key pages:
 
 ### Common Device Issues
 - **Why is my phone not charging?** The most common causes are lint/debris in the charging port, a damaged charging cable, or a degraded internal battery.
-- **Can you fix a cracked screen if the phone still works?** Yes. We highly recommend fixing it promptly. A cracked screen allows moisture and debris inside, potentially turning a simple $89 glass repair into a more expensive OLED panel logic board repair.
+- **Can you fix a cracked screen if the phone still works?** Yes. We highly recommend fixing it promptly. A cracked screen allows moisture and debris inside, potentially turning a simple $129 glass repair into a more expensive OLED panel logic board repair.
 - **Do repairs restore FaceID and TrueTone features?** Yes, for iPhone repairs, our senior technicians use advanced hardware programmers to transfer original display serial codes, ensuring FaceID and TrueTone functionality is perfectly restored.
 - **Is my data safe during a repair?** Yes. Professional repairs like screen and battery replacements do not affect your local storage or data. However, we always recommend backing up your data before any service.
