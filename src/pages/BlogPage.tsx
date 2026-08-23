@@ -75,6 +75,25 @@ export default function BlogPage() {
         <title>Repair Blog | Mayfield Phone Repair Newcastle</title>
         <meta name="description" content="Expert phone repair tips, troubleshooting guides, and project highlights from the Mayfield Phone Repair team." />
         <link rel="canonical" href="https://mayfieldphonerepair.com.au/blog" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Blog',
+            'url': 'https://mayfieldphonerepair.com.au/blog',
+            'name': 'Repair Blog | Mayfield Phone Repair Newcastle',
+            'publisher': { '@id': 'https://mayfieldphonerepair.com.au/#business' }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            'itemListElement': [
+              { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://mayfieldphonerepair.com.au' },
+              { '@type': 'ListItem', 'position': 2, 'name': 'Blog', 'item': 'https://mayfieldphonerepair.com.au/blog' }
+            ]
+          })}
+        </script>
       </Helmet>
       
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
