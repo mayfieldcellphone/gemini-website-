@@ -97,6 +97,10 @@ const syncLeadToCRM = async (type: string, data: any) => {
       email: data.email,
       phone: data.phone,
       message: formattedMessage,
+      customerName: data.customerName || data.name || data.contactName,
+      customerEmail: data.email,
+      customerPhone: data.phone,
+      type,
       source: "mayfield_repair_website",
       connectionId: repairBillConnectionId,
       metadata: {
@@ -288,10 +292,10 @@ async function startServer() {
         `
       };
 
-      await transporter.sendMail(mailOptions);
+      try { await transporter.sendMail(mailOptions); } catch (emailErr) { console.error('[Lead] Email send failed, continuing to CRM sync:', emailErr); }
       
       // Sync to CRM
-      syncLeadToCRM('ai-lead', { name, contactName: name, phone: contact, brand: device, issue, message });
+      syncLeadToCRM('contact', { name, contactName: name, phone: contact, brand: device, issue, message });
       
       res.json({ success: true, message: "Lead sent to inbox" });
     } catch (error) {
@@ -326,7 +330,7 @@ async function startServer() {
         `
       };
 
-      await transporter.sendMail(mailOptions);
+      try { await transporter.sendMail(mailOptions); } catch (emailErr) { console.error('[Lead] Email send failed, continuing to CRM sync:', emailErr); }
       
       // Sync to CRM
       syncLeadToCRM('booking', { customerName: name, phone, email, brand, model, issue, dateTime });
