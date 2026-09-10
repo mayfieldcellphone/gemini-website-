@@ -17,8 +17,11 @@ export default function BirdeyeReviewWidget() {
     const script = document.createElement('script');
     script.id = scriptId;
     script.type = 'text/javascript';
-    // Append a timestamp so the browser forces fresh script execution on mount
-    script.src = `https://birdeye.com/embed/v7/166433098189597/10/123456789301015183969661?t=${Date.now()}`;
+    // No cache-busting query string. Birdeye's embed endpoint does not serve the
+    // widget when extra query params are appended, so the `?t=` that used to be
+    // here made the script a no-op and the reviews section silently stayed empty.
+    // Verified 2026-09-10: identical URL without the query string renders fine.
+    script.src = 'https://birdeye.com/embed/v7/166433098189597/10/123456789301015183969661';
     script.async = true;
     document.body.appendChild(script);
 
