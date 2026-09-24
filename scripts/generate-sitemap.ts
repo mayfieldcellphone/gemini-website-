@@ -3,16 +3,19 @@ import path from 'path';
 import { brands } from '../src/data/brands';
 import { servicesData } from '../src/data/services';
 import { blogPosts } from '../src/data/blogs';
-import { suburbs } from '../src/data/suburbs';
+import { suburbs, seoServices } from '../src/data/suburbs';
 
 const BASE_URL = 'https://mayfieldphonerepair.com.au';
 const TODAY = new Date().toISOString().split('T')[0];
 
-// High-value, crawl-priority core static pages
+// High-value core static pages
 const staticPages = [
   { route: '', priority: '1.0', changefreq: 'weekly' },
   { route: '/quote', priority: '0.9', changefreq: 'weekly' },
   { route: '/repair-guides', priority: '0.8', changefreq: 'monthly' },
+  { route: '/repair-guides/phone-screen-repair-newcastle', priority: '0.8', changefreq: 'monthly' },
+  { route: '/repair-guides/phone-battery-replacement-cost', priority: '0.8', changefreq: 'monthly' },
+  { route: '/repair-guides/water-damage-phone-repair', priority: '0.8', changefreq: 'monthly' },
   { route: '/blog', priority: '0.8', changefreq: 'weekly' },
   { route: '/about-us', priority: '0.7', changefreq: 'monthly' },
   { route: '/after-hours', priority: '0.7', changefreq: 'monthly' },
@@ -56,11 +59,13 @@ function generateSitemap() {
     xml += `  <url>\n    <loc>${BASE_URL}/service/${escapeXml(service.id)}</loc>\n    <lastmod>${TODAY}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
   });
 
-  // 4. Primary Local Suburb Authority Hubs (Top Greater Newcastle Service Areas)
-  // Clean, focused primary hubs: /phone-repair/:suburbId (avoids thin duplicate doorway penalties)
+  // 4. Comprehensive Local Suburb & Service Authority Hubs (Content-Rich, Self-Referencing)
   suburbs.forEach(suburb => {
-    const loc = `${BASE_URL}/phone-repair/${escapeXml(suburb.id)}`;
-    xml += `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${TODAY}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+    seoServices.forEach(srv => {
+      const loc = `${BASE_URL}/${escapeXml(srv.id)}/${escapeXml(suburb.id)}`;
+      const priority = srv.id === 'phone-repair' ? '0.8' : '0.7';
+      xml += `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${TODAY}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>${priority}</priority>\n  </url>\n`;
+    });
   });
 
   // 5. Educational Technical Blog Posts & Repair Guides
@@ -76,8 +81,8 @@ function generateSitemap() {
   }
   
   fs.writeFileSync(path.join(publicPath, 'sitemap.xml'), xml);
-  const totalUrls = staticPages.length + brands.length + servicesData.length + suburbs.length + blogPosts.length;
-  console.log(`✅ Optimized high-authority sitemap generated with ${totalUrls} clean, crawlable URLs.`);
+  const totalUrls = staticPages.length + brands.length + servicesData.length + (suburbs.length * seoServices.length) + blogPosts.length;
+  console.log(`✅ Content-rich sitemap generated with ${totalUrls} authoritative URLs.`);
 }
 
 generateSitemap();
