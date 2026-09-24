@@ -5,6 +5,7 @@ import { servicesData } from '../src/data/services';
 import { blogPosts } from '../src/data/blogs';
 import { suburbs, seoServices } from '../src/data/suburbs';
 import { seoServiceDetails } from '../src/data/seoServiceContent';
+import { modelRepairData } from '../src/data/modelData';
 
 const BASE_URL = 'https://mayfieldphonerepair.com.au';
 const TODAY = new Date().toISOString().split('T')[0];
@@ -1421,7 +1422,166 @@ async function runPrerender() {
     });
   });
   console.log(`✅ Pre-rendered ${suburbCount} rich suburb & service landing pages (/*/*).`);
-  console.log(`🎉 Web Pre-Render successfully completed. Total ${1 + staticConfig.length + brands.length + servicesData.length + blogPosts.length + suburbCount} pre-rendered pages generated inside /dist.`);
+
+  // 7. Pre-render Model-Specific Repair Pages (/:brandPath/:modelSlug)
+  let modelCount = 0;
+  modelRepairData.forEach(m => {
+    const brandPath = m.brand === 'apple' ? 'iphone' : m.brand;
+    const routeStr = `${brandPath}/${m.slug}`;
+    const canonicalUrl = `${BASE_URL}/${brandPath}/${m.slug}`;
+
+    const modelSchema = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": ["LocalBusiness", "MobilePhoneRepairStore"],
+          "@id": `${BASE_URL}/#organization`,
+          "name": "Mayfield Phone Repair",
+          "url": BASE_URL,
+          "telephone": "+61 2 4049 1735",
+          "priceRange": "$$",
+          "image": `${BASE_URL}/logo.png`,
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "276 Maitland Rd",
+            "addressLocality": "Mayfield",
+            "addressRegion": "NSW",
+            "postalCode": "2304",
+            "addressCountry": "AU"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "477"
+          }
+        },
+        {
+          "@type": "Service",
+          "@id": `${canonicalUrl}#service`,
+          "name": m.title,
+          "serviceType": `${m.modelName} Repair`,
+          "description": m.metaDescription,
+          "provider": { "@id": `${BASE_URL}/#organization` },
+          "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "AUD",
+            "lowPrice": m.pricing.glassOnlyPrice.replace('$', ''),
+            "highPrice": m.pricing.fullAssemblyPrice.split('-')[1]?.replace('$', '').trim() || '485',
+            "offerCount": "5"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": `${canonicalUrl}#faq`,
+          "mainEntity": m.faqs.map(f => ({
+            "@type": "Question",
+            "name": f.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": f.answer
+            }
+          }))
+        }
+      ]
+    };
+
+    const modelBody = `
+      <nav aria-label="Breadcrumb" style="font-size: 0.85rem; color: #64748b; margin-bottom: 16px;">
+        <a href="/">Home</a> &gt; <a href="${m.brandHubUrl}">${m.brand.toUpperCase()}</a> &gt; <span>${m.modelName}</span>
+      </nav>
+      <article>
+        <header>
+          <h1>${m.heroHeadline}</h1>
+          <p>${m.heroSubdeck}</p>
+          <p><strong>Call Our Technicians:</strong> <a href="tel:+61240491735">(02) 4049 1735</a> | <strong>Walk-in:</strong> 276 Maitland Rd, Mayfield NSW 2304</p>
+          <p><strong>Turnaround:</strong> ${m.repairTime} | <strong>Warranty:</strong> ${m.warranty}</p>
+        </header>
+
+        <section>
+          <h2>${m.modelName} Repair Pricing Guide (Newcastle & Mayfield)</h2>
+          <table border="1" cellpadding="8" style="border-collapse: collapse; width: 100%; margin: 16px 0;">
+            <thead>
+              <tr style="background: #f1f5f9;">
+                <th align="left">Repair Service</th>
+                <th align="left">Estimated Cost</th>
+                <th align="left">Turnaround Time</th>
+                <th align="left">Warranty Coverage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Screen Glass Refurbishing / Replacement</strong></td>
+                <td><strong style="color: #10b981;">${m.pricing.glassOnlyPrice}</strong></td>
+                <td>${m.repairTime}</td>
+                <td>${m.warranty}</td>
+              </tr>
+              <tr>
+                <td><strong>Full Display Assembly (OLED / LCD)</strong></td>
+                <td><strong style="color: #10b981;">${m.pricing.fullAssemblyPrice}</strong></td>
+                <td>${m.repairTime}</td>
+                <td>${m.warranty}</td>
+              </tr>
+              <tr>
+                <td><strong>Battery Replacement (0-Cycle Cell)</strong></td>
+                <td><strong style="color: #10b981;">${m.pricing.batteryPrice}</strong></td>
+                <td>25–30 Mins</td>
+                <td>${m.warranty}</td>
+              </tr>
+              <tr>
+                <td><strong>Charging Port Repair / Cleaning</strong></td>
+                <td><strong style="color: #10b981;">${m.pricing.chargingPortPrice}</strong></td>
+                <td>30 Mins</td>
+                <td>${m.warranty}</td>
+              </tr>
+              ${m.pricing.backGlassPrice && m.pricing.backGlassPrice !== 'N/A' ? `
+                <tr>
+                  <td><strong>Laser Back Glass Replacement</strong></td>
+                  <td><strong style="color: #10b981;">${m.pricing.backGlassPrice}</strong></td>
+                  <td>45–60 Mins</td>
+                  <td>${m.warranty}</td>
+                </tr>
+              ` : ''}
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2>Common ${m.modelName} Faults We Diagnose & Fix Daily</h2>
+          ${m.commonIssues.map(issue => `
+            <div>
+              <h3>${issue.title}</h3>
+              <p>${issue.description}</p>
+            </div>
+          `).join('')}
+        </section>
+
+        <section>
+          <h2>Hardware Specifications Reference</h2>
+          <ul>
+            <li><strong>Display Spec:</strong> ${m.specifications.display}</li>
+            <li><strong>Battery Spec:</strong> ${m.specifications.batteryCapacity}</li>
+            <li><strong>Processor / Architecture:</strong> ${m.specifications.processor}</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Frequently Asked Questions (${m.modelName})</h2>
+          ${m.faqs.map(f => `
+            <article>
+              <h3>${f.question}</h3>
+              <p>${f.answer}</p>
+            </article>
+          `).join('')}
+        </section>
+      </article>
+    `;
+
+    writePage(routeStr, m.title, m.metaDescription, canonicalUrl, modelSchema, modelBody);
+    modelCount++;
+  });
+  console.log(`✅ Pre-rendered ${modelCount} model-specific landing pages (/iphone/*, /samsung/*, /google/*, /ipad/*).`);
+
+  console.log(`🎉 Web Pre-Render successfully completed. Total ${1 + staticConfig.length + brands.length + servicesData.length + blogPosts.length + suburbCount + modelCount} pre-rendered pages generated inside /dist.`);
 }
 
 runPrerender().catch(err => {

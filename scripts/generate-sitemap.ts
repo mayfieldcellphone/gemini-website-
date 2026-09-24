@@ -4,6 +4,7 @@ import { brands } from '../src/data/brands';
 import { servicesData } from '../src/data/services';
 import { blogPosts } from '../src/data/blogs';
 import { suburbs, seoServices } from '../src/data/suburbs';
+import { modelRepairData } from '../src/data/modelData';
 
 const BASE_URL = 'https://mayfieldphonerepair.com.au';
 const TODAY = new Date().toISOString().split('T')[0];
@@ -59,7 +60,14 @@ function generateSitemap() {
     xml += `  <url>\n    <loc>${BASE_URL}/service/${escapeXml(service.id)}</loc>\n    <lastmod>${TODAY}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
   });
 
-  // 4. Comprehensive Local Suburb & Service Authority Hubs (Content-Rich, Self-Referencing)
+  // 4. Model-Specific High-Intent Landing Pages (iPhone 11-17, Galaxy S23-S26, A-Series, iPad)
+  modelRepairData.forEach(model => {
+    const brandPath = model.brand === 'apple' ? 'iphone' : model.brand;
+    const loc = `${BASE_URL}/${brandPath}/${escapeXml(model.slug)}`;
+    xml += `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${TODAY}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
+  });
+
+  // 5. Comprehensive Local Suburb & Service Authority Hubs (Content-Rich, Self-Referencing)
   suburbs.forEach(suburb => {
     seoServices.forEach(srv => {
       const loc = `${BASE_URL}/${escapeXml(srv.id)}/${escapeXml(suburb.id)}`;
@@ -68,7 +76,7 @@ function generateSitemap() {
     });
   });
 
-  // 5. Educational Technical Blog Posts & Repair Guides
+  // 6. Educational Technical Blog Posts & Repair Guides
   blogPosts.forEach(post => {
     xml += `  <url>\n    <loc>${BASE_URL}/blog/${escapeXml(post.slug)}</loc>\n    <lastmod>${post.date || TODAY}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>\n`;
   });
@@ -81,7 +89,7 @@ function generateSitemap() {
   }
   
   fs.writeFileSync(path.join(publicPath, 'sitemap.xml'), xml);
-  const totalUrls = staticPages.length + brands.length + servicesData.length + (suburbs.length * seoServices.length) + blogPosts.length;
+  const totalUrls = staticPages.length + brands.length + servicesData.length + modelRepairData.length + (suburbs.length * seoServices.length) + blogPosts.length;
   console.log(`✅ Content-rich sitemap generated with ${totalUrls} authoritative URLs.`);
 }
 

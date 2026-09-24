@@ -52,6 +52,7 @@ export default function App() {
           <Route path="iphone/:modelSlug" element={<ModelRepairPage />} />
           <Route path="samsung/:modelSlug" element={<ModelRepairPage />} />
           <Route path="google/:modelSlug" element={<ModelRepairPage />} />
+          <Route path="ipad/:modelSlug" element={<ModelRepairPage />} />
 
           {/* Suburb Hub Routes */}
           <Route path="phone-repair/:suburbSlug" element={<SuburbHubPage />} />
