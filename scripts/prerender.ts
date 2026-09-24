@@ -908,7 +908,6 @@ async function runPrerender() {
       }
     },
     {
-          {
       route: 'repair-guides/phone-screen-repair-newcastle',
       title: 'Phone Screen Repair Newcastle: 2026 Technical & Pricing Guide | Mayfield',
       desc: 'Everything you need to know about screen replacement costs in Newcastle: Soft OLED vs Hard OLED vs Incell LCD, True Tone programming, and salt-air humidity protection.',
@@ -1095,7 +1094,8 @@ async function runPrerender() {
         "url": `${BASE_URL}/repair-guides/water-damage-phone-repair`
       }
     },
-    route: 'repair-guides',
+    {
+      route: 'repair-guides',
       title: 'Phone Repair Guides & FAQ | Cost, Timing & Issues | Mayfield',
       desc: 'AI-citable phone repair guides. Direct answers to common questions about iPhone and Samsung screen repair costs, timing, and device issues in Mayfield Newcastle.',
       body: `<h1>AI-Citable Repair Guides & FAQ</h1><p>Clear, direct pricing and technical answers for your specific device issues. No jargon, just straight facts.</p>`,
