@@ -1,4 +1,4 @@
-import { Smartphone, Battery, Droplet, Settings, ShieldCheck, Clock, CheckCircle2, ChevronRight, Phone, MapPin, Mail, ArrowRight, Truck, Wrench, Sparkles, HelpCircle, Search } from 'lucide-react';
+import { Smartphone, Battery, Droplet, Settings, ShieldCheck, Clock, CheckCircle2, ChevronRight, Phone, MapPin, Mail, ArrowRight, Truck, Wrench, Sparkles, HelpCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
 import { useState, useEffect, FormEvent } from 'react';
@@ -30,10 +30,8 @@ export default function Home() {
   const [formData, setFormData] = useState({ name: '', phone: '', details: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [brandSearch, setBrandSearch] = useState('');
 
   const [isMobile, setIsMobile] = useState(false);
-  const [showAllServices, setShowAllServices] = useState(false);
 
   // Speed optimization: Detect mobile and simplify DOM
   useEffect(() => {
@@ -93,29 +91,90 @@ export default function Home() {
     { q: "How long does a typical repair take?", a: "Most standard repairs like screen replacements and battery swaps are completed in under 45 minutes. More complex issues like water damage or micro-soldering can take 24-48 hours." },
     { q: "Will I lose the data on my device?", a: "For 99% of repairs (screens, batteries, charging ports), your data is completely safe and unaffected. However, we always highly recommend backing up your data before bringing your device in just to be completely safe." },
     { q: "What kind of warranty do you provide?", a: "We stand strictly by the quality of our parts and our labor. All repairs come automatically with our 90-day comprehensive warranty covering any defects in the parts we install." },
-    { q: "How much does an iPhone screen replacement cost?", a: "iPhone screen replacement starts from $129, depending on the model. Newer models like the iPhone 17 Pro Max will be at the higher end, while older models like the iPhone 11 are more affordable. Call us at <a href=\"tel:+61240491735\">(02) 4049 1735</a> for an exact quote for your specific iPhone model. To compare local pricing trends across the country, check out the national <a href=\"https://repairrange.io/repair/phone-repair-costs-australia.html\" target=\"_blank\" rel=\"noopener\">Australia phone repair costs</a> on RepairRange." }
+    { q: "How much does an iPhone screen replacement cost?", a: "iPhone screen replacement starts from $89, depending on the model. Newer models like the iPhone 15 Pro Max will be at the higher end, while older models like the iPhone 11 are more affordable. Call us at <a href=\"tel:+61240491735\">(02) 4049 1735</a> for an exact quote for your specific iPhone model. To compare local pricing trends across the country, check out the national <a href=\"https://repairrange.io/repair/phone-repair-costs-australia.html\" target=\"_blank\" rel=\"noopener\">Australia phone repair costs</a> on RepairRange." }
   ];
 
   return (
     <div className="relative">
       <Helmet>
-        <title>iPhone 17 & 16 Repair Mayfield | Samsung S26 Screen Fix</title>
-        <meta name="description" content="Same-day iPhone 17, 16 & Samsung S26 repairs in Mayfield, Newcastle. Screen fixes, battery replacements & water damage. 90-day warranty guaranteed." />
+        <title>Phone Repair Newcastle & Mayfield | Same-Day Screen & Battery Fix</title>
+        <meta name="description" content="Fast, same-day iPhone, Samsung & Google Pixel repairs in Mayfield, Newcastle. 30-min screen fixes, battery replacements & water damage. 4.8★ rated, 90-day warranty." />
         <link rel="canonical" href="https://mayfieldphonerepair.com.au" />
-        <meta property="og:title" content="iPhone 17 & 16 Repair Mayfield | Same Day Service" />
-        <meta property="og:description" content="Cracked iPhone 17 screen? Samsung S26 battery issues? Mayfield's trusted experts fix the newest flagships with quality parts and fast turnaround." />
+        <meta property="og:title" content="Phone Repair Newcastle & Mayfield | Same-Day Screen & Battery Fix" />
+        <meta property="og:description" content="Cracked screen? Dead battery? Water damage? Mayfield's trusted repair experts fix iPhones, Samsung & Pixel devices in 30 minutes. 4.8★ rated with 477+ local reviews." />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqs.map(faq => ({
-              "@type": "Question",
-              "name": faq.q,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": faq.a
+            "@graph": [
+              {
+                "@type": "MobilePhoneRepairShop",
+                "name": "Mayfield Phone Repair",
+                "image": "https://mayfieldphonerepair.com.au/logo.png",
+                "@id": "https://mayfieldphonerepair.com.au#organization",
+                "url": "https://mayfieldphonerepair.com.au",
+                "telephone": "02 4049 1735",
+                "priceRange": "$$",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "276 Maitland Rd",
+                  "addressLocality": "Mayfield",
+                  "addressRegion": "NSW",
+                  "postalCode": "2304",
+                  "addressCountry": "AU"
+                },
+                "geo": {
+                  "@type": "GeoCoordinates",
+                  "latitude": -32.898,
+                  "longitude": 151.738
+                },
+                "openingHoursSpecification": [
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                    "opens": "09:00",
+                    "closes": "17:00"
+                  },
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": "Saturday",
+                    "opens": "10:00",
+                    "closes": "16:00"
+                  },
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": "Sunday",
+                    "opens": "10:00",
+                    "closes": "14:00"
+                  }
+                ],
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "4.8",
+                  "reviewCount": "477",
+                  "bestRating": "5",
+                  "worstRating": "1"
+                },
+                "sameAs": [
+                  "https://www.facebook.com/mayfieldcellphonerepairs/",
+                  "https://www.instagram.com/mayfieldcellphonerepairs/",
+                  "https://twitter.com/Mayfiel32990272",
+                  "https://www.linkedin.com/company/mayfield-cell-phone-repairs/",
+                  "https://www.youtube.com/@mayfieldcellphonerepairs",
+                  "https://www.tiktok.com/@mayfield.cell.pho"
+                ]
+              },
+              {
+                "@type": "FAQPage",
+                "mainEntity": faqs.map(faq => ({
+                  "@type": "Question",
+                  "name": faq.q,
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": faq.a
+                  }
+                }))
               }
-            }))
+            ]
           })}
         </script>
       </Helmet>
@@ -145,17 +204,17 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row items-center gap-4 pt-6">
             <button 
               onClick={openBooking}
-              className="w-full sm:w-auto px-10 py-5 bg-slate-950 text-white font-black uppercase tracking-[0.2em] text-xs rounded-2xl shadow-2xl shadow-slate-950/20 hover:bg-blue-600 hover:-translate-y-1 transition-all"
+              className="w-full sm:w-auto px-10 py-5 bg-slate-950 text-white font-black uppercase tracking-[0.2em] text-[10px] rounded-2xl shadow-2xl shadow-slate-950/20 hover:bg-blue-600 hover:-translate-y-1 transition-all"
             >
               Book A Repair
             </button>
             <Link 
               to="/#contact"
-              className="w-full sm:w-auto px-10 py-5 bg-blue-600 text-white font-black uppercase tracking-[0.2em] text-xs rounded-2xl shadow-2xl shadow-blue-600/20 hover:bg-blue-700 hover:-translate-y-1 transition-all text-center"
+              className="w-full sm:w-auto px-10 py-5 bg-blue-600 text-white font-black uppercase tracking-[0.2em] text-[10px] rounded-2xl shadow-2xl shadow-blue-600/20 hover:bg-blue-700 hover:-translate-y-1 transition-all text-center"
             >
               Talk to Us
             </Link>
-            <a href="tel:0240491735" className="w-full sm:w-auto flex items-center justify-center gap-4 px-10 py-5 bg-white border border-slate-200 rounded-2xl hover:bg-slate-50 transition-all font-black uppercase tracking-[0.15em] text-xs text-slate-600">
+            <a href="tel:0240491735" className="w-full sm:w-auto flex items-center justify-center gap-4 px-10 py-5 bg-white border border-slate-200 rounded-2xl hover:bg-slate-50 transition-all font-black uppercase tracking-[0.15em] text-[10px] text-slate-600">
               <Phone className="w-4 h-4 text-blue-600" />
               <span>02 4049 1735</span>
             </a>
@@ -163,11 +222,11 @@ export default function Home() {
 
           <div className="flex flex-wrap gap-x-12 gap-y-6 pt-10 border-t border-slate-200/60">
             <div className="space-y-1">
-              <span className="text-xs font-black uppercase tracking-[0.2em] text-slate-400">WARRANTY_TYPE</span>
-              <p className="text-sm font-bold text-slate-900 font-display tracking-wide">90-Day Hardware Guarantee</p>
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">WARRANTY_TYPE</span>
+              <p className="text-sm font-bold text-slate-900 font-display uppercase tracking-widest">90-Day Hardware Guarantee</p>
             </div>
             <div className="space-y-1">
-              <span className="text-xs font-black uppercase tracking-[0.2em] text-slate-400">DIAGNOSTIC_FEE</span>
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">DIAGNOSTIC_FEE</span>
               <p className="text-sm font-bold text-slate-900 font-display uppercase tracking-widest">$0.00 / Free Check-up</p>
             </div>
           </div>
@@ -202,7 +261,7 @@ export default function Home() {
                     ))}
                   </div>
                   <div className="text-right">
-                    <p className="text-xs font-black uppercase tracking-widest text-slate-400">Performance</p>
+                    <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Performance</p>
                     <p className="text-sm font-bold text-white">99.8% SUCCESS</p>
                   </div>
                 </div>
@@ -221,12 +280,12 @@ export default function Home() {
             <motion.div 
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute -top-6 -right-6 bg-white p-6 rounded-[2.5rem] shadow-2xl border border-slate-300 flex flex-col items-center gap-1"
+              className="absolute -top-6 -right-6 bg-white p-6 rounded-[2.5rem] shadow-2xl border border-slate-100 flex flex-col items-center gap-1"
             >
               <div className="flex text-amber-400 gap-0.5">
                 {[1,2,3,4,5].map(i => <Sparkles key={i} className="w-3 h-3 fill-current" />)}
               </div>
-              <span className="text-xs font-bold text-slate-900">5.0 Google Rating</span>
+              <span className="text-[10px] font-black text-slate-900 tracking-tighter">5.0 GOOGLE RATING</span>
             </motion.div>
           </div>
         </motion.div>
@@ -235,109 +294,68 @@ export default function Home() {
       {/* Brands Section */}
       <section id="brands" className="relative px-6 md:px-12 py-12 md:py-20 bg-slate-50 border-y border-slate-200">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-12 gap-12 items-end mb-12">
-            <div className="lg:col-span-7 space-y-6">
-              <span className="text-technical text-blue-600">ALL BRANDS & MODELS SUPPORTED</span>
+          <div className="grid lg:grid-cols-12 gap-12 items-end mb-16">
+            <div className="lg:col-span-8 space-y-6">
+              <span className="text-technical text-blue-600">SUPPORTED MODELS</span>
               <h2 className="text-4xl md:text-7xl font-black text-slate-900 font-display leading-[0.85] tracking-tighter">
                 Devices <br/> We Fix.
               </h2>
             </div>
-            <div className="lg:col-span-5 space-y-4">
-              <p className="text-slate-500 text-sm font-medium leading-relaxed">
-                We repair <strong>all phone brands and models</strong> — from Apple, Samsung, and Google to <strong>Nokia, Xiaomi, Realme, Vivo, OnePlus, Sony, Motorola, Huawei, Asus, TCL, Nothing, ZTE</strong> and more! Select your brand below or search your model.
+            <div className="lg:col-span-4">
+              <p className="text-slate-500 text-sm font-medium leading-relaxed mb-6">
+                Comprehensive support for all major flagship phones. Select your brand below for specific repair details and pricing.
               </p>
-              
-              {/* Instant Search Bar */}
-              <div className="relative">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
-                <input
-                  type="text"
-                  value={brandSearch}
-                  onChange={(e) => setBrandSearch(e.target.value)}
-                  placeholder="Search brand or model (e.g. Nokia, G60, S26, Pixel, virus)..."
-                  className="w-full pl-12 pr-4 py-3.5 bg-white border border-slate-200 rounded-2xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all placeholder:text-slate-400"
-                />
-                {brandSearch && (
-                  <button 
-                    onClick={() => setBrandSearch('')}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400 hover:text-slate-600 uppercase"
-                  >
-                    Clear
-                  </button>
-                )}
-              </div>
             </div>
           </div>
 
-          {/* Brands Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-px bg-slate-200 border border-slate-200 overflow-hidden rounded-3xl shadow-sm">
-            {brands
-              .filter(brand => 
-                brand.name.toLowerCase().includes(brandSearch.toLowerCase()) ||
-                brand.description.toLowerCase().includes(brandSearch.toLowerCase()) ||
-                brand.seoModelDump.toLowerCase().includes(brandSearch.toLowerCase())
-              )
-              .map((brand) => (
-                <Link 
-                  key={brand.id}
-                  to={`/brand/${brand.id}`}
-                  className="group relative flex flex-col items-center p-6 bg-white hover:bg-slate-50 transition-all text-center"
-                >
-                  <div className={`w-12 h-12 rounded-2xl mb-4 flex items-center justify-center bg-gradient-to-br ${brand.color} shadow-md group-hover:-translate-y-1 transition-all duration-300`}>
-                    <Smartphone className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="font-bold text-slate-900 text-sm font-display tracking-wide">{brand.name}</h3>
-                  <div className="mt-2 text-[8px] font-black uppercase tracking-[0.15em] text-blue-600 opacity-0 group-hover:opacity-100 transition-all">
-                    Explore
-                  </div>
-                </Link>
+          <div className="grid grid-cols-2 lg:grid-cols-6 gap-px bg-slate-200 border border-slate-200 overflow-hidden rounded-3xl">
+            {brands.map((brand, idx) => (
+              <Link 
+                key={brand.id}
+                to={`/brand/${brand.id}`}
+                className="group relative flex flex-col items-center p-8 bg-white hover:bg-slate-50 transition-all"
+              >
+                <div className={`w-16 h-16 rounded-2xl mb-6 flex items-center justify-center bg-gradient-to-br ${brand.color} shadow-lg shadow-blue-500/10 group-hover:-translate-y-1 transition-all duration-300`}>
+                  <Smartphone className="w-8 h-8 text-white" />
+                </div>
+                <h4 className="font-bold text-slate-900 text-sm font-display tracking-wider uppercase">{brand.name}</h4>
+                <div className="mt-4 text-[9px] font-black uppercase tracking-[0.2em] text-blue-600 opacity-0 group-hover:opacity-100 transition-all">
+                  Explore Repairs
+                </div>
+              </Link>
             ))}
           </div>
-
-          {brandSearch && brands.filter(b => b.name.toLowerCase().includes(brandSearch.toLowerCase()) || b.description.toLowerCase().includes(brandSearch.toLowerCase()) || b.seoModelDump.toLowerCase().includes(brandSearch.toLowerCase())).length === 0 && (
-            <div className="mt-6 p-8 bg-white rounded-3xl border border-slate-200 text-center space-y-3">
-              <p className="text-slate-600 font-medium">Looking for a specific model not listed in the filter?</p>
-              <p className="text-sm font-bold text-slate-900">We repair ALL brands and custom models! Contact us directly for an instant quote.</p>
-              <button 
-                onClick={openBooking}
-                className="mt-2 px-8 py-3 bg-blue-600 text-white font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-blue-700 transition-colors"
-              >
-                Get Custom Repair Quote
-              </button>
-            </div>
-          )}
 
           {/* Pricing Transparency Summary Table Module */}
           <div className="mt-16 bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-slate-200/60 max-w-4xl mx-auto space-y-8">
             <div className="text-center space-y-3">
-              <span className="text-xs font-black text-blue-600 uppercase tracking-[0.4em] font-display">PRICING TRANSPARENCY</span>
+              <span className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em] font-display">PRICING TRANSPARENCY</span>
               <h3 className="text-2xl md:text-3xl font-bold font-display tracking-tight text-slate-900">Estimated Repair Starting Prices</h3>
-              <p className="text-blue-600 font-medium mb-6">Note: Diagnostic Assessments are always $0.00 / Free for all models.</p>
               <p className="text-slate-500 text-sm max-w-2xl mx-auto">
                 No hidden fees or surprises. Below are estimates for popular screens, batteries, and diagnostic assessments across Newcastle and Mayfield.
               </p>
             </div>
 
-            <div className="overflow-x-auto rounded-2xl border border-slate-300 bg-slate-50">
+            <div className="overflow-x-auto rounded-2xl border border-slate-100 bg-slate-50">
               <table className="w-full text-left border-collapse text-sm">
                 <thead>
-                  <tr className="bg-slate-100 border-b border-slate-200 text-slate-500 uppercase tracking-wider font-extrabold text-xs font-display">
+                  <tr className="bg-slate-100 border-b border-slate-200 text-slate-500 uppercase tracking-wider font-extrabold text-[10px] font-display">
                     <th className="py-4 px-6 md:px-8">Brand Ecosystem</th>
                     <th className="py-4 px-6 md:px-8">Screen Restoration</th>
                     <th className="py-4 px-6 md:px-8">Battery Cell Replacement</th>
-                    
+                    <th className="py-4 px-6 md:px-8">Diagnostic Assessment</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100 text-slate-700 font-medium">
                   {brands.map((brand) => (
-                    <tr key={brand.id} className="hover:bg-slate-50 transition-colors border-b border-slate-100 last:border-0">
+                    <tr key={brand.id} className="hover:bg-white transition-colors">
                       <td className="py-4 px-6 md:px-8 font-bold text-slate-900 flex items-center gap-3">
                         <span className={`w-2.5 h-2.5 rounded-full bg-gradient-to-br ${brand.color}`} />
                         {brand.name}
                       </td>
-                      <td className="py-4 px-6 md:px-8 text-slate-900 font-bold">From ${brand.startingPrice.screen}</td>
+                      <td className="py-4 px-6 md:px-8 text-blue-600 font-bold">From ${brand.startingPrice.screen}</td>
                       <td className="py-4 px-6 md:px-8 text-emerald-600 font-bold">From ${brand.startingPrice.battery}</td>
-                      
+                      <td className="py-4 px-6 md:px-8 text-slate-400 font-semibold italic">Always $0.00 / Free</td>
                     </tr>
                   ))}
                 </tbody>
@@ -346,14 +364,14 @@ export default function Home() {
 
             <div className="pt-4 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-semibold text-slate-400">
               <p className="italic text-center md:text-left">* Prices vary by model and grade of components. Standard assessment is always free of cost.</p>
-              <button onClick={openBooking} className="text-blue-600 hover:text-blue-700 whitespace-nowrap flex items-center gap-2 group font-black uppercase tracking-widest text-xs cursor-pointer">
+              <button onClick={openBooking} className="text-blue-600 hover:text-blue-700 whitespace-nowrap flex items-center gap-2 group font-black uppercase tracking-widest text-[10px] cursor-pointer">
                 GET REPAIR QUOTE <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
 
             {/* RepairRange Verification Note */}
-            <div className="pt-4 border-t border-slate-300 text-center">
-              <p className="text-xs text-slate-400 font-medium">
+            <div className="pt-4 border-t border-slate-100 text-center">
+              <p className="text-[11px] text-slate-400 font-medium">
                 Prices verified by <a href="https://repairrange.io" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600 font-semibold hover:underline">RepairRange.io</a> — Australia's independent repair cost database
               </p>
             </div>
@@ -377,7 +395,7 @@ export default function Home() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {(showAllServices ? servicesData : servicesData.slice(0, 8)).map((service, idx) => (
+            {servicesData.map((service, idx) => (
               <motion.div 
                 key={service.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -385,7 +403,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.05 }}
               >
-                <Link to={`/service/${service.id}`} className="flex flex-col h-full bg-slate-50 border border-slate-300 p-10 rounded-3xl hover:border-blue-500 hover:bg-white hover:shadow-2xl hover:shadow-blue-500/5 transition-all duration-300 group">
+                <Link to={`/service/${service.id}`} className="flex flex-col h-full bg-slate-50 border border-slate-100 p-10 rounded-3xl hover:border-blue-500 hover:bg-white hover:shadow-2xl hover:shadow-blue-500/5 transition-all duration-300 group">
                   <div className="flex items-center justify-between mb-10">
                     <div className="w-14 h-14 bg-white border border-slate-200 rounded-2xl flex items-center justify-center group-hover:bg-blue-600 group-hover:border-blue-600 transition-all">
                       <service.icon className="w-7 h-7 text-slate-900 group-hover:text-white" />
@@ -398,7 +416,7 @@ export default function Home() {
                   </h4>
                   <p className="text-slate-500 text-sm leading-relaxed font-medium mb-8 line-clamp-2">{service.shortDesc}</p>
                   
-                  <div className="mt-auto pt-8 border-t border-slate-300 flex items-center justify-between text-xs font-black uppercase tracking-widest text-slate-400 group-hover:text-blue-600">
+                  <div className="mt-auto pt-8 border-t border-slate-100 flex items-center justify-between text-[10px] font-black uppercase tracking-widest text-slate-400 group-hover:text-blue-600">
                     <span>View Service Details</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -413,7 +431,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="bg-slate-50 border border-slate-300 p-8 md:p-12 rounded-[2.5rem] mt-16 flex flex-col md:flex-row items-center justify-between gap-8 hover:border-slate-200 transition-all duration-300 relative overflow-hidden"
+            className="bg-slate-50 border border-slate-100 p-8 md:p-12 rounded-[2.5rem] mt-16 flex flex-col md:flex-row items-center justify-between gap-8 hover:border-slate-200 transition-all duration-300 relative overflow-hidden"
           >
             <div className="space-y-4 text-left">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#00C2A8]/10 text-teal-600 uppercase tracking-wider">
@@ -426,10 +444,10 @@ export default function Home() {
             </div>
             <div className="w-full md:w-auto flex-shrink-0">
               <a 
-                href="https://selfrepairkit.com.au" 
+                href="https://selfrepairkit.com.au/shop.html" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="inline-flex items-center justify-center gap-2 px-8 py-5 bg-transparent border-2 border-slate-950 text-slate-950 font-bold uppercase tracking-widest text-xs rounded-xl hover:bg-slate-950 hover:text-white transition-all duration-300 w-full md:w-auto text-center"
+                className="inline-flex items-center justify-center gap-2 px-8 py-5 bg-[#00C2A8] text-slate-950 font-black uppercase tracking-[0.2em] text-[10px] rounded-2xl hover:bg-slate-950 hover:text-white transition-all duration-300 shadow-xl shadow-[#00C2A8]/20 w-full md:w-auto text-center"
               >
                 Browse DIY Kits
                 <ArrowRight className="w-4 h-4" />
@@ -458,13 +476,13 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <button 
                 onClick={openBooking}
-                className="w-full sm:w-auto bg-white text-slate-950 px-10 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-xs hover:bg-blue-500 hover:text-white transition-all shadow-2xl shadow-blue-500/20"
+                className="w-full sm:w-auto bg-white text-slate-950 px-10 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] hover:bg-blue-500 hover:text-white transition-all shadow-2xl shadow-blue-500/20"
               >
                 Book Repair
               </button>
               <Link
                 to="/#contact"
-                className="w-full sm:w-auto bg-blue-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-xs hover:bg-blue-700 transition-all shadow-2xl shadow-blue-600/20 text-center"
+                className="w-full sm:w-auto bg-blue-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] hover:bg-blue-700 transition-all shadow-2xl shadow-blue-600/20 text-center"
               >
                 Talk to Us
               </Link>
@@ -483,7 +501,7 @@ export default function Home() {
                    <step.icon className="w-7 h-7 text-white" />
                 </div>
                 <div className="space-y-1 relative z-10">
-                  <h3 className="text-xl font-bold font-display uppercase tracking-wider">{step.title}</h3>
+                  <h4 className="text-xl font-bold font-display uppercase tracking-wider">{step.title}</h4>
                   <p className="text-slate-400 text-sm leading-relaxed font-medium max-w-md">{step.desc}</p>
                 </div>
               </div>
@@ -571,7 +589,7 @@ export default function Home() {
               <Link 
                 key={post.id} 
                 to={`/blog/${post.slug}`}
-                className="group flex flex-col h-full bg-slate-50 rounded-3xl overflow-hidden border border-slate-300 hover:border-blue-200 transition-all font-display"
+                className="group flex flex-col h-full bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 hover:border-blue-200 transition-all font-display"
               >
                 <div className="aspect-[16/9] overflow-hidden">
                   <img 
@@ -654,7 +672,7 @@ export default function Home() {
             <span className="hover:text-blue-600 transition-colors uppercase">S25 COMPACT REPAIR SERVICE</span>
           </div>
 
-          <div className="mt-24 pt-24 border-t border-slate-300">
+          <div className="mt-24 pt-24 border-t border-slate-100">
             <div className="text-center space-y-4 mb-16">
               <span className="text-technical text-blue-600">NEWCASTLE & HUNTER REGION</span>
               <h2 className="text-3xl md:text-5xl font-black text-slate-900 font-display tracking-tighter">Areas We Service.</h2>
@@ -679,7 +697,7 @@ export default function Home() {
                 <Link 
                   key={area.id}
                   to={`/phone-repair/${area.id}`}
-                  className="px-6 py-4 bg-slate-50 border border-slate-300 rounded-2xl text-center hover:border-blue-400 hover:text-blue-600 hover:bg-white transition-all font-display font-bold text-sm tracking-tight"
+                  className="px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl text-center hover:border-blue-400 hover:text-blue-600 hover:bg-white transition-all font-display font-bold text-sm tracking-tight"
                 >
                   {area.name}
                 </Link>
@@ -732,7 +750,7 @@ export default function Home() {
                   href={res.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex flex-col justify-between p-8 bg-white border border-slate-300 rounded-[2.2rem] hover:border-blue-500 hover:shadow-2xl hover:shadow-blue-500/5 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+                  className="group flex flex-col justify-between p-8 bg-white border border-slate-100 rounded-[2.2rem] hover:border-blue-500 hover:shadow-2xl hover:shadow-blue-500/5 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
                 >
                   <div className="space-y-4">
                     <div className="w-12 h-12 rounded-2xl bg-slate-50 text-slate-900 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all">
@@ -831,7 +849,7 @@ export default function Home() {
               
               <div className="w-full lg:w-[55%]">
                 <div className="bg-white p-10 md:p-14 rounded-[3rem] border border-slate-200 shadow-2xl relative">
-                  <h3 className="text-3xl font-black font-display mb-10 text-slate-900 tracking-tight">Request Estimate</h3>
+                  <h3 className="text-3xl font-black font-display mb-10 text-slate-900 uppercase tracking-tight">Request Estimate</h3>
                   <form className="space-y-6" onSubmit={handleFormSubmit}>
                     <div className="grid sm:grid-cols-2 gap-6">
                       <div className="space-y-2">
@@ -841,7 +859,7 @@ export default function Home() {
                           required
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          className="w-full px-6 py-4 bg-slate-50 rounded-2xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-base font-medium" 
+                          className="w-full px-6 py-4 bg-slate-50 rounded-2xl border border-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-base font-medium" 
                           placeholder="Your Name" 
                         />
                       </div>
@@ -852,7 +870,7 @@ export default function Home() {
                           required
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          className="w-full px-6 py-4 bg-slate-50 rounded-2xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-base font-medium" 
+                          className="w-full px-6 py-4 bg-slate-50 rounded-2xl border border-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-base font-medium" 
                           placeholder="Ex: 0400 000 000" 
                         />
                       </div>
@@ -864,7 +882,7 @@ export default function Home() {
                         required
                         value={formData.details}
                         onChange={(e) => setFormData({ ...formData, details: e.target.value })}
-                        className="w-full px-6 py-4 bg-slate-50 rounded-2xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-base font-medium resize-none" 
+                        className="w-full px-6 py-4 bg-slate-50 rounded-2xl border border-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-100 focus:bg-white focus:border-blue-500 transition-all text-base font-medium resize-none" 
                         placeholder="What needs fixing?"
                       ></textarea>
                     </div>

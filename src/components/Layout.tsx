@@ -103,10 +103,9 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "Mayfield Phone Repair",
-            "alternateName": "Mayfield Cell Phone Repairs",
+            "name": "Mayfield Cell Phone Repairs",
             "image": "https://mayfieldphonerepair.com.au/logo.png",
-            "@id": "https://mayfieldphonerepair.com.au/#business",
+            "@id": "https://mayfieldphonerepair.com.au",
             "url": "https://mayfieldphonerepair.com.au",
             "telephone": "02 4049 1735",
             "priceRange": "$$",
@@ -158,29 +157,52 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "Mayfield Phone Repair",
-            "alternateName": "Mayfield Cell Phone Repairs",
+            "name": "Mayfield Cell Phone Repairs",
             "url": "https://mayfieldphonerepair.com.au",
             "logo": "https://mayfieldphonerepair.com.au/logo.png",
-            "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "telephone": "02 4049 1735",
-                "contactType": "customer service",
-                "areaServed": "AU",
-                "availableLanguage": "en"
-              },
-              {
-                "@type": "ContactPoint",
-                "telephone": "+61431618100",
-                "contactType": "emergency",
-                "areaServed": "AU",
-                "availableLanguage": "en"
-              }
-            ]
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "02 4049 1735",
+              "contactType": "customer service",
+              "areaServed": "AU",
+              "availableLanguage": "en"
+            }
           })}
         </script>
-        
+        {pathname === '/' && (
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "How long does a screen repair take?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Most screen repairs are completed within 30 minutes at our Mayfield shop."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Do you provide a warranty on repairs?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, we provide a 90-day hardware guarantee on all parts and labor."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Do I need an appointment?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Walk-ins are welcome, but booking online ensures the fastest turnaround time."
+                  }
+                }
+              ]
+            })}
+          </script>
+        )}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -290,7 +312,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
         <div className="hidden lg:flex items-center shrink-0">
           <button 
             onClick={openBooking}
-            className="cursor-pointer relative overflow-hidden bg-slate-950 text-white px-7 py-3 rounded hover:bg-slate-800 font-bold uppercase tracking-wider text-[10px] shadow-lg shadow-blue-500/10 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
+            className="cursor-pointer relative overflow-hidden bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-700 hover:to-indigo-800 text-white px-7 py-3 rounded-xl font-bold uppercase tracking-wider text-[10px] shadow-lg shadow-blue-500/10 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
           >
             Book a Repair
           </button>
@@ -423,16 +445,96 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
                <ul className="space-y-4 text-sm font-medium">
                  <li><Link to="/" className="hover:text-blue-400 transition-colors">Home</Link></li>
                  <li><Link to="/repair-guides" className="hover:text-blue-400 transition-colors">Repair Guides & FAQ</Link></li>
-                 <li><a href="https://repairrange.io" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">Cost Calculator</a></li>
                  <li><Link to="/blog" className="hover:text-blue-400 transition-colors">Repair Blog</Link></li>
                  <li className="hidden md:block"><Link to="/about-us" className="hover:text-blue-400 transition-colors">About Us</Link></li>
                  <li><Link to="/#contact" className="hover:text-blue-400 transition-colors">Location</Link></li>
                  <li><Link to="/privacy-policy" className="hover:text-blue-400 transition-colors">Privacy</Link></li>
-                 <li>
-                    <a href="https://selfrepairkit.com.au" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-400 transition-colors">Buy DIY Parts</a>
-                 </li>
+                  <li>
+                    <a 
+                      href="https://selfrepairkit.com.au" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="hover:text-blue-400 transition-colors"
+                    >
+                      DIY Repair Kits
+                    </a>
+                  </li>
                </ul>
              </div>
+             <div className="space-y-8">
+               <h4 className="text-white text-xs font-black uppercase tracking-[0.3em] font-display">Contact Us</h4>
+               <div className="space-y-4">
+                                   <a href="mailto:support@mayfieldphonerepair.com.au" className="block text-lg font-bold text-white hover:text-blue-400 transition-colors font-display italic">support@mayfieldphonerepair.com.au</a>
+                  <a href="tel:0240491735" className="block text-xl font-bold text-white hover:text-blue-400 transition-colors font-display">02 4049 1735</a>
+                 <p className="text-xs text-slate-500 leading-relaxed font-medium">Free advice & quotes.</p>
+               </div>
+             </div>
+          </div>
+        </div>
+
+        {/* SEO Local Suburbs Mega Footer (Expandable) */}
+        <div className="max-w-7xl mx-auto border-t border-white/5 pt-12 mb-12 hidden md:block relative z-10">
+           <button 
+             onClick={() => setIsSeoDirOpen(!isSeoDirOpen)}
+             className="flex items-center text-[10px] text-slate-600 uppercase tracking-[0.5em] font-black hover:text-blue-400 transition-colors w-full text-left focus:outline-none"
+             aria-expanded={isSeoDirOpen}
+           >
+             Local Areas We Serve
+             <svg 
+               className={`w-4 h-4 ml-3 transform transition-transform duration-500 ${isSeoDirOpen ? 'rotate-180 text-blue-500' : ''}`} 
+               fill="none" viewBox="0 0 24 24" stroke="currentColor"
+             >
+               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
+             </svg>
+           </button>
+           
+           <AnimatePresence>
+             {isSeoDirOpen && (
+               <motion.div 
+                 initial={{ height: 0, opacity: 0 }}
+                 animate={{ height: 'auto', opacity: 1 }}
+                 exit={{ height: 0, opacity: 0 }}
+                 transition={{ duration: 0.5, ease: "circOut" }}
+                 className="overflow-hidden"
+               >
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 pt-6 text-xs font-medium text-slate-400">
+                    {suburbs.map((suburb) => (
+                      <Link 
+                        key={suburb.id} 
+                        to={`/phone-repair/${suburb.id}`} 
+                        className="p-2.5 rounded-xl bg-white/5 hover:bg-blue-600/20 hover:text-blue-400 transition-colors border border-white/5 text-center" 
+                      >
+                        Phone Repair {suburb.name}
+                      </Link>
+                    ))}
+                  </div>
+               </motion.div>
+             )}
+           </AnimatePresence>
+        </div>
+        
+        <div className="max-w-7xl mx-auto border-t border-white/5 pt-12 text-center md:text-left relative z-10">
+          <div className="flex flex-col gap-2">
+            <div>
+              <a 
+                href="https://repairrange.io" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-xs font-semibold text-slate-500 hover:text-blue-400 hover:underline transition-colors duration-200"
+              >
+                Repair Guides & Cost Calculator
+              </a>
+            </div>
+            <div>
+              <a 
+                href="https://repairrange.io/calculator.html" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-xs text-slate-600 hover:text-blue-400 hover:underline transition-colors duration-200"
+              >
+                Compare repair costs across Australia
+              </a>
+            </div>
           </div>
         </div>
 
@@ -446,7 +548,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
         </div>
 
         <div className="max-w-7xl mx-auto mt-12 pt-12 border-t border-white/5 opacity-40">
-          <div className="flex flex-col gap-6 text-xs leading-relaxed text-slate-600 font-display font-black uppercase tracking-[0.2em] text-center md:text-left">
+          <div className="flex flex-col gap-6 text-[9px] leading-relaxed text-slate-600 font-display font-black uppercase tracking-[0.2em] text-center md:text-left">
             <p>
               Aussibk with ABN 11433439336 trading as Mayfield Phone Repair.
             </p>
