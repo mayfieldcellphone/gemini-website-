@@ -527,6 +527,35 @@ export const servicesData = [
     features: ['Digitizer & LCD Fix', 'High-Bond Adhesives', 'Student Discounts', '90-Day Warranty'],
   },
   {
+    id: 'tablet-repair',
+    icon: Tablet,
+    title: 'Tablet Repair',
+    shortDesc: 'Tablet Repair Newcastle & Mayfield. Fast screen, battery, and charging port fixes for Samsung Galaxy Tab, Lenovo, and Android tablets.',
+    heroTitle: 'Tablet Repair Mayfield & Newcastle | Samsung Tab & Android Specialists',
+    heroDescription: 'Cracked Android tablet screen, loose USB-C port, or dead battery? We provide same-day tablet repairs for Samsung Galaxy Tab, Lenovo Tab, and all major tablet brands in Mayfield.',
+    color: 'from-cyan-600 to-blue-700',
+    content: [
+      {
+        heading: 'Professional Android & Windows Tablet Repairs in Newcastle',
+        text: 'Whether it is a Samsung Galaxy Tab S9/S8/A9, Lenovo Tab, or Amazon Fire, tablets endure daily drops and constant charging. Our Mayfield technicians stock replacement LCDs, touch digitizers, and high-capacity battery packs to get your tablet working like new.'
+      },
+      {
+        heading: 'Tablet Issues We Fix Daily',
+        list: [
+          'Cracked touch screen digitizer and damaged AMOLED / LCD displays',
+          'Loose or broken USB-C charging ports that require micro-soldering',
+          'Degraded, swollen, or fast-draining lithium-ion tablet batteries',
+          'Boot loop issues, unresponsive power/volume buttons, and liquid damage'
+        ]
+      },
+      {
+        heading: 'Fast Local Service at 276 Maitland Rd Mayfield',
+        text: 'Convenient walk-in tablet repairs with fast turnaround. Call <a href="tel:+61240491735">(02) 4049 1735</a> or drop into our Mayfield repair shop today.'
+      }
+    ],
+    features: ['Samsung & Lenovo Tabs', 'Screen & Port Fixes', 'Long-Life Batteries', '90-Day Guarantee'],
+  },
+  {
     id: 'macbook-repair',
     icon: Laptop,
     title: 'MacBook Repair',
