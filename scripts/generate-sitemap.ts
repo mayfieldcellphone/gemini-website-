@@ -15,7 +15,7 @@ const staticPages = [
   { route: '/quote', priority: '0.9', changefreq: 'weekly' },
   { route: '/repair-guides', priority: '0.8', changefreq: 'monthly' },
   { route: '/repair-guides/phone-screen-repair-newcastle', priority: '0.8', changefreq: 'monthly' },
-  { route: '/repair-guides/phone-battery-replacement-cost', priority: '0.8', changefreq: 'monthly' },
+  { route: '/repair-guides/phone-battery-replacement-newcastle', priority: '0.8', changefreq: 'monthly' },
   { route: '/repair-guides/water-damage-phone-repair', priority: '0.8', changefreq: 'monthly' },
   { route: '/blog', priority: '0.8', changefreq: 'weekly' },
   { route: '/about-us', priority: '0.7', changefreq: 'monthly' },
