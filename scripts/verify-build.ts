@@ -40,7 +40,7 @@ for (const f of files) {
   if (titleMatches.length !== 1) tag(`expected exactly 1 <title>, found ${titleMatches.length}`);
   else if (!title) tag('empty <title>');
   else {
-    if (title.length > 70) warnings.push(`${route}: title long (${title.length})`);
+    if (title.length > 65) warnings.push(`${route}: title long (${title.length})`);
     titles.set(title, [...(titles.get(title) || []), route]);
   }
   if (!/<meta[^>]+name="viewport"/.test(html)) tag('missing viewport meta');
@@ -51,7 +51,8 @@ for (const f of files) {
     const dm = descTag[0].match(/content="([\s\S]*)"\s*\/?>$/);
     const inner = dm ? dm[1] : '';
     if (inner.length < 20) tag('meta description empty/too short');
-    else if (inner.includes('"')) warnings.push(`${route}: description contains a raw " quote (gets cut off in Google)`);
+    if (inner.length > 160) warnings.push(`${route}: description long (${inner.length})`);
+    if (inner.includes('"')) warnings.push(`${route}: description contains a raw " quote (gets cut off in Google)`);
   }
 
   const canon = html.match(/<link[^>]+rel="canonical"[^>]+href="([^"]*)"/);
@@ -67,7 +68,10 @@ for (const [t, routes] of titles) {
   }
 }
 
-if (warnings.length) console.warn(`⚠️  ${warnings.length} SEO warnings (non-blocking), e.g. ${warnings[0]}`);
+const titlesOver65 = warnings.filter(w => w.includes('title long')).length;
+const descsOver160 = warnings.filter(w => w.includes('description long')).length;
+
+if (warnings.length) console.warn(`⚠️  ${warnings.length} SEO warnings (non-blocking) [${titlesOver65} titles > 65, ${descsOver160} descriptions > 160], e.g. ${warnings[0]}`);
 
 if (errors.length) {
   console.error(`\n❌ SEO build check FAILED (${errors.length} problems across ${files.length} pages):`);
@@ -75,4 +79,4 @@ if (errors.length) {
   if (errors.length > 60) console.error(`  ... and ${errors.length - 60} more`);
   process.exit(1);
 }
-console.log(`✅ SEO build check passed: ${files.length} pages have unique titles, viewport, description and correct canonicals.`);
+console.log(`✅ SEO build check passed: ${files.length} pages have unique titles, viewport, description and correct canonicals. (Titles > 65: ${titlesOver65}, Descriptions > 160: ${descsOver160})`);

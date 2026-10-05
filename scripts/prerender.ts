@@ -135,6 +135,100 @@ async function runPrerender() {
 
   const indexTemplate = fs.readFileSync(templatePath, 'utf-8');
 
+  const escAttr = (s: string) =>
+    String(s)
+      .replace(/&(?!amp;|quot;|lt;|gt;|#\d+;|#x[0-9a-fA-F]+;)/g, '&amp;')
+      .replace(/"/g, '&quot;');
+
+  const sharedNav = `
+    <header style="background: #0d1b2a; color: #fff; padding: 14px 20px; border-bottom: 1px solid #1e293b;">
+      <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px;">
+        <div>
+          <a href="/" style="color: #fff; font-weight: 800; font-size: 1.2rem; text-decoration: none;">Mayfield Phone Repair</a>
+          <p style="margin: 2px 0 0; font-size: 0.8rem; color: #94a3b8;">276 Maitland Rd, Mayfield NSW 2304 &bull; Tel: <a href="tel:+61240491735" style="color: #38bdf8; text-decoration: underline;">(02) 4049 1735</a></p>
+        </div>
+        <nav aria-label="Main Navigation" style="display: flex; flex-wrap: wrap; gap: 12px; font-size: 0.875rem;">
+          <a href="/" style="color: #e2e8f0; text-decoration: none;">Home</a>
+          <a href="/quote" style="color: #38bdf8; font-weight: bold; text-decoration: none;">Get Free Quote</a>
+          <a href="/service/screen-repair" style="color: #e2e8f0; text-decoration: none;">Screen Repair</a>
+          <a href="/service/battery-replacement" style="color: #e2e8f0; text-decoration: none;">Battery Replacement</a>
+          <a href="/service/water-damage" style="color: #e2e8f0; text-decoration: none;">Water Damage</a>
+          <a href="/service/data-recovery" style="color: #e2e8f0; text-decoration: none;">Data Recovery</a>
+          <a href="/repair-guides" style="color: #e2e8f0; text-decoration: none;">Repair Guides</a>
+          <a href="/blog" style="color: #e2e8f0; text-decoration: none;">Blog</a>
+          <a href="/about-us" style="color: #e2e8f0; text-decoration: none;">About Us</a>
+        </nav>
+      </div>
+    </header>
+  `;
+
+  const sharedFooter = `
+    <footer style="background: #0d1b2a; color: #cbd5e1; padding: 40px 20px 24px; margin-top: 48px; border-top: 2px solid #1e293b; font-size: 0.875rem;">
+      <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px;">
+        <div>
+          <h3 style="color: #fff; font-size: 1.05rem; margin-bottom: 12px; font-weight: 700;">Mayfield Phone Repair</h3>
+          <p style="margin: 0 0 8px; line-height: 1.5;">276 Maitland Rd, Mayfield NSW 2304</p>
+          <p style="margin: 0 0 8px;">Phone: <a href="tel:+61240491735" style="color: #38bdf8; text-decoration: none; font-weight: 600;">(02) 4049 1735</a></p>
+          <p style="margin: 0 0 8px;">After-Hours / Text: <strong style="color: #fff;">0431 618 100</strong></p>
+          <p style="margin: 0 0 12px; color: #94a3b8;">Mon–Fri 9am–5pm | Sat 10am–4pm | Sun 10am–2pm</p>
+          <p style="margin: 0;"><a href="/quote" style="display: inline-block; background: #2563eb; color: #fff; padding: 6px 14px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.8rem;">Get Instant Quote &rarr;</a></p>
+        </div>
+        <div>
+          <h3 style="color: #fff; font-size: 1rem; margin-bottom: 12px; font-weight: 700;">Repair Services</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px;">
+            ${servicesData.map(s => `<li><a href="/service/${s.id}" style="color: #94a3b8; text-decoration: none;">${s.title}</a></li>`).join('')}
+          </ul>
+        </div>
+        <div>
+          <h3 style="color: #fff; font-size: 1rem; margin-bottom: 12px; font-weight: 700;">Brands We Fix</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px;">
+            ${brands.map(b => `<li><a href="/brand/${b.id}" style="color: #94a3b8; text-decoration: none;">${b.name} Repair</a></li>`).join('')}
+          </ul>
+        </div>
+        <div>
+          <h3 style="color: #fff; font-size: 1rem; margin-bottom: 12px; font-weight: 700;">Top Newcastle Suburbs</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px;">
+            <li><a href="/phone-repair/kotara" style="color: #94a3b8; text-decoration: none;">Phone Repair Kotara</a></li>
+            <li><a href="/phone-repair/lambton" style="color: #94a3b8; text-decoration: none;">Phone Repair Lambton</a></li>
+            <li><a href="/phone-repair/charlestown" style="color: #94a3b8; text-decoration: none;">Phone Repair Charlestown</a></li>
+            <li><a href="/phone-repair/wallsend" style="color: #94a3b8; text-decoration: none;">Phone Repair Wallsend</a></li>
+            <li><a href="/phone-repair/hamilton" style="color: #94a3b8; text-decoration: none;">Phone Repair Hamilton</a></li>
+            <li><a href="/phone-repair/jesmond" style="color: #94a3b8; text-decoration: none;">Phone Repair Jesmond</a></li>
+            <li><a href="/phone-repair/waratah" style="color: #94a3b8; text-decoration: none;">Phone Repair Waratah</a></li>
+            <li><a href="/phone-repair/adamstown" style="color: #94a3b8; text-decoration: none;">Phone Repair Adamstown</a></li>
+            <li><a href="/phone-repair/broadmeadow" style="color: #94a3b8; text-decoration: none;">Phone Repair Broadmeadow</a></li>
+            <li><a href="/phone-repair/newcastle-west" style="color: #94a3b8; text-decoration: none;">Phone Repair Newcastle West</a></li>
+            <li><a href="/phone-repair/cardiff" style="color: #94a3b8; text-decoration: none;">Phone Repair Cardiff</a></li>
+            <li><a href="/phone-repair/belmont" style="color: #94a3b8; text-decoration: none;">Phone Repair Belmont</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="color: #fff; font-size: 1rem; margin-bottom: 12px; font-weight: 700;">Guides & Quick Links</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px;">
+            <li><a href="/repair-guides" style="color: #94a3b8; text-decoration: none;">Repair Guides Hub</a></li>
+            <li><a href="/repair-guides/phone-screen-repair-newcastle" style="color: #94a3b8; text-decoration: none;">Screen Repair Guide</a></li>
+            <li><a href="/repair-guides/phone-battery-replacement-newcastle" style="color: #94a3b8; text-decoration: none;">Battery Replacement Guide</a></li>
+            <li><a href="/repair-guides/water-damage-phone-repair" style="color: #94a3b8; text-decoration: none;">Water Damage Guide</a></li>
+            <li><a href="/repair-guides/iphone-repair-newcastle" style="color: #94a3b8; text-decoration: none;">iPhone Repair Guide</a></li>
+            <li><a href="/repair-guides/samsung-repair-newcastle" style="color: #94a3b8; text-decoration: none;">Samsung Repair Guide</a></li>
+            <li><a href="/blog" style="color: #94a3b8; text-decoration: none;">Latest Tech Blog</a></li>
+            <li><a href="/about-us" style="color: #94a3b8; text-decoration: none;">About Our Lab</a></li>
+            <li><a href="/after-hours" style="color: #94a3b8; text-decoration: none;">After-Hours Service</a></li>
+            <li><a href="/second-hand-phones" style="color: #94a3b8; text-decoration: none;">Second-Hand Phones</a></li>
+            <li><a href="/accessories" style="color: #94a3b8; text-decoration: none;">Phone Accessories</a></li>
+            <li><a href="/corporate-repairs" style="color: #94a3b8; text-decoration: none;">Corporate Repairs</a></li>
+            <li><a href="/privacy-policy" style="color: #94a3b8; text-decoration: none;">Privacy Policy</a></li>
+            <li><a href="/terms-of-service" style="color: #94a3b8; text-decoration: none;">Terms of Service</a></li>
+            <li><a href="/sitemap" style="color: #94a3b8; text-decoration: none;">HTML Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div style="max-width: 1200px; margin: 32px auto 0; padding-top: 16px; border-top: 1px solid #1e293b; text-align: center; color: #64748b; font-size: 0.8rem;">
+        <p style="margin: 0;">&copy; 2026 Mayfield Phone Repair. 276 Maitland Rd, Mayfield NSW 2304. Tel: (02) 4049 1735. All rights reserved.</p>
+      </div>
+    </footer>
+  `;
+
   // Helper to create directories recursively and write html file
   function writePage(
     route: string,
@@ -144,14 +238,17 @@ async function runPrerender() {
     schemaMarkup: any,
     bodyHtml: string
   ) {
+    const safeTitle = escAttr(title);
+    const safeDesc = escAttr(description);
+
     // Generate head overrides tag block
     const headBlock = `
     <link rel="canonical" href="${canonicalUrl}" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_AU" />
     <meta property="og:site_name" content="Mayfield Phone Repair" />
-    <meta property="og:title" content="${title}" />
-    <meta property="og:description" content="${description}" />
+    <meta property="og:title" content="${safeTitle}" />
+    <meta property="og:description" content="${safeDesc}" />
     <meta property="og:url" content="${canonicalUrl}" />
     <meta property="og:image" content="${BASE_URL}/logo.png" />
     <meta property="og:image:alt" content="Mayfield Phone Repair Logo" />
@@ -160,8 +257,8 @@ async function runPrerender() {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:domain" content="mayfieldphonerepair.com.au" />
     <meta name="twitter:url" content="${canonicalUrl}" />
-    <meta name="twitter:title" content="${title}" />
-    <meta name="twitter:description" content="${description}" />
+    <meta name="twitter:title" content="${safeTitle}" />
+    <meta name="twitter:description" content="${safeDesc}" />
     <meta name="twitter:image" content="${BASE_URL}/logo.png" />
     <meta name="twitter:image:alt" content="Mayfield Phone Repair Logo" />
     <script type="application/ld+json">
@@ -173,15 +270,15 @@ async function runPrerender() {
     let content = indexTemplate;
 
     // Replace default index.html <title> and <meta name="description"> completely
-    content = content.replace(/<title[\s\S]*?>[\s\S]*?<\/title>/, `<title data-rh="true">${title}</title>`);
-    content = content.replace(/<meta[\s\S]*?name="description"[\s\S]*?\/>/, `<meta data-rh="true" name="description" content="${description}" />`);
-    content = content.replace(/<link rel="canonical"[\s\S]*?\/>/g, '');
+    content = content.replace(/<title[^>]*>[\s\S]*?<\/title>/, `<title data-rh="true">${safeTitle}</title>`);
+    content = content.replace(/<meta\s[^>]*name="description"[^>]*\/?>/, `<meta data-rh="true" name="description" content="${safeDesc}" />`);
+    content = content.replace(/<link\s[^>]*rel="canonical"[^>]*\/?>/g, '');
     
     // Inject rest of meta tags inside <head>
     content = content.replace('</head>', `${headBlock}\n</head>`);
 
-    // Inject rich SEO HTML body inside <div id="root"></div> for indexing
-    content = content.replace('<div id="root"></div>', `<div id="root">${bodyHtml}</div>`);
+    // Inject rich SEO HTML body with shared nav and footer inside <div id="root"></div> for indexing
+    content = content.replace('<div id="root"></div>', `<div id="root">${sharedNav}\n${bodyHtml}\n${sharedFooter}</div>`);
 
     // Determine target file directory and file path
     const targetDir = route === '' ? DIST_DIR : path.join(DIST_DIR, route);
@@ -195,7 +292,7 @@ async function runPrerender() {
   }
 
   // 1. Pre-render Home Page (Overwrites dist/index.html optimized)
-  const homeTitle = 'Phone Repair Newcastle & Mayfield | Fast Screen & Battery Diagnostics';
+  const homeTitle = 'Phone Repair Newcastle & Mayfield | Screen & Battery';
   const homeDesc = 'Same-day iPhone 17, 16 & Samsung S26 repairs in Mayfield, Newcastle. Screen fixes, battery replacements & water damage. 4.8★ rated, 90-day warranty.';
   let homeBody = `
     <header>
@@ -356,7 +453,7 @@ async function runPrerender() {
                 <div class="flex items-center gap-3">
                   <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center text-white shadow-md font-bold text-xl">📱</div>
                   <div>
-                    <h2 class="font-extrabold text-lg leading-tight tracking-tight text-slate-900 font-display">Mayfield Phone Repair</h2>
+                    <div class="font-extrabold text-lg leading-tight tracking-tight text-slate-900 font-display">Mayfield Phone Repair</div>
                     <p class="text-xs text-slate-500 font-semibold tracking-wider uppercase">Newcastle's Trusted Diagnostic Lab</p>
                   </div>
                 </div>
@@ -386,7 +483,7 @@ async function runPrerender() {
                   <div class="absolute -top-3.5 left-8 bg-[#ff7a18] text-white font-black uppercase text-[10px] tracking-widest px-4 py-1.5 rounded-full shadow-lg">100% Free Instant Quote</div>
                   <form class="space-y-4">
                     <div class="pt-2">
-                      <h3 class="text-2xl font-black font-display text-slate-900 tracking-tight">Get your repair quote</h3>
+                      <h2 class="text-2xl font-black font-display text-slate-900 tracking-tight">Get your repair quote</h2>
                       <p class="text-slate-500 text-sm">Fill in details and our Mayfield team will call or text you with a fixed price.</p>
                     </div>
                     <div class="space-y-3">
@@ -519,7 +616,7 @@ async function runPrerender() {
                 <div class="flex items-center gap-3">
                   <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center text-white shadow-md font-bold text-xl">📱</div>
                   <div>
-                    <h2 class="font-extrabold text-lg leading-tight tracking-tight text-slate-900 font-display">Mayfield Phone Repair</h2>
+                    <div class="font-extrabold text-lg leading-tight tracking-tight text-slate-900 font-display">Mayfield Phone Repair</div>
                     <p class="text-xs text-slate-500 font-semibold tracking-wider uppercase">Newcastle's Trusted Diagnostic Lab</p>
                   </div>
                 </div>
@@ -549,7 +646,7 @@ async function runPrerender() {
                   <div class="absolute -top-3.5 left-8 bg-[#ff7a18] text-white font-black uppercase text-[10px] tracking-widest px-4 py-1.5 rounded-full shadow-lg">100% Free Instant Quote</div>
                   <form class="space-y-4">
                     <div class="pt-2">
-                      <h3 class="text-2xl font-black font-display text-slate-900 tracking-tight">Get your repair quote</h3>
+                      <h2 class="text-2xl font-black font-display text-slate-900 tracking-tight">Get your repair quote</h2>
                       <p class="text-slate-500 text-sm">Fill in details and our Mayfield team will call or text you with a fixed price.</p>
                     </div>
                     <div class="space-y-3">
@@ -682,7 +779,7 @@ async function runPrerender() {
                 <div class="flex items-center gap-3">
                   <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center text-white shadow-md font-bold text-xl">📱</div>
                   <div>
-                    <h2 class="font-extrabold text-lg leading-tight tracking-tight text-slate-900 font-display">Mayfield Phone Repair</h2>
+                    <div class="font-extrabold text-lg leading-tight tracking-tight text-slate-900 font-display">Mayfield Phone Repair</div>
                     <p class="text-xs text-slate-500 font-semibold tracking-wider uppercase">Newcastle's Trusted Diagnostic Lab</p>
                   </div>
                 </div>
@@ -712,7 +809,7 @@ async function runPrerender() {
                   <div class="absolute -top-3.5 left-8 bg-[#ff7a18] text-white font-black uppercase text-[10px] tracking-widest px-4 py-1.5 rounded-full shadow-lg">100% Free Instant Quote</div>
                   <form class="space-y-4">
                     <div class="pt-2">
-                      <h3 class="text-2xl font-black font-display text-slate-900 tracking-tight">Get your repair quote</h3>
+                      <h2 class="text-2xl font-black font-display text-slate-900 tracking-tight">Get your repair quote</h2>
                       <p class="text-slate-500 text-sm">Fill in details and our Mayfield team will call or text you with a fixed price.</p>
                     </div>
                     <div class="space-y-3">
@@ -826,9 +923,23 @@ async function runPrerender() {
     },
     {
       route: 'blog',
-      title: 'Our Phone Repair Blog & Technology Guides | Mayfield Phone Repair',
+      title: 'Phone Repair Blog & Tech Guides | Mayfield Phone Repair',
       desc: 'Read the latest phone repair tutorials, battery preservation guides, and device comparison articles from the local Newcastle repair experts.',
-      body: `<h1>Mayfield Phone Repair & Tech Guides</h1><p>Explore our detailed articles and cost guides written by our senior device doctors.</p><ul>${blogPosts.map(p => `<li><a href="/blog/${p.slug}"><h3>${p.title}</h3></a><p>${p.excerpt}</p></li>`).join('')}</ul>`,
+      body: `
+        <article>
+          <h1>Mayfield Phone Repair & Tech Guides</h1>
+          <p>Explore our detailed articles and cost guides written by our senior device doctors at 276 Maitland Rd, Mayfield NSW. We provide transparent technical advice on iPhone, Samsung, Google Pixel, and iPad repairs across Newcastle.</p>
+          <h2>Latest Phone Repair Articles & Guides</h2>
+          <ul>
+            ${blogPosts.map(p => `
+              <li>
+                <h3><a href="/blog/${p.slug}">${p.title}</a></h3>
+                <p>${p.excerpt}</p>
+              </li>
+            `).join('')}
+          </ul>
+        </article>
+      `,
       schema: {
         "@context": "https://schema.org",
         "@type": "WebPage",
@@ -841,7 +952,34 @@ async function runPrerender() {
       route: 'about-us',
       title: 'About Us | Mayfield Phone Repair Newcastle',
       desc: 'Learn about our 5-star team, high-quality standards, same-day turnaround fixes, and why Newcastle locals trust us with their smartphones.',
-      body: `<h1>About Mayfield Phone Repair</h1><p>Founded on Maitland Rd, we are Newcastle\'s highly trusted independent micro-soldering and smartphone restoration crew. We use premium parts and provide a 90-day parts guarantee.</p>`,
+      body: `
+        <article>
+          <h1>About Mayfield Phone Repair — Newcastle's Trusted Mobile Diagnostic Lab</h1>
+          <p>Mayfield Phone Repair is Newcastle's premier independent mobile device repair workshop, conveniently situated at <strong>276 Maitland Rd, Mayfield NSW 2304</strong>. Established to provide local residents, tradespeople, university students, and businesses with transparent, high-standard device repairs, our workshop has grown to become the highest-rated repair destination in the Hunter region with over 477+ five-star Google reviews.</p>
+          <p>Unlike franchised shopping mall kiosks that rely on cheap aftermarket glass and quick superficial swaps, our technicians operate a specialized diagnostic laboratory equipped with stereoscopic microscopes, digital rework thermal induction stations, precision laser back glass removal systems, and display serialization micro-programmers. This allows us to perform component-level micro-soldering, motherboard liquid damage restoration, True Tone calibration, and Face ID flex repairs that other shops simply turn away.</p>
+          <h2>Our Commitment to Quality & Transparency</h2>
+          <p>We believe in upfront honesty with every customer who walks through our doors. We offer a strict <strong>No Fix, No Fee</strong> policy on diagnostics: if our technicians cannot repair your device or retrieve your critical files, you do not pay a single cent. Furthermore, every screen replacement, battery swap, and charging port repair is backed by our comprehensive <strong>90-Day Parts & Labor Warranty</strong>. If any installed component exhibits a manufacturing defect within 90 days, we replace it promptly free of charge.</p>
+          <h2>Same-Day Turnaround & Weekend Accessibility</h2>
+          <p>We understand that going without your phone disrupts your work, personal life, and banking security. That is why over 90% of our common repairs—including iPhone screen repairs, Samsung battery replacements, and USB-C port cleaning—are completed in just <strong>30 to 45 minutes</strong> while you wait in our comfortable reception or browse local Mayfield cafes. We are open six days during normal trading hours and proudly offer <strong>Sunday trading from 10:00 AM to 2:00 PM</strong> for weekend emergencies.</p>
+          <h2>Frequently Asked Questions About Mayfield Phone Repair</h2>
+          <article>
+            <h3>Where is your Newcastle repair shop located?</h3>
+            <p>We are located at 276 Maitland Rd, Mayfield NSW 2304. We offer convenient free street parking directly out front on Maitland Road, as well as easy rear access parking off Havelock Street.</p>
+          </article>
+          <article>
+            <h3>Do you offer a warranty on phone repairs?</h3>
+            <p>Yes. Every hardware repair is backed by a 90-day parts and labor warranty covering any manufacturer defects. We use only premium OEM-specification replacement parts.</p>
+          </article>
+          <article>
+            <h3>How long do most phone repairs take?</h3>
+            <p>Standard iPhone, Samsung, and Google Pixel screen replacements and battery swaps are completed on-site in 30 to 45 minutes. No booking is required—walk-ins are welcome daily.</p>
+          </article>
+          <article>
+            <h3>Will my personal data be erased during repair?</h3>
+            <p>No. Hardware screen, battery, port, and glass repairs do not touch your onboard storage. Your personal photos, contacts, WhatsApp chats, and apps remain safe and intact on your device.</p>
+          </article>
+        </article>
+      `,
       schema: {
         "@context": "https://schema.org",
         "@type": "AboutPage",
@@ -851,9 +989,42 @@ async function runPrerender() {
     },
     {
       route: 'after-hours',
-      title: 'Emergency After-Hours Phone Repair Newcastle | Mayfield Phone Repair',
-      desc: 'Locked out, have a critical phone issue, or need a tablet fixed out of hours? Reach our on-call out-of-hours mobile repair textline.',
-      body: `<h1>Emergency & After Hours Repairs</h1><p>Phone down at a critical moment? Send a text directly to our mobile 0431 618 100 for out-of-hours urgent tech diagnostics in Newcastle.</p>`,
+      title: 'Emergency After-Hours Phone Repair | Mayfield Newcastle',
+      desc: 'Emergency and after-hours phone repairs in Newcastle. Cracked screen or liquid spill after hours? Text our on-call tech on 0431 618 100.',
+      body: `
+        <article>
+          <h1>Emergency & After-Hours Phone Repair Newcastle</h1>
+          <p>Phone failures rarely happen at a convenient hour. Dropping your iPhone on a Friday night, suffering a sudden liquid spill on a Sunday morning, or experiencing a complete battery blackout before an early Monday morning work shift can leave you stranded without communications, banking, or two-factor authentication. Mayfield Phone Repair offers dedicated emergency and after-hours tech assistance for urgent phone, tablet, and laptop faults across Newcastle and the Hunter region.</p>
+          <h2>On-Call Emergency Contact: 0431 618 100</h2>
+          <p>If our workshop at 276 Maitland Rd is closed, you can reach our on-call senior technicians by sending a direct SMS to our emergency mobile hotline: <strong>0431 618 100</strong>. Include your device model (e.g., iPhone 15 Pro, Samsung S24 Ultra), a brief description of the fault (e.g., water drop, black screen, swollen battery), and whether you need priority weekend morning drop-off or urgent triage. Our team monitors this textline and responds promptly with guidance and availability.</p>
+          <h2>Weekend & Sunday Repair Availability</h2>
+          <p>Unlike most Newcastle electronics repair centers and shopping mall franchises that close on Sundays, Mayfield Phone Repair is open on <strong>Sundays from 10:00 AM to 2:00 PM</strong>. This makes our Maitland Road facility the primary weekend emergency tech triage hub for residents across Newcastle, Hamilton, Waratah, Lambton, Wallsend, Kotara, and Charlestown.</p>
+          <h2>Critical Situations We Handle Urgently</h2>
+          <ul>
+            <li><strong>Acute Liquid Damage:</strong> Dropped phones in sinks, baths, or salt water at Merewether or Newcastle Beach requiring immediate ultrasonic drying before motherboard traces corrode.</li>
+            <li><strong>Critical Business Screen Failures:</strong> Cracked displays preventing shift workers, couriers, or business owners from accessing essential work tools.</li>
+            <li><strong>Swollen Battery Emergencies:</strong> Batteries that have suddenly puffed up, pushing the screen open and posing a severe thermal safety risk.</li>
+            <li><strong>Emergency Data Rescue:</strong> Retrieving boarding passes, family photos, or two-factor authentication codes from damaged handsets.</li>
+          </ul>
+          <h2>Frequently Asked Questions: After-Hours & Emergency Repairs</h2>
+          <article>
+            <h3>How do I arrange an urgent after-hours repair in Newcastle?</h3>
+            <p>Send an SMS to our emergency textline at 0431 618 100 with your handset model and fault description. A technician will text you back with triage advice and drop-off scheduling.</p>
+          </article>
+          <article>
+            <h3>Are you open on Sundays?</h3>
+            <p>Yes! Our 276 Maitland Rd Mayfield store is open every Sunday from 10:00 AM to 2:00 PM for walk-in screen, battery, and diagnostic repairs.</p>
+          </article>
+          <article>
+            <h3>What should I do if my phone gets wet after hours?</h3>
+            <p>Turn the device off immediately. Do NOT plug it into a charger. Do not put it in rice. Wipe the exterior dry and text our emergency line on 0431 618 100 to arrange early ultrasonic bath cleaning.</p>
+          </article>
+          <article>
+            <h3>Is there an extra fee for Sunday repairs?</h3>
+            <p>No! Our standard Sunday trading hours carry our normal, transparent pricing with zero weekend surcharge on parts and labor.</p>
+          </article>
+        </article>
+      `,
       schema: {
         "@context": "https://schema.org",
         "@type": "ContactPage",
@@ -863,9 +1034,43 @@ async function runPrerender() {
     },
     {
       route: 'second-hand-phones',
-      title: 'REFURBISHED Used & Second-Hand Phone Sales Newcastle | Mayfield',
-      desc: 'Looking for a budget phone? Browse our inventory of certified, fully tested, second-hand iPhones and Samsung Galaxy phones with full warranty.',
-      body: `<h1>Certified Refurbished & Used Phones Newcastle</h1><p>Save hundreds. We sell top-tier used Apple iPhones and Samsung Galaxy devices, fully optimized and with a solid warranty.</p>`,
+      title: 'Refurbished & Second-Hand Phones Newcastle | Mayfield',
+      desc: 'Certified refurbished & used iPhones and Samsung phones in Newcastle. 40-point tested, unlocked, with local warranty at 276 Maitland Rd Mayfield.',
+      body: `
+        <article>
+          <h1>Certified Refurbished & Used Phones in Newcastle & Mayfield</h1>
+          <p>Looking for a reliable smartphone without spending $1,500+ on a brand new flagship? Mayfield Phone Repair offers a curated selection of certified refurbished and thoroughly tested second-hand smartphones at our workshop located at <strong>276 Maitland Rd, Mayfield NSW 2304</strong>. Whether you need an affordable iPhone for school, a dependable Samsung Galaxy for work, or a budget replacement handset, buying refurbished from our diagnostic lab is the safest choice in Newcastle.</p>
+          <h2>Why Buy from Mayfield Phone Repair Instead of Online Marketplaces?</h2>
+          <p>Buying second-hand phones from online classifieds or social media marketplaces carries significant risks: hidden water damage, counterfeit replacement screens, dying batteries, blacklisted IMEIs, or iCloud/Google activation locks. At Mayfield Phone Repair, every pre-owned handset undergoes our rigorous <strong>40-Point Diagnostic Quality Inspection</strong> before it is approved for sale.</p>
+          <h2>Our 40-Point Technical Certification Checklist</h2>
+          <ul>
+            <li><strong>Battery Health Verified:</strong> Every battery is tested on digital load analyzers to guarantee genuine high capacity and healthy cycle counts.</li>
+            <li><strong>Screen & Digitizer:</strong> Original OEM displays tested for multi-touch accuracy, True Tone operation, and color saturation.</li>
+            <li><strong>Cameras & Biometrics:</strong> Front and rear camera autofocus, OIS stabilization, Face ID, and optical/ultrasonic fingerprint sensors fully validated.</li>
+            <li><strong>Clean IMEI & Network Unlocked:</strong> Guaranteed clean Australian network status (no finance locks, blacklist blocks, or lost/stolen reports). Compatible with Telstra, Optus, and Vodafone.</li>
+            <li><strong>Store Warranty Included:</strong> Every device includes our local workshop warranty for total peace of mind.</li>
+          </ul>
+          <h2>Trade-In Your Broken or Old Handset</h2>
+          <p>Have an old iPhone or Samsung sitting in your drawer with a cracked screen or dead battery? Bring it into our Mayfield store for a rapid trade-in appraisal. We offer competitive credit towards any refurbished smartphone in stock, helping you upgrade affordably while keeping electronic waste out of Australian landfills.</p>
+          <h2>Frequently Asked Questions: Refurbished Phones Newcastle</h2>
+          <article>
+            <h3>Do your refurbished phones come with a warranty?</h3>
+            <p>Yes. All certified pre-owned handsets sold at Mayfield Phone Repair include our local store warranty covering hardware and performance.</p>
+          </article>
+          <article>
+            <h3>Are the phones unlocked to all Australian networks?</h3>
+            <p>Yes. Every second-hand phone we sell is 100% factory unlocked and ready to use on Telstra, Optus, Vodafone, and all MVNO prepaid carriers.</p>
+          </article>
+          <article>
+            <h3>Can you transfer my data from my old phone to the new one?</h3>
+            <p>Absolutely. Our technicians provide complimentary or low-cost direct device-to-device data transfers, moving your contacts, photos, WhatsApp messages, and apps seamlessly.</p>
+          </article>
+          <article>
+            <h3>What models do you typically stock?</h3>
+            <p>We stock popular models including iPhone 11, 12, 13, 14, and 15 series, as well as Samsung Galaxy S21, S22, S23, S24, and Galaxy A-series handsets. Inventory updates weekly.</p>
+          </article>
+        </article>
+      `,
       schema: {
         "@context": "https://schema.org",
         "@type": "WebPage",
@@ -875,9 +1080,37 @@ async function runPrerender() {
     },
     {
       route: 'accessories',
-      title: 'Premium Protective Cases, Screen Protectors & Chargers | Mayfield',
-      desc: 'Equip your phone with heavy-duty protection. Shop premium shockproof cases, ultra-dense glass protectors, and block chargers at Mayfield.',
-      body: `<h1>Premium Protective Gear & Chargers</h1><p>Prevent your next crack. We supply dense tempered glass protectors and Otterbox style cases on-location at Maitland Rd.</p>`,
+      title: 'Phone Cases, Screen Protectors & Chargers | Mayfield',
+      desc: 'Premium smartphone cases, 9H tempered glass screen protectors & fast GaN chargers in Newcastle. Free protector installation at 276 Maitland Rd.',
+      body: `
+        <article>
+          <h1>Smartphone Cases, Screen Protectors & Fast Chargers in Newcastle</h1>
+          <p>Protecting your smartphone after a professional repair is the smartest way to avoid expensive repeat damage. At Mayfield Phone Repair (<strong>276 Maitland Rd, Mayfield NSW 2304</strong>), we stock a comprehensive range of heavy-duty shockproof protective cases, high-density 9H tempered glass screen protectors, and certified fast chargers for Apple iPhone, Samsung Galaxy, and Google Pixel devices.</p>
+          <h2>9H Tempered Glass Protectors with Free Professional Fitting</h2>
+          <p>Applying a screen protector at home often results in trapped dust bubbles, misaligned camera cutouts, and peeling edges. When you purchase any tempered glass screen protector at our Mayfield workshop, our technicians provide <strong>complimentary precision dust-free installation</strong> at the counter under bright inspection lighting. Our screen protectors feature oleophobic anti-fingerprint coatings, edge-to-edge curved bevels, and high-impact dispersion layers designed to absorb drop shocks before they reach your delicate OLED display.</p>
+          <h2>Heavy-Duty Shockproof & MagSafe Compatible Cases</h2>
+          <p>Whether you work on construction job sites around Newcastle and the Port, study at university, or want a slim minimalist profile, we have protective covers to suit your lifestyle. Our collection includes dual-layer shockproof rugged cases, impact-resistant silicone gel covers, and MagSafe-compatible clear cases that support high-speed wireless charging and magnetic car mounts.</p>
+          <h2>Certified Fast Chargers & Heavy-Duty Braided Cables</h2>
+          <p>Cheap service-station charging cords frequently lack voltage regulator chips, delivering dirty current that burns out delicate motherboard charging ICs (like Apple Tristar/Hydra and Samsung PMICs). We supply high-efficiency GaN (Gallium Nitride) USB-C fast wall adapters (20W, 30W, and 65W) and MFi-compliant braided USB-C and Lightning cables designed for rapid power delivery without overheating your battery.</p>
+          <h2>Frequently Asked Questions: Phone Accessories Newcastle</h2>
+          <article>
+            <h3>Do you install screen protectors for free in-store?</h3>
+            <p>Yes! Every screen protector purchased at our Mayfield store is professionally installed by our technicians free of charge with zero dust or bubbles.</p>
+          </article>
+          <article>
+            <h3>Are your chargers safe for new iPhone 16/17 and Samsung S25/S26 models?</h3>
+            <p>Yes. All of our chargers utilize certified USB Power Delivery (USB-PD) protocols with built-in thermal and over-voltage safeguards that protect battery longevity.</p>
+          </article>
+          <article>
+            <h3>Which phone brands do you stock cases for?</h3>
+            <p>We stock protective cases and accessories for all popular models of Apple iPhone, Samsung Galaxy S and A series, and Google Pixel handsets.</p>
+          </article>
+          <article>
+            <h3>Do you offer bundle discounts with repairs?</h3>
+            <p>Yes! Customers receiving a screen replacement or battery swap receive special discounted package pricing on case and tempered glass bundles.</p>
+          </article>
+        </article>
+      `,
       schema: {
         "@context": "https://schema.org",
         "@type": "WebPage",
@@ -887,9 +1120,43 @@ async function runPrerender() {
     },
     {
       route: 'corporate-repairs',
-      title: 'B2B & Corporate Mobile Device Repair Services Newcastle | Mayfield',
-      desc: 'Tailored repair solution plans for corporate employees, schools, and local government fleets. Fast 30-min service and itemized monthly billing.',
-      body: `<h1>Corporate and Commercial Repairs Newcastle</h1><p>Keep your employees online. We optimize fleet diagnostics and repairs for local schools and corporate accounts.</p>`,
+      title: 'Corporate & Fleet Phone Repair Newcastle | Mayfield',
+      desc: 'Corporate mobile & tablet fleet repair services in Newcastle. Priority 30-min turnarounds, monthly billing & bulk rates for schools & businesses.',
+      body: `
+        <article>
+          <h1>Corporate, Commercial & Fleet Mobile Repairs in Newcastle</h1>
+          <p>In modern Australian business, mobile phones and tablets are frontline tools. When a tradesman's handset suffers a cracked screen on a construction site, a healthcare worker drops an iPad, or an executive's laptop battery fails, business operations grind to a halt. Mayfield Phone Repair delivers rapid, reliable B2B mobile device maintenance and fleet repair solutions for businesses, schools, medical practices, logistics providers, and local government across Newcastle and the Hunter Valley.</p>
+          <h2>Why Newcastle Businesses Partner with Mayfield Phone Repair</h2>
+          <p>Large national manufacturer service programs often require shipping handsets interstate, taking 7 to 14 business days and performing mandatory factory resets that wipe company data. As a local independent facility at <strong>276 Maitland Rd, Mayfield NSW 2304</strong>, we offer express local turnaround with zero data loss, keeping your staff connected and productive.</p>
+          <h2>Key Corporate Account Benefits</h2>
+          <ul>
+            <li><strong>Priority VIP Queue:</strong> Corporate devices jump to the front of our repair bench for immediate 30 to 45-minute turnaround.</li>
+            <li><strong>Consolidated Monthly Invoicing:</strong> Simplified 30-day corporate trading accounts with itemized GST tax invoices and serial tracking.</li>
+            <li><strong>Volume Fleet Pricing:</strong> Substantial tiered discounts on bulk screen replacements, battery replacements, and protective gear.</li>
+            <li><strong>Zero Data Loss Priority:</strong> Hardware fixes preserve device configurations, MDM profiles, and business applications.</li>
+            <li><strong>Dedicated Account Manager:</strong> Direct phone and email access to our senior technical team for quotes and priority scheduling.</li>
+          </ul>
+          <h2>Devices Serviced Across Your Fleet</h2>
+          <p>We service complete corporate ecosystems: Apple iPhone (all series), Apple iPad (Air, Pro, and standard education editions), Samsung Galaxy enterprise smartphones and tablets, Apple MacBooks, and Microsoft Surface devices. From simple broken front glass to liquid spill board repairs, we handle it all under our 90-day comprehensive warranty.</p>
+          <h2>Frequently Asked Questions: Corporate Mobile Repairs</h2>
+          <article>
+            <h3>How do we open a corporate repair account?</h3>
+            <p>Contact our Mayfield team at (02) 4049 1735 or visit us at 276 Maitland Rd. We establish corporate billing accounts with flexible 30-day payment terms for verified Australian businesses.</p>
+          </article>
+          <article>
+            <h3>Do you service educational institutions and local schools?</h3>
+            <p>Yes! We manage iPad and tablet fleet maintenance for primary schools, high schools, and University of Newcastle departments with express turnaround during term time.</p>
+          </article>
+          <article>
+            <h3>Can you provide pick-up and delivery for fleet repairs?</h3>
+            <p>Yes, for local commercial accounts with multiple handsets or regular repair volumes across Newcastle, courier or technician pick-up and drop-off can be arranged.</p>
+          </article>
+          <article>
+            <h3>What warranty is provided on fleet repairs?</h3>
+            <p>All fleet repairs carry our standard 90-day parts and labor warranty, backed by full local diagnostic support.</p>
+          </article>
+        </article>
+      `,
       schema: {
         "@context": "https://schema.org",
         "@type": "WebPage",
@@ -900,8 +1167,77 @@ async function runPrerender() {
     {
       route: 'sitemap',
       title: 'Sitemap | Mayfield Phone Repair',
-      desc: 'Looking for a specific device, service, suburb, or blog entry? Browse the site hierarchy of Mayfield Phone Repair.',
-      body: `<h1>Sitemap</h1><p>Explore the full structure and directories of our local repair facility.</p>`,
+      desc: 'Complete HTML sitemap for Mayfield Phone Repair. Browse all repair services, device brands, repair guides, and Newcastle suburb landing pages.',
+      body: `
+        <article>
+          <h1>Mayfield Phone Repair Complete Site Directory & Sitemap</h1>
+          <p>Welcome to the complete sitemap directory for Mayfield Phone Repair, located at <strong>276 Maitland Rd, Mayfield NSW 2304</strong>. Use the links below to quickly navigate to our repair services, supported device brands, technical repair guides, and Newcastle suburb pages.</p>
+          
+          <h2>Main Pages & Contact</h2>
+          <ul>
+            <li><a href="/">Home — Phone Repair Newcastle</a></li>
+            <li><a href="/quote">Get a Free Instant Quote</a></li>
+            <li><a href="/about-us">About Mayfield Phone Repair Lab</a></li>
+            <li><a href="/after-hours">Emergency After-Hours Repair Service</a></li>
+            <li><a href="/second-hand-phones">Refurbished & Second-Hand Phone Sales</a></li>
+            <li><a href="/accessories">Phone Cases, Screen Protectors & Fast Chargers</a></li>
+            <li><a href="/corporate-repairs">Corporate & Commercial Fleet Repairs</a></li>
+            <li><a href="/privacy-policy">Privacy Policy</a></li>
+            <li><a href="/terms-of-service">Terms of Service & 90-Day Warranty</a></li>
+            <li><a href="/blog">Technology & Repair Blog</a></li>
+          </ul>
+
+          <h2>Specialist Repair Services</h2>
+          <ul>
+            ${servicesData.map(s => `<li><a href="/service/${s.id}"><strong>${s.title} Newcastle:</strong> ${s.shortDesc}</a></li>`).join('')}
+          </ul>
+
+          <h2>Supported Device Brands</h2>
+          <ul>
+            ${brands.map(b => `<li><a href="/brand/${b.id}"><strong>${b.name} Phone Repair:</strong> Screen from $${b.startingPrice.screen}, Battery from $${b.startingPrice.battery}</a></li>`).join('')}
+          </ul>
+
+          <h2>Technical Repair & Cost Guides</h2>
+          <ul>
+            <li><a href="/repair-guides">Repair Guides & FAQ Hub</a></li>
+            <li><a href="/repair-guides/phone-screen-repair-newcastle">Phone Screen Repair Newcastle Guide (OLED vs LCD vs Incell)</a></li>
+            <li><a href="/repair-guides/iphone-repair-newcastle">Complete iPhone Repair Guide Newcastle</a></li>
+            <li><a href="/repair-guides/samsung-repair-newcastle">Samsung Galaxy Repair Guide Newcastle (S-Series & Z-Fold)</a></li>
+            <li><a href="/repair-guides/phone-battery-replacement-newcastle">Phone Battery Replacement Guide Newcastle</a></li>
+            <li><a href="/repair-guides/water-damage-phone-repair">Emergency Water Damage Phone Repair Guide (First 60 Mins)</a></li>
+          </ul>
+
+          <h2>Newcastle & Hunter Valley Suburbs Served</h2>
+          <ul>
+            <li><a href="/phone-repair/kotara">Phone Repair Kotara NSW</a></li>
+            <li><a href="/phone-repair/lambton">Phone Repair Lambton NSW</a></li>
+            <li><a href="/phone-repair/charlestown">Phone Repair Charlestown NSW</a></li>
+            <li><a href="/phone-repair/wallsend">Phone Repair Wallsend NSW</a></li>
+            <li><a href="/phone-repair/hamilton">Phone Repair Hamilton NSW</a></li>
+            <li><a href="/phone-repair/jesmond">Phone Repair Jesmond NSW</a></li>
+            <li><a href="/phone-repair/waratah">Phone Repair Waratah NSW</a></li>
+            <li><a href="/phone-repair/adamstown">Phone Repair Adamstown NSW</a></li>
+            <li><a href="/phone-repair/broadmeadow">Phone Repair Broadmeadow NSW</a></li>
+            <li><a href="/phone-repair/newcastle-west">Phone Repair Newcastle West NSW</a></li>
+            <li><a href="/phone-repair/cardiff">Phone Repair Cardiff NSW</a></li>
+            <li><a href="/phone-repair/belmont">Phone Repair Belmont NSW</a></li>
+          </ul>
+
+          <h2>Frequently Asked Questions: Site Navigation</h2>
+          <article>
+            <h3>How do I get an exact quote for my device?</h3>
+            <p>Visit our <a href="/quote">Free Quote Page</a> or call our workshop directly at <a href="tel:+61240491735">(02) 4049 1735</a> for immediate over-the-phone fixed pricing.</p>
+          </article>
+          <article>
+            <h3>Where is the repair store located?</h3>
+            <p>Our workshop is at 276 Maitland Rd, Mayfield NSW 2304, featuring convenient on-street and rear parking.</p>
+          </article>
+          <article>
+            <h3>Are all repairs covered by warranty?</h3>
+            <p>Yes. All hardware repairs are backed by our 90-day parts and labor warranty as outlined in our Terms of Service.</p>
+          </article>
+        </article>
+      `,
       schema: {
         "@context": "https://schema.org",
         "@type": "WebPage",
@@ -911,8 +1247,8 @@ async function runPrerender() {
     },
     {
       route: 'repair-guides/phone-screen-repair-newcastle',
-      title: 'Phone Screen Repair Newcastle: 2026 Technical & Pricing Guide | Mayfield',
-      desc: 'Everything you need to know about screen replacement costs in Newcastle: Soft OLED vs Hard OLED vs Incell LCD, True Tone programming, and salt-air humidity protection.',
+      title: 'Phone Screen Repair Newcastle: 2026 Guide | Mayfield',
+      desc: 'Newcastle phone screen repair guide: Soft OLED vs Hard OLED vs Incell LCD, True Tone programming, pricing from $89, and salt-air protection in Mayfield.',
       body: `
         <article>
           <h1>Phone Screen Repair Newcastle: Technical & Pricing Guide (2026)</h1>
@@ -979,6 +1315,10 @@ async function runPrerender() {
             <h3>How long does a screen replacement take?</h3>
             <p>Most iPhone and Samsung screen repairs are completed within 30 to 45 minutes at our 276 Maitland Rd Mayfield shop. Walk-ins are welcome without an appointment.</p>
           </article>
+          <article>
+            <h3>Will my touchscreen feel the same as original?</h3>
+            <p>Yes. Our OEM-specification replacement screens provide full native touch sampling rates, multi-touch gesture responsiveness, and high oleophobic finger-glide feel.</p>
+          </article>
         </article>
       `,
       schema: {
@@ -1008,19 +1348,39 @@ async function runPrerender() {
     },
     {
       route: 'repair-guides/iphone-repair-newcastle',
-      title: 'iPhone Repair Newcastle Guide | Models, Screens & Batteries | Mayfield',
-      desc: 'Complete technical overview for iPhone repairs in Newcastle. From iPhone 11 to iPhone 17 Pro Max: screen replacements, battery degradation, and True Tone restoration.',
+      title: 'iPhone Repair Newcastle Guide | Mayfield Phone Repair',
+      desc: 'Newcastle iPhone repair guide: iPhone 11 to iPhone 17 Pro Max screen replacements, battery swaps, True Tone restoration, and 90-day warranty in Mayfield.',
       body: `
         <article>
           <h1>Complete iPhone Repair Guide for Newcastle & Hunter Region</h1>
-          <p>Fast, reliable iPhone repairs at 276 Maitland Rd, Mayfield. We service all generations from iPhone 11 through iPhone 17 Pro Max with 30-minute turnarounds and a 90-day guarantee.</p>
-          <h2>Common iPhone Issues We Fix Daily</h2>
+          <p>Looking for professional iPhone repair services in Newcastle? Mayfield Phone Repair at <strong>276 Maitland Rd, Mayfield NSW 2304</strong> is the Hunter Valley's premier destination for fast, reliable iPhone restoration. We service all generations from iPhone 8 and iPhone 11 through iPhone 16 and iPhone 17 Pro Max with 30-minute turnarounds, transparent pricing, and our 90-day comprehensive parts warranty.</p>
+          
+          <h2>Common iPhone Issues We Fix Daily in Newcastle</h2>
+          <p>With thousands of iPhones in circulation across Newcastle, our workshop sees a regular variety of common hardware faults caused by daily drops, water exposure, and battery wear:</p>
           <ul>
-            <li>Shattered Ceramic Shield front glass and rear back glass replacement via precision laser</li>
-            <li>Degraded battery health causing unexpected shutdowns and performance throttling</li>
-            <li>Faulty Lightning and USB-C charging ports with micro-soldering restoration</li>
-            <li>Camera lens scratching and autofocus sensor stabilization failures</li>
+            <li><strong>Shattered Front Ceramic Shield Glass:</strong> Fractured outer glass, unresponsive digitizers, or OLED display bleed showing vertical colored lines.</li>
+            <li><strong>Laser Back Glass Replacement:</strong> Shattered rear glass removed using precision cold-laser systems without opening the front chassis.</li>
+            <li><strong>Battery Degradation & Throttle Warnings:</strong> Swapping depleted cells (health under 80%) for fresh 0-cycle batteries in 25–30 minutes.</li>
+            <li><strong>Lightning & USB-C Port Faults:</strong> Cleaning out packed industrial lint or soldering new charging flexes to restore fast charging.</li>
+            <li><strong>Camera Lens Glass Fractures:</strong> Replacing cracked sapphire camera rings to eliminate photo blur and protect image sensor optics.</li>
           </ul>
+
+          <h2>True Tone Serialization & Face ID Preservation</h2>
+          <p>Apple pairs display and biometric hardware to the motherboard via encrypted cryptographic handshakes. Standard kiosk repairs disable True Tone ambient lighting adaptation and can trigger unwanted warning messages. At Mayfield Phone Repair, our senior technicians use EEPROM serialization micro-programmers to clone your original screen serial numbers directly onto the replacement panel, preserving True Tone, auto-brightness, and Face ID biometric security.</p>
+
+          <h2>Frequently Asked Questions: iPhone Repairs Newcastle</h2>
+          <article>
+            <h3>How much does an iPhone screen repair cost in Newcastle?</h3>
+            <p>iPhone screen repairs start from $89 for older models (iPhone 8/11), $129–$169 for standard OLED screens (iPhone 12/13/14), and up to $380+ for flagship Pro Max displays.</p>
+          </article>
+          <article>
+            <h3>Will Face ID still work after an iPhone screen repair?</h3>
+            <p>Yes! We carefully transplant your original ear speaker flex cable containing the infrared flood illuminator, ensuring Face ID remains 100% functional.</p>
+          </article>
+          <article>
+            <h3>How long does an iPhone battery swap take?</h3>
+            <p>Most iPhone battery replacements take approximately 25 to 30 minutes while you wait at our 276 Maitland Rd workshop.</p>
+          </article>
         </article>
       `,
       schema: {
@@ -1032,14 +1392,32 @@ async function runPrerender() {
     },
     {
       route: 'repair-guides/samsung-repair-newcastle',
-      title: 'Samsung Galaxy Repair Newcastle Guide | S-Series & Z-Fold | Mayfield',
-      desc: 'Expert guide to Samsung Galaxy repairs in Newcastle. Dynamic AMOLED screen fixes, curved glass, battery swaps, and Z Fold/Flip hinge servicing in Mayfield.',
+      title: 'Samsung Galaxy Repair Guide Newcastle | Mayfield',
+      desc: 'Samsung Galaxy repair guide Newcastle: Dynamic AMOLED screens, battery swaps, curved glass fixes, and Z Fold/Flip hinge servicing at Mayfield.',
       body: `
         <article>
           <h1>Samsung Galaxy Repair Guide in Newcastle NSW</h1>
-          <p>Specialized repair procedures for Samsung Galaxy S21 through S26 Ultra, Galaxy A-series, and foldable Z Fold/Flip models.</p>
-          <h2>Samsung Dynamic AMOLED Replacement Process</h2>
-          <p>Samsung curved and high-refresh OLED displays require specialized heat-bonding and industrial pressure seals to maintain frame rigidity and water resistance. Our senior techs use calibrated heat tables and factory jigs for flawless fitment.</p>
+          <p>Samsung Galaxy devices feature some of the most technologically advanced Dynamic AMOLED 2X displays, curved edge glass, and flexible folding mechanisms on the consumer market. When your Galaxy device is damaged, choosing an experienced repair center is essential. At Mayfield Phone Repair (<strong>276 Maitland Rd, Mayfield NSW 2304</strong>), we provide expert same-day servicing for Galaxy S-Series, Galaxy A-Series, Galaxy Note, and Galaxy Z Fold/Flip handsets.</p>
+
+          <h2>Specialized Samsung Dynamic AMOLED 2X Display Fixes</h2>
+          <p>Samsung's flagship 120Hz AMOLED panels deliver up to 2600 nits of peak brightness and integrate ultrasonic in-display fingerprint sensors. Low-grade aftermarket screens can permanently disable biometric fingerprint unlocking and produce dull colors. We install OEM-grade AMOLED assemblies with integrated ultrasonic biometric layers, restoring full factory display performance, deep blacks, and instant biometric authentication.</p>
+
+          <h2>Galaxy Z Fold & Z Flip Flexible Screen & Hinge Servicing</h2>
+          <p>Foldable devices require delicate handling due to their Ultra Thin Glass (UTG) flexible screens and complex internal gear hinges. If your Galaxy Z Fold or Z Flip is lifting at the crease, exhibiting black ink bleed, or refusing to open completely flat, our technicians dismantle the housing, clear debris from the internal gear tracks, and install factory-grade flexible folding display assemblies.</p>
+
+          <h2>Frequently Asked Questions: Samsung Galaxy Repairs Newcastle</h2>
+          <article>
+            <h3>Will my fingerprint reader work after a Samsung screen replacement?</h3>
+            <p>Yes. We install OEM-specification Dynamic AMOLED screens that support ultrasonic and optical in-display fingerprint calibration.</p>
+          </article>
+          <article>
+            <h3>Can you fix the "Moisture Detected" warning on Samsung phones?</h3>
+            <p>Yes. We perform ultrasonic deoxidization and chemical cleaning of the USB-C port, or replace the charging sub-board in 35–45 minutes.</p>
+          </article>
+          <article>
+            <h3>How much does a Samsung screen repair cost?</h3>
+            <p>Samsung Galaxy A-series screens start from $99, while flagship S-series and Ultra AMOLED replacements start from $149 to $399 depending on the model.</p>
+          </article>
         </article>
       `,
       schema: {
@@ -1051,19 +1429,32 @@ async function runPrerender() {
     },
     {
       route: 'repair-guides/phone-battery-replacement-newcastle',
-      title: 'Phone Battery Replacement Guide Newcastle | Signs, Chemistry & Costs',
-      desc: 'When should you replace your phone battery? Learn about cycle degradation, thermal swelling hazards during Newcastle summers, and OEM vs aftermarket cells.',
+      title: 'Phone Battery Replacement Newcastle Guide | Mayfield',
+      desc: 'Phone battery replacement Newcastle guide: battery degradation cycles, summer swelling hazards, 30-minute swap times, and OEM-spec cell pricing.',
       body: `
         <article>
           <h1>Phone Battery Replacement Newcastle: Complete Technical Guide</h1>
-          <p>Is your iPhone or Samsung dying in just a few hours? Our 30-minute battery replacement service at 276 Maitland Rd Mayfield installs fresh, high-capacity cells backed by our 90-day warranty.</p>
-          <h2>Signs Your Battery Needs Immediate Replacement</h2>
-          <ul>
-            <li>Battery health reading below 80% or showing "Service Recommended"</li>
-            <li>Phone abruptly powering down when battery displays 20% to 40%</li>
-            <li>Device running unusually hot during basic browsing or video calls</li>
-            <li>Display or back cover lifting due to lithium pouch cell gas swelling</li>
-          </ul>
+          <p>Is your iPhone, Samsung Galaxy, or Google Pixel struggling to hold a charge throughout the day? Smartphone batteries rely on lithium-ion cobalt chemistry, which naturally degrades with every charge and discharge cycle. At Mayfield Phone Repair (<strong>276 Maitland Rd, Mayfield NSW 2304</strong>), our technicians perform express 25 to 30-minute battery replacements using fresh, high-capacity 0-cycle cells backed by our 90-day warranty.</p>
+
+          <h2>Understanding Battery Degradation & Charge Cycles</h2>
+          <p>Most modern smartphone batteries are engineered to retain up to 80% of their original capacity across 500 complete charge cycles (roughly 18 to 24 months of daily use). Beyond this threshold, internal chemical resistance increases rapidly. This leads to common symptoms including sudden shutdowns at 20% to 30% remaining charge, CPU thermal throttling causing sluggish app responsiveness, and the device feeling uncomfortably hot during basic browsing.</p>
+
+          <h2>The Danger of Swollen Batteries in Newcastle Summers</h2>
+          <p>During Newcastle's hot summer months, elevated ambient temperatures combined with fast-charging currents can trigger thermal runaway inside degraded lithium pouches. Electrolyte breakdown generates pressurized gas, causing the battery cell to physically swell. A bulging battery exerts massive mechanical pressure from inside the phone, cracking rear glass panels, lifting OLED displays, and posing a serious fire safety hazard. If your screen or back cover is lifting, bring it to our Mayfield workshop immediately for safe neutralization.</p>
+
+          <h2>Frequently Asked Questions: Battery Replacements Newcastle</h2>
+          <article>
+            <h3>How long does a phone battery replacement take?</h3>
+            <p>Our technicians complete iPhone and Android battery replacements in just 25 to 30 minutes while you wait at our Maitland Rd store.</p>
+          </article>
+          <article>
+            <h3>How much does a new phone battery cost in Newcastle?</h3>
+            <p>Phone battery replacements start from $69 for budget Android phones, $89 for iPhone 8 through iPhone 12, and $99–$129 for newer flagship models.</p>
+          </article>
+          <article>
+            <h3>Do you safely dispose of old depleted batteries?</h3>
+            <p>Yes. All depleted lithium cells are stored in fire-safe containers and delivered to certified Australian battery recycling facilities to protect the Hunter environment.</p>
+          </article>
         </article>
       `,
       schema: {
@@ -1075,18 +1466,42 @@ async function runPrerender() {
     },
     {
       route: 'repair-guides/water-damage-phone-repair',
-      title: 'Dropped Phone in Water? Emergency 60-Minute Guide | Mayfield Phone Repair',
+      title: 'Dropped Phone in Water? Emergency Guide | Mayfield',
       desc: 'What to do when your phone gets wet in Newcastle. Why dry rice is a myth that worsens corrosion, and why ultrasonic isopropyl baths save logic boards.',
       body: `
         <article>
           <h1>Water Damaged Phone Repair: The Crucial First 60 Minutes</h1>
-          <p>Dropping your phone in water or liquid causes instant electrical shorts and accelerates copper trace corrosion. Follow these emergency steps before bringing it to our Mayfield lab:</p>
-          <h2>Emergency Do's and Don'ts</h2>
+          <p>Dropping your smartphone into the ocean at Merewether Beach, a swimming pool, a sink, or a toilet is a high-stress emergency. Water ingress causes immediate electrical short-circuits and triggers aggressive galvanic corrosion on delicate logic board microchips. Mayfield Phone Repair (<strong>276 Maitland Rd, Mayfield NSW 2304</strong>) specializes in component-level liquid damage recovery and data rescue. Follow this technical emergency protocol to maximize your device's chances of survival.</p>
+
+          <h2>The First 60 Minutes: Emergency Do's and Don'ts</h2>
           <ul>
-            <li><strong>DO NOT</strong> plug it into a charger. Current flow through wet traces permanently fries logic board ICs.</li>
-            <li><strong>DO NOT</strong> put it in dry rice. Rice starch enters ports, creates sticky cement, and does not absorb internal moisture.</li>
-            <li><strong>DO</strong> power it down immediately and bring it to 276 Maitland Rd Mayfield for ultrasonic cleaning and corrosion abatement.</li>
+            <li><strong>DO NOT Plug in a Charger:</strong> Connecting a wet phone to power sends electric current through water-bridged circuit traces, instantly vaporizing copper tracks and blowing power management ICs.</li>
+            <li><strong>DO NOT Put Your Phone in Rice:</strong> Dry rice is an ineffective myth. Rice does not absorb internal moisture sealed inside a phone chassis. Worse, rice starch enters charging ports and speaker grilles, mixing with moisture to form a corrosive paste.</li>
+            <li><strong>DO Power Down the Device Immediately:</strong> Turn off the phone immediately to cut active voltage across the motherboard.</li>
+            <li><strong>DO Remove SIM Tray & Case:</strong> Take off protective cases and remove the SIM card tray to allow basic airflow venting.</li>
+            <li><strong>DO Bring It Directly to Mayfield Phone Repair:</strong> The faster our technicians can dismantle the device and begin ultrasonic chemical cleaning, the higher the success rate.</li>
           </ul>
+
+          <h2>Our 4-Stage Ultrasonic Board Restoration Process</h2>
+          <p>At our Mayfield diagnostic facility, we completely disassemble the phone to isolate the bare motherboard. The board is submerged in an industrial ultrasonic cleaning tank filled with 99.9% electronic-grade isopropyl alcohol. High-frequency ultrasonic sound waves create microscopic cavitation bubbles that scrub away mineral salts, flux deposits, and corrosion residue from beneath microscopic surface-mount BGA chips. After baking in a thermal drying oven, we inspect the PCB under 40x stereoscopic magnification and micro-solder any blown capacitors or filters.</p>
+
+          <h2>Frequently Asked Questions: Water Damaged Phones</h2>
+          <article>
+            <h3>Can data be saved from a water-damaged phone that won't turn on?</h3>
+            <p>Yes! Even if the screen is dead and the battery is shorted, our micro-soldering specialists can repair power rails or transplant memory chips to recover irreplaceable photos and contacts.</p>
+          </article>
+          <article>
+            <h3>Why is salt water much more damaging than fresh water?</h3>
+            <p>Salt water contains high concentrations of dissolved ions that conduct electricity aggressively and accelerate galvanic corrosion of copper within hours.</p>
+          </article>
+          <article>
+            <h3>How much does water damage assessment cost?</h3>
+            <p>We provide upfront diagnostics with transparent pricing starting from $89 for ultrasonic cleaning. We operate under a No Data, No Fee guarantee on data recovery.</p>
+          </article>
+          <article>
+            <h3>How long does the liquid damage restoration process take?</h3>
+            <p>A full ultrasonic clean, bake, and micro-solder assessment typically takes 24 to 48 hours to ensure all moisture is eradicated before power is reapplied.</p>
+          </article>
         </article>
       `,
       schema: {
@@ -1098,14 +1513,143 @@ async function runPrerender() {
     },
     {
       route: 'repair-guides',
-      title: 'Phone Repair Guides & FAQ | Cost, Timing & Issues | Mayfield',
-      desc: 'AI-citable phone repair guides. Direct answers to common questions about iPhone and Samsung screen repair costs, timing, and device issues in Mayfield Newcastle.',
-      body: `<h1>AI-Citable Repair Guides & FAQ</h1><p>Clear, direct pricing and technical answers for your specific device issues. No jargon, just straight facts.</p>`,
+      title: 'Phone Repair Guides | Cost, Timing & Battery Fixes | Mayfield',
+      desc: 'Newcastle phone repair guides & FAQ: direct answers on iPhone and Samsung screen repair costs, battery life, turnaround times, and common device issues.',
+      body: `
+        <article>
+          <h1>Newcastle Smartphone Repair Guides & Technical FAQ Hub</h1>
+          <p>Welcome to the official technical repair resource hub from Mayfield Phone Repair, Newcastle's trusted independent mobile diagnostic lab at <strong>276 Maitland Rd, Mayfield NSW 2304</strong>. Here you will find clear, jargon-free answers to common device issues, detailed price breakdowns, and maintenance advice for Apple iPhone, Samsung Galaxy, Google Pixel, iPad, and MacBook hardware.</p>
+
+          <h2>Browse Our Specialized Technical Guides</h2>
+          <ul>
+            <li><a href="/repair-guides/phone-screen-repair-newcastle"><strong>Phone Screen Repair Guide Newcastle:</strong> Soft OLED vs Hard OLED vs Incell LCD display comparisons, True Tone color programming, and coastal salt-air corrosion risks.</a></li>
+            <li><a href="/repair-guides/iphone-repair-newcastle"><strong>Complete iPhone Repair Guide:</strong> Model-by-model technical overview covering iPhone 11 through iPhone 17 Pro Max screen fixes, battery health, and Face ID maintenance.</a></li>
+            <li><a href="/repair-guides/samsung-repair-newcastle"><strong>Samsung Galaxy Repair Guide:</strong> Dynamic AMOLED 2X displays, curved edge screen replacements, in-display fingerprint sensors, and Galaxy Z Fold/Flip hinge servicing.</a></li>
+            <li><a href="/repair-guides/phone-battery-replacement-newcastle"><strong>Phone Battery Replacement Guide:</strong> Lithium-ion cycle degradation, summer thermal swelling risks, unexpected shutdowns, and 30-minute replacement procedures.</a></li>
+            <li><a href="/repair-guides/water-damage-phone-repair"><strong>Emergency Water Damage Phone Guide:</strong> The critical first 60 minutes after liquid contact, why dry rice fails, and our 4-stage ultrasonic restoration protocol.</a></li>
+          </ul>
+
+          <h2>Frequently Asked Questions: Newcastle Device Repairs</h2>
+          <article>
+            <h3>How much does a phone screen repair cost in Newcastle?</h3>
+            <p>Screen replacement costs range from $89 for older iPhones (iPhone 8/11) to $149–$229 for standard OLED panels, and up to $380+ for dynamic Pro Max flagships. All quotes include parts, labor, and a 90-day warranty.</p>
+          </article>
+          <article>
+            <h3>How fast can you fix my phone?</h3>
+            <p>Over 90% of screen replacements and battery swaps are completed on-site in 30 to 45 minutes at our 276 Maitland Rd Mayfield workshop.</p>
+          </article>
+          <article>
+            <h3>Do I need to make an appointment before coming in?</h3>
+            <p>No appointment is necessary! Walk-ins are welcome Monday through Saturday from 9am to 5pm, and Sundays from 10am to 2pm.</p>
+          </article>
+          <article>
+            <h3>Will my data stay private and intact during repair?</h3>
+            <p>Yes. Hardware repairs do not modify internal storage, and our technicians adhere to strict privacy standards. We never ask for your passwords unless testing requires it with your permission.</p>
+          </article>
+        </article>
+      `,
       schema: {
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "name": "Repair Guides",
         "url": `${BASE_URL}/repair-guides`
+      }
+    },
+    {
+      route: 'privacy-policy',
+      title: 'Privacy Policy | Mayfield Phone Repair Newcastle',
+      desc: 'Privacy policy for Mayfield Phone Repair at 276 Maitland Rd, Mayfield NSW. Learn how we handle customer contact details and device data.',
+      body: `
+        <article>
+          <h1>Privacy Policy — Mayfield Phone Repair</h1>
+          <p>At Mayfield Phone Repair (located at <strong>276 Maitland Rd, Mayfield NSW 2304</strong>), we take customer privacy and data security with the utmost seriousness. This Privacy Policy details the types of personal information we collect, how that information is utilized, and the strict confidentiality standards we uphold when diagnosing and repairing mobile devices, tablets, and laptops.</p>
+
+          <h2>Information We Collect</h2>
+          <p>When you request a repair quote, book a service, or drop off a device at our Mayfield workshop, we may collect the following contact and diagnostic details:</p>
+          <ul>
+            <li>Customer name, contact mobile phone number, and email address.</li>
+            <li>Device brand, model, serial number, IMEI number, and physical condition notes.</li>
+            <li>Information regarding the specific fault or symptoms reported.</li>
+          </ul>
+
+          <h2>Strict Device Data Confidentiality & Non-Access Guarantee</h2>
+          <p>We respect the absolute privacy of the personal files stored on your device. Our technicians adhere to strict operational guidelines:</p>
+          <ul>
+            <li><strong>Zero Unauthorized Browsing:</strong> Our staff will never browse, inspect, copy, or transfer your personal photos, videos, messages, emails, browsing history, or documents.</li>
+            <li><strong>No Passcode Requirement for Most Fixes:</strong> For external repairs (like screen replacements, battery swaps, and back glass), you do not need to provide your lock screen passcode unless comprehensive post-repair hardware testing (such as camera or sensor validation) is explicitly agreed upon.</li>
+            <li><strong>Secure Data Recovery:</strong> When performing data recovery services, extracted files are saved directly to an encrypted drive or your designated storage medium and wiped from our temporary workbench systems immediately upon job completion and customer verification.</li>
+          </ul>
+
+          <h2>Security & Non-Disclosure of Personal Details</h2>
+          <p>We will never sell, rent, trade, or distribute your personal contact information to any third-party marketing companies. Customer records are maintained solely for warranty tracking, tax compliance, and repair communication purposes.</p>
+
+          <h2>Frequently Asked Questions: Privacy & Data Security</h2>
+          <article>
+            <h3>Do I have to give you my phone password for a screen repair?</h3>
+            <p>No. You can keep your device locked. We can test basic display functionality, charging response, and touch digitizer response on the lock screen or emergency dialer without unlocking your device.</p>
+          </article>
+          <article>
+            <h3>Is my data wiped during a phone screen or battery repair?</h3>
+            <p>No. Hardware screen and battery replacements do not touch or alter the internal NAND flash storage. Your data remains completely intact.</p>
+          </article>
+          <article>
+            <h3>How do you handle data recovered from water-damaged phones?</h3>
+            <p>Recovered data is transferred directly to your external USB storage or new handset and verified with you at the counter, then permanently purged from our testing equipment.</p>
+          </article>
+        </article>
+      `,
+      schema: {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Privacy Policy",
+        "url": `${BASE_URL}/privacy-policy`
+      }
+    },
+    {
+      route: 'terms-of-service',
+      title: 'Terms of Service | Mayfield Phone Repair Newcastle',
+      desc: 'Terms of service and 90-day repair warranty policy for Mayfield Phone Repair at 276 Maitland Rd Mayfield NSW. Transparent repair standards.',
+      body: `
+        <article>
+          <h1>Terms of Service & 90-Day Warranty Policy</h1>
+          <p>These Terms of Service govern the repair, diagnostic, and product sales services provided by Mayfield Phone Repair (ABN registered, located at <strong>276 Maitland Rd, Mayfield NSW 2304</strong>). By booking a repair, submitting a device for diagnostic evaluation, or purchasing accessories, you agree to the conditions set forth below.</p>
+
+          <h2>1. 90-Day Comprehensive Warranty Coverage</h2>
+          <p>All hardware repair services and replacement components installed by Mayfield Phone Repair—including screens, batteries, charging ports, cameras, and audio modules—are backed by our <strong>90-Day Parts & Labor Warranty</strong>. If an installed replacement component exhibits a manufacturing defect, malfunction, or failure within 90 days of collection, we will inspect and replace the part free of charge.</p>
+          <p><strong>Warranty Exclusions:</strong> The 90-day warranty does not cover subsequent accidental physical damage (such as cracked glass, cracked OLED panels, deep scratches, or bent frames), subsequent liquid ingress, intentional misuse, or unauthorized third-party tampering after collection.</p>
+
+          <h2>2. Australian Consumer Law (ACL) Guarantees</h2>
+          <p>Our goods and services come with guarantees that cannot be excluded under the Australian Consumer Law. For major failures with our service, you are entitled to cancel your service contract with us and receive a refund or replacement for unconsumed parts. Under ACL Right-to-Repair provisions, independent repairs do not void your statutory rights regarding manufacturer defects.</p>
+
+          <h2>3. Diagnostic Assessment & No Fix, No Fee Guarantee</h2>
+          <p>We provide honest, transparent diagnostic evaluations. Under our No Fix, No Fee policy on standard hardware diagnostics, if we assess your handset and determine that it is completely unrepairable, you will not be charged for the diagnostic assessment.</p>
+
+          <h2>4. Customer Data & Backup Responsibility</h2>
+          <p>While our technicians take extreme precautions to preserve onboard data during all repairs, hardware operations always carry inherent risks if underlying motherboard circuits or storage controllers are failing. Customers are strongly encouraged to back up their device data to iCloud, Google Drive, or a personal computer prior to service whenever possible. Mayfield Phone Repair is not liable for data loss resulting from pre-existing system corruptions or component failure.</p>
+
+          <h2>5. Unclaimed Devices</h2>
+          <p>Devices completed and ready for collection will be stored securely for up to 90 days from the notification date. Devices unclaimed after 90 days following repeated written or phone contact may be recycled or disposed of in accordance with New South Wales Uncollected Goods Act regulations.</p>
+
+          <h2>Frequently Asked Questions: Terms & Warranty</h2>
+          <article>
+            <h3>What does your 90-day warranty cover?</h3>
+            <p>Our warranty covers any defect in parts or labor on the specific repair performed (e.g., touch digitizer unresponsiveness, battery failing to charge, or screen lines not caused by impact).</p>
+          </article>
+          <article>
+            <h3>What voids the repair warranty?</h3>
+            <p>Physical drop impacts resulting in new cracks or bruised OLED pixels, subsequent water damage, or opening the device at another shop voids the warranty.</p>
+          </article>
+          <article>
+            <h3>Do you charge an inspection fee if the phone cannot be fixed?</h3>
+            <p>No. We operate under a transparent No Fix, No Fee policy for standard diagnostic checks.</p>
+          </article>
+        </article>
+      `,
+      schema: {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Terms of Service",
+        "url": `${BASE_URL}/terms-of-service`
       }
     }
   ];
@@ -1121,8 +1665,8 @@ async function runPrerender() {
 
   // 3. Pre-render Brand Pages (/brand/:brandId)
   brands.forEach(b => {
-    const brandTitle = `${b.name} Screen Repair & Battery Replacements Newcastle | Mayfield`;
-    const brandDesc = `${b.description} Starting screen fixes from $${b.startingPrice.screen}, battery replacements $${b.startingPrice.battery}. Located at 276 Maitland Rd.`;
+    const brandTitle = `${b.name} Phone Repair Newcastle | Mayfield`;
+    const brandDesc = `${b.name} phone repair Newcastle. Screens from $${b.startingPrice.screen}, batteries from $${b.startingPrice.battery}. 30-min fixes, 90-day warranty at 276 Maitland Rd Mayfield.`;
     
     // Schema
     const brandSchema = {
@@ -1143,22 +1687,92 @@ async function runPrerender() {
     // Body
     let brandBody = `
       <article>
-        <h1>Professional ${b.name} Phone Repair Services in Newcastle & Mayfield</h1>
-        <p>${b.longDescription}</p>
-        <h2>Average Maintenance Costs</h2>
-        <ul>
-          <li>Screen Repairs beginning at: AUD $${b.startingPrice.screen}</li>
-          <li>Battery Replacements beginning at: AUD $${b.startingPrice.battery}</li>
-        </ul>
-        <h2>Covered ${b.name} Model Range</h2>
-        ${b.deviceCategories.map(cat => `
-          <h3>${cat.name}</h3>
-          <p>${cat.models.join(', ')}</p>
-        `).join('')}
-        <h2>Exclusive Repair Features</h2>
-        <ul>
-          ${b.features.map(f => `<li>${f}</li>`).join('')}
-        </ul>
+        <header>
+          <h1>Professional ${b.name} Phone & Device Repairs in Newcastle NSW</h1>
+          <p>${b.longDescription}</p>
+          <p><strong>Store Address:</strong> 276 Maitland Rd, Mayfield NSW 2304 | <strong>Call Us:</strong> <a href="tel:+61240491735">(02) 4049 1735</a></p>
+          <p><strong>Turnaround:</strong> 30–45 Minutes | <strong>Warranty:</strong> 90-Day Comprehensive Parts & Labor</p>
+        </header>
+
+        <section>
+          <h2>${b.name} Repair Starting Rates in Newcastle (2026)</h2>
+          <table border="1" cellpadding="8" style="border-collapse: collapse; width: 100%; margin: 16px 0;">
+            <thead>
+              <tr style="background: #f1f5f9;">
+                <th align="left">Service Type</th>
+                <th align="left">Starting Price</th>
+                <th align="left">Estimated Turnaround</th>
+                <th align="left">Warranty Coverage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Screen Replacement (Glass & OLED/LCD)</strong></td>
+                <td><strong style="color: #10b981;">From $${b.startingPrice.screen}</strong></td>
+                <td>30 to 45 Minutes</td>
+                <td>90-Day Guarantee</td>
+              </tr>
+              <tr>
+                <td><strong>Battery Replacement (Fresh 0-Cycle Cell)</strong></td>
+                <td><strong style="color: #10b981;">From $${b.startingPrice.battery}</strong></td>
+                <td>25 to 30 Minutes</td>
+                <td>90-Day Guarantee</td>
+              </tr>
+              <tr>
+                <td><strong>Charging Port Repair & Debris Cleaning</strong></td>
+                <td><strong style="color: #10b981;">From $79</strong></td>
+                <td>30 Minutes</td>
+                <td>90-Day Guarantee</td>
+              </tr>
+              <tr>
+                <td><strong>Water Damage Ultrasonic Treatment</strong></td>
+                <td><strong style="color: #10b981;">From $89</strong></td>
+                <td>Same Day / 24 Hours</td>
+                <td>No Data, No Fee</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2>Supported ${b.name} Devices & Series</h2>
+          <p>We keep replacement screens, batteries, cameras, and charging ports permanently stocked for the following ${b.name} models:</p>
+          ${b.deviceCategories.map(cat => `
+            <div>
+              <h3>${cat.name}</h3>
+              <p>${cat.models.join(', ')}</p>
+            </div>
+          `).join('')}
+        </section>
+
+        <section>
+          <h2>Why Choose Mayfield Phone Repair for ${b.name} Servicing?</h2>
+          <ul>
+            ${b.features.map(f => `<li><strong>${f}:</strong> Specialized diagnostic protocols tailored for ${b.name} hardware.</li>`).join('')}
+            <li><strong>Component-Level Micro-Soldering:</strong> We repair damaged motherboard traces and power chips instead of quoting costly board replacements.</li>
+            <li><strong>Zero Data Loss Guarantee:</strong> Your files, photos, contacts, and personal apps remain untouched throughout hardware repairs.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Frequently Asked Questions: ${b.name} Repairs</h2>
+          <article>
+            <h3>How much does a ${b.name} screen repair cost in Newcastle?</h3>
+            <p>${b.name} screen replacements start from $${b.startingPrice.screen} depending on your exact model and display panel generation. Call (02) 4049 1735 for a precise over-the-phone quote.</p>
+          </article>
+          <article>
+            <h3>How long does a ${b.name} battery or screen replacement take?</h3>
+            <p>Most ${b.name} screen fixes and battery replacements take just 30 to 45 minutes while you wait at our 276 Maitland Rd Mayfield store.</p>
+          </article>
+          <article>
+            <h3>Will my data stay safe during ${b.name} repair?</h3>
+            <p>Yes. Hardware repairs do not wipe or modify onboard storage. Your personal data remains 100% safe on your handset.</p>
+          </article>
+          <article>
+            <h3>What warranty is included with ${b.name} repairs?</h3>
+            <p>All ${b.name} replacement parts and labor include our comprehensive 90-day warranty against any manufacturing defects.</p>
+          </article>
+        </section>
       </article>
     `;
 
@@ -1168,7 +1782,9 @@ async function runPrerender() {
 
   // 4. Pre-render Service Pages (/service/:serviceId)
   servicesData.forEach(s => {
-    const sTitle = `${s.heroTitle || s.title} | Mayfield Phone Repair`;
+    const sTitle = escAttr(`${s.title} Services | Mayfield Phone Repair`).length <= 65
+      ? `${s.title} Services | Mayfield Phone Repair`
+      : `${s.title} | Mayfield Phone Repair`;
     const sDesc = s.shortDesc;
 
     // Schema
@@ -1206,9 +1822,27 @@ async function runPrerender() {
     // Skip future posts just in case React masks them
     if (post.date > TODAY) return;
 
-    const postTitle = `${post.title} | Mayfield Phone Repair Blog`;
-    // Clean and truncation for excerpt
-    const postDesc = post.excerpt.slice(0, 155);
+    let postTitle = post.title;
+    if (escAttr(`${postTitle} | Mayfield`).length <= 65) {
+      postTitle = `${postTitle} | Mayfield`;
+    } else if (escAttr(postTitle).length <= 65) {
+      postTitle = postTitle;
+    } else {
+      while (escAttr(postTitle + '…').length > 65) {
+        postTitle = postTitle.slice(0, -1);
+      }
+      postTitle = postTitle + '…';
+    }
+
+    let postDesc = post.excerpt;
+    if (escAttr(postDesc).length <= 155) {
+      postDesc = postDesc;
+    } else {
+      while (escAttr(postDesc + '…').length > 155) {
+        postDesc = postDesc.slice(0, -1);
+      }
+      postDesc = postDesc + '…';
+    }
 
     // Schema
     const articleSchema = {
@@ -1250,8 +1884,9 @@ async function runPrerender() {
       const routeStr = `${srv.id}/${suburb.id}`;
       const canonicalUrl = `${BASE_URL}/${srv.id}/${suburb.id}`;
       const srvDetail = seoServiceDetails[srv.id] || seoServiceDetails['phone-repair'];
-      const subTitle = `${srv.name} ${suburb.name} NSW | Same-Day 30-Min Fix | Mayfield Phone Repair`;
-      const subDesc = `Looking for ${srv.name.toLowerCase()} in ${suburb.name}? Mayfield Phone Repair is located at 276 Maitland Rd (${suburb.travelTime}). 30-min fixes, 4.8★ rated with 477+ reviews, 90-day warranty.`;
+      const subTitle = `${srv.name} ${suburb.name} | Mayfield Phone Repair`;
+      const rawSubDesc = `${srv.name} in ${suburb.name} NSW. Fast 30-min service at 276 Maitland Rd Mayfield (${suburb.travelTime}). 90-day warranty, 4.8★ rated. Call (02) 4049 1735.`;
+      const subDesc = rawSubDesc.length <= 155 ? rawSubDesc : rawSubDesc.slice(0, 154) + '…';
 
       // Rich multi-entity schema with LocalBusiness + Service + FAQPage
       const subLocalSchema = {

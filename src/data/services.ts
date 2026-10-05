@@ -5,7 +5,7 @@ export const servicesData = [
     id: 'screen-repair',
     icon: Smartphone,
     title: 'Screen Repair',
-    shortDesc: 'Cracked or shattered screen? For the best screen repair Mayfield Newcastle has to offer, we replace displays for iPhone 17, 16, and Samsung S26 models in under 30 minutes.',
+    shortDesc: 'Cracked screen? We replace broken phone screens for iPhone 17, 16, and Samsung Galaxy in under 30 minutes in Mayfield Newcastle. 90-day warranty.',
     heroTitle: 'Expert Screen Repair Mayfield | iPhone 17 & S26 Specialists',
     heroDescription: 'Don\'t let a cracked screen ruin your day. Our fast phone repair service specializes in seamless display replacements for the newest flagships like iPhone 17 Pro Max and Samsung S26 Ultra. We provide same day phone repair to get you back online instantly.',
     color: 'from-blue-600 to-indigo-600',
@@ -38,7 +38,7 @@ export const servicesData = [
     id: 'battery-replacement',
     icon: Battery,
     title: 'Battery Replacement',
-    shortDesc: 'Is your phone dying quickly? Get a fresh battery replacement phone service today. We install premium-grade high-capacity batteries to restore your all-day life.',
+    shortDesc: 'Phone battery dying fast? We install premium-grade, high-capacity replacement batteries in 30 minutes in Mayfield Newcastle. 90-day warranty.',
     heroTitle: 'Professional Battery Replacement Phone Service',
     heroDescription: 'Bring your device back to peak performance. If your battery drains fast, suddenly drops percentages, or causes random shutdowns, our affordable phone repair near me guarantees a maximum-capacity battery installed in minutes.',
     color: 'from-emerald-500 to-teal-600',
@@ -269,7 +269,7 @@ export const servicesData = [
     id: 'data-recovery',
     icon: HardDrive,
     title: 'Phone Data Recovery',
-    shortDesc: 'Dropped your phone in water or won\'t turn on? Local phone data recovery in Mayfield & Newcastle. We recover photos, contacts & messages from damaged phones. Call now.',
+    shortDesc: 'Dropped phone in water or won\'t turn on? Local data recovery in Newcastle. We recover photos, contacts & messages with No Data, No Fee guarantee.',
     heroTitle: 'Phone Data Recovery in Mayfield & Newcastle — Get Your Photos, Contacts & Messages Back',
     heroDescription: 'Has your phone stopped turning on after water exposure or a severe drop? Don\'t panic. Our Newcastle data recovery specialists recover photos, contacts, WhatsApp messages, and documents from dead, locked, or water-damaged phones with a No Data, No Fee guarantee.',
     color: 'from-purple-600 to-indigo-700',
@@ -451,7 +451,7 @@ export const servicesData = [
     id: 'iphone-17-screen-repair',
     icon: Smartphone,
     title: 'iPhone 17 Screen Repair',
-    shortDesc: 'Cracked iPhone 17 screen? Same-day iPhone 17 screen replacement in Mayfield & Newcastle by trusted local techs. 90-day warranty, quality parts. Walk in or call now.',
+    shortDesc: 'Cracked iPhone 17 screen? Same-day screen replacement in Mayfield & Newcastle. True Tone calibrated, 90-day warranty. Walk in or call (02) 4049 1735.',
     heroTitle: 'iPhone 17 Screen Repair in Mayfield & Newcastle — Fixed Today, 90-Day Warranty',
     heroDescription: 'Shattered your new iPhone 17 or 17 Pro Max display? Don\'t wait weeks for an Apple store appointment. Mayfield Phone Repair delivers 30-45 minute express screen replacements with True Tone calibration and 90-day guarantee.',
     color: 'from-blue-600 to-indigo-600',
@@ -565,16 +565,24 @@ export const servicesData = [
     color: 'from-slate-800 to-blue-900',
     content: [
       {
-        heading: 'Component-Level MacBook Repair Newcastle',
-        text: 'When Apple quotes $1,000+ for a full logic board or top-case replacement, our Mayfield micro-soldering technicians repair the exact failed chips or flex cables, saving you hundreds of dollars.'
+        heading: 'Component-Level MacBook Logic Board & Liquid Spill Repair Newcastle',
+        text: 'When Apple quotes $1,200+ for a full motherboard replacement, our Mayfield micro-soldering technicians repair the exact failed chips or flex cables, saving you hundreds of dollars. Accidental coffee, tea, or water spills do not have to mean a ruined laptop. We dismantle the chassis, examine motherboard rails under stereoscopic microscopes, and replace shorted capacitors, charging controller ICs (such as ISL9240 and CD3217), and backlight power drivers. This component-level methodology preserves your onboard SSD files and gets your Mac running reliably.'
       },
       {
-        heading: 'Common MacBook Fixes',
+        heading: 'Retina Display Replacement & Flexgate Backlight Repairs',
+        text: 'Whether you dropped your MacBook Air and cracked the glass or your MacBook Pro shows stage-lighting lines along the bottom edge, we provide complete display assembly replacements. We service Apple Silicon MacBook Air (M1, M2, M3), MacBook Pro 13", 14", and 16" models, as well as legacy Intel MacBooks. Our display assemblies deliver 100% color gamut, True Tone support, and full brightness uniformity.'
+      },
+      {
+        heading: 'Swollen Battery Replacement & Thermal Maintenance',
+        text: 'Lithium polymer battery cells degrade naturally after 500 to 1,000 cycles. If your trackpad feels stiff, the aluminum casing is warping, or macOS indicates "Service Recommended", your battery is swelling and needs prompt removal. We safely extract glued battery packs and fit high-capacity OEM-spec replacements in 2 to 3 hours. We also clear clogged cooling fans and apply premium thermal paste to keep temperatures low.'
+      },
+      {
+        heading: 'Frequently Asked Questions: MacBook Repairs Newcastle',
         list: [
-          'Retina display screen assembly swaps (MacBook Air M1/M2/M3 & MacBook Pro 14"/16")',
-          'Swollen or degraded high-capacity battery replacements (2-3 hour service)',
-          'Liquid damage chemical cleaning and logic board power IC micro-soldering',
-          'Flexgate backlight fixes and USB-C MagSafe port replacements'
+          'How much does MacBook screen replacement cost? Pricing starts from $280 for MacBook Air displays, saving up to 50% compared to official Apple Store quotes.',
+          'Can you recover data from a liquid-damaged MacBook? Yes! Component-level micro-soldering repairs motherboard power circuits to retrieve crucial files without wiping internal storage.',
+          'How long does a MacBook battery swap take? Most battery replacements take 2 to 3 hours at our 276 Maitland Rd Mayfield workshop.',
+          'Do you work on M1, M2, and M3 Apple Silicon laptops? Yes, our technicians have extensive diagnostic tools and parts for the entire Apple Silicon lineup.'
         ]
       }
     ],
@@ -590,8 +598,25 @@ export const servicesData = [
     color: 'from-pink-600 to-rose-600',
     content: [
       {
-        heading: 'Precision Apple Watch Screen & Battery Swaps',
-        text: 'Apple Watches feature curved OLED screens and tight water-resistant gaskets. We replace cracked screens, install fresh batteries, and restore water resistance seals in Mayfield.'
+        heading: 'Precision Apple Watch Screen & OLED Digitizer Replacement',
+        text: 'Apple Watches feature curved OLED displays fused to sapphire crystal or Ion-X glass. When dropped on tiles or knocked against gym equipment, the delicate glass shatters. Because Apple Watches contain miniaturized components and force-touch gaskets, repairing them requires specialized micro-tooling. Our technicians install OEM-specification OLED assemblies that restore responsive touch digitizing, vivid brightness, and accurate heart rate sensor functionality.'
+      },
+      {
+        heading: 'Battery Replacement & Swollen Cell Extraction',
+        text: 'Does your Apple Watch run flat before dinner, or has the front glass physically popped open away from the casing? Swelling lithium batteries are common in smartwatches due to continuous daily magnetic puck charging. We safely neutralize and remove bulging batteries and fit fresh 0-cycle cells that restore full all-day battery life.'
+      },
+      {
+        heading: 'Water Resistance Seal Reapplication',
+        text: 'Every Apple Watch we service receives a brand new perimeter water-resistant gasket cured under precision thermal clamps. While we advise against deep scuba diving with previously repaired watches, our seals protect against rain, sweat, washing hands, and daily moisture ingress.'
+      },
+      {
+        heading: 'Frequently Asked Questions: Apple Watch Repairs',
+        list: [
+          'Can you replace just the glass on Apple Watch? We install complete fused OLED assemblies to ensure factory optical clarity, responsive touch, and water resistance.',
+          'How long does an Apple Watch battery replacement take? Battery replacements take approximately 1 to 2 hours at our Mayfield workshop.',
+          'Which Apple Watch models do you repair? We service Apple Watch Series 4, 5, 6, 7, 8, 9, 10, Apple Watch SE (1st & 2nd Gen), and Apple Watch Ultra 1 & 2.',
+          'What warranty do you provide? All Apple Watch screen and battery repairs include our comprehensive 90-day parts and labor warranty.'
+        ]
       }
     ],
     features: ['OLED Screen Fix', 'Fresh Battery', 'Water Seal Restored', 'Series 4-10 & Ultra'],
@@ -606,8 +631,25 @@ export const servicesData = [
     color: 'from-violet-600 to-purple-800',
     content: [
       {
-        heading: 'Specialized Samsung Foldable Screen & Hinge Service',
-        text: 'Foldable devices (Galaxy Z Fold 6/5/4, Z Flip 6/5/4) feature ultra-thin glass (UTG) and complex gear hinges. We replace damaged flexible inner displays and calibrate hinge alignment for smooth folding.'
+        heading: 'Specialized Samsung Foldable Screen & Hinge Service Newcastle',
+        text: 'Foldable smartphones like the Samsung Galaxy Z Fold (2, 3, 4, 5, 6) and Galaxy Z Flip (3, 4, 5, 6) feature ultra-thin glass (UTG) laminated over flexible Dynamic AMOLED displays. When dropped or subjected to stress along the folding axis, black ink bleeds can spread down the center crease, or touch response can fail completely. At Mayfield Phone Repair, our technicians specialize in complex foldable screen replacements, restoring silky smooth 120Hz folding visuals.'
+      },
+      {
+        heading: 'Hinge Mechanism Cleaning & Alignment Restoration',
+        text: 'A common issue with folding phones is the hinge failing to open completely flat (often stopping at 160 or 170 degrees). This is caused by pocket lint, dust, or tiny grit entering the gear tracks and overcoming the internal sweeper bristles. We carefully dismantle the chassis, extract trapped particles from the gear teeth, and realign the spine for smooth 180-degree flat opening.'
+      },
+      {
+        heading: 'Dual-Battery Maintenance & Outer Cover Display Fixes',
+        text: 'Foldable phones utilize two independent battery cells connected via flexible ribbon cables across the central hinge. When one cell degrades, battery life drops rapidly. We replace dual-battery sets and service damaged outer Cover Displays with same-day turnaround.'
+      },
+      {
+        heading: 'Frequently Asked Questions: Foldable Phone Repairs',
+        list: [
+          'Why is my Z Fold or Z Flip screen bleeding black down the crease? Repeated folding stress or impact damages the flexible OLED layer beneath the ultra-thin glass. We replace the inner assembly.',
+          'Can you fix a Z Fold that won\'t open flat? Yes! We clear out impacted debris from the internal gear tracks and realign the hinge mechanism.',
+          'Do you install folding screen protector films? Yes, we apply specialized crease-rated protective films using precision alignment jigs.',
+          'How long does a foldable repair take? Outer screen replacements take 45 minutes; complete inner display and hinge rebuilds take 2 to 3 hours.'
+        ]
       }
     ],
     features: ['UTG Screen Specialists', 'Hinge Realignment', 'Z Fold & Z Flip', '90-Day Warranty'],
