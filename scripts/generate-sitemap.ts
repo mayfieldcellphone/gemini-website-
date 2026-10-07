@@ -5,6 +5,7 @@ import { servicesData } from '../src/data/services';
 import { blogPosts } from '../src/data/blogs';
 import { suburbs, seoServices } from '../src/data/suburbs';
 import { modelRepairData } from '../src/data/modelData';
+import { extraSuburbs } from '../src/data/extraSuburbs';
 
 const BASE_URL = 'https://mayfieldphonerepair.com.au';
 const TODAY = new Date().toISOString().split('T')[0];
@@ -18,6 +19,7 @@ const staticPages = [
   { route: '/repair-guides/phone-battery-replacement-newcastle', priority: '0.8', changefreq: 'monthly' },
   { route: '/repair-guides/water-damage-phone-repair', priority: '0.8', changefreq: 'monthly' },
   { route: '/blog', priority: '0.8', changefreq: 'weekly' },
+  { route: '/insurance-claim-repairs', priority: '0.7', changefreq: 'monthly' },
   { route: '/about-us', priority: '0.7', changefreq: 'monthly' },
   { route: '/after-hours', priority: '0.7', changefreq: 'monthly' },
   { route: '/second-hand-phones', priority: '0.8', changefreq: 'weekly' },
@@ -76,8 +78,13 @@ function generateSitemap() {
     });
   });
 
-  // 6. Educational Technical Blog Posts & Repair Guides
-  blogPosts.forEach(post => {
+  // 5b. Extra suburb hubs (one /phone-repair/<suburb> page each, see scripts/prerender-orphans.ts)
+  extraSuburbs.forEach(suburb => {
+    xml += `  <url>\n    <loc>${BASE_URL}/phone-repair/${escapeXml(suburb.id)}</loc>\n    <lastmod>${TODAY}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>\n`;
+  });
+
+  // 6. Educational Technical Blog Posts & Repair Guides (skip future-dated posts: prerender.ts skips them too)
+  blogPosts.filter(post => !post.date || post.date <= TODAY).forEach(post => {
     xml += `  <url>\n    <loc>${BASE_URL}/blog/${escapeXml(post.slug)}</loc>\n    <lastmod>${post.date || TODAY}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>\n`;
   });
 
@@ -89,7 +96,7 @@ function generateSitemap() {
   }
   
   fs.writeFileSync(path.join(publicPath, 'sitemap.xml'), xml);
-  const totalUrls = staticPages.length + brands.length + servicesData.length + modelRepairData.length + (suburbs.length * seoServices.length) + blogPosts.length;
+  const totalUrls = staticPages.length + brands.length + servicesData.length + modelRepairData.length + (suburbs.length * seoServices.length) + extraSuburbs.length + blogPosts.filter(p => !p.date || p.date <= TODAY).length;
   console.log(`✅ Content-rich sitemap generated with ${totalUrls} authoritative URLs.`);
 }
 

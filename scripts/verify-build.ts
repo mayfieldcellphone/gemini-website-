@@ -1,7 +1,8 @@
 /**
  * Post-build SEO guard. Fails the build (exit 1) if any prerendered page in dist/
  * is missing a <title>, viewport meta, meta description, or has a canonical that
- * does not match its own URL. Duplicate titles are reported as errors too.
+ * does not match its own URL, or links to an internal URL that has no prerendered page.
+ * Duplicate titles are reported as errors too.
  * Run automatically at the end of `npm run build` so a bad deploy cannot ship.
  */
 import fs from 'fs';
@@ -60,6 +61,29 @@ for (const f of files) {
   const got = canon ? canon[1].replace(/\/$/, '') : '';
   if (!canon) tag('missing canonical');
   else if (got !== expected.replace(/\/$/, '')) tag(`canonical ${canon[1]} != expected ${expected}`);
+}
+
+// Link integrity: every internal <a href> in the prerendered HTML must resolve to a prerendered page.
+// A link to a route with no file in dist/ is served the SPA shell (the homepage document) by the web
+// server, i.e. a crawlable duplicate of the homepage with the homepage canonical.
+{
+  const have = new Set(files.map(f => {
+    const r = path.relative(DIST, path.dirname(f));
+    return r === '' ? '/' : '/' + r.split(path.sep).join('/');
+  }));
+  const dead = new Map<string, string[]>();
+  for (const f of files) {
+    const html = fs.readFileSync(f, 'utf-8');
+    const from = '/' + path.relative(DIST, path.dirname(f)).split(path.sep).join('/');
+    for (const m of html.matchAll(/<a\b[^>]*?href="(\/[^"#?]*)/g)) {
+      const target = m[1].replace(/(.)\/$/, '$1');
+      if (/\.[a-z0-9]{2,5}$/i.test(target) || target.startsWith('/assets') || target.startsWith('/admin')) continue;
+      if (!have.has(target)) dead.set(target, [...(dead.get(target) || []), from]);
+    }
+  }
+  for (const [target, sources] of dead) {
+    errors.push(`dead internal link ${target} (linked from ${sources.length} page${sources.length > 1 ? 's' : ''}, e.g. ${sources[0]})`);
+  }
 }
 
 for (const [t, routes] of titles) {
