@@ -142,6 +142,23 @@ async function startServer() {
 
   app.use(compression());
 
+  // Canonical Host & Trailing Slash 301 Redirects (Resolves GSC Duplicate Canonical issues)
+  app.use((req, res, next) => {
+    const host = req.headers.host || "";
+    // 301 Redirect www.mayfieldphonerepair.com.au to mayfieldphonerepair.com.au
+    if (host.startsWith("www.")) {
+      const nonWwwHost = host.slice(4);
+      return res.redirect(301, `https://${nonWwwHost}${req.originalUrl}`);
+    }
+    // 301 Redirect trailing slash to non-trailing slash (except root '/')
+    if (req.path.length > 1 && req.path.endsWith("/")) {
+      const query = req.url.slice(req.path.length);
+      const safePath = req.path.slice(0, -1);
+      return res.redirect(301, safePath + query);
+    }
+    next();
+  });
+
   // Security, caching & performance headers for SEO
   app.use((req, res, next) => {
     res.setHeader("X-Frame-Options", "SAMEORIGIN");
@@ -421,7 +438,18 @@ async function startServer() {
     const distPath = path.join(process.cwd(), 'dist');
     app.use(express.static(distPath));
     app.get('*', (req, res) => {
-      res.sendFile(path.join(distPath, 'index.html'));
+      // Check if a pre-rendered static page exists for this route
+      const cleanPath = req.path.replace(/^\/|\/$/g, '');
+      const candidate = cleanPath === ''
+        ? path.join(distPath, 'index.html')
+        : path.join(distPath, cleanPath, 'index.html');
+
+      if (fs.existsSync(candidate)) {
+        return res.sendFile(candidate);
+      }
+
+      // Return true HTTP 404 status for missing routes (eliminates GSC Soft 404 & duplicate canonical overrides)
+      return res.status(404).sendFile(path.join(distPath, 'index.html'));
     });
   }
 
