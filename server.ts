@@ -150,6 +150,11 @@ async function startServer() {
       const nonWwwHost = host.slice(4);
       return res.redirect(301, `https://${nonWwwHost}${req.originalUrl}`);
     }
+    // 301 Redirect /book-repair (and /book-repair/) directly to /quote
+    if (req.path === "/book-repair" || req.path === "/book-repair/") {
+      const query = req.url.slice(req.path.length);
+      return res.redirect(301, `/quote${query}`);
+    }
     // 301 Redirect trailing slash to non-trailing slash (except root '/')
     if (req.path.length > 1 && req.path.endsWith("/")) {
       const query = req.url.slice(req.path.length);

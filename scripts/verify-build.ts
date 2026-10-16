@@ -14,6 +14,7 @@ const BASE = 'https://mayfieldphonerepair.com.au';
 const CANONICAL_OVERRIDES: Record<string, string> = {
   '/free-quote': '/quote',
   '/promo': '/quote',
+  '/book-repair': '/quote',
 };
 
 function walk(dir: string, out: string[] = []): string[] {

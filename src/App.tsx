@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './components/Layout';
 import { UIProvider } from './contexts/UIContext';
 import RedirectHandler from './components/RedirectHandler';
@@ -41,6 +41,7 @@ export default function App() {
         <Route path="/quote" element={<FreeQuotePage />} />
         <Route path="/free-quote" element={<FreeQuotePage />} />
         <Route path="/promo" element={<FreeQuotePage />} />
+        <Route path="/book-repair" element={<Navigate to="/quote" replace />} />
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="brand/:brandId" element={<BrandPage />} />

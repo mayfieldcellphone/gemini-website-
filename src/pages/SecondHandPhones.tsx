@@ -80,7 +80,7 @@ export default function SecondHandPhones() {
               Quality <span className="text-blue-500 italic font-light">Refurbished</span> Phones.
             </h1>
             <p className="text-slate-400 text-xl md:text-2xl leading-relaxed font-medium max-w-2xl">
-              Don't settle for cheap copies. We sell high-quality used iPhones and Samsung devices with original components and brand new batteries.
+              Don't settle for cheap copies. We sell high-quality used iPhones and Samsung devices with original components and brand new batteries, offering reliable second hand phones for customers across Mayfield and Newcastle.
             </p>
             <div className="flex flex-wrap gap-6 pt-4">
               <a href="#inventory" className="px-10 py-6 bg-blue-600 text-white rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-700 transition-all shadow-2xl">

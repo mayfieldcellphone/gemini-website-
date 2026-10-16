@@ -9,6 +9,9 @@
   RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
   RewriteRule ^(.*)$ https://%1/$1 [L,R=301]
 
+  # 301 Redirect /book-repair (and /book-repair/) to /quote
+  RewriteRule ^book-repair/?$ /quote [R=301,L]
+
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d

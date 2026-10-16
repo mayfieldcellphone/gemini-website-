@@ -922,6 +922,169 @@ async function runPrerender() {
       }
     },
     {
+      route: 'book-repair',
+      title: 'Free Repair Quote | Mayfield Phone Repair — Newcastle',
+      desc: 'Get a fast, free repair quote. Same-day iPhone, Samsung & Google repairs in Mayfield, Newcastle. 90-day warranty. Most screens done in under 30 minutes.',
+      body: `
+        <div class="min-h-screen bg-[#f6f7fb] text-[#0d1b2a] font-sans antialiased">
+          <div class="bg-[#0d1b2a] text-[#cdd6e8] text-xs py-2 px-4 font-semibold text-center overflow-x-auto whitespace-nowrap">
+            <div class="max-w-7xl mx-auto flex gap-4 items-center justify-center">
+              <span>⭐ <b class="text-white">4.7/5</b> from <b class="text-white">363+</b> Google Reviews</span>
+              <span>•</span>
+              <span><b class="text-white">90-Day</b> Warranty on Repairs</span>
+              <span>•</span>
+              <span>📍 276 Maitland Rd, Mayfield NSW</span>
+            </div>
+          </div>
+          <header class="relative bg-gradient-to-b from-white to-[#f6f7fb] pt-12 pb-16 overflow-hidden md:py-20 border-b border-slate-100">
+            <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              <div class="lg:col-span-7 space-y-6">
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center text-white shadow-md font-bold text-xl">📱</div>
+                  <div>
+                    <div class="font-extrabold text-lg leading-tight tracking-tight text-slate-900 font-display">Mayfield Phone Repair</div>
+                    <p class="text-xs text-slate-500 font-semibold tracking-wider uppercase">Newcastle's Trusted Diagnostic Lab</p>
+                  </div>
+                </div>
+                <div class="inline-flex items-center gap-2 bg-blue-50 border border-blue-100 text-blue-950 font-bold text-xs uppercase tracking-wider px-3 py-1.5 rounded-full">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                  Instant Price Guarantees &middot; Fully Local
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-5xl font-black font-display text-slate-900 tracking-tight leading-none">
+                  Cracked, dead or water-damaged? <span class="text-blue-600 block">We'll fix it today.</span>
+                </h1>
+                <p class="text-slate-600 text-lg leading-relaxed max-w-xl">
+                  Most screens and batteries are repaired on-site at Maitland Rd in under 30 minutes. Tell us your device below and get an instant fixed-price quote with zero obligation.
+                </p>
+                <div class="flex flex-wrap items-center gap-4 text-slate-700 bg-white p-4 rounded-2xl border border-slate-100 shadow-sm max-w-lg">
+                  <span class="text-amber-500 text-lg font-bold">★★★★★</span>
+                  <span class="text-sm font-semibold text-slate-800">Rated 4.7 &middot; Based on 363+ local Google Reviews</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 max-w-lg pt-2 text-sm font-semibold text-slate-700">
+                  <div class="flex items-center gap-2">✔ Same-day Service</div>
+                  <div class="flex items-center gap-2">✔ 90-Day Priority Warranty</div>
+                  <div class="flex items-center gap-2">✔ OEM-Spec Components</div>
+                  <div class="flex items-center gap-2">✔ No Fix, No Fee Guarantee</div>
+                </div>
+              </div>
+              <div class="lg:col-span-12 xl:col-span-5">
+                <div class="bg-white border border-slate-200 rounded-[2.5rem] shadow-xl p-8 relative">
+                  <div class="absolute -top-3.5 left-8 bg-[#ff7a18] text-white font-black uppercase text-[10px] tracking-widest px-4 py-1.5 rounded-full shadow-lg">100% Free Instant Quote</div>
+                  <form class="space-y-4">
+                    <div class="pt-2">
+                      <h2 class="text-2xl font-black font-display text-slate-900 tracking-tight">Get your repair quote</h2>
+                      <p class="text-slate-500 text-sm">Fill in details and our Mayfield team will call or text you with a fixed price.</p>
+                    </div>
+                    <div class="space-y-3">
+                      <div>
+                        <label class="block text-slate-800 text-xs font-bold uppercase tracking-wider mb-1">Your Name</label>
+                        <div class="w-full px-4 py-3 bg-[#fbfcff] border border-slate-200 rounded-xl text-slate-900 text-sm font-medium">e.g. Alex</div>
+                      </div>
+                      <div>
+                        <label class="block text-slate-800 text-xs font-bold uppercase tracking-wider mb-1">Mobile Phone Number</label>
+                        <div class="w-full px-4 py-3 bg-[#fbfcff] border border-slate-200 rounded-xl text-slate-900 text-sm font-medium">04xx xxx xxx</div>
+                      </div>
+                    </div>
+                    <div class="w-full bg-gradient-to-r from-[#ff7a18] to-[#e8620a] text-white font-extrabold uppercase tracking-widest text-[11px] py-4 rounded-xl text-center shadow-lg">Get My Free Quote</div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </header>
+          <section class="py-16 max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+              <h2 class="text-3xl font-black font-display tracking-tight text-slate-900">Transparent Starting Prices</h2>
+              <p class="text-slate-500 font-medium">Real, upfront pricing guidelines. Exactly what you pay depends on physical components and model generations.</p>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-6 gap-4">
+              <div class="bg-white border border-slate-200/50 rounded-2xl p-5 text-center">
+                <span class="font-extrabold text-[#0d1b2a] text-sm block font-display tracking-tight mb-3">Apple iPhone</span>
+                <div class="space-y-1">
+                  <div class="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-none">Screen From</div>
+                  <div class="text-lg font-black text-blue-600 font-display">$129</div>
+                  <div class="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-none">Battery From</div>
+                  <div class="text-lg font-black text-[#ff7a18] font-display">$89</div>
+                </div>
+              </div>
+              <div class="bg-white border border-slate-200/50 rounded-2xl p-5 text-center">
+                <span class="font-extrabold text-[#0d1b2a] text-sm block font-display tracking-tight mb-3">Samsung Galaxy</span>
+                <div class="space-y-1">
+                  <div class="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-none">Screen From</div>
+                  <div class="text-lg font-black text-blue-600 font-display">$149</div>
+                  <div class="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-none">Battery From</div>
+                  <div class="text-lg font-black text-[#ff7a18] font-display">$99</div>
+                </div>
+              </div>
+              <div class="bg-white border border-slate-200/50 rounded-2xl p-5 text-center">
+                <span class="font-extrabold text-[#0d1b2a] text-sm block font-display tracking-tight mb-3">Google Pixel</span>
+                <div class="space-y-1">
+                  <div class="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-none">Screen From</div>
+                  <div class="text-lg font-black text-blue-600 font-display">$139</div>
+                  <div class="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-none">Battery From</div>
+                  <div class="text-lg font-black text-[#ff7a18] font-display">$89</div>
+                </div>
+              </div>
+              <div class="bg-white border border-slate-200/50 rounded-2xl p-5 text-center">
+                <span class="font-extrabold text-[#0d1b2a] text-sm block font-display tracking-tight mb-3">Oppo Series</span>
+                <div class="space-y-1">
+                  <div class="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-none">Screen From</div>
+                  <div class="text-lg font-black text-blue-600 font-display">$119</div>
+                  <div class="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-none">Battery From</div>
+                  <div class="text-lg font-black text-[#ff7a18] font-display">$79</div>
+                </div>
+              </div>
+              <div class="bg-white border border-slate-200/50 rounded-2xl p-5 text-center">
+                <span class="font-extrabold text-[#0d1b2a] text-sm block font-display tracking-tight mb-3">Motorola Devices</span>
+                <div class="space-y-1">
+                  <div class="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-none">Screen From</div>
+                  <div class="text-lg font-black text-blue-600 font-display">$99</div>
+                  <div class="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-none">Battery From</div>
+                  <div class="text-lg font-black text-[#ff7a18] font-display">$69</div>
+                </div>
+              </div>
+              <div class="bg-white border border-slate-200/50 rounded-2xl p-5 text-center">
+                <span class="font-extrabold text-[#0d1b2a] text-sm block font-display tracking-tight mb-3">Huawei Series</span>
+                <div class="space-y-1">
+                  <div class="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-none">Screen From</div>
+                  <div class="text-lg font-black text-blue-600 font-display">$129</div>
+                  <div class="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-none">Battery From</div>
+                  <div class="text-lg font-black text-[#ff7a18] font-display">$79</div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="py-16 bg-[#0d1b2a] text-[#cdd6e8]">
+            <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <div class="space-y-6">
+                <h2 class="text-white text-3xl font-black font-display tracking-tight">Find Us in Mayfield Store</h2>
+                <p>Located directly on Maitland Rd, Mayfield. Walk directly into our store for rapid on-site repairs with parking at the rear.</p>
+                <p><b>Address:</b> 276 Maitland Rd, Mayfield NSW 2304</p>
+                <p><b>Phone:</b> (02) 4049 1735 &middot; After-hours: 0431 618 100</p>
+              </div>
+              <div class="bg-white/5 border border-white/10 rounded-2xl p-8">
+                <h3 class="text-white font-bold font-display text-lg mb-4">Opening Hours</h3>
+                <p>Monday - Friday &middot; 9:00 AM - 5:00 PM</p>
+                <p>Saturday &middot; 10:00 AM - 3:00 PM</p>
+                <p>Sunday &middot; 10:00 AM - 2:00 PM</p>
+              </div>
+            </div>
+          </section>
+          <footer class="py-8 text-center text-xs text-slate-400 border-t border-slate-100 bg-white">
+            <p class="font-semibold">&copy; 2026 Mayfield Phone Repair &middot; 276 Maitland Rd, Mayfield NSW 2304</p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #a1a1a1; text-align: center;">
+              Partnered with <a href="https://repairrange.io" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">RepairRange</a> for Australia-wide phone repair price guides.
+            </p> 
+          </footer>
+        </div>
+      `,
+      schema: {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Free Repair Quote",
+        "url": `${BASE_URL}/quote`
+      }
+    },
+    {
       route: 'blog',
       title: 'Phone Repair Blog & Tech Guides | Mayfield Phone Repair',
       desc: 'Read the latest phone repair tutorials, battery preservation guides, and device comparison articles from the local Newcastle repair experts.',
@@ -1039,9 +1202,9 @@ async function runPrerender() {
       body: `
         <article>
           <h1>Certified Refurbished & Used Phones in Newcastle & Mayfield</h1>
-          <p>Looking for a reliable smartphone without spending $1,500+ on a brand new flagship? Mayfield Phone Repair offers a curated selection of certified refurbished and thoroughly tested second-hand smartphones at our workshop located at <strong>276 Maitland Rd, Mayfield NSW 2304</strong>. Whether you need an affordable iPhone for school, a dependable Samsung Galaxy for work, or a budget replacement handset, buying refurbished from our diagnostic lab is the safest choice in Newcastle.</p>
+          <p>Looking for a reliable smartphone without spending $1,500+ on a brand new flagship? Mayfield Phone Repair offers a curated selection of certified refurbished and thoroughly tested second hand phones at our workshop located at <strong>276 Maitland Rd, Mayfield NSW 2304</strong>. Whether you need an affordable iPhone for school, a dependable Samsung Galaxy for work, or a budget replacement handset, buying refurbished from our diagnostic lab is the safest choice in Newcastle.</p>
           <h2>Why Buy from Mayfield Phone Repair Instead of Online Marketplaces?</h2>
-          <p>Buying second-hand phones from online classifieds or social media marketplaces carries significant risks: hidden water damage, counterfeit replacement screens, dying batteries, blacklisted IMEIs, or iCloud/Google activation locks. At Mayfield Phone Repair, every pre-owned handset undergoes our rigorous <strong>40-Point Diagnostic Quality Inspection</strong> before it is approved for sale.</p>
+          <p>Buying second hand phones from online classifieds or social media marketplaces carries significant risks: hidden water damage, counterfeit replacement screens, dying batteries, blacklisted IMEIs, or iCloud/Google activation locks. At Mayfield Phone Repair, every pre-owned handset undergoes our rigorous <strong>40-Point Diagnostic Quality Inspection</strong> before it is approved for sale.</p>
           <h2>Our 40-Point Technical Certification Checklist</h2>
           <ul>
             <li><strong>Battery Health Verified:</strong> Every battery is tested on digital load analyzers to guarantee genuine high capacity and healthy cycle counts.</li>
@@ -1656,7 +1819,7 @@ async function runPrerender() {
 
   staticConfig.forEach(p => {
     // If this is a duplicate route, canonicalize it to point directly to the primary '/quote' page
-    const canonical = (p.route === 'free-quote' || p.route === 'promo')
+    const canonical = (p.route === 'free-quote' || p.route === 'promo' || p.route === 'book-repair')
       ? `${BASE_URL}/quote`
       : `${BASE_URL}/${p.route}`;
     writePage(p.route, p.title, p.desc, canonical, p.schema, p.body);

@@ -2379,6 +2379,13 @@ export const blogPosts: BlogPost[] = [
     content: `
       <section class="space-y-8">
         <p class="text-xl leading-relaxed text-slate-600">A cracked screen that still works is a ticking time bomb. The glass shards can damage the sensitive OLED panel underneath, and moisture can easily enter through the cracks. For Newcastle residents, we recommend a <a href="/service/screen-repair" class="text-blue-600 hover:underline">preventative screen replacement</a> in Mayfield before a $150 repair turns into a $400 one.</p>
+        <div class="mt-12 bg-slate-900 text-white p-12 rounded-[3.5rem] shadow-2xl relative overflow-hidden">
+          <p class="mb-8 font-medium text-slate-400">Cracked screen? We repair most phone screens in Mayfield, often the same day.</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/service/screen-repair" class="bg-blue-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display text-center shadow-lg shadow-blue-600/30">See screen repair</a>
+            <a href="/quote" class="bg-white text-slate-900 px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display text-center">Get a free quote</a>
+          </div>
+        </div>
       </section>
     `
   },
