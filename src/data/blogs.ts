@@ -1,5 +1,6 @@
 import { servicesData } from './services';
 import { brands } from './brands';
+import scheduledPublishedBlogs from './scheduledPublishedBlogs.json';
 
 export interface BlogPost {
   id: string;
@@ -4658,7 +4659,8 @@ export const blogPosts: BlogPost[] = [
         <p class="text-lg text-slate-600 leading-relaxed">Under our 40x stereoscopic microscope at 276 Maitland Rd, we connect your TrueDepth module to a specialized diagnostic programmer to read the cryptographic serial data from your original Dot Projector or Flood Illuminator IC. We then micro-solder and transfer the encrypted chip onto a brand-new calibrated optical flex assembly, restoring 100% native Face ID, Portrait Mode selfies, and Apple Pay security without wiping your data.</p>
       </section>
     `
-  }
+  },
+  ...(scheduledPublishedBlogs as BlogPost[])
 ];
 
 
