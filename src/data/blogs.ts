@@ -4356,6 +4356,308 @@ export const blogPosts: BlogPost[] = [
         </div>
       </section>
     `
+  },
+  {
+    id: "70",
+    title: "iPhone Back Glass Repair Newcastle: Laser Cost Guide",
+    slug: "iphone-back-glass-replacement-newcastle-laser-repair-guide",
+    date: "2026-10-16",
+    author: "Mayfield Phone Repair Team",
+    excerpt: "Cracked iPhone back glass in Newcastle? Compare cold-laser glass removal vs full housing swaps, MagSafe safety, and same-day pricing in Mayfield.",
+    imageUrl: "https://images.unsplash.com/photo-1512054502232-10a0a035d672?auto=format&fit=crop&q=80&w=800",
+    tags: ["Back Glass Repair", "iPhone Repair", "Newcastle", "Mayfield"],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-blue-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-blue-100">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-blue-200 text-[10px] font-black uppercase tracking-widest">Can you replace cracked iPhone back glass without replacing the whole housing?</span>
+              <p class="text-xl font-bold">Yes. Using a precision fiber-laser separating machine at our Mayfield workshop, we vaporize the factory epoxy under the rear glass while protecting the MagSafe charging coil, microphone flex, and camera rings. Most iPhone back glass repairs take 45–60 minutes and include a 90-day warranty.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">Dropping an iPhone on concrete often leaves the front Ceramic Shield intact while shattering the rear glass panel into spiderweb splinters. Beyond sharp glass fragments catching on your fingers and pocket fabric, cracked rear glass exposes your internal logic board and MagSafe wireless charging coil to dust and Newcastle coastal humidity. At <strong>Mayfield Phone Repair</strong> (276 Maitland Rd, Mayfield), we perform precision <a href="/service/back-glass-repair" class="text-blue-600 hover:underline">iPhone back glass replacement</a> on the same day.</p>
+
+        <div class="mt-12 bg-slate-900 text-white p-12 rounded-[3.5rem] shadow-2xl relative overflow-hidden">
+          <p class="mb-8 font-medium text-slate-400">Shattered rear glass on your iPhone? We replace back glass in Mayfield in 45–60 minutes.</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/service/back-glass-repair" class="bg-blue-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display text-center shadow-lg shadow-blue-600/30">See back glass repair</a>
+            <a href="/quote" class="bg-white text-slate-900 px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display text-center">Get a free quote</a>
+          </div>
+        </div>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Cold-Laser Back Glass Removal vs. Removable Rear Glass (iPhone 15–17)</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">How your iPhone back glass is repaired depends on its internal chassis architecture. On iPhone 8 through iPhone 14 Pro Max, Apple fused the rear glass directly to the steel or aluminum mid-frame with industrial structural epoxy. Our technicians use a computer-guided cold fiber laser that traces the exact CAD blueprint of your model, dissolving the adhesive without heating your battery or camera sensors.</p>
+        <p class="text-lg text-slate-600 leading-relaxed">On newer <a href="/brand/apple" class="text-blue-600 hover:underline">Apple iPhone</a> generations (iPhone 14, iPhone 15, iPhone 16, and iPhone 17 series), the rear glass assembly unclips from the rear frame and connects via a dedicated MagSafe/NFC flex cable—making replacement even cleaner when paired with proper sensor calibration.</p>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse rounded-2xl overflow-hidden border border-slate-200 my-6">
+            <thead>
+              <tr class="bg-slate-900 text-white text-xs uppercase tracking-wider">
+                <th class="p-4">Repair Method</th>
+                <th class="p-4">Best For Models</th>
+                <th class="p-4">Turnaround Time</th>
+                <th class="p-4">MagSafe &amp; Wireless Charging</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200 text-slate-700 text-sm bg-white">
+              <tr>
+                <td class="p-4 font-bold">Precision Fiber-Laser Glass Swap</td>
+                <td class="p-4">iPhone X, 11, 12, 13 &amp; 14 Pro/Max</td>
+                <td class="p-4">45 – 60 Minutes</td>
+                <td class="p-4">100% Preserved</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold">Modular Rear Glass + MagSafe Flex</td>
+                <td class="p-4">iPhone 14, 15, 16 &amp; 17 Series</td>
+                <td class="p-4">30 – 45 Minutes</td>
+                <td class="p-4">100% Preserved</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold">Full Rear Housing Rebuild</td>
+                <td class="p-4">Bent frames or dented corners</td>
+                <td class="p-4">60 – 90 Minutes</td>
+                <td class="p-4">New Factory Frame + Coil</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">3 Risks of Ignoring Cracked Back Glass in Newcastle</h2>
+        <ul class="list-disc pl-6 space-y-3 text-slate-600 text-lg">
+          <li><strong>Puncture Hazard to the Lithium Battery:</strong> Glass shards pushed inward during a second drop can pierce the soft pouch of your internal battery or sever the wireless charging coil.</li>
+          <li><strong>Moisture &amp; Salt-Air Ingress:</strong> Once the rear glass seal is fractured, steam from bathrooms or humid coastal air from Merewether and Newcastle Beach enters directly behind the motherboard, leading to <a href="/service/water-damage" class="text-blue-600 hover:underline">liquid damage</a>.</li>
+          <li><strong>Rear Camera Dust Contamination:</strong> Fine glass dust migrates into the triple-lens camera module, causing permanent dark spots on 1x and 3x portrait photos.</li>
+        </ul>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div class="p-6 bg-slate-50 rounded-3xl border border-slate-100">
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Will my wireless charging and Apple Pay still work after back glass repair?</h3>
+            <p class="text-slate-600">Yes. Our laser path avoids the MagSafe magnet ring and NFC antenna at the top of the chassis, and we test both wireless charging and tap-to-pay before returning your phone.</p>
+          </div>
+          <div class="p-6 bg-slate-50 rounded-3xl border border-slate-100">
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Do I lose my data during a back glass replacement?</h3>
+            <p class="text-slate-600">No. Back glass replacement is purely external structural work. Your photos, apps, and banking logins remain untouched.</p>
+          </div>
+        </div>
+      </section>
+    `
+  },
+  {
+    id: "71",
+    title: "Fix Samsung Moisture Detected Error in Newcastle",
+    slug: "samsung-moisture-detected-charging-port-fix-newcastle",
+    date: "2026-10-16",
+    author: "Mayfield Phone Repair Team",
+    excerpt: "Stuck with the moisture detected warning on your Samsung Galaxy in Newcastle? Learn safe drying steps, salt-air USB-C corrosion risks, and port repair costs.",
+    imageUrl: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&q=80&w=800",
+    tags: ["Samsung Repair", "Charging Port", "Newcastle", "Troubleshooting"],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-blue-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-blue-100">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-blue-200 text-[10px] font-black uppercase tracking-widest">Why won't the Samsung moisture detected warning go away when the phone is dry?</span>
+              <p class="text-xl font-bold">Even after water evaporates, microscopic salt crystals, pocket lint, or green copper oxide on the 24-pin USB-C port create a resistive bridge across the CC1/CC2 detection pins. Ultrasonic chemical cleaning or replacing the USB-C charging sub-board in Mayfield fixes it in 30–45 minutes.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">Few things are more frustrating than plugging in your <a href="/brand/samsung" class="text-blue-600 hover:underline">Samsung Galaxy</a> at 5% battery only to hear a loud siren and see <em>"Check charger/USB port: Moisture has been detected in your charger/USB port"</em>—especially when your phone hasn't been near water. At <strong>Mayfield Phone Repair</strong> in Newcastle, we diagnose and resolve stubborn Samsung USB-C moisture lockouts daily.</p>
+
+        <div class="mt-12 bg-slate-900 text-white p-12 rounded-[3.5rem] shadow-2xl relative overflow-hidden">
+          <p class="mb-8 font-medium text-slate-400">Samsung refusing to charge due to a moisture alert? We clean and replace USB-C ports in Mayfield in under 45 minutes.</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/service/charging-port-repair" class="bg-blue-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display text-center shadow-lg shadow-blue-600/30">See charging port repair</a>
+            <a href="/quote" class="bg-white text-slate-900 px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display text-center">Get a free quote</a>
+          </div>
+        </div>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Why Newcastle's Coastal Air Triggers False Moisture Alerts</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">Samsung Galaxy S-series (S21 through S26 Ultra) and A-series phones continuously measure electrical resistance inside the USB-C port. When pocket lint packs into the bottom of the port and absorbs humid coastal air from Newcastle beaches or sweaty gym pockets, it conducts just enough current between the ground and configuration pins to trip Samsung's hardware safety cut-off.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Safe Step-by-Step Troubleshooting Before Visiting Our Lab</h2>
+        <ol class="list-decimal pl-6 space-y-3 text-slate-600 text-lg">
+          <li><strong>Unplug the Cable Immediately:</strong> Never force-charge a wet USB-C port; electrolysis corrodes the gold contact pads in minutes.</li>
+          <li><strong>Dry With Cool Airflow Only:</strong> Place the phone near a cool desk fan for 60 minutes. <strong>Never use a hairdryer</strong> (heat melts the IP68 waterproof speaker membranes) and <strong>never put the phone in rice</strong> (rice dust lodges inside the USB-C tongue).</li>
+          <li><strong>Use a Wireless Charging Pad Temporarily:</strong> If you need emergency power to back up data or call us, Galaxy S and Note models can still charge wirelessly while the USB-C port is locked out.</li>
+          <li><strong>Clear the USB System Cache (If Bone Dry):</strong> Go to <em>Settings &rarr; Apps &rarr; Filter &amp; Sort (Show System Apps) &rarr; USBSettings &rarr; Storage &rarr; Clear Cache</em>, then restart your phone.</li>
+        </ol>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">When Hardware Port Repair Is Required</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">If clearing the USB cache does not remove the water drop icon, the internal USB-C pins have developed physical oxidation or a burnt pin from a damaged charger cable. At our 276 Maitland Rd workshop, we inspect the port under a microscope and either perform a precision de-oxidation clean or install a genuine-spec <a href="/service/charging-port-repair" class="text-blue-600 hover:underline">USB-C charging port assembly</a> backed by our 90-day warranty.</p>
+      </section>
+    `
+  },
+  {
+    id: "72",
+    title: "Swollen Phone Battery Newcastle: Safe Removal & Fix",
+    slug: "swollen-phone-battery-replacement-newcastle-safety-guide",
+    date: "2026-10-16",
+    author: "Mayfield Phone Repair Team",
+    excerpt: "Is your phone screen lifting or bulging? Learn the warning signs of a swollen lithium-ion battery and get safe 30-minute battery removal in Mayfield.",
+    imageUrl: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800",
+    tags: ["Battery Replacement", "Safety Guide", "Newcastle", "Mayfield"],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-emerald-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-emerald-100">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-emerald-200 text-[10px] font-black uppercase tracking-widest">What should I do if my phone battery is swollen and pushing the screen up?</span>
+              <p class="text-xl font-bold">Unplug the charger immediately, power the device off, and do not press the screen back down. Bring the handset to Mayfield Phone Repair (276 Maitland Rd) for safe 30-minute lithium battery removal and replacement before pressure cracks the OLED panel.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">If you notice a gap opening along the side of your iPhone, Samsung Galaxy, or Google Pixel—or the back cover feels rounded and spongy when placed flat on a table—your device likely has a swollen lithium-ion battery. Known in repair labs as a "spicy pillow," a bulging battery is both an urgent hardware hazard and an immediate threat to your display panel. At <strong>Mayfield Phone Repair</strong>, we provide priority walk-in <a href="/service/battery-replacement" class="text-blue-600 hover:underline">phone battery replacement</a> across Newcastle.</p>
+
+        <div class="mt-12 bg-slate-900 text-white p-12 rounded-[3.5rem] shadow-2xl relative overflow-hidden">
+          <p class="mb-8 font-medium text-slate-400">Screen lifting from the frame? Walk into our Mayfield store for safe 30-minute battery removal.</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/service/battery-replacement" class="bg-blue-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display text-center shadow-lg shadow-blue-600/30">See battery replacement</a>
+            <a href="/quote" class="bg-white text-slate-900 px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display text-center">Get a free quote</a>
+          </div>
+        </div>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">How to Spot a Swollen Battery Early</h2>
+        <ul class="list-disc pl-6 space-y-3 text-slate-600 text-lg">
+          <li><strong>Screen Separation or Light Bleed:</strong> The left or right edge of the display lifts slightly out of the metal frame, showing a thin sliver of internal light.</li>
+          <li><strong>Squishy or Discolored Display Center:</strong> Pressing lightly on the touchscreen creates rainbow ripples because the expanded battery is pushing directly against the back of the OLED/LCD panel.</li>
+          <li><strong>The Spin Test:</strong> Place your phone without its case on a flat bench. If it spins freely like a top on its back or rocks from corner to corner, the battery pouch has expanded.</li>
+          <li><strong>Sudden Drops From 40% to 0%:</strong> High internal impedance causes the phone to shut down unexpectedly during camera use or phone calls.</li>
+        </ul>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Critical Safety Rules: What NOT to Do</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">A swollen battery is filled with flammable electrolyte gases produced by chemical decomposition. <strong>Never squeeze or clamp the screen shut</strong>—sharp frame clips can puncture the foil pouch and trigger thermal runaway. <strong>Never plug it into a fast charger</strong> or leave it inside a hot parked car in Newcastle. Read our full <a href="/repair-guides/phone-battery-replacement-newcastle" class="text-blue-600 hover:underline">Newcastle battery replacement guide</a> for more details on how our technicians safely neutralize and recycle expanded lithium cells.</p>
+      </section>
+    `
+  },
+  {
+    id: "73",
+    title: "Buying Second Hand Phones in Newcastle: 2026 Checklist",
+    slug: "buy-second-hand-refurbished-phones-newcastle-buyer-guide",
+    date: "2026-10-16",
+    author: "Mayfield Phone Repair Team",
+    excerpt: "Shopping for second hand phones in Newcastle? Follow our 7-point technician checklist covering IMEI checks, battery health, genuine OLEDs, and local warranty.",
+    imageUrl: "https://images.unsplash.com/photo-1556656793-062ff9878258?auto=format&fit=crop&q=80&w=800",
+    tags: ["Refurbished Phones", "Buyer Guide", "Newcastle", "Mayfield"],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-blue-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-blue-100">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-blue-200 text-[10px] font-black uppercase tracking-widest">What is the safest way to buy second hand phones in Newcastle?</span>
+              <p class="text-xl font-bold">Always verify the 15-digit IMEI for carrier finance locks, check that iCloud/Google Activation Lock is signed out, test Face ID and cameras, and buy from a physical Newcastle store like Mayfield Phone Repair that backs every pre-owned phone with a 40-point hardware inspection and local store warranty.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">With flagship smartphones exceeding $1,800 in Australia, more Newcastle families, students, and businesses are choosing pre-owned devices. However, buying <strong>second hand phones</strong> from private online classifieds often leads to costly surprises—from phones that get IMEI-blocked two weeks later due to unpaid telco plans, to handsets hiding cheap LCD screens and worn-out batteries. Here is the exact 7-point checklist our technicians use when certifying <a href="/second-hand-phones" class="text-blue-600 hover:underline">refurbished and second hand phones in Newcastle</a>.</p>
+
+        <div class="mt-12 bg-slate-900 text-white p-12 rounded-[3.5rem] shadow-2xl relative overflow-hidden">
+          <p class="mb-8 font-medium text-slate-400">Looking for tested, unlocked second hand phones in Newcastle with a local store warranty?</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/second-hand-phones" class="bg-blue-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display text-center shadow-lg shadow-blue-600/30">Browse refurbished phones</a>
+            <a href="/quote" class="bg-white text-slate-900 px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display text-center">Ask about stock</a>
+          </div>
+        </div>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">The 7-Point Technician Checklist Before You Buy</h2>
+        <ol class="list-decimal pl-6 space-y-3 text-slate-600 text-lg">
+          <li><strong>Dial *#06# to Verify the IMEI:</strong> Match the on-screen IMEI against the SIM tray and Settings, and confirm it is not blacklisted or under telco finance on Telstra, Optus, or Vodafone.</li>
+          <li><strong>Check Activation Lock &amp; MDM Profiles:</strong> Ensure <em>Find My iPhone</em> or Google Factory Reset Protection is completely removed, and check <em>Settings &rarr; General &rarr; VPN &amp; Device Management</em> for hidden corporate locks.</li>
+          <li><strong>Inspect True Tone &amp; OLED Blacks:</strong> Cheap counterfeit screens appear washed out and warm up rapidly. A genuine OLED displays pitch-black borders in a dark room and retains True Tone controls.</li>
+          <li><strong>Verify Battery Health &amp; Cycle Count:</strong> Any battery below 80% maximum capacity will struggle through a full day and may need an immediate <a href="/service/battery-replacement" class="text-blue-600 hover:underline">battery replacement</a>.</li>
+          <li><strong>Test Biometrics (Face ID &amp; Fingerprint):</strong> Enroll a test face or fingerprint on the spot—if Face ID fails to scan, the front TrueDepth sensor flex may be damaged.</li>
+          <li><strong>Test All Camera Focal Lengths (0.5x, 1x, 3x/5x) &amp; Mic Audio:</strong> Record a quick 5-second voice memo and video to verify Optical Image Stabilization (OIS) and all onboard microphones.</li>
+          <li><strong>Check Liquid Contact Indicators (LCI):</strong> Pop out the SIM tray and shine a torch inside—a red or pink dot indicates prior internal water exposure.</li>
+        </ol>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Private Marketplace vs. Mayfield Phone Repair Certified Pre-Owned</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse rounded-2xl overflow-hidden border border-slate-200 my-6">
+            <thead>
+              <tr class="bg-slate-900 text-white text-xs uppercase tracking-wider">
+                <th class="p-4">Feature</th>
+                <th class="p-4">Mayfield Phone Repair (276 Maitland Rd)</th>
+                <th class="p-4">Private Online Seller</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200 text-slate-700 text-sm bg-white">
+              <tr>
+                <td class="p-4 font-bold">40-Point Hardware Inspection</td>
+                <td class="p-4">Yes — Lab tested on diagnostic software</td>
+                <td class="p-4">No — Sold as-is</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold">Clean IMEI &amp; Network Guarantee</td>
+                <td class="p-4">100% Unlocked &amp; Verified Clean</td>
+                <td class="p-4">Risk of delayed finance blacklist</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold">Local In-Store Warranty</td>
+                <td class="p-4">Included with tax invoice</td>
+                <td class="p-4">Zero warranty once cash is handed over</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold">Data Transfer &amp; Trade-In Credit</td>
+                <td class="p-4">Free data transfer &amp; <a href="/quote" class="text-blue-600 hover:underline">instant trade-in credit</a></td>
+                <td class="p-4">DIY setup only</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    `
+  },
+  {
+    id: "74",
+    title: "iPhone Face ID Not Working? Repair Guide Newcastle",
+    slug: "iphone-face-id-not-working-repair-newcastle-mayfield",
+    date: "2026-10-16",
+    author: "Mayfield Phone Repair Team",
+    excerpt: "Seeing Face ID Is Not Available on your iPhone? Discover how our Mayfield micro-soldering technicians restore TrueDepth sensors without replacing your phone.",
+    imageUrl: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=800",
+    tags: ["Face ID Repair", "Micro Soldering", "iPhone Repair", "Newcastle"],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-indigo-600 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden mb-12">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-6 text-indigo-100">AI Search Summary / Quick Answers</h2>
+          <div class="space-y-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-indigo-200 text-[10px] font-black uppercase tracking-widest">Can iPhone Face ID be repaired without buying a new phone?</span>
+              <p class="text-xl font-bold">Yes. Because Face ID sensors are cryptographically paired to your iPhone's motherboard, simply swapping in a generic sensor will not work. However, our micro-soldering technicians in Mayfield can transplant your encrypted Dot Projector IC or Flood Illuminator onto a new calibrated flex cable to restore Face ID.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">Few iPhone faults are as disruptive as losing Face ID. Suddenly, unlocking your handset, authorizing Apple Pay at the checkout, and logging into Australian banking apps requires typing passcodes every time. While many standard mall repair kiosks will tell you Face ID cannot be fixed once broken, our diagnostic lab at <strong>Mayfield Phone Repair</strong> performs precision <a href="/service/hardware-repair" class="text-blue-600 hover:underline">Face ID micro-soldering repair</a> for customers across Newcastle and the Hunter Valley.</p>
+
+        <div class="mt-12 bg-slate-900 text-white p-12 rounded-[3.5rem] shadow-2xl relative overflow-hidden">
+          <p class="mb-8 font-medium text-slate-400">Face ID stopped working after a drop or water splash? Book a diagnostic at our Mayfield lab.</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/service/hardware-repair" class="bg-blue-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display text-center shadow-lg shadow-blue-600/30">See hardware &amp; micro-soldering</a>
+            <a href="/quote" class="bg-white text-slate-900 px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display text-center">Get a free quote</a>
+          </div>
+        </div>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">What Causes "Face ID Is Not Available" vs. "Move iPhone A Little Lower"?</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">Apple's TrueDepth camera system relies on three synchronized components: the <strong>Infrared Camera</strong>, the <strong>Flood Illuminator</strong>, and the <strong>Dot Projector</strong> (which projects over 30,000 invisible infrared dots onto your face). Different error messages point to specific hardware faults:</p>
+        <ul class="list-disc pl-6 space-y-3 text-slate-600 text-lg">
+          <li><strong>"Move iPhone a Little Higher / Lower" Loop:</strong> Almost always indicates a fused MOSFET or burned crystal inside the <strong>Dot Projector</strong> module—commonly caused by a single drop of moisture entering the top earpiece speaker grille.</li>
+          <li><strong>"Face ID Is Not Available — Try Setting Up Later":</strong> Often caused by corrosion on the <strong>Flood Illuminator</strong> or ambient light sensor integrated into the top ear-speaker flex cable, or a torn ribbon cable from a poor prior <a href="/service/screen-repair" class="text-blue-600 hover:underline">screen replacement</a>.</li>
+        </ul>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">How Our Mayfield Technicians Restore Face ID</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">Under our 40x stereoscopic microscope at 276 Maitland Rd, we connect your TrueDepth module to a specialized diagnostic programmer to read the cryptographic serial data from your original Dot Projector or Flood Illuminator IC. We then micro-solder and transfer the encrypted chip onto a brand-new calibrated optical flex assembly, restoring 100% native Face ID, Portrait Mode selfies, and Apple Pay security without wiping your data.</p>
+      </section>
+    `
   }
 ];
 
