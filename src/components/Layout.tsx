@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Smartphone, Phone, Menu, X, Facebook, Instagram, Twitter, Linkedin, Youtube, MessageSquare, MapPin, Clock, ArrowUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { suburbs, seoServices } from '../data/suburbs';
-import BookingModal from './BookingModal';
+import { suburbs } from '../data/suburbs';
 import { OpeningStatus } from './OpeningStatus';
 import { useUI } from '../contexts/UIContext';
+
+const BookingModal = lazy(() => import('./BookingModal'));
 
 const socialLinks = [
   { name: 'Facebook', url: 'https://www.facebook.com/mayfieldcellphonerepairs', icon: <Facebook className="w-5 h-5" /> },
@@ -99,133 +100,84 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
         <meta name="twitter:creator" content="@Mayfiel32990272" />
         <meta name="twitter:image" content="https://mayfieldphonerepair.com.au/logo.png" />
         <meta name="twitter:image:alt" content="Mayfield Phone Repair Logo" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "name": "Mayfield Cell Phone Repairs",
-            "image": "https://mayfieldphonerepair.com.au/logo.png",
-            "@id": "https://mayfieldphonerepair.com.au",
-            "url": "https://mayfieldphonerepair.com.au",
-            "telephone": "02 4049 1735",
-            "priceRange": "$$",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "276 Maitland Rd",
-              "addressLocality": "Mayfield",
-              "addressRegion": "NSW",
-              "postalCode": "2304",
-              "addressCountry": "AU"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -32.8988,
-              "longitude": 151.7345
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                "opens": "09:00",
-                "closes": "17:00"
-              },
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": "Saturday",
-                "opens": "10:00",
-                "closes": "16:00"
-              },
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": "Sunday",
-                "opens": "10:00",
-                "closes": "14:00"
-              }
-            ],
-            "sameAs": [
-              "https://www.facebook.com/mayfieldcellphonerepairs/",
-              "https://www.instagram.com/mayfieldcellphonerepairs/",
-              "https://www.pinterest.com/mayfieldcellphonerepairs0496",
-              "https://twitter.com/Mayfiel32990272",
-              "https://www.linkedin.com/company/mayfield-cell-phone-repairs/",
-              "https://www.youtube.com/@mayfieldcellphonerepairs",
-              "https://www.tiktok.com/@mayfield.cell.pho"
-            ]
-          })}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Mayfield Cell Phone Repairs",
-            "url": "https://mayfieldphonerepair.com.au",
-            "logo": "https://mayfieldphonerepair.com.au/logo.png",
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "telephone": "02 4049 1735",
-              "contactType": "customer service",
-              "areaServed": "AU",
-              "availableLanguage": "en"
-            }
-          })}
-        </script>
-        {pathname === '/' && (
+        {pathname !== '/' && (
           <script type="application/ld+json">
             {JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "FAQPage",
-              "mainEntity": [
+              "@type": ["LocalBusiness", "MobilePhoneRepairShop"],
+              "name": "Mayfield Phone Repair",
+              "image": "https://mayfieldphonerepair.com.au/logo.png",
+              "@id": "https://mayfieldphonerepair.com.au/#organization",
+              "url": "https://mayfieldphonerepair.com.au/",
+              "telephone": "+61240491735",
+              "email": "mayfieldphonerepair@gmail.com",
+              "priceRange": "$$",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "276 Maitland Rd",
+                "addressLocality": "Mayfield",
+                "addressRegion": "NSW",
+                "postalCode": "2304",
+                "addressCountry": "AU"
+              },
+              "areaServed": ["Mayfield", "Newcastle", "Hunter Region"],
+              "openingHoursSpecification": [
                 {
-                  "@type": "Question",
-                  "name": "How long does a screen repair take?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Most screen repairs are completed within 30 minutes at our Mayfield shop."
-                  }
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                  "opens": "09:00",
+                  "closes": "17:00"
                 },
                 {
-                  "@type": "Question",
-                  "name": "Do you provide a warranty on repairs?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes, we provide a 90-day hardware guarantee on all parts and labor."
-                  }
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": "Saturday",
+                  "opens": "10:00",
+                  "closes": "16:00"
                 },
                 {
-                  "@type": "Question",
-                  "name": "Do I need an appointment?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Walk-ins are welcome, but booking online ensures the fastest turnaround time."
-                  }
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": "Sunday",
+                  "opens": "10:00",
+                  "closes": "14:00"
                 }
+              ],
+              "sameAs": [
+                "https://www.facebook.com/mayfieldcellphonerepairs/",
+                "https://www.instagram.com/mayfieldcellphonerepairs/",
+                "https://www.pinterest.com/mayfieldcellphonerepairs0496",
+                "https://twitter.com/Mayfiel32990272",
+                "https://www.linkedin.com/company/mayfield-cell-phone-repairs/",
+                "https://www.youtube.com/@mayfieldcellphonerepairs",
+                "https://www.tiktok.com/@mayfield.cell.pho"
               ]
             })}
           </script>
         )}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": pathname.split('/').filter(Boolean).reduce((acc: any[], curr, idx, arr) => {
-              const url = `/${arr.slice(0, idx + 1).join('/')}`;
-              acc.push({
-                "@type": "ListItem",
-                "position": idx + 2,
-                "name": curr.charAt(0).toUpperCase() + curr.slice(1).replace(/-/g, ' '),
-                "item": `https://mayfieldphonerepair.com.au${url}`
-              });
-              return acc;
-            }, [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://mayfieldphonerepair.com.au"
-              }
-            ])
-          })}
-        </script>
+        {pathname !== '/' && (
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": pathname.split('/').filter(Boolean).reduce((acc: any[], curr, idx, arr) => {
+                const url = `/${arr.slice(0, idx + 1).join('/')}`;
+                acc.push({
+                  "@type": "ListItem",
+                  "position": idx + 2,
+                  "name": curr.charAt(0).toUpperCase() + curr.slice(1).replace(/-/g, ' '),
+                  "item": `https://mayfieldphonerepair.com.au${url}`
+                });
+                return acc;
+              }, [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://mayfieldphonerepair.com.au"
+                }
+              ])
+            })}
+          </script>
+        )}
       </Helmet>
       {/* Top Utility Header */}
       <div className="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-slate-200 py-2.5 px-6 md:px-12 text-xs font-medium flex flex-col lg:flex-row justify-between items-center gap-3 relative z-50 border-b border-white/5 transition-all">
@@ -365,7 +317,26 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
         {children || <Outlet />}
       </main>
 
-      <BookingModal isOpen={isBookingModalOpen} onClose={closeBooking} />
+      <Suspense fallback={null}>
+        {isBookingModalOpen && <BookingModal isOpen={isBookingModalOpen} onClose={closeBooking} />}
+      </Suspense>
+
+      {/* Mobile Sticky Bottom Action Bar */}
+      <div className="fixed bottom-0 inset-x-0 z-50 lg:hidden bg-white/95 backdrop-blur-md border-t border-slate-200 px-4 py-3 flex items-center gap-3 shadow-[0_-8px_25px_-5px_rgba(0,0,0,0.08)]">
+        <a
+          href="tel:0240491735"
+          className="flex-1 flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold text-xs uppercase tracking-wider transition-colors"
+        >
+          <Phone className="w-4 h-4 text-blue-600 shrink-0" />
+          <span>Call (02) 4049 1735</span>
+        </a>
+        <button
+          onClick={openBooking}
+          className="flex-1 py-3.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-black text-xs uppercase tracking-wider shadow-lg shadow-blue-600/25 transition-colors"
+        >
+          Book / Free Quote
+        </button>
+      </div>
 
       {/* Scroll to Top Button */}
       <AnimatePresence>
@@ -375,17 +346,17 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.5, y: 20 }}
             onClick={scrollToTop}
-            className="fixed bottom-52 right-6 z-40 bg-white text-slate-900 w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all border border-slate-200 group"
+            className="fixed bottom-56 lg:bottom-52 right-6 z-40 bg-white text-slate-900 w-12 h-12 lg:w-14 lg:h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all border border-slate-200 group"
             aria-label="Scroll to Top"
             id="scroll-to-top-button"
           >
-            <ArrowUp className="w-6 h-6 group-hover:-translate-y-1 transition-transform" strokeWidth={3} />
+            <ArrowUp className="w-5 h-5 lg:w-6 lg:h-6 group-hover:-translate-y-1 transition-transform" strokeWidth={3} />
           </motion.button>
         )}
       </AnimatePresence>
 
       {/* Modern Footer */}
-      <footer className="bg-slate-950 pt-32 pb-12 px-6 md:px-12 text-slate-500 overflow-hidden relative">
+      <footer className="bg-slate-950 pt-32 pb-28 lg:pb-12 px-6 md:px-12 text-slate-500 overflow-hidden relative">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[300px] bg-blue-600/5 blur-[120px] rounded-full"></div>
         
         <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 mb-24 relative z-10">

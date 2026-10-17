@@ -440,7 +440,7 @@ async function runPrerender() {
         <div class="min-h-screen bg-[#f6f7fb] text-[#0d1b2a] font-sans antialiased">
           <div class="bg-[#0d1b2a] text-[#cdd6e8] text-xs py-2 px-4 font-semibold text-center overflow-x-auto whitespace-nowrap">
             <div class="max-w-7xl mx-auto flex gap-4 items-center justify-center">
-              <span>⭐ <b class="text-white">4.7/5</b> from <b class="text-white">363+</b> Google Reviews</span>
+              <span>⭐ <b class="text-white">4.8/5</b> from <b class="text-white">477+</b> Google Reviews</span>
               <span>•</span>
               <span><b class="text-white">90-Day</b> Warranty on Repairs</span>
               <span>•</span>
@@ -469,7 +469,7 @@ async function runPrerender() {
                 </p>
                 <div class="flex flex-wrap items-center gap-4 text-slate-700 bg-white p-4 rounded-2xl border border-slate-100 shadow-sm max-w-lg">
                   <span class="text-amber-500 text-lg font-bold">★★★★★</span>
-                  <span class="text-sm font-semibold text-slate-800">Rated 4.7 &middot; Based on 363+ local Google Reviews</span>
+                  <span class="text-sm font-semibold text-slate-800">Rated 4.8 &middot; Based on 477+ local Google Reviews</span>
                 </div>
                 <div class="grid grid-cols-2 gap-4 max-w-lg pt-2 text-sm font-semibold text-slate-700">
                   <div class="flex items-center gap-2">✔ Same-day Service</div>
@@ -512,9 +512,9 @@ async function runPrerender() {
                 <span class="font-extrabold text-[#0d1b2a] text-sm block font-display tracking-tight mb-3">Apple iPhone</span>
                 <div class="space-y-1">
                   <div class="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-none">Screen From</div>
-                  <div class="text-lg font-black text-blue-600 font-display">$129</div>
+                  <div class="text-lg font-black text-blue-600 font-display">$89</div>
                   <div class="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-none">Battery From</div>
-                  <div class="text-lg font-black text-[#ff7a18] font-display">$89</div>
+                  <div class="text-lg font-black text-[#ff7a18] font-display">$79</div>
                 </div>
               </div>
               <div class="bg-white border border-slate-200/50 rounded-2xl p-5 text-center">
@@ -575,7 +575,7 @@ async function runPrerender() {
               <div class="bg-white/5 border border-white/10 rounded-2xl p-8">
                 <h3 class="text-white font-bold font-display text-lg mb-4">Opening Hours</h3>
                 <p>Monday - Friday &middot; 9:00 AM - 5:00 PM</p>
-                <p>Saturday &middot; 10:00 AM - 3:00 PM</p>
+                <p>Saturday &middot; 10:00 AM - 4:00 PM</p>
                 <p>Sunday &middot; 10:00 AM - 2:00 PM</p>
               </div>
             </div>
@@ -603,7 +603,7 @@ async function runPrerender() {
         <div class="min-h-screen bg-[#f6f7fb] text-[#0d1b2a] font-sans antialiased">
           <div class="bg-[#0d1b2a] text-[#cdd6e8] text-xs py-2 px-4 font-semibold text-center overflow-x-auto whitespace-nowrap">
             <div class="max-w-7xl mx-auto flex gap-4 items-center justify-center">
-              <span>⭐ <b class="text-white">4.7/5</b> from <b class="text-white">363+</b> Google Reviews</span>
+              <span>⭐ <b class="text-white">4.8/5</b> from <b class="text-white">477+</b> Google Reviews</span>
               <span>•</span>
               <span><b class="text-white">90-Day</b> Warranty on Repairs</span>
               <span>•</span>
@@ -632,7 +632,7 @@ async function runPrerender() {
                 </p>
                 <div class="flex flex-wrap items-center gap-4 text-slate-700 bg-white p-4 rounded-2xl border border-slate-100 shadow-sm max-w-lg">
                   <span class="text-amber-500 text-lg font-bold">★★★★★</span>
-                  <span class="text-sm font-semibold text-slate-800">Rated 4.7 &middot; Based on 363+ local Google Reviews</span>
+                  <span class="text-sm font-semibold text-slate-800">Rated 4.8 &middot; Based on 477+ local Google Reviews</span>
                 </div>
                 <div class="grid grid-cols-2 gap-4 max-w-lg pt-2 text-sm font-semibold text-slate-700">
                   <div class="flex items-center gap-2">✔ Same-day Service</div>
@@ -675,9 +675,9 @@ async function runPrerender() {
                 <span class="font-extrabold text-[#0d1b2a] text-sm block font-display tracking-tight mb-3">Apple iPhone</span>
                 <div class="space-y-1">
                   <div class="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-none">Screen From</div>
-                  <div class="text-lg font-black text-blue-600 font-display">$129</div>
+                  <div class="text-lg font-black text-blue-600 font-display">$89</div>
                   <div class="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-none">Battery From</div>
-                  <div class="text-lg font-black text-[#ff7a18] font-display">$89</div>
+                  <div class="text-lg font-black text-[#ff7a18] font-display">$79</div>
                 </div>
               </div>
               <div class="bg-white border border-slate-200/50 rounded-2xl p-5 text-center">
@@ -738,7 +738,7 @@ async function runPrerender() {
               <div class="bg-white/5 border border-white/10 rounded-2xl p-8">
                 <h3 class="text-white font-bold font-display text-lg mb-4">Opening Hours</h3>
                 <p>Monday - Friday &middot; 9:00 AM - 5:00 PM</p>
-                <p>Saturday &middot; 10:00 AM - 3:00 PM</p>
+                <p>Saturday &middot; 10:00 AM - 4:00 PM</p>
                 <p>Sunday &middot; 10:00 AM - 2:00 PM</p>
               </div>
             </div>
@@ -766,7 +766,7 @@ async function runPrerender() {
         <div class="min-h-screen bg-[#f6f7fb] text-[#0d1b2a] font-sans antialiased">
           <div class="bg-[#0d1b2a] text-[#cdd6e8] text-xs py-2 px-4 font-semibold text-center overflow-x-auto whitespace-nowrap">
             <div class="max-w-7xl mx-auto flex gap-4 items-center justify-center">
-              <span>⭐ <b class="text-white">4.7/5</b> from <b class="text-white">363+</b> Google Reviews</span>
+              <span>⭐ <b class="text-white">4.8/5</b> from <b class="text-white">477+</b> Google Reviews</span>
               <span>•</span>
               <span><b class="text-white">90-Day</b> Warranty on Repairs</span>
               <span>•</span>
@@ -795,7 +795,7 @@ async function runPrerender() {
                 </p>
                 <div class="flex flex-wrap items-center gap-4 text-slate-700 bg-white p-4 rounded-2xl border border-slate-100 shadow-sm max-w-lg">
                   <span class="text-amber-500 text-lg font-bold">★★★★★</span>
-                  <span class="text-sm font-semibold text-slate-800">Rated 4.7 &middot; Based on 363+ local Google Reviews</span>
+                  <span class="text-sm font-semibold text-slate-800">Rated 4.8 &middot; Based on 477+ local Google Reviews</span>
                 </div>
                 <div class="grid grid-cols-2 gap-4 max-w-lg pt-2 text-sm font-semibold text-slate-700">
                   <div class="flex items-center gap-2">✔ Same-day Service</div>
@@ -838,9 +838,9 @@ async function runPrerender() {
                 <span class="font-extrabold text-[#0d1b2a] text-sm block font-display tracking-tight mb-3">Apple iPhone</span>
                 <div class="space-y-1">
                   <div class="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-none">Screen From</div>
-                  <div class="text-lg font-black text-blue-600 font-display">$129</div>
+                  <div class="text-lg font-black text-blue-600 font-display">$89</div>
                   <div class="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-none">Battery From</div>
-                  <div class="text-lg font-black text-[#ff7a18] font-display">$89</div>
+                  <div class="text-lg font-black text-[#ff7a18] font-display">$79</div>
                 </div>
               </div>
               <div class="bg-white border border-slate-200/50 rounded-2xl p-5 text-center">
@@ -901,7 +901,7 @@ async function runPrerender() {
               <div class="bg-white/5 border border-white/10 rounded-2xl p-8">
                 <h3 class="text-white font-bold font-display text-lg mb-4">Opening Hours</h3>
                 <p>Monday - Friday &middot; 9:00 AM - 5:00 PM</p>
-                <p>Saturday &middot; 10:00 AM - 3:00 PM</p>
+                <p>Saturday &middot; 10:00 AM - 4:00 PM</p>
                 <p>Sunday &middot; 10:00 AM - 2:00 PM</p>
               </div>
             </div>
@@ -929,7 +929,7 @@ async function runPrerender() {
         <div class="min-h-screen bg-[#f6f7fb] text-[#0d1b2a] font-sans antialiased">
           <div class="bg-[#0d1b2a] text-[#cdd6e8] text-xs py-2 px-4 font-semibold text-center overflow-x-auto whitespace-nowrap">
             <div class="max-w-7xl mx-auto flex gap-4 items-center justify-center">
-              <span>⭐ <b class="text-white">4.7/5</b> from <b class="text-white">363+</b> Google Reviews</span>
+              <span>⭐ <b class="text-white">4.8/5</b> from <b class="text-white">477+</b> Google Reviews</span>
               <span>•</span>
               <span><b class="text-white">90-Day</b> Warranty on Repairs</span>
               <span>•</span>
@@ -958,7 +958,7 @@ async function runPrerender() {
                 </p>
                 <div class="flex flex-wrap items-center gap-4 text-slate-700 bg-white p-4 rounded-2xl border border-slate-100 shadow-sm max-w-lg">
                   <span class="text-amber-500 text-lg font-bold">★★★★★</span>
-                  <span class="text-sm font-semibold text-slate-800">Rated 4.7 &middot; Based on 363+ local Google Reviews</span>
+                  <span class="text-sm font-semibold text-slate-800">Rated 4.8 &middot; Based on 477+ local Google Reviews</span>
                 </div>
                 <div class="grid grid-cols-2 gap-4 max-w-lg pt-2 text-sm font-semibold text-slate-700">
                   <div class="flex items-center gap-2">✔ Same-day Service</div>
@@ -1001,9 +1001,9 @@ async function runPrerender() {
                 <span class="font-extrabold text-[#0d1b2a] text-sm block font-display tracking-tight mb-3">Apple iPhone</span>
                 <div class="space-y-1">
                   <div class="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-none">Screen From</div>
-                  <div class="text-lg font-black text-blue-600 font-display">$129</div>
+                  <div class="text-lg font-black text-blue-600 font-display">$89</div>
                   <div class="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-none">Battery From</div>
-                  <div class="text-lg font-black text-[#ff7a18] font-display">$89</div>
+                  <div class="text-lg font-black text-[#ff7a18] font-display">$79</div>
                 </div>
               </div>
               <div class="bg-white border border-slate-200/50 rounded-2xl p-5 text-center">
@@ -1064,7 +1064,7 @@ async function runPrerender() {
               <div class="bg-white/5 border border-white/10 rounded-2xl p-8">
                 <h3 class="text-white font-bold font-display text-lg mb-4">Opening Hours</h3>
                 <p>Monday - Friday &middot; 9:00 AM - 5:00 PM</p>
-                <p>Saturday &middot; 10:00 AM - 3:00 PM</p>
+                <p>Saturday &middot; 10:00 AM - 4:00 PM</p>
                 <p>Sunday &middot; 10:00 AM - 2:00 PM</p>
               </div>
             </div>

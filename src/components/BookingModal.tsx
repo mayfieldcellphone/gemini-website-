@@ -1,8 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Calendar, Clock, Smartphone, Laptop, Gamepad2, Tablet, CheckCircle2, ChevronRight, User, Phone, Mail, Info, Watch, Search, ChevronLeft, Settings } from 'lucide-react';
-import { db, handleFirestoreError, OperationType } from '../lib/firebase';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { X, Calendar, Clock, Smartphone, Laptop, Gamepad2, Tablet, CheckCircle2, ChevronRight, User, Phone, Info, Watch, Search, ChevronLeft, Settings } from 'lucide-react';
 import { sendSMSNotification } from '../lib/notifications';
 import { brands } from '../data/brands';
 import { servicesData } from '../data/services';
@@ -22,20 +20,21 @@ const CATEGORIES = [
 ];
 
 const TIME_SLOTS = [
-  '09:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '01:00 PM', '02:00 PM', '03:00 PM', '04:00 PM'
+  'Walk-In ASAP', '09:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '01:00 PM', '02:00 PM', '03:00 PM', '04:00 PM'
 ];
 
 export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
   const [step, setStep] = useState(1);
   const [isManualModel, setIsManualModel] = useState(false);
   const [customModel, setCustomModel] = useState('');
+  const todayStr = new Date().toISOString().split('T')[0];
   const [formData, setFormData] = useState({
-    category: '',
+    category: 'Phone',
     brand: '',
     model: '',
     service: '',
-    date: '',
-    time: '',
+    date: todayStr,
+    time: 'Walk-In ASAP',
     customerName: '',
     email: '',
     phone: '',
@@ -55,12 +54,12 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
       setIsManualModel(false);
       setCustomModel('');
       setFormData({
-        category: '',
+        category: 'Phone',
         brand: '',
         model: '',
         service: '',
-        date: '',
-        time: '',
+        date: todayStr,
+        time: 'Walk-In ASAP',
         customerName: '',
         email: '',
         phone: '',
@@ -69,19 +68,11 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
     }, 500);
   };
 
-  const filteredBrands = useMemo(() => {
-    if (!formData.category) return brands;
-    // Simple filter: if category is Phone, show all smartphone brands. 
-    // For iPad/MacBook, filter the deviceCategories within brands.
-    return brands; 
-  }, [formData.category]);
-
   const availableModels = useMemo(() => {
     if (!formData.brand || !formData.category) return [];
     const brandData = brands.find(b => b.name === formData.brand);
     if (!brandData) return [];
     
-    // Find matching category in brand data
     const categoryData = brandData.deviceCategories.find(c => 
       c.name.toLowerCase().includes(formData.category.toLowerCase()) || 
       formData.category.toLowerCase().includes(c.name.toLowerCase())
@@ -96,7 +87,11 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
     setError(null);
 
     try {
-      console.log('Attempting to save booking:', formData);
+      const [{ db, handleFirestoreError, OperationType }, { collection, addDoc, serverTimestamp }] = await Promise.all([
+        import('../lib/firebase'),
+        import('firebase/firestore')
+      ]);
+
       await addDoc(collection(db, 'bookings'), {
         ...formData,
         status: 'pending',
@@ -104,10 +99,8 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
         updatedAt: serverTimestamp()
       });
       
-      console.log('Booking saved to Firestore, sending notifications...');
       setIsSuccess(true);
       
-      // Send notifications in background (includes external CRM sync)
       sendSMSNotification('booking', formData).catch(err => {
         console.warn('Notification error:', err);
       });
@@ -115,18 +108,17 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
       console.error('Submit error:', err);
       const message = err instanceof Error ? err.message : 'An unknown error occurred';
       setError(message);
-      handleFirestoreError(err, OperationType.CREATE, 'bookings');
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const nextStep = () => setStep(prev => prev + 1);
-  const prevStep = () => setStep(prev => prev - 1);
+  const nextStep = () => setStep(prev => Math.min(3, prev + 1));
+  const prevStep = () => setStep(prev => Math.max(1, prev - 1));
 
   const renderStepIndicator = () => (
-    <div className="flex items-center gap-1">
-      {[1, 2, 3, 4, 5].map((i) => (
+    <div className="flex items-center gap-1.5">
+      {[1, 2, 3].map((i) => (
         <div 
           key={i} 
           className={`h-1.5 rounded-full transition-all duration-300 ${
@@ -135,6 +127,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
           }`} 
         />
       ))}
+      <span className="ml-2 text-[10px] font-black uppercase tracking-widest text-slate-400">Step {step} of 3</span>
     </div>
   );
 
@@ -159,34 +152,35 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
             {/* Header */}
             <div className="px-6 md:px-8 py-5 md:py-6 border-b border-slate-100 flex justify-between items-center bg-slate-50/30">
               <div className="space-y-1">
-                <h3 className="text-lg md:text-xl font-bold text-slate-900">Repair Booking</h3>
+                <h3 className="text-lg md:text-xl font-bold text-slate-900">Fast Repair Booking &amp; Quote</h3>
                 {renderStepIndicator()}
               </div>
               <button 
                 onClick={handleClose}
+                aria-label="Close booking modal"
                 className="p-1.5 md:p-2 hover:bg-white rounded-full transition-colors text-slate-400 hover:text-slate-900 shadow-sm"
               >
                 <X className="w-5 h-5 md:w-6 md:h-6" />
               </button>
             </div>
 
-            <div className="p-6 md:p-8 max-h-[70vh] overflow-y-auto custom-scrollbar">
+            <div className="p-6 md:p-8 max-h-[75vh] overflow-y-auto custom-scrollbar">
               {isSuccess ? (
-                <div className="py-12 text-center space-y-6">
-                  <div className="w-24 h-24 bg-emerald-100 text-emerald-600 rounded-3xl flex items-center justify-center mx-auto mb-6">
-                    <CheckCircle2 className="w-12 h-12" />
+                <div className="py-10 text-center space-y-6">
+                  <div className="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-3xl flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle2 className="w-10 h-10" />
                   </div>
                   <h4 className="text-3xl font-black text-slate-900">Booking Confirmed!</h4>
                   <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100 space-y-3">
                     <p className="text-slate-600 font-medium leading-relaxed">
-                      Thanks <span className="text-slate-950 font-bold">{formData.customerName}</span>! Your {formData.brand} {formData.model} repair is booked for:
+                      Thanks <span className="text-slate-950 font-bold">{formData.customerName}</span>! Your {formData.brand} {formData.model} ({formData.service || 'Repair'}) is logged for:
                     </p>
                     <div className="flex items-center justify-center gap-4 text-blue-600 font-black uppercase tracking-widest text-xs py-2 bg-white rounded-xl shadow-sm border border-blue-50">
                       <span className="flex items-center gap-2"><Calendar className="w-4 h-4"/> {formData.date}</span>
                       <span className="h-4 w-[1px] bg-blue-100" />
                       <span className="flex items-center gap-2"><Clock className="w-4 h-4"/> {formData.time}</span>
                     </div>
-                    <p className="text-xs text-slate-400 italic">We will call you at {formData.phone} shortly.</p>
+                    <p className="text-xs text-slate-400 italic">We will call or text you at {formData.phone} shortly.</p>
                   </div>
 
                   <div className="flex flex-col gap-3">
@@ -194,10 +188,10 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                       onClick={handleClose}
                       className="w-full px-8 py-5 bg-slate-900 text-white rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-600 transition shadow-xl"
                     >
-                      Awesome, See You Then
+                      Done
                     </button>
                     <a 
-                      href={`sms:0431618100?body=Hi, I just booked a ${formData.brand} ${formData.model} repair for ${formData.date} at ${formData.time}. My name is ${formData.customerName}.`}
+                      href={`sms:0431618100?body=Hi, I just booked a ${formData.brand} ${formData.model} repair for ${formData.date} (${formData.time}). My name is ${formData.customerName}.`}
                       className="w-full px-8 py-5 border-2 border-slate-100 text-slate-900 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-emerald-50 hover:border-emerald-200 hover:text-emerald-600 transition flex items-center justify-center gap-2"
                     >
                       <Phone className="w-4 h-4"/> Send SMS Backup
@@ -205,50 +199,42 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                   </div>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-8">
-                  {/* Step 1: Category */}
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Step 1: Device Category, Brand & Model */}
                   {step === 1 && (
                     <div className="space-y-6">
-                      <div className="text-center space-y-2 mb-8">
-                        <h4 className="text-2xl font-black text-slate-900">What are we fixing?</h4>
-                        <p className="text-slate-500 font-medium italic">Select your device type to begin</p>
+                      <div className="space-y-3">
+                        <label className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 block">1. Device Type</label>
+                        <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+                          {CATEGORIES.map((cat) => (
+                            <button
+                              key={cat.id}
+                              type="button"
+                              onClick={() => setFormData({ ...formData, category: cat.id, model: '' })}
+                              className={`p-3 rounded-2xl border-2 transition-all flex flex-col items-center gap-1.5 text-center ${
+                                formData.category === cat.id
+                                  ? 'border-blue-600 bg-blue-50/60 shadow-sm'
+                                  : 'border-slate-100 hover:border-blue-200 bg-white'
+                              }`}
+                            >
+                              <cat.icon className={`w-5 h-5 ${cat.color}`} />
+                              <span className="font-bold text-slate-900 text-[11px] leading-tight">
+                                {cat.label}
+                              </span>
+                            </button>
+                          ))}
+                        </div>
                       </div>
-                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                        {CATEGORIES.map((cat) => (
-                          <button
-                            key={cat.id}
-                            type="button"
-                            onClick={() => { setFormData({ ...formData, category: cat.id }); nextStep(); }}
-                            className={`p-6 rounded-3xl border-2 transition-all flex flex-col items-center gap-4 text-center group ${
-                              formData.category === cat.id
-                                ? 'border-blue-600 bg-blue-50/50 shadow-lg'
-                                : 'border-slate-100 hover:border-blue-200 bg-white hover:shadow-xl hover:shadow-slate-100'
-                            }`}
-                          >
-                            <div className={`p-4 rounded-2xl ${cat.bg} ${cat.color} group-hover:scale-110 transition-transform`}>
-                              <cat.icon className="w-8 h-8" />
-                            </div>
-                            <span className="font-bold text-slate-900 text-sm whitespace-nowrap">
-                              {cat.label}
-                            </span>
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  )}
 
-                  {/* Step 2: Brand & Model */}
-                  {step === 2 && (
-                    <div className="space-y-8">
-                      <div className="space-y-4">
-                        <label className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 block">Choose Brand</label>
-                        <div className="grid grid-cols-3 gap-3">
+                      <div className="space-y-3">
+                        <label className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 block">2. Choose Brand</label>
+                        <div className="grid grid-cols-3 gap-2.5">
                           {brands.map(brand => (
                             <button
                               key={brand.id}
                               type="button"
-                              onClick={() => setFormData({ ...formData, brand: brand.name })}
-                              className={`py-4 rounded-2xl border-2 font-bold transition-all ${
+                              onClick={() => setFormData({ ...formData, brand: brand.name, model: '' })}
+                              className={`py-3 px-2 rounded-2xl border-2 font-bold text-sm transition-all ${
                                 formData.brand === brand.name
                                   ? 'border-blue-600 bg-blue-50 text-blue-700'
                                   : 'border-slate-100 hover:border-slate-200 text-slate-600'
@@ -259,8 +245,8 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                           ))}
                           <button
                             type="button"
-                            onClick={() => setFormData({ ...formData, brand: 'Other' })}
-                            className={`py-4 rounded-2xl border-2 font-bold transition-all ${
+                            onClick={() => setFormData({ ...formData, brand: 'Other', model: '' })}
+                            className={`py-3 px-2 rounded-2xl border-2 font-bold text-sm transition-all ${
                               formData.brand === 'Other'
                                 ? 'border-blue-600 bg-blue-50 text-blue-700'
                                 : 'border-slate-100 hover:border-slate-200 text-slate-600'
@@ -272,9 +258,9 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                       </div>
 
                       {formData.brand && formData.brand !== 'Other' && (
-                        <div className="space-y-4">
-                          <label className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 block">Select Model</label>
-                          <div className="grid grid-cols-2 gap-2 max-h-60 overflow-y-auto pr-2 custom-scrollbar">
+                        <div className="space-y-3">
+                          <label className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 block">3. Select Model (Optional)</label>
+                          <div className="grid grid-cols-2 gap-2 max-h-48 overflow-y-auto pr-1 custom-scrollbar">
                             {availableModels.length > 0 ? (
                               <>
                                 {availableModels.map(model => (
@@ -284,11 +270,12 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                                     onClick={() => {
                                       setFormData({ ...formData, model });
                                       setIsManualModel(false);
+                                      nextStep();
                                     }}
-                                    className={`p-4 rounded-xl border-2 text-sm font-bold text-left transition-all ${
+                                    className={`p-3 rounded-xl border-2 text-xs font-bold text-left transition-all ${
                                       formData.model === model && !isManualModel
-                                        ? 'border-blue-600 bg-blue-600 text-white shadow-lg'
-                                        : 'border-slate-50 bg-slate-50 text-slate-600 hover:border-blue-100'
+                                        ? 'border-blue-600 bg-blue-600 text-white shadow-md'
+                                        : 'border-slate-100 bg-slate-50 text-slate-700 hover:border-blue-200'
                                     }`}
                                   >
                                     {model}
@@ -300,26 +287,26 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                                     setIsManualModel(true);
                                     setFormData({ ...formData, model: '' });
                                   }}
-                                  className={`p-4 rounded-xl border-2 text-sm font-bold text-left transition-all ${
+                                  className={`p-3 rounded-xl border-2 text-xs font-bold text-left transition-all ${
                                     isManualModel
-                                      ? 'border-blue-600 bg-blue-600 text-white shadow-lg'
-                                      : 'border-slate-50 bg-slate-50 text-slate-600 hover:border-blue-100'
+                                      ? 'border-blue-600 bg-blue-600 text-white shadow-md'
+                                      : 'border-slate-100 bg-slate-50 text-slate-700 hover:border-blue-200'
                                   }`}
                                 >
                                   Other / Not Listed
                                 </button>
                                 
                                 {isManualModel && (
-                                  <div className="col-span-2 pt-2">
+                                  <div className="col-span-2 pt-1">
                                     <input
                                       type="text"
-                                      placeholder="Type your model (e.g. iPhone 6)"
+                                      placeholder="Type your model (e.g. iPhone 15 Pro)"
                                       value={customModel}
                                       onChange={(e) => {
                                         setCustomModel(e.target.value);
                                         setFormData({ ...formData, model: e.target.value });
                                       }}
-                                      className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-100 transition-all font-bold text-slate-900"
+                                      className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-100 transition-all font-bold text-slate-900 text-sm"
                                       autoFocus
                                     />
                                   </div>
@@ -329,10 +316,10 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                               <div className="col-span-2">
                                 <input
                                   type="text"
-                                  placeholder="Enter your model (e.g. Pixel 8 Pro)"
+                                  placeholder="Enter your model (e.g. Pixel 9 Pro)"
                                   value={formData.model}
                                   onChange={(e) => setFormData({ ...formData, model: e.target.value })}
-                                  className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-100 transition-all font-bold text-slate-900"
+                                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-100 transition-all font-bold text-slate-900 text-sm"
                                 />
                               </div>
                             )}
@@ -341,118 +328,81 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                       )}
 
                       {formData.brand === 'Other' && (
-                        <div className="space-y-4">
+                        <div className="space-y-2">
                           <label className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 block">Device Details</label>
                           <input
                             type="text"
                             placeholder="e.g. Nintendo Switch OLED"
                             value={formData.model}
                             onChange={(e) => setFormData({ ...formData, model: e.target.value })}
-                            className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-100 transition-all font-bold text-slate-900"
+                            className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-100 transition-all font-bold text-slate-900 text-sm"
                           />
                         </div>
                       )}
                     </div>
                   )}
 
-                  {/* Step 3: Service */}
-                  {step === 3 && (
-                    <div className="space-y-6">
-                      <div className="text-center space-y-2 mb-8">
-                        <h4 className="text-2xl font-black text-slate-900">What\'s the issue?</h4>
-                        <p className="text-slate-500 font-medium italic">Select a service category</p>
+                  {/* Step 2: Service / Issue */}
+                  {step === 2 && (
+                    <div className="space-y-4">
+                      <div className="text-center space-y-1 mb-4">
+                        <h4 className="text-xl font-black text-slate-900">What&apos;s the issue?</h4>
+                        <p className="text-slate-500 text-sm font-medium">Tap an issue to continue</p>
                       </div>
-                      <div className="grid gap-3">
-                        {servicesData.map((service) => (
+                      <div className="grid sm:grid-cols-2 gap-2.5 max-h-72 overflow-y-auto pr-1 custom-scrollbar">
+                        {servicesData.slice(0, 10).map((service) => (
                           <button
                             key={service.id}
                             type="button"
-                            onClick={() => setFormData({ ...formData, service: service.title })}
-                            className={`p-5 rounded-2xl border-2 transition-all flex items-center gap-4 text-left ${
+                            onClick={() => {
+                              setFormData({ ...formData, service: service.title });
+                              nextStep();
+                            }}
+                            className={`p-4 rounded-2xl border-2 transition-all flex items-center gap-3 text-left ${
                               formData.service === service.title
-                                ? 'border-blue-600 bg-blue-50/50 shadow-md'
-                                : 'border-slate-100 bg-white hover:border-blue-100'
+                                ? 'border-blue-600 bg-blue-50/50 shadow-sm'
+                                : 'border-slate-100 bg-white hover:border-blue-200'
                             }`}
                           >
-                            <div className={`p-3 rounded-xl bg-slate-100 text-slate-600 ${formData.service === service.title ? 'bg-blue-600 text-white' : ''}`}>
-                              <service.icon className="w-5 h-5" />
+                            <div className={`p-2.5 rounded-xl bg-slate-100 text-slate-600 shrink-0 ${formData.service === service.title ? 'bg-blue-600 text-white' : ''}`}>
+                              <service.icon className="w-4 h-4" />
                             </div>
-                            <div className="flex-1">
-                              <span className="font-bold text-slate-900">{service.title}</span>
-                              <p className="text-[10px] text-slate-400 font-medium uppercase tracking-wider">{service.features[0]}</p>
+                            <div className="flex-1 min-w-0">
+                              <span className="font-bold text-slate-900 text-sm block truncate">{service.title}</span>
+                              <p className="text-[10px] text-slate-400 font-medium uppercase tracking-wider truncate">{service.features[0]}</p>
                             </div>
-                            {formData.service === service.title && <CheckCircle2 className="w-6 h-6 text-blue-600" />}
                           </button>
                         ))}
                         <button
                           type="button"
-                          onClick={() => setFormData({ ...formData, service: 'Other / Diagnostic' })}
-                          className={`p-5 rounded-2xl border-2 transition-all flex items-center gap-4 text-left ${
+                          onClick={() => {
+                            setFormData({ ...formData, service: 'Other / Diagnostic' });
+                            nextStep();
+                          }}
+                          className={`p-4 rounded-2xl border-2 transition-all flex items-center gap-3 text-left sm:col-span-2 ${
                             formData.service === 'Other / Diagnostic'
                               ? 'border-blue-600 bg-blue-50/50'
-                              : 'border-slate-100 bg-white hover:border-blue-100'
+                              : 'border-slate-100 bg-white hover:border-blue-200'
                           }`}
                         >
-                          <div className={`p-3 rounded-xl bg-slate-100 text-slate-600 ${formData.service === 'Other / Diagnostic' ? 'bg-blue-600 text-white' : ''}`}>
-                            <Search className="w-5 h-5" />
+                          <div className={`p-2.5 rounded-xl bg-slate-100 text-slate-600 ${formData.service === 'Other / Diagnostic' ? 'bg-blue-600 text-white' : ''}`}>
+                            <Search className="w-4 h-4" />
                           </div>
                           <div className="flex-1">
-                            <span className="font-bold text-slate-900">Other / Not Sure</span>
-                            <p className="text-[10px] text-slate-400 font-medium uppercase tracking-wider">Free Diagnostic Check</p>
+                            <span className="font-bold text-slate-900 text-sm">Other / Not Sure (Free Diagnostic Check)</span>
                           </div>
                         </button>
                       </div>
                     </div>
                   )}
 
-                  {/* Step 4: Date & Time */}
-                  {step === 4 && (
-                    <div className="space-y-8">
-                      <div className="space-y-4">
-                        <label className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-slate-400">
-                          <Calendar className="w-4 h-4" /> Pick a Date
-                        </label>
-                        <input
-                          type="date"
-                          required
-                          min={new Date().toISOString().split('T')[0]}
-                          value={formData.date}
-                          onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                          className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-100 transition-all font-bold text-slate-900"
-                        />
-                      </div>
-
-                      <div className="space-y-4">
-                        <label className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-slate-400">
-                          <Clock className="w-4 h-4" /> Preferred Time
-                        </label>
-                        <div className="grid grid-cols-4 gap-3">
-                          {TIME_SLOTS.map((slot) => (
-                            <button
-                              key={slot}
-                              type="button"
-                              onClick={() => setFormData({ ...formData, time: slot })}
-                              className={`py-3 rounded-xl border-2 text-xs font-black transition-all ${
-                                formData.time === slot
-                                  ? 'border-blue-600 bg-blue-600 text-white shadow-lg shadow-blue-100'
-                                  : 'border-slate-50 bg-slate-50 text-slate-400 hover:border-blue-100'
-                              }`}
-                            >
-                              {slot}
-                            </button>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Step 5: Final Details */}
-                  {step === 5 && (
-                    <div className="space-y-6">
-                      <div className="grid md:grid-cols-2 gap-4">
-                        <div className="space-y-2">
-                          <label className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
-                            <User className="w-3 h-3" /> Full Name
+                  {/* Step 3: Contact Details & Optional Preferred Time */}
+                  {step === 3 && (
+                    <div className="space-y-5">
+                      <div className="grid sm:grid-cols-2 gap-4">
+                        <div className="space-y-1.5">
+                          <label className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
+                            <User className="w-3 h-3 text-blue-600" /> Full Name *
                           </label>
                           <input
                             type="text"
@@ -460,12 +410,12 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                             placeholder="Your full name"
                             value={formData.customerName}
                             onChange={(e) => setFormData({ ...formData, customerName: e.target.value })}
-                            className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-100 transition-all font-bold text-slate-900"
+                            className="w-full px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-100 focus:border-blue-600 transition-all font-bold text-slate-900 text-sm"
                           />
                         </div>
-                        <div className="space-y-2">
-                          <label className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
-                            <Phone className="w-3 h-3" /> Phone Number
+                        <div className="space-y-1.5">
+                          <label className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
+                            <Phone className="w-3 h-3 text-blue-600" /> Mobile Number *
                           </label>
                           <input
                             type="tel"
@@ -473,21 +423,50 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                             placeholder="0400 000 000"
                             value={formData.phone}
                             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                            className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-100 transition-all font-bold text-slate-900"
+                            className="w-full px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-100 focus:border-blue-600 transition-all font-bold text-slate-900 text-sm"
                           />
                         </div>
                       </div>
 
-                      <div className="space-y-2">
-                        <label className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
-                          <Info className="w-3 h-3" /> Additional Details (Optional)
+                      <div className="grid sm:grid-cols-2 gap-4">
+                        <div className="space-y-1.5">
+                          <label className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
+                            <Calendar className="w-3 h-3 text-blue-600" /> Preferred Day
+                          </label>
+                          <input
+                            type="date"
+                            min={todayStr}
+                            value={formData.date}
+                            onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                            className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-100 font-bold text-slate-900 text-sm"
+                          />
+                        </div>
+                        <div className="space-y-1.5">
+                          <label className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
+                            <Clock className="w-3 h-3 text-blue-600" /> Preferred Time
+                          </label>
+                          <select
+                            value={formData.time}
+                            onChange={(e) => setFormData({ ...formData, time: e.target.value })}
+                            className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-100 font-bold text-slate-900 text-sm"
+                          >
+                            {TIME_SLOTS.map(slot => (
+                              <option key={slot} value={slot}>{slot}</option>
+                            ))}
+                          </select>
+                        </div>
+                      </div>
+
+                      <div className="space-y-1.5">
+                        <label className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
+                          <Info className="w-3 h-3 text-blue-600" /> Notes (Optional)
                         </label>
                         <textarea
-                          placeholder="e.g. The screen works but the touch is broken..."
+                          placeholder="e.g. Cracked front glass, need price quote or part held..."
                           value={formData.details}
                           onChange={(e) => setFormData({ ...formData, details: e.target.value })}
-                          rows={4}
-                          className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-100 transition-all font-medium text-slate-900"
+                          rows={2}
+                          className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-100 transition-all font-medium text-slate-900 text-sm"
                         />
                       </div>
 
@@ -504,23 +483,23 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                   )}
 
                   {/* Navigation */}
-                  <div className="flex justify-between items-center pt-8 border-t border-slate-100">
+                  <div className="flex justify-between items-center pt-5 border-t border-slate-100">
                     {step > 1 ? (
                       <button
                         type="button"
                         onClick={prevStep}
-                        className="px-8 py-4 text-slate-400 hover:text-slate-900 font-bold transition-colors flex items-center gap-2"
+                        className="px-6 py-3.5 text-slate-500 hover:text-slate-900 font-bold text-sm transition-colors flex items-center gap-2"
                       >
-                        <ChevronLeft className="w-4 h-4" /> Go Back
+                        <ChevronLeft className="w-4 h-4" /> Back
                       </button>
                     ) : <div />}
 
-                    {step < 5 ? (
+                    {step < 3 ? (
                       <button
                         type="button"
-                        disabled={(step === 2 && !formData.brand) || (step === 3 && !formData.service) || (step === 4 && (!formData.date || !formData.time))}
+                        disabled={(step === 1 && !formData.brand) || (step === 2 && !formData.service)}
                         onClick={nextStep}
-                        className="bg-slate-900 text-white px-10 py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-600 transition shadow-xl disabled:opacity-20 flex items-center gap-3"
+                        className="bg-slate-900 text-white px-8 py-3.5 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-600 transition shadow-xl disabled:opacity-20 flex items-center gap-2"
                       >
                         Continue <ChevronRight className="w-4 h-4" />
                       </button>
@@ -528,9 +507,9 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                       <button
                         type="submit"
                         disabled={isSubmitting || !formData.customerName || !formData.phone}
-                        className="bg-blue-600 text-white px-10 py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-700 transition shadow-xl shadow-blue-200 flex items-center gap-3 disabled:opacity-50"
+                        className="bg-blue-600 text-white px-8 py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-700 transition shadow-xl shadow-blue-200 flex items-center gap-2 disabled:opacity-50"
                       >
-                        {isSubmitting ? 'Confirming...' : 'Request Booking'}
+                        {isSubmitting ? 'Confirming...' : 'Get Instant Quote & Book'}
                       </button>
                     )}
                   </div>
@@ -543,4 +522,5 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
     </AnimatePresence>
   );
 }
+
 

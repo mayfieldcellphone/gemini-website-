@@ -17,14 +17,35 @@ import {
   Zap,
   ArrowRight
 } from 'lucide-react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function BlogPostPage() {
   const { slug } = useParams();
   const { openBooking } = useUI();
   const { hash } = useLocation();
+  const [copied, setCopied] = useState(false);
   const today = new Date().toISOString().split('T')[0];
   const post = blogPosts.find(p => p.slug === slug && p.date <= today);
+
+  const handleShare = async () => {
+    if (!post) return;
+    const shareUrl = `https://mayfieldphonerepair.com.au/blog/${post.slug}`;
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: post.title, text: post.excerpt, url: shareUrl });
+        return;
+      } catch {
+        // User cancelled or share failed; fall back to clipboard
+      }
+    }
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    } catch {
+      // Ignore clipboard error
+    }
+  };
 
   useEffect(() => {
     if (!hash) {
@@ -55,6 +76,7 @@ export default function BlogPostPage() {
   // Calculate read time (approx 200 words per minute)
   const wordCount = post.content.replace(/<[^>]*>/g, '').split(/\s+/).length;
   const readTime = Math.ceil(wordCount / 200);
+  const hasEmbeddedSummary = post.content.includes('AI Search Summary');
 
   return (
     <div className="flex-1 bg-white">
@@ -150,12 +172,18 @@ export default function BlogPostPage() {
         {/* Left Column: Social/Tools (Sticky) */}
         <div className="hidden lg:block lg:col-span-1">
           <div className="sticky top-32 space-y-8 flex flex-col items-center">
-            <button className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all shadow-sm group" aria-label="Share">
+            <button
+              type="button"
+              onClick={handleShare}
+              className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all shadow-sm group"
+              aria-label="Share Article"
+              title={copied ? 'Link Copied!' : 'Share Article'}
+            >
               <Share2 className="w-5 h-5 group-hover:scale-110 transition-transform" />
             </button>
             <div className="w-px h-12 bg-slate-100"></div>
             <div className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-300 transform -rotate-90 origin-center whitespace-nowrap font-display">
-              Share Article
+              {copied ? 'Link Copied!' : 'Share Article'}
             </div>
           </div>
         </div>
@@ -172,29 +200,31 @@ export default function BlogPostPage() {
              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent"></div>
           </div>
 
-          {/* AI / SGE Summary Block */}
-          <div className="bg-slate-900 text-white rounded-[3rem] p-10 sm:p-12 shadow-2xl relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/20 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
-            <div className="space-y-6 relative z-10">
-              <div className="flex items-center gap-3 text-blue-400">
-                <Zap className="w-5 h-5 fill-current" />
-                <h2 className="text-xs font-black uppercase tracking-[0.3em] font-display">Key Takeaways (Top Answers)</h2>
-              </div>
-              <p className="text-xl font-medium text-slate-200 leading-relaxed italic pr-8">
-                {post.excerpt}
-              </p>
-              <div className="grid sm:grid-cols-2 gap-4 pt-4 border-t border-white/5">
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-1" />
-                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Same-Day Repair Service</span>
+          {/* AI / SGE Summary Block (only rendered if post.content doesn't already include one) */}
+          {!hasEmbeddedSummary && (
+            <div className="bg-slate-900 text-white rounded-[3rem] p-10 sm:p-12 shadow-2xl relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/20 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
+              <div className="space-y-6 relative z-10">
+                <div className="flex items-center gap-3 text-blue-400">
+                  <Zap className="w-5 h-5 fill-current" />
+                  <h2 className="text-xs font-black uppercase tracking-[0.3em] font-display">Key Takeaways (Top Answers)</h2>
                 </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-1" />
-                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Trusted Local Technicians</span>
+                <p className="text-xl font-medium text-slate-200 leading-relaxed italic pr-8">
+                  {post.excerpt}
+                </p>
+                <div className="grid sm:grid-cols-2 gap-4 pt-4 border-t border-white/5">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-1" />
+                    <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Same-Day Repair Service</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-1" />
+                    <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Trusted Local Technicians</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          )}
 
           {/* Body Content */}
           <div 
@@ -216,8 +246,12 @@ export default function BlogPostPage() {
                 <span key={tag} className="text-[10px] font-black uppercase tracking-widest text-slate-400">#{tag.replace(/\s+/g, '')}</span>
               ))}
             </div>
-            <button className="flex items-center gap-3 text-xs font-black uppercase tracking-[0.2em] text-blue-600 hover:text-blue-700 transition h-fit font-display">
-              <Share2 className="w-4 h-4" /> Share Article
+            <button
+              type="button"
+              onClick={handleShare}
+              className="flex items-center gap-3 text-xs font-black uppercase tracking-[0.2em] text-blue-600 hover:text-blue-700 transition h-fit font-display"
+            >
+              <Share2 className="w-4 h-4" /> {copied ? 'Link Copied!' : 'Share Article'}
             </button>
           </div>
         </article>
@@ -264,7 +298,7 @@ export default function BlogPostPage() {
                  {[
                    { label: 'Success Rate', val: '99.8%' },
                    { label: 'Avg Repair Time', val: '45m' },
-                   { label: 'Google Rating', val: '5.0/5' }
+                   { label: 'Google Rating', val: '4.8/5' }
                  ].map(stat => (
                    <div key={stat.label} className="flex justify-between items-end group">
                      <span className="text-[10px] font-black uppercase tracking-widest text-slate-500 group-hover:text-slate-300 transition-colors">{stat.label}</span>

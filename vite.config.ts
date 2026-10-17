@@ -21,6 +21,8 @@ export default defineConfig(({mode}) => {
             'vendor-react': ['react', 'react-dom', 'react-router-dom'],
             'vendor-ui': ['motion/react', 'lucide-react', 'react-helmet-async'],
             'vendor-firebase': ['firebase/app', 'firebase/auth', 'firebase/firestore'],
+            'data-blogs': ['./src/data/blogs.ts'],
+            'data-suburbs': ['./src/data/suburbs.ts', './src/data/seoServiceContent.ts'],
           }
         }
       }

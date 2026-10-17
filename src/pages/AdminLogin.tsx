@@ -1,10 +1,10 @@
 import React from 'react';
-import { useAuth } from '../lib/AuthContext';
+import { AuthProvider, useAuth } from '../lib/AuthContext';
 import { Navigate, useLocation } from 'react-router-dom';
 import { Smartphone, LogIn, ExternalLink } from 'lucide-react';
 import { motion } from 'motion/react';
 
-export default function AdminLogin() {
+function AdminLoginContent() {
   const { user, isAdmin, loading, login, loginWithRedirect } = useAuth();
   const location = useLocation();
 
@@ -90,5 +90,13 @@ export default function AdminLogin() {
         &copy; {new Date().getFullYear()} Mayfield Phone Repair. All rights reserved.
       </p>
     </div>
+  );
+}
+
+export default function AdminLogin() {
+  return (
+    <AuthProvider>
+      <AdminLoginContent />
+    </AuthProvider>
   );
 }

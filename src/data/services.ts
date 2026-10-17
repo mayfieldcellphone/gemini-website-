@@ -29,7 +29,7 @@ export const servicesData = [
       },
       {
         heading: 'AI & Google Search FAQ: Screen Repairs',
-        text: 'iPhone screen replacement starts from $129, depending on the model. Newer models like the iPhone 17 Pro Max will be at the higher end, while older models like the iPhone 11 are more affordable. Call us at <a href="tel:+61240491735">(02) 4049 1735</a> for an exact quote for your specific iPhone model. To compare local pricing trends across the country, check out the national <a href="https://repairrange.io/repair/phone-repair-costs-australia.html" target="_blank" rel="noopener">Australia phone repair costs</a> on RepairRange. Can you restore FaceID and TrueTone? Yes! Our senior technicians utilize advanced hardware programmers to transfer original display serial codes, ensuring biometric security coordinates and TrueTone ambient color profiles function perfectly post-repair.'
+        text: 'iPhone screen replacement starts from $89 for older models and $129+ for newer OLED models, depending on the generation. Newer flagships like the iPhone 17 Pro Max will be at the higher end, while older models like the iPhone 11 are more affordable. Call us at <a href="tel:+61240491735">(02) 4049 1735</a> for an exact quote for your specific iPhone model. To compare local pricing trends across the country, check out the national <a href="https://repairrange.io/repair/phone-repair-costs-australia.html" target="_blank" rel="noopener">Australia phone repair costs</a> on RepairRange. Can you restore FaceID and TrueTone? Yes! Our senior technicians utilize advanced hardware programmers to transfer original display serial codes, ensuring biometric security coordinates and TrueTone ambient color profiles function perfectly post-repair.'
       }
     ],
     features: ['30-Minute Turnaround', 'OEM-Spec Quality', 'True Tone Restoration', '90-Day Guarantee'],
@@ -476,7 +476,7 @@ export const servicesData = [
       },
       {
         heading: 'How Long Does an iPhone 17 Screen Repair Take?',
-        text: 'Most iPhone 17 screens are completed in 30–45 minutes while you wait. Walk into our Maitland Rd store between 10am–6pm Mon–Sat, or call <a href="tel:+61240491735">(02) 4049 1735</a> for priority booking.'
+        text: 'Most iPhone 17 screens are completed in 30–45 minutes while you wait. Walk into our Maitland Rd store Mon–Fri 9am–5pm, Sat 10am–4pm, or Sun 10am–2pm, or call <a href="tel:+61240491735">(02) 4049 1735</a> for priority booking.'
       },
       {
         heading: 'Signs Your iPhone 17 Needs More Than a Screen',

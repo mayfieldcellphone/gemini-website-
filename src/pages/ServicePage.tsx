@@ -37,8 +37,8 @@ export default function ServicePage() {
             "description": service.shortDesc,
             "provider": {
               "@type": "LocalBusiness",
-              "name": "Mayfield Cell Phone Repairs",
-              "url": "https://mayfieldphonerepair.com.au"
+              "name": "Mayfield Phone Repair",
+              "url": "https://mayfieldphonerepair.com.au/"
             },
             "areaServed": "Newcastle, NSW",
             "hasOfferCatalog": {
@@ -187,15 +187,18 @@ export default function ServicePage() {
              </p>
              <p className="font-bold text-xl text-white font-display">276 Maitland Rd<br/>Mayfield, NSW, 2304</p>
              
-             <div className="mt-12 pt-10 border-t border-white/10">
-                <a href="tel:0431618100" className="flex items-center gap-5 group">
+             <div className="mt-12 pt-10 border-t border-white/10 space-y-4">
+                <a href="tel:0240491735" className="flex items-center gap-5 group">
                   <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-blue-600 group-hover:border-blue-600 transition-all duration-500">
                     <Phone className="w-6 h-6 text-blue-400 group-hover:text-white" />
                   </div>
                   <div>
-                    <div className="text-[10px] text-slate-500 font-black uppercase tracking-[0.2em]">Live Support</div>
-                    <div className="font-bold text-xl font-display group-hover:text-blue-400 transition-colors">0431 618 100</div>
+                    <div className="text-[10px] text-slate-500 font-black uppercase tracking-[0.2em]">Call Workshop</div>
+                    <div className="font-bold text-xl font-display group-hover:text-blue-400 transition-colors">(02) 4049 1735</div>
                   </div>
+                </a>
+                <a href="sms:0431618100" className="block text-xs font-bold text-emerald-400 hover:underline pl-1">
+                  After-Hours Emergency SMS: 0431 618 100
                 </a>
              </div>
           </div>

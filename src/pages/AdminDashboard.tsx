@@ -18,7 +18,7 @@ import {
 import { format } from 'date-fns';
 import { db, auth, handleFirestoreError, OperationType } from '../lib/firebase';
 import { collection, query, orderBy, onSnapshot, doc, updateDoc, addDoc, serverTimestamp, limit } from 'firebase/firestore';
-import { useAuth } from '../lib/AuthContext';
+import { AuthProvider, useAuth } from '../lib/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -66,7 +66,7 @@ interface VoiceMessage {
   createdAt: any;
 }
 
-export default function AdminDashboard() {
+function AdminDashboardContent() {
   const { user, isAdmin, loading: authLoading, logout: performLogout } = useAuth();
   const navigate = useNavigate();
   const [activeTab, setActiveTab ] = useState<'bookings' | 'quotes' | 'corporate' | 'voice_messages'>('bookings');
@@ -566,5 +566,13 @@ export default function AdminDashboard() {
         </main>
       </div>
     </div>
+  );
+}
+
+export default function AdminDashboard() {
+  return (
+    <AuthProvider>
+      <AdminDashboardContent />
+    </AuthProvider>
   );
 }

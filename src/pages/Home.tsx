@@ -4,8 +4,6 @@ import { Helmet } from 'react-helmet-async';
 import { useState, useEffect, FormEvent } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { useUI } from '../contexts/UIContext';
-import { db, handleFirestoreError, OperationType } from '../lib/firebase';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { sendSMSNotification } from '../lib/notifications';
 import { brands } from '../data/brands';
 import { servicesData } from '../data/services';
@@ -54,6 +52,11 @@ export default function Home() {
     setSubmitStatus('idle');
 
     try {
+      const [{ db, handleFirestoreError, OperationType }, { collection, addDoc, serverTimestamp }] = await Promise.all([
+        import('../lib/firebase'),
+        import('firebase/firestore')
+      ]);
+
       // Original local record
       await addDoc(collection(db, 'quotes'), {
         ...formData,
@@ -68,7 +71,7 @@ export default function Home() {
       setSubmitStatus('success');
       setFormData({ name: '', phone: '', details: '' });
     } catch (error) {
-      handleFirestoreError(error, OperationType.CREATE, 'quotes');
+      console.error('Quote submit error:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -107,12 +110,13 @@ export default function Home() {
             "@context": "https://schema.org",
             "@graph": [
               {
-                "@type": "MobilePhoneRepairShop",
+                "@type": ["LocalBusiness", "MobilePhoneRepairShop"],
                 "name": "Mayfield Phone Repair",
                 "image": "https://mayfieldphonerepair.com.au/logo.png",
-                "@id": "https://mayfieldphonerepair.com.au#organization",
-                "url": "https://mayfieldphonerepair.com.au",
-                "telephone": "02 4049 1735",
+                "@id": "https://mayfieldphonerepair.com.au/#organization",
+                "url": "https://mayfieldphonerepair.com.au/",
+                "telephone": "+61240491735",
+                "email": "mayfieldphonerepair@gmail.com",
                 "priceRange": "$$",
                 "address": {
                   "@type": "PostalAddress",
@@ -122,11 +126,7 @@ export default function Home() {
                   "postalCode": "2304",
                   "addressCountry": "AU"
                 },
-                "geo": {
-                  "@type": "GeoCoordinates",
-                  "latitude": -32.898,
-                  "longitude": 151.738
-                },
+                "areaServed": ["Mayfield", "Newcastle", "Hunter Region"],
                 "openingHoursSpecification": [
                   {
                     "@type": "OpeningHoursSpecification",
@@ -147,13 +147,6 @@ export default function Home() {
                     "closes": "14:00"
                   }
                 ],
-                "aggregateRating": {
-                  "@type": "AggregateRating",
-                  "ratingValue": "4.8",
-                  "reviewCount": "477",
-                  "bestRating": "5",
-                  "worstRating": "1"
-                },
                 "sameAs": [
                   "https://www.facebook.com/mayfieldcellphonerepairs/",
                   "https://www.instagram.com/mayfieldcellphonerepairs/",
@@ -246,6 +239,10 @@ export default function Home() {
               <img 
                 src="https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?auto=format&fit=crop&q=80&w=800" 
                 alt="Precision phone repair in Mayfield shop" 
+                width={800}
+                height={800}
+                fetchPriority="high"
+                decoding="async"
                 className="w-full h-full object-cover scale-110 group-hover:scale-105 transition-transform duration-1000 opacity-80" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60"></div>
@@ -254,9 +251,9 @@ export default function Home() {
               <div className="absolute bottom-12 left-12 right-12 p-8 bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex -space-x-3">
-                    {[1,2,3,4].map(i => (
-                      <div key={i} className="w-10 h-10 rounded-full border-2 border-slate-900 bg-slate-800 overflow-hidden">
-                        <img src={`https://i.pravatar.cc/100?img=${i+20}`} alt="customer" />
+                    {['JM', 'SK', 'LT', 'RB'].map((initials, idx) => (
+                      <div key={initials} className={`w-10 h-10 rounded-full border-2 border-slate-900 flex items-center justify-center text-[11px] font-black text-white ${idx % 2 === 0 ? 'bg-blue-600' : 'bg-indigo-600'}`}>
+                        {initials}
                       </div>
                     ))}
                   </div>
@@ -285,7 +282,7 @@ export default function Home() {
               <div className="flex text-amber-400 gap-0.5">
                 {[1,2,3,4,5].map(i => <Sparkles key={i} className="w-3 h-3 fill-current" />)}
               </div>
-              <span className="text-[10px] font-black text-slate-900 tracking-tighter">5.0 GOOGLE RATING</span>
+              <span className="text-[10px] font-black text-slate-900 tracking-tighter">4.8★ (477+ REVIEWS)</span>
             </motion.div>
           </div>
         </motion.div>

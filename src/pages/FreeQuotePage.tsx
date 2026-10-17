@@ -21,9 +21,8 @@ import {
   Layers,
   Wrench
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { db, handleFirestoreError, OperationType } from '../lib/firebase';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { sendSMSNotification } from '../lib/notifications';
 
 const PRICING_TIERS = [
@@ -41,14 +40,15 @@ const quotePageSchema = {
   '@context': 'https://schema.org',
   '@graph': [
     {
-      '@type': 'LocalBusiness',
-      '@id': 'https://mayfieldphonerepair.com.au/#business',
+      '@type': ['LocalBusiness', 'MobilePhoneRepairShop'],
+      '@id': 'https://mayfieldphonerepair.com.au/#organization',
       'name': 'Mayfield Phone Repair',
       'alternateName': 'Mayfield Cell Phone Repairs',
       'image': 'https://mayfieldphonerepair.com.au/logo.png',
-      'url': 'https://mayfieldphonerepair.com.au',
+      'url': 'https://mayfieldphonerepair.com.au/',
       'telephone': '+61240491735',
-      'priceRange': '$',
+      'email': 'mayfieldphonerepair@gmail.com',
+      'priceRange': '$$',
       'address': {
         '@type': 'PostalAddress',
         'streetAddress': '276 Maitland Rd',
@@ -57,11 +57,7 @@ const quotePageSchema = {
         'postalCode': '2304',
         'addressCountry': 'AU'
       },
-      'aggregateRating': {
-        '@type': 'AggregateRating',
-        'ratingValue': '4.7',
-        'reviewCount': '363'
-      },
+      'areaServed': ['Mayfield', 'Newcastle', 'Hunter Region'],
       'openingHoursSpecification': [
         { '@type': 'OpeningHoursSpecification', 'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], 'opens': '09:00', 'closes': '17:00' },
         { '@type': 'OpeningHoursSpecification', 'dayOfWeek': 'Saturday', 'opens': '10:00', 'closes': '16:00' },
@@ -94,7 +90,7 @@ const quotePageSchema = {
       'url': QUOTE_CANONICAL_URL,
       'name': 'Get a Free Phone Repair Quote | Mayfield Phone Repair',
       'description': 'Get an instant, fixed-price quote for iPhone, Samsung, Google Pixel and more. Same-day repairs at 276 Maitland Rd, Mayfield NSW.',
-      'isPartOf': { '@id': 'https://mayfieldphonerepair.com.au/#business' }
+      'isPartOf': { '@id': 'https://mayfieldphonerepair.com.au/#organization' }
     },
     {
       '@type': 'BreadcrumbList',
@@ -207,7 +203,11 @@ export default function FreeQuotePage() {
     };
 
     try {
-      console.log('Saving Facebook Ad lead to Firestore:', bookingPayload);
+      const [{ db }, { collection, addDoc, serverTimestamp }] = await Promise.all([
+        import('../lib/firebase'),
+        import('firebase/firestore')
+      ]);
+
       await addDoc(collection(db, 'bookings'), {
         ...bookingPayload,
         status: 'pending',
@@ -215,7 +215,6 @@ export default function FreeQuotePage() {
         updatedAt: serverTimestamp()
       });
       
-      console.log('Saved to Firestore successfully. Sending priority SMS notifications...');
       setIsSuccess(true);
       
       // Send urgent notification
@@ -228,7 +227,6 @@ export default function FreeQuotePage() {
     } catch (err) {
       console.error('Lead save error:', err);
       setError('Something went wrong. Please check your network and try again.');
-      handleFirestoreError(err, OperationType.CREATE, 'bookings');
     } finally {
       setIsSubmitting(false);
     }
@@ -238,14 +236,14 @@ export default function FreeQuotePage() {
     <div className="min-h-screen bg-[#f6f7fb] text-[#0d1b2a] font-sans antialiased selection:bg-blue-600 selection:text-white">
       <Helmet>
         <title>Get a Free Phone Repair Quote | Mayfield Phone Repair</title>
-        <meta name="description" content="Get an instant, fixed-price quote for iPhone, Samsung, Google Pixel and more. Same-day repairs at 276 Maitland Rd, Mayfield NSW. Rated 4.7/5 from 363+ reviews." />
+        <meta name="description" content="Get an instant, fixed-price quote for iPhone, Samsung, Google Pixel and more. Same-day repairs at 276 Maitland Rd, Mayfield NSW. Rated 4.8/5 from 477+ reviews." />
         <link rel="canonical" href={QUOTE_CANONICAL_URL} />
         <script type="application/ld+json">{JSON.stringify(quotePageSchema)}</script>
       </Helmet>
       {/* Top Banner */}
       <div className="bg-[#0d1b2a] text-[#cdd6e8] text-xs py-2 px-4 font-semibold text-center overflow-x-auto whitespace-nowrap">
         <div className="max-w-7xl mx-auto flex gap-4 items-center justify-center">
-          <span>⭐ <b className="text-white">4.7/5</b> from <b className="text-white">363+</b> Google Reviews</span>
+          <span>⭐ <b className="text-white">4.8/5</b> from <b className="text-white">477+</b> Google Reviews</span>
           <span>•</span>
           <span><b className="text-white">90-Day</b> Warranty on Repairs</span>
           <span>•</span>
@@ -253,8 +251,32 @@ export default function FreeQuotePage() {
         </div>
       </div>
 
+      {/* Site Navigation Bar */}
+      <nav className="bg-white/95 backdrop-blur-md border-b border-slate-100 sticky top-0 z-40">
+        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
+          <Link to="/" className="flex items-center gap-2.5 group">
+            <div aria-hidden="true" className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center text-white shadow-sm group-hover:scale-105 transition-transform">
+              <Smartphone className="w-5 h-5" />
+            </div>
+            <span className="font-extrabold text-base md:text-lg tracking-tight text-slate-900 font-display group-hover:text-blue-600 transition-colors">
+              Mayfield Phone Repair
+            </span>
+          </Link>
+          <div className="flex items-center gap-4 md:gap-6 text-xs md:text-sm font-bold text-slate-600">
+            <Link to="/" className="hover:text-blue-600 transition-colors">Home</Link>
+            <Link to="/#services" className="hidden sm:inline hover:text-blue-600 transition-colors">Services</Link>
+            <Link to="/second-hand-phones" className="hidden md:inline hover:text-blue-600 transition-colors">Refurbished Phones</Link>
+            <Link to="/blog" className="hidden sm:inline hover:text-blue-600 transition-colors">Blog</Link>
+            <a href="tel:0240491735" className="inline-flex items-center gap-1.5 bg-blue-50 text-blue-700 hover:bg-blue-100 px-3.5 py-2 rounded-xl font-black text-xs transition-colors">
+              <Phone className="w-3.5 h-3.5" />
+              <span>(02) 4049 1735</span>
+            </a>
+          </div>
+        </div>
+      </nav>
+
       {/* Hero Section */}
-      <header className="relative bg-gradient-to-b from-white to-[#f6f7fb] pt-12 pb-16 overflow-hidden md:py-24">
+      <header className="relative bg-gradient-to-b from-white to-[#f6f7fb] pt-10 pb-16 overflow-hidden md:py-20">
         {/* Ambient Grid Background */}
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{
           backgroundImage: 'radial-gradient(#0d1b2a 1px, transparent 1px)',
@@ -265,16 +287,6 @@ export default function FreeQuotePage() {
           
           {/* Left Pitch Column */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="flex items-center gap-3">
-              <div aria-hidden="true" className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center text-white shadow-md">
-                <Smartphone className="w-6 h-6" />
-              </div>
-              <div>
-                <h2 className="font-extrabold text-lg leading-tight tracking-tight text-slate-900 font-display">Mayfield Phone Repair</h2>
-                <p className="text-xs text-slate-500 font-semibold tracking-wider uppercase">Newcastle&apos;s Trusted Diagnostic Lab</p>
-              </div>
-            </div>
-
             <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-100 text-blue-950 font-bold text-xs uppercase tracking-wider px-3 py-1.5 rounded-full">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               Instant Price Guarantees &middot; Fully Local
@@ -291,7 +303,7 @@ export default function FreeQuotePage() {
             <div className="flex flex-wrap items-center gap-4 text-slate-700 bg-white p-4 rounded-2xl border border-slate-100 shadow-sm max-w-lg">
               <span className="text-amber-500 text-lg font-bold">★★★★★</span>
               <span className="text-sm font-semibold text-slate-800">
-                Rated 4.7 &middot; Based on 363+ local Google Reviews
+                Rated 4.8 &middot; Based on 477+ local Google Reviews
               </span>
             </div>
 
