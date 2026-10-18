@@ -118,7 +118,7 @@ const fireMetaPixelEvent = (eventName: string, pixelId?: string) => {
 
 export default function FreeQuotePage() {
   // Configuration (Editable)
-  const [pixelId, setPixelId] = useState(''); // Place your Meta Pixel ID here if desired
+  const [pixelId, setPixelId] = useState('678953328420921'); // Place your Meta Pixel ID here if desired
   
   // Form State
   const [formData, setFormData] = useState({
