@@ -51,7 +51,25 @@ const createTransporter = () => {
 };
 
 // CRM Integration Utility (Charla / RepairBill Pro / Zapier)
+// Also send every lead to ChatBird (the shared inbox) when CHATBIRD_LEADS_URL is set; the email and
+// CRM sync below carry on as before. Fire-and-forget: a ChatBird outage never affects the form.
+const forwardToChatBird = (type: string, data: any) => {
+  const url = process.env.CHATBIRD_LEADS_URL;
+  if (!url) return;
+  fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ type, data }),
+    signal: AbortSignal.timeout(10000),
+  })
+    .then((r) => {
+      if (!r.ok) console.error(`ChatBird lead forward failed (${r.status})`);
+    })
+    .catch((err) => console.error("ChatBird lead forward error:", err?.message || err));
+};
+
 const syncLeadToCRM = async (type: string, data: any) => {
+  forwardToChatBird(type, data);
   const charlaApiKey = process.env.CHARLA_API_KEY;
   const repairBillApiKey = process.env.REPAIRBILL_API_KEY;
   const repairBillEndpoint = process.env.REPAIRBILL_API_ENDPOINT;
