@@ -33,6 +33,15 @@ DOMAIN = "https://mayfieldphonerepair.com.au"
 DEFAULT_NOTIFY_EMAIL = "engrkhalil77@gmail.com"
 
 
+def get_today_date():
+    """Returns today's date in Australia/Sydney timezone (AEST/AEDT)."""
+    try:
+        from zoneinfo import ZoneInfo
+        return dt.datetime.now(ZoneInfo("Australia/Sydney")).date()
+    except Exception:
+        return (dt.datetime.now(dt.timezone.utc) + dt.timedelta(hours=11)).date()
+
+
 def load_manifest():
     if not MANIFEST_PATH.exists():
         print(f"Error: Manifest not found at {MANIFEST_PATH}", file=sys.stderr)
@@ -147,7 +156,7 @@ def run_sitemap_gen(published_posts):
     if PUBLIC_SITEMAP.exists():
         try:
             xml = PUBLIC_SITEMAP.read_text(encoding="utf-8")
-            today_str = dt.date.today().isoformat()
+            today_str = get_today_date().isoformat()
             additions = ""
             for p in published_posts:
                 html_loc = f"{DOMAIN}/blog/{p['slug']}.html"
@@ -236,7 +245,7 @@ def send_email_notification(published_posts):
 
         count = len(post_items)
         first_title = post_items[0]["title"] if count == 1 else f"{count} new posts"
-        today_str = dt.date.today().strftime("%d %B %Y")
+        today_str = get_today_date().strftime("%d %B %Y")
 
         subject = f"Mayfield Phone Repair: Published '{first_title}' — {today_str}"
 
@@ -330,7 +339,7 @@ def send_email_notification(published_posts):
 
 
 def show_status(manifest):
-    today = dt.date.today()
+    today = get_today_date()
     to_addr = os.environ.get("NOTIFY_TO") or DEFAULT_NOTIFY_EMAIL
     print("\n=== Mayfield Phone Repair Automated Blog Schedule Status ===")
     print(f"Workshop:     276 Maitland Rd, Mayfield, NSW 2304 (ABN: 11 433 439 336)")
@@ -371,7 +380,7 @@ def main():
         show_status(manifest)
         return
 
-    today = dt.date.today()
+    today = get_today_date()
     published_now = []
 
     for post in manifest:
