@@ -438,6 +438,9 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
                                    <a href="mailto:support@mayfieldphonerepair.com.au" className="block text-lg font-bold text-white hover:text-blue-400 transition-colors font-display italic">support@mayfieldphonerepair.com.au</a>
                   <a href="tel:0240491735" className="block text-xl font-bold text-white hover:text-blue-400 transition-colors font-display">02 4049 1735</a>
                  <p className="text-xs text-slate-500 leading-relaxed font-medium">Free advice & quotes.</p>
+                 <p className="text-xs text-slate-400 leading-relaxed pt-2">
+                   Mayfield Phone Repair is operated by Khalil Ahmad trading as AUSSIBK. ABN 11 433 439 336. 276 Maitland Rd, Mayfield NSW 2304.
+                 </p>
                </div>
              </div>
           </div>
@@ -520,6 +523,9 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
 
         <div className="max-w-7xl mx-auto mt-12 pt-12 border-t border-white/5 opacity-40">
           <div className="flex flex-col gap-6 text-[9px] leading-relaxed text-slate-600 font-display font-black uppercase tracking-[0.2em] text-center md:text-left">
+            <p>
+              Mayfield Phone Repair is operated by Khalil Ahmad trading as AUSSIBK. ABN 11 433 439 336. 276 Maitland Rd, Mayfield NSW 2304.
+            </p>
             <p>
               Aussibk with ABN 11433439336 trading as Mayfield Phone Repair.
             </p>

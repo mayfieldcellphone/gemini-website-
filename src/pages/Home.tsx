@@ -831,6 +831,10 @@ export default function Home() {
                    </div>
                 </div>
 
+                <p className="text-xs text-slate-400 leading-relaxed font-sans">
+                  Mayfield Phone Repair is operated by Khalil Ahmad trading as AUSSIBK. ABN 11 433 439 336. 276 Maitland Rd, Mayfield NSW 2304.
+                </p>
+
                 <div className="pt-8 border-t border-white/5">
                   <Link to="/after-hours" className="flex items-center gap-8 p-6 bg-white/5 border border-emerald-500/30 rounded-3xl text-white hover:bg-emerald-500/10 transition-all group">
                     <div className="w-14 h-14 bg-emerald-500 rounded-xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform">
