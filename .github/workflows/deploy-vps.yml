@@ -33,4 +33,4 @@ jobs:
 
       - name: Pull, build and restart on VPS
         run: |
-          ssh -i ~/.ssh/id_deploy -p "${VPS_PORT:-22}" "$VPS_USER@$VPS_HOST" 'bash -lc "set -e; cd /var/www/mayfieldphonerepair.com.au && git checkout -- . && git pull origin main && npm ci && npm run build && pm2 restart mayfieldphonerepair && pm2 save"'
+          ssh -i ~/.ssh/id_deploy -p "${VPS_PORT:-22}" "$VPS_USER@$VPS_HOST" 'bash -lc "set -e; cd /var/www/mayfieldphonerepair.com.au && git fetch origin main && git reset --hard origin/main && npm ci && npm run build && pm2 restart mayfieldphonerepair && pm2 save"'
