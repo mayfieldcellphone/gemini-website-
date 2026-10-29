@@ -441,6 +441,9 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
                  <p className="text-xs text-slate-400 leading-relaxed pt-2">
                    Mayfield Phone Repair is operated by Khalil Ahmad trading as AUSSIBK. ABN 11 433 439 336. 276 Maitland Rd, Mayfield NSW 2304.
                  </p>
+                 <p className="text-xs text-slate-400 leading-relaxed">
+                   Email: support@mayfieldphonerepair.com.au
+                 </p>
                </div>
              </div>
           </div>
@@ -525,6 +528,9 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
           <div className="flex flex-col gap-6 text-[9px] leading-relaxed text-slate-600 font-display font-black uppercase tracking-[0.2em] text-center md:text-left">
             <p>
               Mayfield Phone Repair is operated by Khalil Ahmad trading as AUSSIBK. ABN 11 433 439 336. 276 Maitland Rd, Mayfield NSW 2304.
+            </p>
+            <p>
+              Email: support@mayfieldphonerepair.com.au
             </p>
             <p>
               Aussibk with ABN 11433439336 trading as Mayfield Phone Repair.

@@ -172,6 +172,7 @@ async function runPrerender() {
           <p style="margin: 0 0 8px;">After-Hours / Text: <strong style="color: #fff;">0431 618 100</strong></p>
           <p style="margin: 0 0 12px; color: #94a3b8;">Mon–Fri 9am–5pm | Sat 10am–4pm | Sun 10am–2pm</p>
           <p style="margin: 0 0 12px; font-size: 0.8rem; line-height: 1.5; color: #cbd5e1;">Mayfield Phone Repair is operated by Khalil Ahmad trading as AUSSIBK. ABN 11 433 439 336. 276 Maitland Rd, Mayfield NSW 2304.</p>
+          <p style="margin: 0 0 12px; font-size: 0.8rem; line-height: 1.5; color: #cbd5e1;">Email: support@mayfieldphonerepair.com.au</p>
           <p style="margin: 0;"><a href="/quote" style="display: inline-block; background: #2563eb; color: #fff; padding: 6px 14px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.8rem;">Get Instant Quote &rarr;</a></p>
         </div>
         <div>
@@ -227,6 +228,7 @@ async function runPrerender() {
       <div style="max-width: 1200px; margin: 32px auto 0; padding-top: 16px; border-top: 1px solid #1e293b; text-align: center; color: #64748b; font-size: 0.8rem;">
         <p style="margin: 0;">&copy; 2026 Mayfield Phone Repair. 276 Maitland Rd, Mayfield NSW 2304. Tel: (02) 4049 1735. All rights reserved.</p>
         <p style="margin: 6px 0 0; font-size: 0.75rem; color: #94a3b8;">Mayfield Phone Repair is operated by Khalil Ahmad trading as AUSSIBK. ABN 11 433 439 336. 276 Maitland Rd, Mayfield NSW 2304.</p>
+        <p style="margin: 6px 0 0; font-size: 0.75rem; color: #94a3b8;">Email: support@mayfieldphonerepair.com.au</p>
       </div>
     </footer>
   `;
@@ -585,6 +587,7 @@ async function runPrerender() {
           <footer class="py-8 text-center text-xs text-slate-400 border-t border-slate-100 bg-white">
             <p class="font-semibold">&copy; 2026 Mayfield Phone Repair &middot; 276 Maitland Rd, Mayfield NSW 2304</p>
             <p style="margin-top: 0.25rem; font-size: 0.75rem; color: #64748b;">Mayfield Phone Repair is operated by Khalil Ahmad trading as AUSSIBK. ABN 11 433 439 336. 276 Maitland Rd, Mayfield NSW 2304.</p>
+            <p style="margin-top: 0.25rem; font-size: 0.75rem; color: #64748b;">Email: support@mayfieldphonerepair.com.au</p>
             <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #a1a1a1; text-align: center;">
               Partnered with <a href="https://repairrange.io" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">RepairRange</a> for Australia-wide phone repair price guides.
             </p> 
@@ -749,6 +752,7 @@ async function runPrerender() {
           <footer class="py-8 text-center text-xs text-slate-400 border-t border-slate-100 bg-white">
             <p class="font-semibold">&copy; 2026 Mayfield Phone Repair &middot; 276 Maitland Rd, Mayfield NSW 2304</p>
             <p style="margin-top: 0.25rem; font-size: 0.75rem; color: #64748b;">Mayfield Phone Repair is operated by Khalil Ahmad trading as AUSSIBK. ABN 11 433 439 336. 276 Maitland Rd, Mayfield NSW 2304.</p>
+            <p style="margin-top: 0.25rem; font-size: 0.75rem; color: #64748b;">Email: support@mayfieldphonerepair.com.au</p>
             <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #a1a1a1; text-align: center;">
               Partnered with <a href="https://repairrange.io" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">RepairRange</a> for Australia-wide phone repair price guides.
             </p> 
@@ -913,6 +917,7 @@ async function runPrerender() {
           <footer class="py-8 text-center text-xs text-slate-400 border-t border-slate-100 bg-white">
             <p class="font-semibold">&copy; 2026 Mayfield Phone Repair &middot; 276 Maitland Rd, Mayfield NSW 2304</p>
             <p style="margin-top: 0.25rem; font-size: 0.75rem; color: #64748b;">Mayfield Phone Repair is operated by Khalil Ahmad trading as AUSSIBK. ABN 11 433 439 336. 276 Maitland Rd, Mayfield NSW 2304.</p>
+            <p style="margin-top: 0.25rem; font-size: 0.75rem; color: #64748b;">Email: support@mayfieldphonerepair.com.au</p>
             <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #a1a1a1; text-align: center;">
               Partnered with <a href="https://repairrange.io" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">RepairRange</a> for Australia-wide phone repair price guides.
             </p> 
@@ -1077,6 +1082,7 @@ async function runPrerender() {
           <footer class="py-8 text-center text-xs text-slate-400 border-t border-slate-100 bg-white">
             <p class="font-semibold">&copy; 2026 Mayfield Phone Repair &middot; 276 Maitland Rd, Mayfield NSW 2304</p>
             <p style="margin-top: 0.25rem; font-size: 0.75rem; color: #64748b;">Mayfield Phone Repair is operated by Khalil Ahmad trading as AUSSIBK. ABN 11 433 439 336. 276 Maitland Rd, Mayfield NSW 2304.</p>
+            <p style="margin-top: 0.25rem; font-size: 0.75rem; color: #64748b;">Email: support@mayfieldphonerepair.com.au</p>
             <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #a1a1a1; text-align: center;">
               Partnered with <a href="https://repairrange.io" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">RepairRange</a> for Australia-wide phone repair price guides.
             </p> 
