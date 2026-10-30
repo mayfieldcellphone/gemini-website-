@@ -1,4 +1,4 @@
-import { Smartphone, Battery, Droplet, Settings, ShieldCheck, Clock, CheckCircle2, ChevronRight, Phone, MapPin, Mail, ArrowRight, Truck, Wrench, Sparkles, HelpCircle } from 'lucide-react';
+import { Smartphone, Battery, Droplet, Settings, ShieldCheck, Clock, CheckCircle2, ChevronRight, Phone, MapPin, Mail, ArrowRight, Truck, Wrench, Sparkles, HelpCircle, Star } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
 import { useState, useEffect, FormEvent } from 'react';
@@ -9,7 +9,6 @@ import { brands } from '../data/brands';
 import { servicesData } from '../data/services';
 import { blogPosts } from '../data/blogs';
 import { OpeningStatus } from '../components/OpeningStatus';
-import BirdeyeReviewWidget from '../components/BirdeyeReviewWidget';
 
 const BackgroundDecoration = () => (
   <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10 bg-slate-50/50">
@@ -559,8 +558,83 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Birdeye Reviews Widget */}
-      <BirdeyeReviewWidget />
+      {/* Google Reviews Section */}
+      <section className="bg-slate-50 py-16 md:py-24 px-6 md:px-12 border-t border-slate-200">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12 space-y-4">
+            <span className="text-technical text-blue-600">VERIFIED REPUTATION</span>
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900 leading-tight font-display tracking-tight">
+              Newcastle's Most Recommended Workshop
+            </h2>
+            <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+              <div className="flex text-amber-400">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <Star key={i} className="w-5 h-5 fill-current" />
+                ))}
+              </div>
+              <span className="font-bold text-slate-900 text-lg">4.8 / 5.0</span>
+              <span className="text-slate-500 font-medium text-sm">&middot; Based on 477+ local Google Reviews</span>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            {[
+              {
+                name: "Sarah Jenkins",
+                suburb: "Hamilton",
+                device: "iPhone 14 Pro Screen",
+                text: "Walked in on a Thursday morning with a completely shattered OLED. Screen was replaced in 35 minutes while I grabbed a coffee up Maitland Rd. True Tone working perfectly and no Apple warning messages.",
+                rating: 5,
+              },
+              {
+                name: "David Chen",
+                suburb: "Maitland",
+                device: "Samsung S23 Ultra Charging Port",
+                text: "Phone wouldn't fast charge or connect via USB-C. Repaired on the bench same day without wiping my phone. Transparent pricing, no hidden diagnosis fees, and friendly technician.",
+                rating: 5,
+              },
+              {
+                name: "Liam O'Connor",
+                suburb: "Mayfield",
+                device: "Google Pixel 8 Battery & Glass",
+                text: "Top quality workmanship and honest advice. Battery life is back to brand-new performance. So lucky to have a genuine local repair bench in Mayfield rather than sending phones away for two weeks.",
+                rating: 5,
+              },
+            ].map((rev, idx) => (
+              <div key={idx} className="bg-white rounded-2xl p-6 md:p-8 border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                <div>
+                  <div className="flex items-center gap-1 text-amber-400 mb-4">
+                    {[...Array(rev.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-current" />
+                    ))}
+                  </div>
+                  <p className="text-slate-700 text-sm md:text-base leading-relaxed mb-6 italic">
+                    "{rev.text}"
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+                  <div>
+                    <div className="font-bold text-slate-900 font-display text-sm">{rev.name}</div>
+                    <div className="text-xs text-slate-500">{rev.suburb}, NSW &middot; <span className="text-blue-600 font-medium">{rev.device}</span></div>
+                  </div>
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider bg-slate-100 px-2 py-1 rounded">Google</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <a
+              href="https://maps.google.com/?q=Mayfield+Cell+Phone+Repairs,+276+Maitland+Rd,+Mayfield+NSW+2304"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-slate-900 hover:bg-blue-600 text-white font-bold px-8 py-4 rounded-xl shadow-sm transition-colors text-sm font-display tracking-wider"
+            >
+              Read our 477+ Google Reviews &rarr;
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* Blog Section */}
       <section className="relative px-6 md:px-12 py-12 md:py-20 bg-white">

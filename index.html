@@ -115,46 +115,7 @@
     </script>
     <script type="module" src="/src/main.tsx"></script>
 
-    <!-- Birdeye Chatbot Widget Override - Position Right & Smaller Size -->
-    <style>
-      /* Relocate and style any Birdeye layout/floating elements to the bottom-right */
-      #bf-webchat-container,
-      .bf-webchat-container,
-      div[id*="bf-webchat"],
-      iframe[id*="bf-webchat"],
-      [id^="bf-embed"],
-      .bf-badge-container {
-        right: 20px !important;
-        left: auto !important;
-      }
-
-      /* Reduce scale for Birdeye trigger button / launcher */
-      iframe[src*="birdeye.com"]:not([style*="100%"]):not([style*="width:100%"]):not([style*="height: 100%"]):not([style*="height:100%"]),
-      div[id*="bf-"] iframe:not([style*="100%"]):not([style*="width:100%"]):not([style*="height: 100%"]):not([style*="height:100%"]) {
-        transform: scale(0.85) !important;
-        transform-origin: right bottom !important;
-        right: 20px !important;
-        left: auto !important;
-      }
-
-      @media (max-width: 1023px) {
-        #bf-webchat-container,
-        .bf-webchat-container,
-        div[id*="bf-webchat"],
-        iframe[id*="bf-webchat"],
-        [id^="bf-embed"] {
-          bottom: 76px !important;
-        }
-      }
-    </style>
-
-    <!-- Birdeye chatbot - floats bottom-right on its own. Keep it in this file:
-         every page is prerendered from this template and the server rebuilds from
-         origin, so a snippet added only on the server is wiped on the next deploy. -->
-    <div id="bf-revz-widget-196430062"></div>
-    <script defer type="text/javascript" src="https://birdeye.com/embed/v6/110315/1/196430062/89b0ec9ad7b6e3429a216196386d88f1c2f4a2be91fe1a62"></script>
-
-    <!-- Chatdesk Chatbot Widget -->
+    <!-- ChatBird Website Chat Widget -->
     <script src="https://chatdesk.31-97-66-240.sslip.io/widget.js" data-key="8rAYUo9Q7TXMVGdg" async></script>
   </body>
 </html>
