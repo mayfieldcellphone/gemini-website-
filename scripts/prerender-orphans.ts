@@ -39,16 +39,40 @@ const routeOf = (f: string) => {
 };
 
 // ---- template: any real suburb page that was already built ----
-const templatePath = path.join(DIST, 'phone-repair', 'waratah', 'index.html');
-if (!fs.existsSync(templatePath)) throw new Error('prerender-orphans: template page dist/phone-repair/waratah/index.html missing - run prerender first');
-const template = fs.readFileSync(templatePath, 'utf-8');
+let template = '';
+const candidatePaths = [
+  path.join(DIST, 'phone-repair', 'waratah', 'index.html'),
+  path.join(DIST, 'phone-repair', 'mayfield', 'index.html'),
+  path.join(DIST, 'service', 'screen-repair', 'index.html'),
+  path.join(DIST, 'service', 'battery-replacement', 'index.html'),
+];
+for (const cand of candidatePaths) {
+  if (fs.existsSync(cand)) {
+    const raw = fs.readFileSync(cand, 'utf-8');
+    if (raw.includes('<article')) {
+      template = raw;
+      break;
+    }
+  }
+}
+if (!template) {
+  const fallback = path.join(DIST, 'phone-repair', 'waratah', 'index.html');
+  if (fs.existsSync(fallback)) template = fs.readFileSync(fallback, 'utf-8');
+  else throw new Error('prerender-orphans: template page missing - run prerender first');
+}
 
 function replaceMain(html: string, article: string): string {
   const h1 = html.indexOf('<h1');
-  const start = html.lastIndexOf('<article', h1);
-  const end = html.indexOf('</article>', h1);
-  if (h1 < 0 || start < 0 || end < 0) throw new Error('prerender-orphans: could not locate <article> in template');
-  return html.slice(0, start) + article + html.slice(end + '</article>'.length);
+  const start = h1 >= 0 ? html.lastIndexOf('<article', h1) : html.indexOf('<article');
+  const end = h1 >= 0 ? html.indexOf('</article>', h1) : html.lastIndexOf('</article>');
+  if (start >= 0 && end >= 0 && end > start) {
+    return html.slice(0, start) + article + html.slice(end + '</article>'.length);
+  }
+  const rootIdx = html.indexOf('<div id="root">');
+  if (rootIdx >= 0) {
+    return html.replace(/<div id=["']root["'][^>]*>[\s\S]*?<\/div>/, `<div id="root">${article}</div>`);
+  }
+  throw new Error(`prerender-orphans: could not locate <article> or #root in template: h1=${h1}, start=${start}, end=${end}`);
 }
 
 function buildPage(route: string, title: string, desc: string, schema: unknown, article: string) {

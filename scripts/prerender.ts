@@ -282,7 +282,11 @@ async function runPrerender() {
     content = content.replace('</head>', `${headBlock}\n</head>`);
 
     // Inject rich SEO HTML body with shared nav and footer inside <div id="root"></div> for indexing
-    content = content.replace('<div id="root"></div>', `<div id="root">${sharedNav}\n${bodyHtml}\n${sharedFooter}</div>`);
+    if (content.includes('<div id="root"></div>')) {
+      content = content.replace('<div id="root"></div>', `<div id="root">${sharedNav}\n${bodyHtml}\n${sharedFooter}</div>`);
+    } else {
+      content = content.replace(/<div id=["']root["'][^>]*>([\s\S]*?)<\/div>/, `<div id="root">${sharedNav}\n${bodyHtml}\n${sharedFooter}</div>`);
+    }
 
     // Determine target file directory and file path
     const targetDir = route === '' ? DIST_DIR : path.join(DIST_DIR, route);
