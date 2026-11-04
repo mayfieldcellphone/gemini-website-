@@ -53,19 +53,72 @@ const createTransporter = () => {
 // CRM Integration Utility (Charla / RepairBill Pro / Zapier)
 // Also send every lead to ChatBird (the shared inbox) when CHATBIRD_LEADS_URL is set; the email and
 // CRM sync below carry on as before. Fire-and-forget: a ChatBird outage never affects the form.
-const forwardToChatBird = (type: string, data: any) => {
-  const url = process.env.CHATBIRD_LEADS_URL;
+const CHATDESK_LEADS_URL = process.env.CHATBIRD_LEADS_URL || "https://chatdesk.31-97-66-240.sslip.io/api/leads/uv5rtGm7_DFUkDZ0yhaLxXJFJH7UwXLC";
+
+const forwardToChatBird = async (type: string, data: any) => {
+  const url = process.env.CHATBIRD_LEADS_URL || CHATDESK_LEADS_URL;
   if (!url) return;
-  fetch(url, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ type, data }),
-    signal: AbortSignal.timeout(10000),
-  })
-    .then((r) => {
-      if (!r.ok) console.error(`ChatBird lead forward failed (${r.status})`);
-    })
-    .catch((err) => console.error("ChatBird lead forward error:", err?.message || err));
+
+  const name = data?.customerName || data?.name || data?.contactName || "Website Visitor";
+  const phone = data?.phone || data?.customerPhone || "";
+  const email = data?.email || data?.customerEmail || "";
+
+  let formattedMessage = "";
+  if (type === 'booking') {
+    formattedMessage = `📅 New Repair Booking:
+• Customer: ${name}
+• Phone: ${phone}
+• Email: ${email || 'Not provided'}
+• Device: ${data?.brand || ''} ${data?.model || ''}
+• Service: ${data?.service || 'Repair'}
+• Preferred Time: ${data?.date || 'Today (ASAP)'} at ${data?.time || 'Immediate Priority'}
+• Details/Notes: ${data?.details || 'None'}`;
+  } else if (type === 'quote') {
+    formattedMessage = `💰 New Repair Quote Request:
+• Customer: ${name}
+• Phone: ${phone}
+• Details: ${data?.details || data?.issue || 'General Repair Quote'}`;
+  } else if (type === 'corporate') {
+    formattedMessage = `🏢 New Corporate Inquiry:
+• Company: ${data?.companyName || data?.organization || 'Not provided'}
+• Contact: ${name}
+• Phone: ${phone}
+• Email: ${email || 'Not provided'}
+• Message: ${data?.message || 'None'}`;
+  } else {
+    formattedMessage = `New Lead [${type}]:
+• Customer: ${name}
+• Phone: ${phone}
+• Email: ${email || 'Not provided'}
+• Details: ${typeof data === 'object' ? JSON.stringify(data) : data}`;
+  }
+
+  const payload = {
+    name,
+    phone,
+    email,
+    message: formattedMessage,
+    type,
+    data,
+    source: "mayfieldphonerepair.com.au"
+  };
+
+  try {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+      signal: AbortSignal.timeout(10000),
+    });
+    if (!res.ok) {
+      const errText = await res.text();
+      console.error(`ChatDesk lead forward failed (${res.status}):`, errText);
+    } else {
+      console.log(`ChatDesk lead forward successful for [${type}]:`, name);
+    }
+  } catch (err) {
+    console.error("ChatDesk lead forward error:", err?.message || err);
+  }
 };
 
 const syncLeadToCRM = async (type: string, data: any) => {
@@ -204,6 +257,20 @@ async function startServer() {
   app.use(express.json());
   
   // Consolidated Notification Endpoint (SMS + Email)
+  // Dedicated endpoint to accept leads directly from any web form / widget
+  app.post("/api/leads", async (req, res) => {
+    try {
+      const body = req.body || {};
+      const type = body.type || "quote";
+      const data = body.data || body;
+      await forwardToChatBird(type, data);
+      res.json({ ok: true, message: "Lead submitted to ChatDesk successfully" });
+    } catch (err) {
+      console.error("Error in /api/leads:", err);
+      res.status(500).json({ ok: false, error: err?.message || "Failed to submit lead" });
+    }
+  });
+
   app.post("/api/notify", async (req, res) => {
     try {
       const { type, data } = req.body;
