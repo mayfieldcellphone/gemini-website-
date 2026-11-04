@@ -169,7 +169,7 @@ async function runPrerender() {
           <h3 style="color: #fff; font-size: 1.05rem; margin-bottom: 12px; font-weight: 700;">Mayfield Phone Repair</h3>
           <p style="margin: 0 0 8px; line-height: 1.5;">276 Maitland Rd, Mayfield NSW 2304</p>
           <p style="margin: 0 0 8px;">Phone: <a href="tel:+61240491735" style="color: #38bdf8; text-decoration: none; font-weight: 600;">(02) 4049 1735</a></p>
-          <p style="margin: 0 0 8px;">After-Hours / Text: <strong style="color: #fff;">0431 618 100</strong></p>
+          <p style="margin: 0 0 8px;">Text / SMS: <a href="sms:+61485002786" style="color: #38bdf8; text-decoration: none; font-weight: 600;">0485 002 786</a></p>
           <p style="margin: 0 0 12px; color: #94a3b8;">Mon–Fri 9am–5pm | Sat 10am–4pm | Sun 10am–2pm</p>
           <p style="margin: 0 0 12px; font-size: 0.8rem; line-height: 1.5; color: #cbd5e1;">Mayfield Phone Repair is operated by Khalil Ahmad trading as AUSSIBK. ABN 11 433 439 336. 276 Maitland Rd, Mayfield NSW 2304.</p>
           <p style="margin: 0 0 12px; font-size: 0.8rem; line-height: 1.5; color: #cbd5e1;">Email: support@mayfieldphonerepair.com.au</p>
@@ -306,7 +306,7 @@ async function runPrerender() {
     <header>
       <h1>Mayfield Phone Repair | Newcastle's Trusted Mobile Diagnostic Lab</h1>
       <p>Located at <strong>276 Maitland Rd, Mayfield NSW 2304</strong>. Walk-ins welcome daily.</p>
-      <p>Call Us: <a href="tel:+61240491735"><strong>(02) 4049 1735</strong></a> | Emergency / After Hours Textline: <strong>0431 618 100</strong></p>
+      <p>Call Us: <a href="tel:+61240491735"><strong>(02) 4049 1735</strong></a> | Text / SMS: <a href="sms:+61485002786"><strong>0485 002 786</strong></a></p>
       <p>Trading Hours: Mon–Fri 9:00 AM – 5:00 PM | Sat 10:00 AM – 4:00 PM | <strong>Sun 10:00 AM – 2:00 PM (Open Sundays)</strong></p>
     </header>
     <main>
@@ -578,7 +578,7 @@ async function runPrerender() {
                 <h2 class="text-white text-3xl font-black font-display tracking-tight">Find Us in Mayfield Store</h2>
                 <p>Located directly on Maitland Rd, Mayfield. Walk directly into our store for rapid on-site repairs with parking at the rear.</p>
                 <p><b>Address:</b> 276 Maitland Rd, Mayfield NSW 2304</p>
-                <p><b>Phone:</b> (02) 4049 1735 &middot; After-hours: 0431 618 100</p>
+                <p><b>Call:</b> <a href="tel:+61240491735" style="color: inherit; text-decoration: underline;">(02) 4049 1735</a> &middot; <b>Text / SMS:</b> <a href="sms:+61485002786" style="color: inherit; text-decoration: underline;">0485 002 786</a></p>
               </div>
               <div class="bg-white/5 border border-white/10 rounded-2xl p-8">
                 <h3 class="text-white font-bold font-display text-lg mb-4">Opening Hours</h3>
@@ -743,7 +743,7 @@ async function runPrerender() {
                 <h2 class="text-white text-3xl font-black font-display tracking-tight">Find Us in Mayfield Store</h2>
                 <p>Located directly on Maitland Rd, Mayfield. Walk directly into our store for rapid on-site repairs with parking at the rear.</p>
                 <p><b>Address:</b> 276 Maitland Rd, Mayfield NSW 2304</p>
-                <p><b>Phone:</b> (02) 4049 1735 &middot; After-hours: 0431 618 100</p>
+                <p><b>Call:</b> <a href="tel:+61240491735" style="color: inherit; text-decoration: underline;">(02) 4049 1735</a> &middot; <b>Text / SMS:</b> <a href="sms:+61485002786" style="color: inherit; text-decoration: underline;">0485 002 786</a></p>
               </div>
               <div class="bg-white/5 border border-white/10 rounded-2xl p-8">
                 <h3 class="text-white font-bold font-display text-lg mb-4">Opening Hours</h3>
@@ -908,7 +908,7 @@ async function runPrerender() {
                 <h2 class="text-white text-3xl font-black font-display tracking-tight">Find Us in Mayfield Store</h2>
                 <p>Located directly on Maitland Rd, Mayfield. Walk directly into our store for rapid on-site repairs with parking at the rear.</p>
                 <p><b>Address:</b> 276 Maitland Rd, Mayfield NSW 2304</p>
-                <p><b>Phone:</b> (02) 4049 1735 &middot; After-hours: 0431 618 100</p>
+                <p><b>Call:</b> <a href="tel:+61240491735" style="color: inherit; text-decoration: underline;">(02) 4049 1735</a> &middot; <b>Text / SMS:</b> <a href="sms:+61485002786" style="color: inherit; text-decoration: underline;">0485 002 786</a></p>
               </div>
               <div class="bg-white/5 border border-white/10 rounded-2xl p-8">
                 <h3 class="text-white font-bold font-display text-lg mb-4">Opening Hours</h3>
@@ -1073,7 +1073,7 @@ async function runPrerender() {
                 <h2 class="text-white text-3xl font-black font-display tracking-tight">Find Us in Mayfield Store</h2>
                 <p>Located directly on Maitland Rd, Mayfield. Walk directly into our store for rapid on-site repairs with parking at the rear.</p>
                 <p><b>Address:</b> 276 Maitland Rd, Mayfield NSW 2304</p>
-                <p><b>Phone:</b> (02) 4049 1735 &middot; After-hours: 0431 618 100</p>
+                <p><b>Call:</b> <a href="tel:+61240491735" style="color: inherit; text-decoration: underline;">(02) 4049 1735</a> &middot; <b>Text / SMS:</b> <a href="sms:+61485002786" style="color: inherit; text-decoration: underline;">0485 002 786</a></p>
               </div>
               <div class="bg-white/5 border border-white/10 rounded-2xl p-8">
                 <h3 class="text-white font-bold font-display text-lg mb-4">Opening Hours</h3>
@@ -1169,13 +1169,13 @@ async function runPrerender() {
     {
       route: 'after-hours',
       title: 'Emergency After-Hours Phone Repair | Mayfield Newcastle',
-      desc: 'Emergency and after-hours phone repairs in Newcastle. Cracked screen or liquid spill after hours? Text our on-call tech on 0431 618 100.',
+      desc: 'Emergency and after-hours phone repairs in Newcastle. Cracked screen or liquid spill after hours? Text our on-call tech on 0485 002 786.',
       body: `
         <article>
           <h1>Emergency & After-Hours Phone Repair Newcastle</h1>
           <p>Phone failures rarely happen at a convenient hour. Dropping your iPhone on a Friday night, suffering a sudden liquid spill on a Sunday morning, or experiencing a complete battery blackout before an early Monday morning work shift can leave you stranded without communications, banking, or two-factor authentication. Mayfield Phone Repair offers dedicated emergency and after-hours tech assistance for urgent phone, tablet, and laptop faults across Newcastle and the Hunter region.</p>
-          <h2>On-Call Emergency Contact: 0431 618 100</h2>
-          <p>If our workshop at 276 Maitland Rd is closed, you can reach our on-call senior technicians by sending a direct SMS to our emergency mobile hotline: <strong>0431 618 100</strong>. Include your device model (e.g., iPhone 15 Pro, Samsung S24 Ultra), a brief description of the fault (e.g., water drop, black screen, swollen battery), and whether you need priority weekend morning drop-off or urgent triage. Our team monitors this textline and responds promptly with guidance and availability.</p>
+          <h2>On-Call Emergency Contact: 0485 002 786</h2>
+          <p>If our workshop at 276 Maitland Rd is closed, you can reach our on-call senior technicians by sending a direct SMS to our emergency textline: <a href="sms:+61485002786"><strong>0485 002 786</strong></a>. Include your device model (e.g., iPhone 15 Pro, Samsung S24 Ultra), a brief description of the fault (e.g., water drop, black screen, swollen battery), and whether you need priority weekend morning drop-off or urgent triage. Our team monitors this textline and responds promptly with guidance and availability.</p>
           <h2>Weekend & Sunday Repair Availability</h2>
           <p>Unlike most Newcastle electronics repair centers and shopping mall franchises that close on Sundays, Mayfield Phone Repair is open on <strong>Sundays from 10:00 AM to 2:00 PM</strong>. This makes our Maitland Road facility the primary weekend emergency tech triage hub for residents across Newcastle, Hamilton, Waratah, Lambton, Wallsend, Kotara, and Charlestown.</p>
           <h2>Critical Situations We Handle Urgently</h2>
@@ -1188,7 +1188,7 @@ async function runPrerender() {
           <h2>Frequently Asked Questions: After-Hours & Emergency Repairs</h2>
           <article>
             <h3>How do I arrange an urgent after-hours repair in Newcastle?</h3>
-            <p>Send an SMS to our emergency textline at 0431 618 100 with your handset model and fault description. A technician will text you back with triage advice and drop-off scheduling.</p>
+            <p>Send an SMS to our emergency textline at <a href="sms:+61485002786">0485 002 786</a> with your handset model and fault description. A technician will text you back with triage advice and drop-off scheduling.</p>
           </article>
           <article>
             <h3>Are you open on Sundays?</h3>
@@ -1196,7 +1196,7 @@ async function runPrerender() {
           </article>
           <article>
             <h3>What should I do if my phone gets wet after hours?</h3>
-            <p>Turn the device off immediately. Do NOT plug it into a charger. Do not put it in rice. Wipe the exterior dry and text our emergency line on 0431 618 100 to arrange early ultrasonic bath cleaning.</p>
+            <p>Turn the device off immediately. Do NOT plug it into a charger. Do not put it in rice. Wipe the exterior dry and text our emergency line on <a href="sms:+61485002786">0485 002 786</a> to arrange early ultrasonic bath cleaning.</p>
           </article>
           <article>
             <h3>Is there an extra fee for Sunday repairs?</h3>

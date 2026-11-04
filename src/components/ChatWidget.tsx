@@ -85,7 +85,7 @@ export default function ChatWidget({ onOpenBooking }: ChatWidgetProps) {
           KNOWLEDGE BASE:
           - Location: 276 Maitland Rd, Mayfield, NSW 2304.
           - Primary Phone: 02 4049 1735.
-          - After Hours SMS: 0431 618 100.
+          - Text/SMS: 0485 002 786.
           - Opening Hours: Mon-Fri: 9am-5pm, Sat: 10am-4pm, Sun: 10am-2pm.
           - Services: 
               * Phone Repair: Screen, Battery, Charging Port, Back Glass, Water Damage.

@@ -197,8 +197,8 @@ export default function ServicePage() {
                     <div className="font-bold text-xl font-display group-hover:text-blue-400 transition-colors">(02) 4049 1735</div>
                   </div>
                 </a>
-                <a href="sms:0431618100" className="block text-xs font-bold text-emerald-400 hover:underline pl-1">
-                  After-Hours Emergency SMS: 0431 618 100
+                <a href="sms:+61485002786" className="block text-xs font-bold text-emerald-400 hover:underline pl-1">
+                  Text / SMS: 0485 002 786
                 </a>
              </div>
           </div>

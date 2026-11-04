@@ -191,7 +191,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                       Done
                     </button>
                     <a 
-                      href={`sms:0431618100?body=Hi, I just booked a ${formData.brand} ${formData.model} repair for ${formData.date} (${formData.time}). My name is ${formData.customerName}.`}
+                      href={`sms:+61485002786?body=Hi, I just booked a ${formData.brand} ${formData.model} repair for ${formData.date} (${formData.time}). My name is ${formData.customerName}.`}
                       className="w-full px-8 py-5 border-2 border-slate-100 text-slate-900 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-emerald-50 hover:border-emerald-200 hover:text-emerald-600 transition flex items-center justify-center gap-2"
                     >
                       <Phone className="w-4 h-4"/> Send SMS Backup

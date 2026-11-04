@@ -182,6 +182,9 @@ export default function AboutUs() {
                 <a href="tel:0240491735" className="bg-blue-600 text-white px-10 py-6 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/30">
                   Call 02 4049 1735
                 </a>
+                <a href="sms:+61485002786" className="bg-emerald-600 text-white px-10 py-6 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-emerald-700 transition-all shadow-xl shadow-emerald-600/30">
+                  Text 0485 002 786
+                </a>
               </div>
             </div>
           </div>

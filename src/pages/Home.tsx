@@ -916,7 +916,7 @@ export default function Home() {
                     </div>
                     <div className="flex flex-col">
                       <span className="text-technical text-emerald-400">AFTER HOURS SUPPORT</span>
-                      <span className="text-xl font-bold font-display tracking-tight text-white">SMS 0431 618 100</span>
+                      <span className="text-xl font-bold font-display tracking-tight text-white">SMS 0485 002 786</span>
                     </div>
                   </Link>
                 </div>

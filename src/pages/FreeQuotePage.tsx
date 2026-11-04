@@ -602,7 +602,7 @@ export default function FreeQuotePage() {
                 <Phone className="w-5 h-5 text-[#ff7a18] shrink-0 mt-0.5" />
                 <div>
                   <b className="text-white">(02) 4049 1735</b>
-                  <p className="text-slate-400 text-xs mt-0.5">After hours text support: 0431 618 100</p>
+                  <p className="text-slate-400 text-xs mt-0.5">Text / SMS: <a href="sms:+61485002786" className="text-slate-300 hover:text-white underline">0485 002 786</a></p>
                 </div>
               </div>
             </div>

@@ -209,7 +209,7 @@ async function startServer() {
       const { type, data } = req.body;
       const to = process.env.ADMIN_NOTIFICATION_EMAIL || "support@mayfieldphonerepair.com.au";
       
-      let adminNumber = process.env.ADMIN_PHONE_NUMBER || "0431618100";
+      let adminNumber = process.env.ADMIN_PHONE_NUMBER || "0485002786";
 
       let message = "";
       let subject = "";
@@ -390,8 +390,8 @@ async function startServer() {
       address: "276 Maitland Rd, Mayfield NSW 2304",
       turnaround: "30-60 minutes for most repairs",
       warranty: "90-day guarantee on all parts and labor",
-      afterHours: "Strictly via Text: 0431 618 100",
-      quoteProcess: "Text 0431 618 100 for direct quotes",
+      afterHours: "Strictly via Text: 0485 002 786",
+      quoteProcess: "Text 0485 002 786 for direct quotes",
       brands: brands.map(b => ({
         name: b.name,
         startingPriceScreen: b.startingPrice.screen,

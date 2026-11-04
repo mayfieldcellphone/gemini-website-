@@ -613,7 +613,7 @@ export const blogPosts: BlogPost[] = [
           <p class="mb-8 font-medium text-slate-400">Need a specific price for your model? Call us or send an SMS for an instant, no-obligation quote today.</p>
           <div class="flex flex-col sm:flex-row gap-4">
             <a href="tel:0240491735" class="bg-blue-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display text-center shadow-lg shadow-blue-600/30">02 4049 1735</a>
-            <a href="sms:0431618100" class="bg-emerald-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display text-center">SMS For Quote</a>
+            <a href="sms:+61485002786" class="bg-emerald-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display text-center">SMS For Quote</a>
           </div>
         </div>
       </section>
@@ -4336,7 +4336,7 @@ export const blogPosts: BlogPost[] = [
           <div class="space-y-6">
             <div class="flex flex-col gap-2">
               <span class="text-indigo-200 text-[10px] font-black uppercase tracking-widest">How do I request emergency after-hours phone repair in Mayfield?</span>
-              <p class="text-xl font-bold">Send an SMS to 0431 618 100 with your phone model and issue. Our technician will respond with immediate advice and priority drop-off scheduling.</p>
+              <p class="text-xl font-bold">Send an SMS to 0485 002 786 with your phone model and issue. Our technician will respond with immediate advice and priority drop-off scheduling.</p>
             </div>
           </div>
         </div>
@@ -4345,14 +4345,14 @@ export const blogPosts: BlogPost[] = [
 
         <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">How Emergency Triage Works</h2>
         <ol class="list-decimal pl-6 space-y-2 text-slate-600 text-lg">
-          <li><strong>Text 0431 618 100:</strong> Include phone model and description of failure.</li>
+          <li><strong>Text 0485 002 786:</strong> Include phone model and description of failure.</li>
           <li><strong>Instant First-Aid Advice:</strong> What to do immediately (e.g. water damage power-down).</li>
           <li><strong>Priority Early Morning Drop-Off:</strong> First in queue when the workshop opens.</li>
         </ol>
 
         <div class="mt-12 bg-slate-900 text-white p-12 rounded-[3.5rem] shadow-2xl text-center">
           <h3 class="text-3xl font-bold mb-4 font-display">Need After-Hours Help?</h3>
-          <p class="mb-8 text-slate-400">SMS 0431 618 100 or visit our After Hours page.</p>
+          <p class="mb-8 text-slate-400">SMS 0485 002 786 or visit our After Hours page.</p>
           <a href="/after-hours" class="inline-block bg-indigo-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] font-display">After Hours SMS Info</a>
         </div>
       </section>

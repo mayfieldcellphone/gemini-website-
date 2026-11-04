@@ -8,7 +8,7 @@ export default function AfterHoursPage() {
     <div className="flex-1 bg-white">
       <Helmet>
         <title>After Hours Emergency Phone Repair | Mayfield Phone Repair</title>
-        <meta name="description" content="Need an emergency phone repair after hours in Newcastle? Text 0431 618 100 for our strictly via booking emergency service." />
+        <meta name="description" content="Need an emergency phone repair after hours in Newcastle? Text 0485 002 786 for our strictly via booking emergency service." />
         <link rel="canonical" href="https://mayfieldphonerepair.com.au/after-hours" />
         <script type="application/ld+json">
           {JSON.stringify({
@@ -53,8 +53,8 @@ export default function AfterHoursPage() {
           </p>
 
           <div className="pt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
-            <a href="sms:0431618100" className="w-full sm:w-auto px-10 py-6 bg-emerald-600 text-white font-black uppercase tracking-[0.2em] text-xs rounded-2xl shadow-2xl hover:bg-emerald-500 transition-all hover:-translate-y-1 font-display flex items-center justify-center gap-4">
-              <MessageSquare className="w-5 h-5" /> Text: 0431 618 100
+            <a href="sms:+61485002786" className="w-full sm:w-auto px-10 py-6 bg-emerald-600 text-white font-black uppercase tracking-[0.2em] text-xs rounded-2xl shadow-2xl hover:bg-emerald-500 transition-all hover:-translate-y-1 font-display flex items-center justify-center gap-4">
+              <MessageSquare className="w-5 h-5" /> Text: 0485 002 786
             </a>
             <Link to="/" className="w-full sm:w-auto px-10 py-6 bg-white/5 border border-white/10 text-white font-black uppercase tracking-[0.2em] text-xs rounded-2xl hover:bg-white/10 transition-all font-display flex items-center justify-center gap-3 italic">
               <ArrowLeft className="w-4 h-4" /> Back to Home
@@ -79,7 +79,7 @@ export default function AfterHoursPage() {
                 { 
                   icon: MessageSquare, 
                   title: 'Text First', 
-                  desc: 'Send a text message to 0431 618 100 with your phone model and the issue you\'re facing. This is strictly a text-based booking service after hours.',
+                  desc: 'Send a text message to 0485 002 786 with your phone model and the issue you\'re facing. This is strictly a text-based booking service after hours.',
                   color: 'bg-emerald-50 text-emerald-600'
                 },
                 { 
@@ -135,9 +135,9 @@ export default function AfterHoursPage() {
                   <div className="flex flex-col items-center gap-6 p-8 bg-slate-900 rounded-[2.5rem] text-white">
                     <div className="text-center space-y-2">
                       <span className="text-[10px] font-black uppercase tracking-[0.3em] text-emerald-400">Ready to text?</span>
-                      <div className="text-3xl font-bold font-display">0431 618 100</div>
+                      <div className="text-3xl font-bold font-display">0485 002 786</div>
                     </div>
-                    <a href="sms:0431618100" className="w-full bg-emerald-600 py-6 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-emerald-500 transition-all text-center">
+                    <a href="sms:+61485002786" className="w-full bg-emerald-600 py-6 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-emerald-500 transition-all text-center">
                       Send Emergency Text
                     </a>
                   </div>

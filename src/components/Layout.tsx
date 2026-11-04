@@ -203,12 +203,12 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
             <span className="tracking-wide">02 4049 1735</span>
           </a>
           <div className="w-px h-4 bg-slate-800"></div>
-          <a href="sms:0431618100" className="flex items-center gap-2 bg-emerald-500/10 border border-emerald-400/20 px-3.5 py-1 rounded-full text-emerald-400 hover:bg-emerald-500/20 transition-all duration-200 group">
+          <a href="sms:+61485002786" className="flex items-center gap-2 bg-emerald-500/10 border border-emerald-400/20 px-3.5 py-1 rounded-full text-emerald-400 hover:bg-emerald-500/20 transition-all duration-200 group">
             <span className="relative flex h-1.5 w-1.5 shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
             </span>
-            <span className="font-semibold tracking-wide text-xs">Emergency SMS: 0431 618 100</span>
+            <span className="font-semibold tracking-wide text-xs">Text/SMS: 0485 002 786</span>
           </a>
           <div className="hidden xl:flex items-center gap-3.5 border-l border-slate-800 pl-6 ml-2">
             {socialLinks.slice(0, 4).map((link, idx) => (
@@ -437,6 +437,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
                <div className="space-y-4">
                                    <a href="mailto:support@mayfieldphonerepair.com.au" className="block text-lg font-bold text-white hover:text-blue-400 transition-colors font-display italic">support@mayfieldphonerepair.com.au</a>
                   <a href="tel:0240491735" className="block text-xl font-bold text-white hover:text-blue-400 transition-colors font-display">02 4049 1735</a>
+                  <a href="sms:+61485002786" className="block text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors">Text / SMS: 0485 002 786</a>
                  <p className="text-xs text-slate-500 leading-relaxed font-medium">Free advice & quotes.</p>
                  <p className="text-xs text-slate-400 leading-relaxed pt-2">
                    Mayfield Phone Repair is operated by Khalil Ahmad trading as AUSSIBK. ABN 11 433 439 336. 276 Maitland Rd, Mayfield NSW 2304.
