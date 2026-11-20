@@ -1,6 +1,9 @@
 export interface Brand {
   id: string;
   name: string;
+  customTitle?: string;
+  customH1?: string;
+  customMetaDesc?: string;
   description: string;
   longDescription: string;
   color: string;
@@ -52,16 +55,19 @@ export const brands: Brand[] = [
   { 
     id: 'google', 
     name: 'Google', 
-    description: 'Fast screen, battery, and camera replacements for all Google Pixel models.', 
-    longDescription: 'Google Pixel phones are renowned for their camera prowess and clean software software experience. If you\'ve shattered your Pixel screen or noticed a severe drop in battery life, our specialists can help. We have deep experience safely navigating the internal architecture of Google devices, ensuring that components like the Tensor chip cooling assemblies and delicate camera sensors are perfectly preserved during the repair process.',
+    customTitle: 'Google Pixel Repair Newcastle | Screen & Battery Fix',
+    customH1: 'Google Pixel Repairs in Mayfield, Newcastle',
+    customMetaDesc: 'Cracked Pixel screen, battery draining fast, or port issues? Expert Google Pixel repairs at 276 Maitland Rd Mayfield. 30-min turnaround, 90-day warranty.',
+    description: 'Cracked Pixel screen, battery draining fast, or a charging port that won\'t hold a cable? We repair Google Pixel phones at our Mayfield shop, 276 Maitland Rd, with no need to post your phone away.', 
+    longDescription: 'Cracked Pixel screen, battery draining fast, or a charging port that won\'t hold a cable? We repair Google Pixel phones at our Mayfield shop, 276 Maitland Rd, with no need to post your phone away. We fix Pixel 6, 6a, 6 Pro, 7, 7a, 8, 9 and 10 series screens, batteries, charging ports, and Tensor cooling assemblies in 30–45 minutes with a 90-day comprehensive warranty.',
     color: 'from-blue-500 to-green-600', 
     startingPrice: { screen: '139', battery: '89' },
     deviceCategories: [
-      { name: 'Pixel Pro Models', models: ['Pixel 10 Pro', 'Pixel 9 Pro XL', 'Pixel 9 Pro', 'Pixel 8 Pro', 'Pixel 7 Pro'] },
+      { name: 'Pixel Pro Models', models: ['Pixel 10 Pro', 'Pixel 9 Pro XL', 'Pixel 9 Pro', 'Pixel 8 Pro', 'Pixel 7 Pro', 'Pixel 6 Pro'] },
       { name: 'Pixel Standard Models', models: ['Pixel 10', 'Pixel 9', 'Pixel 8', 'Pixel 7', 'Pixel 6'] },
-      { name: 'Pixel A-Series & Fold', models: ['Pixel Fold 2', 'Pixel Fold', 'Pixel 9a', 'Pixel 8a', 'Pixel 7a'] }
+      { name: 'Pixel A-Series & Fold', models: ['Pixel Fold 2', 'Pixel Fold', 'Pixel 9a', 'Pixel 8a', 'Pixel 7a', 'Pixel 6a'] }
     ],
-    features: ['Tensor Chip Safety Cooling', 'Camera Module Replacement', 'Fast Charging Port Fixes', 'Haptic Motor Restoration'],
+    features: ['Pixel 6, 7, 8 & 9 OLED Screens', 'Fast 30-Min Battery Swaps', 'USB-C Charging Port Cleaning & Fixes', '90-Day Parts & Labor Warranty'],
     seoModelDump: 'Google Pixel 10 Pro XL, Google Pixel 10 Pro, Google Pixel 10, Google Pixel 9 Pro XL, Google Pixel 9 Pro, Google Pixel 9, Google Pixel 9a, Google Pixel Fold 2, Google Pixel Fold, Google Pixel 8 Pro, Google Pixel 8, Google Pixel 8a, Google Pixel 7 Pro, Google Pixel 7, Google Pixel 7a, Google Pixel 6 Pro, Google Pixel 6, Google Pixel 6a, Google Pixel 5, Google Pixel 5a, Google Pixel 4a 5G, Google Pixel 4a, Google Pixel 4 XL, Google Pixel 4, Google Pixel Tablet, Google Pixel Watch 3, Google Pixel Watch 2, Google Pixel Watch.'
   },
   { 

@@ -691,4 +691,165 @@ export const modelRepairData: ModelRepairInfo[] = [
       { question: 'How much is a Pixel 9 screen replacement in Newcastle?', answer: 'Pixel 9 screen repairs cost between $240 and $340 depending on Pro vs standard model.' }
     ]
   }
+,
+  {
+    id: 'pixel-6-screen-repair-newcastle',
+    slug: 'pixel-6-screen-repair-newcastle',
+    brand: 'google',
+    brandHubUrl: '/brand/google',
+    pillarGuideUrl: '/repair-guides/phone-screen-repair-newcastle',
+    modelName: 'Google Pixel 6 / 6 Pro',
+    title: 'Google Pixel 6 Screen Repair Newcastle',
+    metaDescription: 'Google Pixel 6 screen replacement in Newcastle. Fast 30-min AMOLED fix, genuine-spec parts, 90-day warranty at 276 Maitland Rd Mayfield. Walk-ins welcome.',
+    heroHeadline: 'Google Pixel 6 Screen Repair Newcastle: Fast Local Service',
+    heroSubdeck: 'Cracked screen, bleeding ink, or unresponsive touchscreen on your Pixel 6 or Pixel 6 Pro? Drop into our Maitland Rd workshop for express 30-minute repair.',
+    pricing: {
+      glassOnlyPrice: '$139',
+      fullAssemblyPrice: '$189 - $269',
+      batteryPrice: '$99',
+      chargingPortPrice: '$89',
+      backGlassPrice: '$119'
+    },
+    repairTime: '30 - 45 Minutes',
+    warranty: '90-Day Parts & Labor Guarantee',
+    specifications: {
+      display: '6.4" AMOLED 90Hz HDR10+ Gorilla Glass Victus',
+      batteryCapacity: '4,614 mAh Fast Charging Cell',
+      processor: 'Google Tensor (1st Gen) Chip'
+    },
+    commonIssues: [
+      {
+        title: 'Shattered Front Glass & In-Display Fingerprint Failure',
+        description: 'Cracks across the lower optical fingerprint sensor area preventing biometric unlock.'
+      },
+      {
+        title: 'Black Screen with Sound or Green Flash',
+        description: 'OLED layer failure where phone vibrates and rings but display remains black.'
+      }
+    ],
+    faqs: [
+      { question: 'How much does a Pixel 6 screen repair cost in Newcastle?', answer: 'Google Pixel 6 screen replacement starts from $189 for full premium OLED assembly with 90-day warranty.' },
+      { question: 'How long does Pixel 6 screen replacement take?', answer: 'Most Pixel 6 screen repairs are completed in 30 to 45 minutes while you wait at 276 Maitland Rd.' }
+    ]
+  },
+  {
+    id: 'pixel-6a-screen-repair-newcastle',
+    slug: 'pixel-6a-screen-repair-newcastle',
+    brand: 'google',
+    brandHubUrl: '/brand/google',
+    pillarGuideUrl: '/repair-guides/phone-screen-repair-newcastle',
+    modelName: 'Google Pixel 6a',
+    title: 'Google Pixel 6a Screen Repair Newcastle',
+    metaDescription: 'Google Pixel 6a screen repair in Newcastle & Mayfield. Same-day OLED display fix, battery replacement, 90-day warranty at 276 Maitland Rd. Free quote.',
+    heroHeadline: 'Google Pixel 6a Screen Repair Newcastle: 30-Min Service',
+    heroSubdeck: 'Specialist repair for Google Pixel 6a screens, batteries, and charging ports. In stock now at our Mayfield store with upfront transparent pricing.',
+    pricing: {
+      glassOnlyPrice: '$129',
+      fullAssemblyPrice: '$179',
+      batteryPrice: '$89',
+      chargingPortPrice: '$89',
+      backGlassPrice: '$109'
+    },
+    repairTime: '30 - 40 Minutes',
+    warranty: '90-Day Comprehensive Warranty',
+    specifications: {
+      display: '6.1" OLED 60Hz HDR Corning Gorilla Glass 3',
+      batteryCapacity: '4,410 mAh Battery',
+      processor: 'Google Tensor Processor'
+    },
+    commonIssues: [
+      {
+        title: 'Cracked Front Screen & Multi-Touch Ghosting',
+        description: 'Corner drops causing spiderweb fractures and ghost touches across keyboard area.'
+      },
+      {
+        title: 'Battery Draining Quickly',
+        description: 'Degraded battery health causing sudden shutdowns at 20% power.'
+      }
+    ],
+    faqs: [
+      { question: 'Do you repair Pixel 6a screens in Newcastle?', answer: 'Yes! We stock Pixel 6a OLED screen assemblies and complete the repair in 30 to 40 minutes.' },
+      { question: 'How much is a Google Pixel 6a screen fix?', answer: 'Pixel 6a screen replacement is fixed at $179 including parts, labor, and a 90-day warranty.' }
+    ]
+  },
+  {
+    id: 'pixel-7-screen-repair-newcastle',
+    slug: 'pixel-7-screen-repair-newcastle',
+    brand: 'google',
+    brandHubUrl: '/brand/google',
+    pillarGuideUrl: '/repair-guides/phone-screen-repair-newcastle',
+    modelName: 'Google Pixel 7 / 7 Pro / 7a',
+    title: 'Google Pixel 7 Screen Repair Newcastle',
+    metaDescription: 'Expert Google Pixel 7, 7 Pro & 7a screen repair in Newcastle. Smooth 90Hz OLED replacement, battery swaps & camera fixes at 276 Maitland Rd Mayfield.',
+    heroHeadline: 'Google Pixel 7 Series Screen Repair Newcastle',
+    heroSubdeck: 'High-quality screen and battery repairs for Google Pixel 7, Pixel 7 Pro, and Pixel 7a. Local Maitland Rd lab, walk-ins welcome daily.',
+    pricing: {
+      glassOnlyPrice: '$149',
+      fullAssemblyPrice: '$199 - $299',
+      batteryPrice: '$109',
+      chargingPortPrice: '$99',
+      backGlassPrice: '$129'
+    },
+    repairTime: '35 - 45 Minutes',
+    warranty: '90-Day Parts & Labor Guarantee',
+    specifications: {
+      display: '6.3" 90Hz OLED (Pixel 7) / 6.7" 120Hz LTPO (7 Pro)',
+      batteryCapacity: '4,355 mAh to 5,000 mAh Cell',
+      processor: 'Google Tensor G2 Chip'
+    },
+    commonIssues: [
+      {
+        title: 'Curved Screen Edge Fracture (Pixel 7 Pro)',
+        description: 'Corner edge drop damage on curved LTPO display requiring full frame replacement.'
+      },
+      {
+        title: 'Rear Camera Visor Glass Shatter',
+        description: 'Spontaneous or impact fractures on the horizontal metal camera visor glass.'
+      }
+    ],
+    faqs: [
+      { question: 'How much does a Google Pixel 7 screen cost to fix?', answer: 'Pixel 7 screen replacements start at $199, while Pixel 7 Pro curved LTPO assemblies start at $299.' },
+      { question: 'Do you fix broken Pixel 7 camera glass?', answer: 'Yes, we replace cracked camera visor lenses for all Pixel 7 series devices in 30 minutes.' }
+    ]
+  },
+  {
+    id: 'pixel-8-screen-repair-newcastle',
+    slug: 'pixel-8-screen-repair-newcastle',
+    brand: 'google',
+    brandHubUrl: '/brand/google',
+    pillarGuideUrl: '/repair-guides/phone-screen-repair-newcastle',
+    modelName: 'Google Pixel 8 / 8 Pro / 8a',
+    title: 'Google Pixel 8 Screen Repair Newcastle',
+    metaDescription: 'Google Pixel 8 & 8 Pro Actua OLED screen replacement in Newcastle. 45-min turnaround, genuine OEM-grade parts, 90-day warranty at 276 Maitland Rd.',
+    heroHeadline: 'Google Pixel 8 & 8 Pro Screen Repair Newcastle',
+    heroSubdeck: 'Actua display replacements, Tensor G3 battery replacements, and camera module repairs for Google Pixel 8, 8 Pro, and 8a in Newcastle.',
+    pricing: {
+      glassOnlyPrice: '$159',
+      fullAssemblyPrice: '$229 - $329',
+      batteryPrice: '$109',
+      chargingPortPrice: '$99',
+      backGlassPrice: '$129'
+    },
+    repairTime: '40 - 45 Minutes',
+    warranty: '90-Day Comprehensive Warranty',
+    specifications: {
+      display: 'Actua OLED 120Hz 2000 nits Peak (8) / Super Actua 2400 nits (8 Pro)',
+      batteryCapacity: '4,575 mAh to 5,050 mAh Cell',
+      processor: 'Google Tensor G3 AI Chip'
+    },
+    commonIssues: [
+      {
+        title: 'Pink Vertical Lines on Actua OLED Display',
+        description: 'Hardware line defect caused by drops, resolved with fresh display assembly.'
+      },
+      {
+        title: 'Swelling Battery or Rapid Drain',
+        description: 'Overheating Tensor G3 usage leading to degraded battery endurance.'
+      }
+    ],
+    faqs: [
+      { question: 'How much does a Pixel 8 screen repair cost?', answer: 'Pixel 8 screen replacement costs $229 for Pixel 8/8a and $329 for Pixel 8 Pro Super Actua OLED.' },
+      { question: 'Do you keep Google Pixel 8 parts in stock in Mayfield?', answer: 'Yes, we stock high-grade Actua displays for same-day walk-in repairs.' }
+    ]
+  }
 ];

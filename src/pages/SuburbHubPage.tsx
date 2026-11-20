@@ -94,7 +94,7 @@ export default function SuburbHubPage() {
   return (
     <>
       <Helmet>
-        <title>{`Phone Repair ${hub.name} | Express Screen & Battery Service Mayfield`}</title>
+        <title>{hub.customTitle || `Phone Repair ${hub.name} | Express Screen & Battery Service Mayfield`}</title>
         <meta name="description" content={hub.metaDescription} />
         <link rel="canonical" href={canonicalUrl} />
         <meta property="og:title" content={`Phone Repair ${hub.name} - Mayfield Cell Phone Repairs`} />

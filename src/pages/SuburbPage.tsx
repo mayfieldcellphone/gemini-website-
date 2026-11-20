@@ -159,13 +159,21 @@ export default function SuburbPage() {
 
   const googleMapsDirectionsUrl = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(currentSuburb.name + ' NSW ' + currentSuburb.postcode)}&destination=276+Maitland+Rd+Mayfield+NSW+2304`;
 
+  const isMayfieldPhoneRepair = serviceKey === 'phone-repair' && suburbId === 'mayfield';
+  const pageTitle = isMayfieldPhoneRepair
+    ? 'Phone Repairs Mayfield NSW | Screens, Batteries, Charge Ports'
+    : `${formattedServiceName} ${currentSuburb.name} NSW | Same-Day Fix | Mayfield Phone Repair`;
+  const pageDescription = isMayfieldPhoneRepair
+    ? 'Local phone repair shop in Mayfield. Screen, battery and charging-port repairs for iPhone, Samsung, Pixel and more. See prices and book a time.'
+    : `Need ${formattedServiceName.toLowerCase()} in ${currentSuburb.name}? Visit 276 Maitland Rd Mayfield (${currentSuburb.distance}). 30-minute express repairs, 4.8★ rated with 477+ reviews, 90-day warranty.`;
+
   return (
     <div className="flex-1 bg-white overflow-hidden relative">
       <Helmet>
-        <title>{`${formattedServiceName} ${currentSuburb.name} NSW | Same-Day Fix | Mayfield Phone Repair`}</title>
+        <title>{pageTitle}</title>
         <meta 
           name="description" 
-          content={`Need ${formattedServiceName.toLowerCase()} in ${currentSuburb.name}? Visit 276 Maitland Rd Mayfield (${currentSuburb.distance}). 30-minute express repairs, 4.8★ rated with 477+ reviews, 90-day warranty.`} 
+          content={pageDescription} 
         />
         <link rel="canonical" href={canonicalUrl} />
         <meta property="og:title" content={`${formattedServiceName} in ${currentSuburb.name} NSW | Mayfield Phone Repair`} />

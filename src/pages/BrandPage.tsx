@@ -24,8 +24,8 @@ export default function BrandPage() {
   return (
     <div className="flex-1 bg-slate-50">
       <Helmet>
-        <title>{`${brand.name} Repair Mayfield | Professional Newcastle Service`}</title>
-        <meta name="description" content={`Expert ${brand.name} repairs in Mayfield. ${brand.description} Same-day screen, battery, and diagnostic services by specialist technicians.`} />
+        <title>{brand.customTitle || `${brand.name} Repair Mayfield | Professional Newcastle Service`}</title>
+        <meta name="description" content={brand.customMetaDesc || `Expert ${brand.name} repairs in Mayfield. ${brand.description} Same-day screen, battery, and diagnostic services by specialist technicians.`} />
         <link rel="canonical" href={`https://mayfieldphonerepair.com.au/brand/${brand.id}`} />
         <meta property="og:title" content={`${brand.name} Repair Newcastle - Mayfield Cell Phone Repairs`} />
         <meta property="og:description" content={brand.description} />
@@ -62,7 +62,7 @@ export default function BrandPage() {
               <Smartphone className="w-12 h-12 text-white" />
             </div>
             <div className="space-y-6">
-              <h1 className="text-4xl md:text-7xl font-bold mb-4 tracking-tighter leading-none font-display">{brand.name} Repairs</h1>
+              <h1 className="text-4xl md:text-7xl font-bold mb-4 tracking-tighter leading-none font-display">{brand.customH1 || `${brand.name} Repairs`}</h1>
               <p className="text-white/80 text-lg md:text-2xl max-w-3xl font-medium leading-relaxed italic">{brand.description}</p>
             </div>
           </div>

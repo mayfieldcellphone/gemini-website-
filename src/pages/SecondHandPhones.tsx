@@ -30,8 +30,8 @@ export default function SecondHandPhones() {
   return (
     <div>
       <Helmet>
-        <title>Buy Refurbished iPhones & Samsung Mayfield | Newcastle Quality Used Phones</title>
-        <meta name="description" content="Premium refurbished iPhones and Samsung Galaxy phones in Mayfield. All devices include a warranty, new batteries, and original parts. Trade-ins welcome." />
+        <title>Second-Hand & Refurbished Phones Mayfield | iPhone, Samsung</title>
+        <meta name="description" content="Browse tested second-hand phones in Mayfield. Pick up in store at 276 Maitland Rd. 90-day warranty, clean IMEI & free data transfer included." />
         <meta property="og:title" content="Quality Used & Refurbished Phones - Mayfield Phone Repair" />
         <meta property="og:description" content="Looking for a reliable used phone? We stock high-quality refurbished devices with verified original components." />
         <link rel="canonical" href="https://mayfieldphonerepair.com.au/second-hand-phones" />

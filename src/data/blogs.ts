@@ -2392,16 +2392,178 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: '130',
-    title: 'Original vs Aftermarket iPhone Screen Which to Choose',
+    title: 'Original vs Aftermarket iPhone Screen: 2026 Newcastle Guide',
     slug: 'original-vs-aftermarket-iphone-screen',
-    author: 'Mayfield Phone Repair Team',
-    date: '2026-06-05',
-    excerpt: 'Not sure which screen quality to pick? We explain the difference between Original and Aftermarket screens so you can choose the best for your budget.',
+    author: 'Mayfield Phone Repair Lab',
+    date: '2026-11-20',
+    excerpt: 'Original OEM vs aftermarket iPhone screens compared. We break down display brightness, True Tone, price differences, and which option fits your budget.',
     imageUrl: 'https://images.unsplash.com/photo-1556742044-3c52d6e88c62?auto=format&fit=crop&q=80&w=800',
-    tags: ['Screen Quality', 'Aftermarket', 'OEM'],
+    tags: ['Screen Quality', 'Aftermarket', 'OEM', 'iPhone Repair Newcastle'],
     content: `
       <section class="space-y-8">
-        <p class="text-xl leading-relaxed text-slate-600">When you bring your phone to Mayfield, we offer choices. <strong>Premium Aftermarket</strong> screens provide excellent value and color accuracy, while <strong>Refurbished Original</strong> screens give you the exact Apple experience. Understanding these <a href="/service/screen-repair" class="text-blue-600 hover:underline">display options</a> helps you make the right choice for your lifestyle and budget.</p>
+        <div class="bg-blue-600 text-white p-8 md:p-10 rounded-[2.5rem] shadow-xl relative overflow-hidden mb-8">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-4 text-blue-100">Quick Answer / Summary</h2>
+          <p class="text-xl font-bold leading-relaxed"><strong>Refurbished Original (OEM)</strong> screens use genuine Apple OLED/LCD panels with brand-new outer glass, giving 100% factory brightness, True Tone, and touch accuracy. <strong>Premium Soft OLED Aftermarket</strong> screens cost 30% to 50% less ($89–$189 vs. $160–$369) and deliver 95%+ color vibrancy, making them the best value choice for daily use on iPhones out of warranty.</p>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">When you crack your iPhone screen in Newcastle, the first quote you get can vary wildly—from $89 at an independent local shop to over $500 at an official Apple Store. The main reason for this price gap isn't labor: it is the <strong>screen tier</strong> installed. At Mayfield Phone Repair (276 Maitland Rd), we believe in 100% component transparency so you can choose the best balance of price and performance for your handset.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Original vs. Aftermarket: Side-by-Side Comparison</h2>
+        <div class="overflow-x-auto my-6">
+          <table class="w-full text-left border-collapse bg-white rounded-2xl shadow-sm border border-slate-200">
+            <thead>
+              <tr class="bg-slate-100 text-slate-800 text-sm font-bold uppercase tracking-wider">
+                <th class="p-4 border-b border-slate-200">Feature</th>
+                <th class="p-4 border-b border-slate-200">Refurbished Original (OEM)</th>
+                <th class="p-4 border-b border-slate-200">Premium Soft OLED</th>
+                <th class="p-4 border-b border-slate-200">Budget Hard OLED / In-Cell</th>
+              </tr>
+            </thead>
+            <tbody class="text-sm text-slate-700 divide-y divide-slate-100">
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Display Technology</td>
+                <td class="p-4">Genuine Apple Super Retina XDR OLED</td>
+                <td class="p-4">Flexible Polymer OLED (OEM Grade)</td>
+                <td class="p-4">Rigid Glass OLED or In-Cell LCD</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Peak Brightness</td>
+                <td class="p-4">800–2,000 nits (Factory Full)</td>
+                <td class="p-4">700–1,600 nits (Great Sunlight View)</td>
+                <td class="p-4">450–650 nits (Dimmer Outdoors)</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">True Tone Support</td>
+                <td class="p-4">Yes (EEPROM reprogrammed)</td>
+                <td class="p-4">Yes (EEPROM reprogrammed)</td>
+                <td class="p-4">Model Dependent</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Face ID Functionality</td>
+                <td class="p-4">100% Fully Preserved</td>
+                <td class="p-4">100% Fully Preserved</td>
+                <td class="p-4">Preserved (if ear-flex transferred)</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Bezel Thickness</td>
+                <td class="p-4">Exact Factory Slim Bezel</td>
+                <td class="p-4">Near Identical to OEM</td>
+                <td class="p-4">1–2mm Thicker Black Borders</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Drop & Impact Resilience</td>
+                <td class="p-4">High (Flexible Substrate)</td>
+                <td class="p-4">High (Flexible Substrate)</td>
+                <td class="p-4">Moderate (Glass can crack under impact)</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Average Price (Newcastle)</td>
+                <td class="p-4 font-bold text-blue-600">$160 – $369</td>
+                <td class="p-4 font-bold text-emerald-600">$109 – $229</td>
+                <td class="p-4 font-bold text-slate-600">$79 – $119</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Mayfield Warranty</td>
+                <td class="p-4">90-Day Comprehensive Warranty</td>
+                <td class="p-4">90-Day Comprehensive Warranty</td>
+                <td class="p-4">90-Day Comprehensive Warranty</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">2026 Newcastle iPhone Screen Replacement Price Guide</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">Here is what you can expect to pay for same-day professional installation at our Maitland Rd store in Mayfield:</p>
+        <div class="overflow-x-auto my-6">
+          <table class="w-full text-left border-collapse bg-white rounded-2xl shadow-sm border border-slate-200">
+            <thead>
+              <tr class="bg-slate-100 text-slate-800 text-sm font-bold uppercase tracking-wider">
+                <th class="p-4 border-b border-slate-200">iPhone Model</th>
+                <th class="p-4 border-b border-slate-200">Premium Aftermarket</th>
+                <th class="p-4 border-b border-slate-200">Refurbished Original OEM</th>
+                <th class="p-4 border-b border-slate-200">Turnaround Time</th>
+              </tr>
+            </thead>
+            <tbody class="text-sm text-slate-700 divide-y divide-slate-100">
+              <tr>
+                <td class="p-4 font-bold text-slate-900">iPhone 11 / XR (LCD)</td>
+                <td class="p-4 text-emerald-600 font-bold">$89</td>
+                <td class="p-4 font-bold">$129</td>
+                <td class="p-4">25–30 Mins</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">iPhone 12 / 12 Pro (OLED)</td>
+                <td class="p-4 text-emerald-600 font-bold">$109 – $129</td>
+                <td class="p-4 font-bold">$169</td>
+                <td class="p-4">30 Mins</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">iPhone 13 / 13 Pro (OLED)</td>
+                <td class="p-4 text-emerald-600 font-bold">$119 – $169</td>
+                <td class="p-4 font-bold">$189 – $249</td>
+                <td class="p-4">30 Mins</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">iPhone 14 / 14 Plus / 14 Pro</td>
+                <td class="p-4 text-emerald-600 font-bold">$139 – $189</td>
+                <td class="p-4 font-bold">$219 – $299</td>
+                <td class="p-4">30–45 Mins</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">iPhone 15 / 15 Pro / 15 Pro Max</td>
+                <td class="p-4 text-emerald-600 font-bold">$159 – $229</td>
+                <td class="p-4 font-bold">$269 – $369</td>
+                <td class="p-4">30–45 Mins</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">iPhone 16 / 16 Pro Max</td>
+                <td class="p-4 text-emerald-600 font-bold">$199 – $289</td>
+                <td class="p-4 font-bold">$349 – $449</td>
+                <td class="p-4">45 Mins</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-sm text-slate-500 italic mb-6">*All prices include professional installation, True Tone data migration, dust cleaning, and our 90-day parts warranty. Want an instant quote for your exact model? Check our <a href="/service/screen-repair" class="text-blue-600 hover:underline">Newcastle screen repair service page</a> or our comprehensive <a href="/repair-guides/phone-screen-repair-newcastle" class="text-blue-600 hover:underline">phone screen repair guide</a>, or call <a href="tel:+61240491735" class="text-blue-600 font-bold">(02) 4049 1735</a>.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">What Happens to True Tone & Face ID?</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">A common fear among Newcastle iPhone owners is losing Face ID or True Tone after getting a third-party screen replacement. Here are the facts:</p>
+        <ul class="list-disc pl-6 space-y-3 text-slate-600 text-lg">
+          <li><strong>Face ID:</strong> The Face ID sensor (infrared camera and dot projector) is tied to the logic board and top speaker assembly, NOT the glass panel itself. Our skilled technicians carefully transplant your original sensor assembly under microscope, ensuring Face ID remains 100% operational.</li>
+          <li><strong>True Tone:</strong> Apple displays store unique color-calibration hex codes in an EEPROM chip on the screen. Cheap repair kiosks fail to transfer this data. At Mayfield Phone Repair, we use digital display programmers to read the color profile from your cracked display and write it to the new replacement screen, keeping True Tone active.</li>
+          <li><strong>"Important Display Message":</strong> On iPhone 11 and newer models, Apple displays an informational notification in Settings stating it cannot verify genuine Apple hardware if repaired outside of Apple's authorized server pair system. This prompt moves to the sub-menu after 4 days and <em>does not restrict touch performance, battery life, or software updates in any way</em>.</li>
+        </ul>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Which Screen Should You Choose?</h2>
+        <div class="grid md:grid-cols-2 gap-6 my-6">
+          <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+            <h3 class="font-bold text-slate-900 text-lg mb-2">Choose Premium Aftermarket If:</h3>
+            <ul class="list-disc pl-5 space-y-2 text-slate-600 text-sm">
+              <li>Your iPhone is 2+ years old (iPhone 11, 12, 13, 14).</li>
+              <li>You want the best possible price without noticeable color loss.</li>
+              <li>You plan to upgrade to a newer model within 12–18 months.</li>
+              <li>You want same-day 30-minute replacement while you wait.</li>
+            </ul>
+          </div>
+          <div class="bg-blue-50 p-6 rounded-2xl border border-blue-200">
+            <h3 class="font-bold text-blue-900 text-lg mb-2">Choose Refurbished Original (OEM) If:</h3>
+            <ul class="list-disc pl-5 space-y-2 text-blue-800 text-sm">
+              <li>You own a late-model Pro / Pro Max (iPhone 15 Pro, 16 Pro).</li>
+              <li>You perform color-critical photo or video editing on your device.</li>
+              <li>You plan to trade in or sell your device for maximum resale value.</li>
+              <li>You require absolute maximum outdoor peak nit brightness.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-8 bg-slate-900 text-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl relative overflow-hidden text-center">
+          <h2 class="text-2xl md:text-3xl font-bold font-display text-white mb-4">Ready to Fix Your iPhone Screen in Newcastle?</h2>
+          <p class="text-slate-300 max-w-2xl mx-auto mb-6">Drop into our workshop at 276 Maitland Rd, Mayfield NSW 2304. No appointment necessary. Free diagnostic check and up-front pricing guaranteed.</p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="/quote" class="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold font-display hover:bg-blue-500 transition-all shadow-md">Get Instant Free Quote &rarr;</a>
+            <a href="/service/screen-repair" class="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl font-bold font-display hover:bg-white/20 transition-all">Explore Screen Repair Services</a>
+          </div>
+        </div>
       </section>
     `
   },
@@ -3032,11 +3194,11 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: '44-samsung-galaxy-ai-vs-google-pixel-ai-comparison',
-    title: 'Samsung Galaxy AI vs Google Pixel AI Photo Editing & Voice Assistant: 2026 Detailed Head-to-Head',
+    title: 'Galaxy AI vs Pixel AI: Which Photo Editor Wins in 2026?',
     slug: 'samsung-galaxy-ai-vs-google-pixel-ai-photo-editing-assistant-2026',
     author: 'Mobile Tech & AI Specialist',
     date: '2026-07-27',
-    excerpt: 'Is Samsung AI Assistant better than Google Assistant? Which phone has superior AI photo editing—Galaxy AI or Google Pixel? Explore our in-depth 2026 benchmark comparison.',
+    excerpt: 'We tested Galaxy AI and Google Pixel AI photo editing side by side. See which one erases, fixes and enhances better before you buy.',
     imageUrl: 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&q=80&w=800',
     tags: ['Galaxy AI', 'Google Pixel AI', 'AI Assistant', 'Phone Comparison'],
     content: `
@@ -4657,6 +4819,173 @@ export const blogPosts: BlogPost[] = [
 
         <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">How Our Mayfield Technicians Restore Face ID</h2>
         <p class="text-lg text-slate-600 leading-relaxed">Under our 40x stereoscopic microscope at 276 Maitland Rd, we connect your TrueDepth module to a specialized diagnostic programmer to read the cryptographic serial data from your original Dot Projector or Flood Illuminator IC. We then micro-solder and transfer the encrypted chip onto a brand-new calibrated optical flex assembly, restoring 100% native Face ID, Portrait Mode selfies, and Apple Pay security without wiping your data.</p>
+      </section>
+    `
+  },
+  {
+    id: '131-pixel-screen-cost-guide-newcastle-2026',
+    title: 'Pixel Screen Replacement Cost in Newcastle (2026 Guide)',
+    slug: 'pixel-screen-replacement-cost-newcastle-2026-guide',
+    author: 'Mayfield Phone Repair Lab',
+    date: '2026-11-20',
+    excerpt: 'Google Pixel screen replacement costs in Newcastle. 2026 price guide for Pixel 6, 6a, 7, 8 & 9. Turnaround times, OEM parts, and warranty at 276 Maitland Rd.',
+    imageUrl: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&q=80&w=800',
+    tags: ['Google Pixel Repair', 'Pixel 6 Screen', 'Pixel 6a', 'Newcastle Phone Repair', 'Price Guide'],
+    content: `
+      <section class="space-y-8">
+        <div class="bg-blue-600 text-white p-8 md:p-10 rounded-[2.5rem] shadow-xl relative overflow-hidden mb-8">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] font-display mb-4 text-blue-100">Quick Answer / 2026 Price Snapshot</h2>
+          <p class="text-xl font-bold leading-relaxed">In Newcastle, Google Pixel screen replacement costs between <strong>$179 and $340</strong> depending on your model. A standard Pixel 6a screen replacement is <strong>$179</strong>, a Pixel 6 is <strong>$189</strong>, a Pixel 7 is <strong>$199</strong>, and a Pixel 8 is <strong>$229</strong>. All repairs at Mayfield Phone Repair (276 Maitland Rd) are completed in 30 to 45 minutes with OEM-grade OLED panels and include a 90-day warranty.</p>
+        </div>
+
+        <p class="text-xl leading-relaxed text-slate-600">If you have dropped your Google Pixel phone in Newcastle and cracked the front glass, you don't need to ship your handset to Sydney or Melbourne and wait two weeks without a phone. At our Mayfield repair workshop on Maitland Road, we stock OLED display panels for the entire Pixel family—including the popular Pixel 6, Pixel 6a, 7 series, 8 series, and the new Pixel 9.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">2026 Google Pixel Screen Replacement Price Table</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">Here are our current, transparent flat-rate prices for Google Pixel screen and battery repairs at our Mayfield workshop:</p>
+        <div class="overflow-x-auto my-6">
+          <table class="w-full text-left border-collapse bg-white rounded-2xl shadow-sm border border-slate-200">
+            <thead>
+              <tr class="bg-slate-100 text-slate-800 text-sm font-bold uppercase tracking-wider">
+                <th class="p-4 border-b border-slate-200">Pixel Model</th>
+                <th class="p-4 border-b border-slate-200">Screen Replacement (OLED)</th>
+                <th class="p-4 border-b border-slate-200">Fresh Battery Swap</th>
+                <th class="p-4 border-b border-slate-200">Turnaround</th>
+              </tr>
+            </thead>
+            <tbody class="text-sm text-slate-700 divide-y divide-slate-100">
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Google Pixel 6a</td>
+                <td class="p-4 font-bold text-emerald-600">$179</td>
+                <td class="p-4 font-bold">$89</td>
+                <td class="p-4">30–40 Mins</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Google Pixel 6</td>
+                <td class="p-4 font-bold text-emerald-600">$189</td>
+                <td class="p-4 font-bold">$99</td>
+                <td class="p-4">35–45 Mins</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Google Pixel 6 Pro</td>
+                <td class="p-4 font-bold text-emerald-600">$269</td>
+                <td class="p-4 font-bold">$99</td>
+                <td class="p-4">45 Mins</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Google Pixel 7 / 7a</td>
+                <td class="p-4 font-bold text-emerald-600">$199</td>
+                <td class="p-4 font-bold">$99 – $109</td>
+                <td class="p-4">35–45 Mins</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Google Pixel 7 Pro</td>
+                <td class="p-4 font-bold text-emerald-600">$299</td>
+                <td class="p-4 font-bold">$109</td>
+                <td class="p-4">45 Mins</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Google Pixel 8 / 8a</td>
+                <td class="p-4 font-bold text-emerald-600">$229</td>
+                <td class="p-4 font-bold">$109</td>
+                <td class="p-4">40–45 Mins</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Google Pixel 8 Pro</td>
+                <td class="p-4 font-bold text-emerald-600">$329</td>
+                <td class="p-4 font-bold">$109</td>
+                <td class="p-4">45 Mins</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-900">Google Pixel 9 / 9 Pro</td>
+                <td class="p-4 font-bold text-emerald-600">$240 – $340</td>
+                <td class="p-4 font-bold">$119</td>
+                <td class="p-4">45 Mins</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-sm text-slate-500 italic mb-6">*All prices include full parts, professional technician labor, optical fingerprint recalibration, and our 90-day comprehensive guarantee.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Why Pixel 6 & Pixel 6a Screen Repairs Require Specialist Tools</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">Unlike earlier phones, Google Pixel 6 and 6a handsets feature an <strong>under-display optical fingerprint scanner</strong> bonded beneath the active OLED panel. When an inexperienced repairer slaps on a cheap third-party screen without proper tools, the fingerprint sensor often fails entirely with an error message: <em>"Fingerprint hardware not available"</em>.</p>
+        <p class="text-lg text-slate-600 leading-relaxed">At Mayfield Phone Repair, we calibrate the optical sensor using Google's official diagnostic calibration software and test high-transmittance OEM-spec assemblies. After our 30-minute installation, your fingerprint unlock, tap-to-pay via Google Wallet, and high-refresh display animation work flawlessly.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Original vs. Aftermarket for Google Pixel</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">When repairing a Google Pixel, you should avoid cheap, thick TFT/LCD conversion panels that flood eBay. These cheap copies ruin battery life (drawing up to 40% more current from the Tensor chip), make the phone run hot, and disable fingerprint scanning. We only use <strong>genuine-spec OLED assemblies</strong> that match Google factory brightness (up to 1,000–2,000 nits) and maintain responsive 90Hz/120Hz scrolling.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">How Our Mayfield Repair Process Works</h2>
+        <ol class="list-decimal pl-6 space-y-3 text-slate-600 text-lg">
+          <li><strong>Walk In or Message Us:</strong> Bring your Pixel to 276 Maitland Rd, Mayfield NSW 2304. Free parking directly out front.</li>
+          <li><strong>Upfront Diagnosis & Quote:</strong> We test your screen digitizer, camera visor, and battery health, confirming exact price before starting.</li>
+          <li><strong>Express 30–45 Minute Fix:</strong> Relax nearby or grab a coffee while our senior technician installs your new screen in our clean-room diagnostic lab.</li>
+          <li><strong>90-Day Warranty:</strong> Test your new screen on the spot and leave with complete peace of mind.</li>
+        </ol>
+
+        <div class="mt-8 bg-slate-900 text-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl relative overflow-hidden text-center">
+          <h2 class="text-2xl md:text-3xl font-bold font-display text-white mb-4">Cracked Your Google Pixel Screen?</h2>
+          <p class="text-slate-300 max-w-2xl mx-auto mb-6">Visit Mayfield Phone Repair today for same-day repair or message our on-call technician for an instant quote.</p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="/quote" class="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold font-display hover:bg-blue-500 transition-all shadow-md">Get a Free Instant Quote &rarr;</a>
+            <a href="/brand/google" class="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl font-bold font-display hover:bg-white/20 transition-all">Explore Google Pixel Repairs</a>
+          </div>
+        </div>
+      </section>
+    `
+  },
+  {
+    id: '132-how-to-clean-phone-charging-port-safely',
+    title: 'How to Clean a Phone Charging Port Safely (And When to Stop)',
+    slug: 'how-to-clean-phone-charging-port-safely',
+    excerpt: 'Is your phone not charging or the cable falling out? Here is how to safely clean lint from iPhone and Android ports without breaking sensitive pins.',
+    date: '2026-11-20',
+    readTime: '4 min read',
+    author: 'Khalil Ahmad',
+    image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&q=80&w=1200',
+    tags: ['Charging Port Repair', 'Phone Cleaning Near Me', 'iPhone Repair', 'USB-C Repair', 'Maintenance Guide'],
+    content: `
+      <section class="space-y-6">
+        <p class="text-xl font-medium text-slate-700 leading-relaxed">You plug your phone in before bed, wake up seven hours later, and discover the battery is sitting on 3%. Or worse: your charging cable doesn't click in flush anymore, falling out every time you nudge the handset. If you've been searching for <strong>phone cleaning near me</strong> in Newcastle, this issue happens in 8 out of 10 phones we see at our Mayfield workshop—and it's often 100% fixable without replacing hardware.</p>
+
+        <div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-2xl my-6">
+          <h2 class="text-xl font-bold font-display text-blue-950 mb-2">The Quick Rule: Wood or Bamboo Only</h2>
+          <p class="text-blue-900 leading-relaxed font-sans"><strong>Never insert metal needles, paperclips, tweezers, or safety pins into any Lightning or USB-C charging port.</strong> Modern ports contain microscopic copper pins carrying up to 45W of fast-charging electrical current. Scraping metal across these pins can permanently bridge 5V/9V VBUS directly to ground, destroying your motherboard's Power Management IC (PMIC) and turning a $0 lint clean into a $250 logic board repair.</p>
+        </div>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Why Do Phone Charging Ports Get Clogged?</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">Smartphones spend hours every day in tight denim pockets, work tool belts, and handbags. Every time you slide your phone away, the charging port acts as a tiny vacuum, swallowing fabric lint, dust, and coastal grit. Over weeks of daily charging, plugging the cable in repeatedly compresses that loose lint like a hydraulic piston, forming a rock-hard felt plug at the very back of the socket.</p>
+        <p class="text-lg text-slate-600 leading-relaxed">Once this plug builds up, the cable head cannot seat deeply enough for the internal retention springs to lock into place. High-speed power stops connecting reliably.</p>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Step-by-Step: How to Safely Clean Your Phone Port at Home</h2>
+        <ol class="list-decimal pl-6 space-y-4 text-slate-600 text-lg">
+          <li><strong>Turn Off Your Phone Completely:</strong> Never probe an active device. Power down your iPhone or Android to eliminate electrical short risks.</li>
+          <li><strong>Gather Safe Tools:</strong> Use a flat wooden or bamboo toothpick, a plastic dental flosser pick, or an ESD-safe anti-static probe. Ensure strong lighting or use a flashlight.</li>
+          <li><strong>Gently Probe the Back Corners:</strong> Slide the non-conductive pick along the back walls of the port cavity. On iPhone Lightning ports, keep the pick flat against the bottom floor. On USB-C phones (Samsung Galaxy, Google Pixel, iPhone 15/16/17), the delicate wafer chip is in the center—<strong>never lever against the central tongue</strong>. Only sweep the narrow perimeter channels.</li>
+          <li><strong>Tease Out Debris:</strong> You will usually see dense gray or black compacted lint balls pop loose. Avoid aggressive digging.</li>
+          <li><strong>Blow Out Loose Particles:</strong> Use a manual rubber dust blower bulb or gentle short bursts from an upright compressed air can held at least 15cm away. <em>Never blow with your mouth</em>, as saliva droplets introduce moisture and accelerate pin corrosion.</li>
+          <li><strong>Test the Cable Click:</strong> Plug in your genuine charging cable. You should feel a distinct mechanical "click", and the cable should not wobble freely.</li>
+        </ol>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">When to Stop Immediately (Signs of Hardware Damage)</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">If you try cleaning and encounter any of the following warning signs, stop and do not force the cord in:</p>
+        <ul class="list-disc pl-6 space-y-3 text-slate-600 text-lg">
+          <li><strong>Blackened or Burnt Pins:</strong> If the copper contact points look blackened, an electrical arc or cheap charger cable has burned the gold plating.</li>
+          <li><strong>Bent or Displaced Central Wafer:</strong> If the central tongue on a USB-C port is crooked or cracked, plugging a cable in will crush the remaining pins.</li>
+          <li><strong>Persistent "Liquid Detected" Warnings:</strong> If iOS or Android shows a water warning even though the phone is bone dry, microscopic mineral corrosion has bridged internal pins.</li>
+          <li><strong>The Cable Wiggles Side to Side:</strong> If the port is completely free of lint but the cable still disconnects at the slightest touch, the internal retention springs are fatigued and the port requires replacement.</li>
+        </ul>
+
+        <h2 class="text-3xl font-bold font-display text-slate-900 tracking-tight">Free Stereo-Microscope Inspection in Mayfield, Newcastle</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">Not sure if your port is blocked or broken? Don't risk breaking fragile internal electronics. Bring your device to <strong>Mayfield Phone Repair at 276 Maitland Rd, Mayfield NSW 2304</strong>. Our technicians place your phone under high-magnification optical stereo microscopes, clean out packed lint with specialized chemical solvents, and test digital voltage draw using precision inline USB power analyzers.</p>
+        <p class="text-lg text-slate-600 leading-relaxed">If standard cleaning resolves the issue, you are back up and running immediately. If the port requires a new genuine USB-C or Lightning assembly, our <a href="/service/charging-port-repair" class="text-blue-600 font-bold hover:underline">charging port repair services</a> are completed same-day with a full 90-day hardware guarantee.</p>
+
+        <div class="mt-8 bg-slate-900 text-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl relative overflow-hidden text-center">
+          <h2 class="text-2xl md:text-3xl font-bold font-display text-white mb-4">Phone Not Charging in Newcastle?</h2>
+          <p class="text-slate-300 max-w-2xl mx-auto mb-6">Drop into our Mayfield repair shop for a free microscopic port check and diagnosis, or call our team for advice.</p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="/quote" class="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold font-display hover:bg-blue-500 transition-all shadow-md">Get a Free Diagnosis Quote &rarr;</a>
+            <a href="/service/charging-port-repair" class="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl font-bold font-display hover:bg-white/20 transition-all">Charging Port Services</a>
+          </div>
+        </div>
       </section>
     `
   },

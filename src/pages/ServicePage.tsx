@@ -24,7 +24,7 @@ export default function ServicePage() {
   return (
     <div className="flex-1 bg-slate-50">
       <Helmet>
-        <title>{`${service.title} Mayfield | Newcastle Device Repair`}</title>
+        <title>{service.customTitle || `${service.title} Mayfield | Newcastle Device Repair`}</title>
         <meta name="description" content={service.shortDesc} />
         <link rel="canonical" href={`https://mayfieldphonerepair.com.au/service/${service.id}`} />
         <meta property="og:title" content={`${service.title} - Mayfield Cell Phone Repairs`} />

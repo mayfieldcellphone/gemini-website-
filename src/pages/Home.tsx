@@ -99,10 +99,10 @@ export default function Home() {
   return (
     <div className="relative">
       <Helmet>
-        <title>Phone Repair Newcastle & Mayfield | Same-Day Screen & Battery Fix</title>
-        <meta name="description" content="Fast, same-day iPhone, Samsung & Google Pixel repairs in Mayfield, Newcastle. 30-min screen fixes, battery replacements & water damage. 4.8★ rated, 90-day warranty." />
+        <title>Phone Repair Mayfield & Newcastle | Mayfield Phone Repair</title>
+        <meta name="description" content="Cracked screen or flat battery? iPhone, Samsung and Pixel repairs at 276 Maitland Rd, Mayfield. Walk in for a free quote. 30-min fixes, 90-day warranty." />
         <link rel="canonical" href="https://mayfieldphonerepair.com.au" />
-        <meta property="og:title" content="Phone Repair Newcastle & Mayfield | Same-Day Screen & Battery Fix" />
+        <meta property="og:title" content="Phone Repair Mayfield & Newcastle | Mayfield Phone Repair" />
         <meta property="og:description" content="Cracked screen? Dead battery? Water damage? Mayfield's trusted repair experts fix iPhones, Samsung & Pixel devices in 30 minutes. 4.8★ rated with 477+ local reviews." />
         <script type="application/ld+json">
           {JSON.stringify({

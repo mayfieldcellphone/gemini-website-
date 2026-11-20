@@ -8,6 +8,7 @@ export interface SuburbHubInfo {
   landmarks: string[];
   nearbySuburbs: string[];
   heroHeadline: string;
+  customTitle?: string;
   metaDescription: string;
   suburbIntro: string;
   localConvenienceNote: string;
@@ -47,7 +48,8 @@ export const suburbHubList: SuburbHubInfo[] = [
     landmarks: ['Mayfield Shopping Center', 'San Clemente High School', 'Mayfield Park', 'Wests Mayfield', 'Maitland Road Retail Strip'],
     nearbySuburbs: ['Mayfield East', 'Mayfield West', 'Waratah', 'Tighes Hill'],
     heroHeadline: 'Mayfield Phone Repair | Your Local Maitland Rd Mobile Workshop',
-    metaDescription: 'Mayfield’s #1 phone repair shop at 276 Maitland Rd. Fast same-day screen repair, battery swaps & micro-soldering for iPhone, Samsung & Pixel. Walk-ins welcome!',
+    customTitle: 'Phone Repairs Mayfield NSW | Screens, Batteries, Charge Ports',
+    metaDescription: 'Local phone repair shop in Mayfield. Screen, battery and charging-port repairs for iPhone, Samsung, Pixel and more. See prices and book a time.',
     suburbIntro: 'Mayfield Cell Phone Repairs is proud to be Mayfield’s local flagship device service station at 276 Maitland Rd, Mayfield NSW 2304. Serving Mayfield, Mayfield East, and Mayfield West for over a decade, we provide 30-minute iPhone screen replacements, high-capacity battery swaps, liquid damage treatment, and MacBook laptop repairs with a 90-day guarantee.',
     localConvenienceNote: 'We are located directly across from major Mayfield bus stops with free, easy parking outside.',
     faqs: [

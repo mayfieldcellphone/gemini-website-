@@ -300,8 +300,8 @@ async function runPrerender() {
   }
 
   // 1. Pre-render Home Page (Overwrites dist/index.html optimized)
-  const homeTitle = 'Phone Repair Newcastle & Mayfield | Screen & Battery';
-  const homeDesc = 'Same-day iPhone 17, 16 & Samsung S26 repairs in Mayfield, Newcastle. Screen fixes, battery replacements & water damage. 4.8★ rated, 90-day warranty.';
+  const homeTitle = 'Phone Repair Mayfield & Newcastle | Mayfield Phone Repair';
+  const homeDesc = 'Cracked screen or flat battery? iPhone, Samsung and Pixel repairs at 276 Maitland Rd, Mayfield. Walk in for a free quote. 30-min fixes, 90-day warranty.';
   let homeBody = `
     <header>
       <h1>Mayfield Phone Repair | Newcastle's Trusted Mobile Diagnostic Lab</h1>
@@ -1213,8 +1213,8 @@ async function runPrerender() {
     },
     {
       route: 'second-hand-phones',
-      title: 'Refurbished & Second-Hand Phones Newcastle | Mayfield',
-      desc: 'Certified refurbished & used iPhones and Samsung phones in Newcastle. 40-point tested, unlocked, with local warranty at 276 Maitland Rd Mayfield.',
+      title: 'Second-Hand & Refurbished Phones Mayfield | iPhone, Samsung',
+      desc: 'Browse tested second-hand phones in Mayfield. Pick up in store at 276 Maitland Rd. 90-day warranty, clean IMEI & free data transfer included.',
       body: `
         <article>
           <h1>Certified Refurbished & Used Phones in Newcastle & Mayfield</h1>
@@ -1844,8 +1844,8 @@ async function runPrerender() {
 
   // 3. Pre-render Brand Pages (/brand/:brandId)
   brands.forEach(b => {
-    const brandTitle = `${b.name} Phone Repair Newcastle | Mayfield`;
-    const brandDesc = `${b.name} phone repair Newcastle. Screens from $${b.startingPrice.screen}, batteries from $${b.startingPrice.battery}. 30-min fixes, 90-day warranty at 276 Maitland Rd Mayfield.`;
+    const brandTitle = (b as any).customTitle || `${b.name} Phone Repair Newcastle | Mayfield`;
+    const brandDesc = (b as any).customMetaDesc || `${b.name} phone repair Newcastle. Screens from $${b.startingPrice.screen}, batteries from $${b.startingPrice.battery}. 30-min fixes, 90-day warranty at 276 Maitland Rd Mayfield.`;
     
     // Schema
     const brandSchema = {
@@ -1867,7 +1867,7 @@ async function runPrerender() {
     let brandBody = `
       <article>
         <header>
-          <h1>Professional ${b.name} Phone & Device Repairs in Newcastle NSW</h1>
+          <h1>${(b as any).customH1 || `Professional ${b.name} Phone & Device Repairs in Newcastle NSW`}</h1>
           <p>${b.longDescription}</p>
           <p><strong>Store Address:</strong> 276 Maitland Rd, Mayfield NSW 2304 | <strong>Call Us:</strong> <a href="tel:+61240491735">(02) 4049 1735</a></p>
           <p><strong>Turnaround:</strong> 30–45 Minutes | <strong>Warranty:</strong> 90-Day Comprehensive Parts & Labor</p>
@@ -1961,9 +1961,9 @@ async function runPrerender() {
 
   // 4. Pre-render Service Pages (/service/:serviceId)
   servicesData.forEach(s => {
-    const sTitle = escAttr(`${s.title} Services | Mayfield Phone Repair`).length <= 65
+    const sTitle = (s as any).customTitle || (escAttr(`${s.title} Services | Mayfield Phone Repair`).length <= 65
       ? `${s.title} Services | Mayfield Phone Repair`
-      : `${s.title} | Mayfield Phone Repair`;
+      : `${s.title} | Mayfield Phone Repair`);
     const sDesc = s.shortDesc;
 
     // Schema
@@ -2063,9 +2063,14 @@ async function runPrerender() {
       const routeStr = `${srv.id}/${suburb.id}`;
       const canonicalUrl = `${BASE_URL}/${srv.id}/${suburb.id}`;
       const srvDetail = seoServiceDetails[srv.id] || seoServiceDetails['phone-repair'];
-      const subTitle = `${srv.name} ${suburb.name} | Mayfield Phone Repair`;
+      let subTitle = `${srv.name} ${suburb.name} | Mayfield Phone Repair`;
       const rawSubDesc = `${srv.name} in ${suburb.name} NSW. Fast 30-min service at 276 Maitland Rd Mayfield (${suburb.travelTime}). 90-day warranty, 4.8★ rated. Call (02) 4049 1735.`;
-      const subDesc = rawSubDesc.length <= 155 ? rawSubDesc : rawSubDesc.slice(0, 154) + '…';
+      let subDesc = rawSubDesc.length <= 155 ? rawSubDesc : rawSubDesc.slice(0, 154) + '…';
+
+      if (srv.id === 'phone-repair' && suburb.id === 'mayfield') {
+        subTitle = 'Phone Repairs Mayfield NSW | Screens, Batteries, Charge Ports';
+        subDesc = 'Local phone repair shop in Mayfield. Screen, battery and charging-port repairs for iPhone, Samsung, Pixel and more. See prices and book a time.';
+      }
 
       // Rich multi-entity schema with LocalBusiness + Service + FAQPage
       const subLocalSchema = {
